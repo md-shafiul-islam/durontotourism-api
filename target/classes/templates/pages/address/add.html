@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="common/header::common-header">
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+	<div class="wrapper">
+
+		<!-- Menu fragment set Start-->
+
+		<div th:replace="common/header::common-top-nav-menu">
+			<!-- Navbar -->
+
+			<!-- /.navbar -->
+		</div>
+
+		<div th:replace="common/header::common-sidebar-menu">
+			<!-- Main Sidebar Container -->
+
+		</div>
+
+		<!--  Menu fragment set End -->
+
+		<!-- Content Wrapper. Contains page content -->
+		<div class="content-wrapper">
+
+			<div class="row">
+
+				<div class="col-md-8" style="margin: 10px auto;">
+					<div class="card card-primary">
+						<div class="card-header">
+							<h3 class="card-title">Add Address</h3>
+						</div>
+						<!-- /.card-header -->
+						<!-- form start -->
+						<form role="form" id="cat" name="cat"
+							th:object="${fAddress}" method="post" th:action="@{/address/add-data}">
+							<div class="card-body">
+								<div class="form-group">
+									<label for="house">House:</label> <input
+										type="text" class="form-control"  th:field="*{house}"  id="house" placeholder="House">
+								</div>
+								<div class="form-group">
+									<label for="village">Village:</label> 
+										<textarea  class="form-control" id="description" th:field="*{village}" placeholder="Village"></textarea>
+								</div>
+
+
+							</div>
+							<!-- /.card-body -->
+
+							<div class="card-footer">
+
+								<button type="submit" class="btn btn-primary ">
+									<span> <i class="fas fa-save"></i>
+
+									</span> <span class="text">Save</span>
+								</button>
+
+							</div>
+						</form>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+		<div th:replace="common/header::common-footer">
+			<!-- /.content-wrapper -->
+
+		</div>
+
+		<!-- Control Sidebar -->
+		<aside class="control-sidebar control-sidebar-dark">
+			<!-- Control sidebar content goes here -->
+		</aside>
+		<!-- /.control-sidebar -->
+	</div>
+	<!-- ./wrapper -->
+	<div th:replace="common/header::common-script">
+		<!-- jQuery -->
+	</div>
+</body>
+</html>
+

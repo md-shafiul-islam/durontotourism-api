@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="common/header::common-header">
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+	<div class="wrapper">
+
+		<!-- Menu fragment set Start-->
+
+		<div th:replace="common/header::common-top-nav-menu">
+			<!-- Navbar -->
+
+			<!-- /.navbar -->
+		</div>
+
+		<div th:replace="common/header::common-sidebar-menu">
+			<!-- Main Sidebar Container -->
+
+		</div>
+
+		<!--  Menu fragment set End -->
+
+		<!-- Content Wrapper. Contains page content -->
+		<div class="content-wrapper">
+
+			<section class="content">
+				<div class="row">
+					<div class="col-12">
+						<div class="card">
+							<div class="card-header">
+								<h3 class="card-title">All Department List View</h3>
+							</div>
+							<!-- /.card-header -->
+							<div class="card-body">
+								<table id="departmentTable" class="table table-bordered table-hover">
+									<thead>
+										<tr>
+											<th>Id</th>
+											<th>Company Name</th>
+											<th>Email</th>
+											<th>Web</th>
+											<th>Details</th>
+											<th>Action</th>
+											
+										</tr>
+									</thead>
+									<tbody>
+										<tr th:if="${vendors != null}" th:each="item : ${vendors}">
+											<td th:text="${item.getId()}"></td>
+											<td th:text="${item.getCompanyName != null ? item.getCompanyName : 'Anonymous'}"></td>
+											<td th:text="${item.getEmail() != null ? item.getEmail() : ''}"></td>
+											<td th:text="${item.getEmail() != null ? item.getWebsite() : ''}"></td>
+											
+											<td>
+												<a th:href="@{/vendor/detasils(id=${item.getId()})}" class="btn btn-info btn-icon-split">
+												<span class="icon text-white-50">
+                      								<i class=" nav-icon fas fa-edit"></i>
+                    							</span>
+                    							<span class="text" >Details</span>
+												</a>
+											</td>
+											
+											<td>
+												<a th:href="@{/vendor/approve(id=${item.getId()})}" class="btn btn-info btn-icon-split">
+												<span class="icon text-white-50">
+                      								<i class=" nav-icon fas fa-edit"></i>
+                    							</span>
+                    							<span class="text" >Approve</span>
+												</a>
+											</td>
+											
+										</tr>
+										
+									</tbody>
+									<tfoot>
+										<tr>
+											<th>&nbsp;</th>
+											<th>&nbsp;</th>
+											<th>&nbsp;</th>
+											<th>&nbsp;</th>
+											
+											
+										</tr>
+									</tfoot>
+								</table>
+							</div>
+							<!-- /.card-body -->
+						</div>
+						<!-- /.card -->
+						<!-- /.card -->
+					</div>
+					<!-- /.col -->
+				</div>
+				<!-- /.row -->
+			</section>
+
+		</div>
+
+		<div th:replace="common/header::common-footer">
+			<!-- /.content-wrapper -->
+
+		</div>
+
+		<!-- Control Sidebar -->
+		<aside class="control-sidebar control-sidebar-dark">
+			<!-- Control sidebar content goes here -->
+		</aside>
+		<!-- /.control-sidebar -->
+	</div>
+	<!-- ./wrapper -->
+	<div th:replace="common/header::common-script">
+		<!-- jQuery -->
+	</div>
+</body>
+</html>
+

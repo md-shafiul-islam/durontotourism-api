@@ -1,0 +1,2560 @@
+unit no,cat id,Brand Name,Dosage Form,Strength,Company
+1,221,Adinot,Tablet,50 mg,Beximco Pharmaceuticals Ltd.
+1,221,Naltrax 25,Tablet,25 mg,Navana Pharmaceuticals Ltd.
+1,221,Naltrax 50,Tablet,50 mg,Navana Pharmaceuticals Ltd.
+1,221,Nodict,Tablet,50 mg,Sun Pharmaceutical (Bangladesh) Limited
+1,222,Anabolin,Injection,25 mg/ml,Techno Drugs Ltd.
+1,222,Deca-Durabolin,Injection,50 mg/ml,Nuvista Pharma Ltd.
+1,222,Decabolon,Injection,50 mg/ml,Techno Drugs Ltd.
+1,222,Durabolin,Injection,25 mg/ml,Nuvista Pharma Ltd.
+1,222,Hydeca,Injection,50 mg/ml,Chemist Laboratories Limited.
+1,222,Hyvolin,Injection,25 mg/ml,Chemist Laboratories Limited.
+1,222,Nandron 25,Injection,25 mg/ml,Renata Limited
+1,222,Nandron 50,Injection,50 mg/ml,Renata Limited
+1,223,Naphalon,Eye Drop,0.005%+0.02%,Reman Drug Laboratories Ltd.
+1,223,Nazin,Eye Drop,0.005%+0.02%,Aristopharma Ltd.
+1,223,Oculogen,Eye Drop,0.005%+0.02%,General Pharmaceuticals Ltd.
+1,224,Anaflex Max,Tablet,375 mg+20 mg,ACI Limited.
+1,224,Anaflex Max,Tablet,500 mg+20 mg,ACI Limited.
+1,224,Cosnap Plus,Tablet,500 mg+20 mg,Cosmo Pharma Laboratories Ltd.
+1,224,Demovo,Tablet,375 mg+20 mg,Delta Pharma Limited
+1,224,Demovo,Tablet,500 mg+20 mg,Delta Pharma Limited
+1,224,Dinovo,Tablet,375 mg+20 mg,Beximco Pharmaceuticals Ltd.
+1,224,Dinovo,Tablet,500 mg+20 mg,Beximco Pharmaceuticals Ltd.
+1,224,Duofix,Tablet,375 mg+20 mg,Opso Saline Ltd.
+1,224,Duofix,Tablet,500 mg+20 mg,Opso Saline Ltd.
+1,224,Emaprox,Tablet,500 mg+20 mg,Globe Pharmaceuticals Limited.
+1,224,Emaprox,Tablet,375 mg+20 mg,Globe Pharmaceuticals Limited.
+1,224,Enar,Tablet,375 mg+20 mg,Medicon Pharmaceuticals Ltd.
+1,224,Enar,Tablet,500 mg+20 mg,Medicon Pharmaceuticals Ltd.
+1,224,Eprox Plus,Tablet,500 mg+20 mg,Euro Pharma Ltd.
+1,224,Eso-Plus,Tablet,375 mg+20 mg,Asiatic Laboratories Ltd.
+1,224,Eso-Plus,Tablet,500 mg+20 mg,Asiatic Laboratories Ltd.
+1,224,Esona,Tablet,375 mg+20 mg,Navana Pharmaceuticals Ltd.
+1,224,Esona,Tablet,500 mg+20 mg,Navana Pharmaceuticals Ltd.
+1,224,Esonaprox,Tablet,500 mg+20 mg,Marksman Pharmaceuticals Ltd.
+1,224,Esoplus,Tablet,500 mg+20 mg,Biopharma Laboratories Ltd.
+1,224,Esoplus,Tablet,375 mg+20 mg,Biopharma Laboratories Ltd.
+1,224,Esoxen,Tablet,500 mg+20 mg,Organic Health Care
+1,224,Esoxen,Tablet,375 mg+20 mg,Organic Health Care
+1,224,Exmiv,Tablet,375 mg+20 mg,MST Pharma
+1,224,Exmiv,Tablet,500 mg+20 mg,MST Pharma
+1,224,Gaspro Plus,Tablet,500 mg+20 mg,Ethical Drug Ltd.
+1,224,Gaspro Plus,Tablet,375 mg+20 mg,Ethical Drug Ltd.
+1,224,Greatnap,Tablet,500 mg+20 mg,Edruc Ltd.
+1,224,Inflect,Tablet,375 mg+20 mg,Kemiko Pharmaceuticals Ltd.
+1,224,Inflect,Tablet,500 mg+20 mg,Kemiko Pharmaceuticals Ltd.
+1,224,Naid Plus,Tablet,500 mg+20 mg,Pacific Pharmaceuticals Ltd.
+1,224,Nameso,Tablet,375 mg+20 mg,Opsonin Pharma Ltd.
+1,224,Nameso,Tablet,500 mg+20 mg,Opsonin Pharma Ltd.
+1,224,Napexa,Tablet,375 mg+20 mg,Unimed Unihealth MFG. Ltd.
+1,224,Napexa,Tablet,500 mg+20 mg,Unimed Unihealth MFG. Ltd.
+1,224,Napier Plus,Tablet,375 mg+20 mg,Concord Pharmaceuticals Ltd.
+1,224,Napren ES,Tablet,375 mg+20 mg,Alco Pharma Ltd.
+1,224,Napren ES,Tablet,500 mg+20 mg,Alco Pharma Ltd.
+1,224,Napro-A Plus,Tablet,375 mg+20 mg,Acme Laboratories Limited.
+1,224,Napro-A Plus,Tablet,500 mg+20 mg,Acme Laboratories Limited.
+1,224,Naproben Plus,Tablet,500 mg+20 mg,Benham Pharmaceuticals Ltd.
+1,224,Naproflex,Tablet,375 mg+20 mg,Somatec Pharmaceuticals Ltd.
+1,224,Naproflex,Tablet,500 mg+20 mg,Somatec Pharmaceuticals Ltd.
+1,224,Naprogard,Tablet,375 mg+20 mg,Novelta Bestway Pharmaceuticals Ltd.
+1,224,Naprogard,Tablet,500 mg+20 mg,Novelta Bestway Pharmaceuticals Ltd.
+1,224,Napromep,Tablet,500 mg+20 mg,Bengal drugs Ltd.
+1,224,Napronil Plus,Tablet,375 mg+20 mg,Pharmasia Ltd.
+1,224,Napronil Plus,Tablet,500 mg+20 mg,Pharmasia Ltd.
+1,224,Naprosyn Plus,Tablet,375 mg+20 mg,Radiant Pharmaceuticals Ltd.
+1,224,Naprosyn Plus,Tablet,500 mg+20 mg,Radiant Pharmaceuticals Ltd.
+1,224,Naprotec,Tablet,375 mg+20 mg,Sharif Pharmaceuticals Ltd.
+1,224,Naprotec,Tablet,500 mg+20 mg,Sharif Pharmaceuticals Ltd.
+1,224,Naprox Plus,Tablet,375 mg+20 mg,Eskayef Bangladesh Ltd.
+1,224,Naprox Plus,Tablet,500 mg+20 mg,Eskayef Bangladesh Ltd.
+1,224,Naproxen Plus,Tablet,375 mg+20 mg,Zenith Pharmaceuticals Ltd.
+1,224,Naproxen Plus,Tablet,500 mg+20 mg,Zenith Pharmaceuticals Ltd.
+1,224,Naproxen Plus,Tablet,500 mg+20 mg,Albion Pharmaceuticals Ltd.
+1,224,Naproxzia Plus,Tablet,500 mg+20 mg,Amico Laboratories Ltd.
+1,224,Naprozol,Tablet,375 mg+20 mg,General Pharmaceuticals Ltd.
+1,224,Naprozol,Tablet,500 mg+20 mg,General Pharmaceuticals Ltd.
+1,224,Napsec,Tablet,375 mg+20 mg,Drug International Ltd.
+1,224,Napsec,Tablet,500 mg+20 mg,Drug International Ltd.
+1,224,Napxon,Tablet,375 mg+20 mg,Ziska Pharmaceuticals Ltd.
+1,224,Napxon,Tablet,500 mg+20 mg,Ziska Pharmaceuticals Ltd.
+1,224,Nasopain,Tablet,375 mg+20 mg,Julphar Bangladesh Ltd.
+1,224,Nasopain,Tablet,500 mg+20 mg,Julphar Bangladesh Ltd.
+1,224,Naspro Plus,Tablet,375 mg+20 mg,Popular Pharmaceuticals Ltd.
+1,224,Naspro Plus,Tablet,500 mg+20 mg,Popular Pharmaceuticals Ltd.
+1,224,Nax Plus,Tablet,500 mg+20 mg,Premier Pharmaceuticals Ltd.
+1,224,Nax Plus,Tablet,375 mg+20 mg,Premier Pharmaceuticals Ltd.
+1,224,Naxsil E,Tablet,375 mg+20 mg,Silco Pharmaceutical Ltd.
+1,224,Naxsil E,Tablet,500 mg+20 mg,Silco Pharmaceutical Ltd.
+1,224,Neso,Tablet,375 mg+20 mg,Aristopharma Ltd.
+1,224,Neso,Tablet,500 mg+20 mg,Aristopharma Ltd.
+1,224,Nesotem,Tablet,500 mg+20 mg,Team Pharmaceuticals Ltd.
+1,224,Nesotem,Tablet,375 mg+20 mg,Team Pharmaceuticals Ltd.
+1,224,Nexel Plus,Tablet,500 mg+20 mg,Belsen Pharmaceuticals Ltd.
+1,224,Nimovo,Tablet,500 mg+20 mg,NIPRO JMI Pharma Ltd.
+1,224,Novaxen Plus,Tablet,500 mg+20 mg,Leon Pharmaceuticals Ltd.
+1,224,Novaxen Plus,Tablet,375 mg+20 mg,Leon Pharmaceuticals Ltd.
+1,224,Novoxen,Tablet,375 mg+20 mg,Orion Pharma Ltd.
+1,224,Novoxen,Tablet,500 mg+20 mg,Orion Pharma Ltd.
+1,224,Nupralgin Plus,Tablet,375 mg+20 mg,Ibn-Sina Pharmaceuticals Ltd.
+1,224,Nupralgin Plus,Tablet,500 mg+20 mg,Ibn-Sina Pharmaceuticals Ltd.
+1,224,Paincare,Tablet,375 mg+20 mg,Labaid Pharma Ltd.
+1,224,Paincare,Tablet,500 mg+20 mg,Labaid Pharma Ltd.
+1,224,Progesic,Tablet,375 mg+20 mg,Incepta Pharmaceuticals Limited
+1,224,Progesic,Tablet,500 mg+20 mg,Incepta Pharmaceuticals Limited
+1,224,Progut-N,Tablet,375 mg+20 mg,Popular Pharmaceuticals Ltd.
+1,224,Progut-N,Tablet,500 mg+20 mg,Popular Pharmaceuticals Ltd.
+1,224,Proxen Plus,Tablet,500 mg+20 mg,Monicopharma Limited
+1,224,Proxen Plus,Tablet,375 mg+20 mg,Monicopharma Limited
+1,224,Rago,Tablet,500 mg+20 mg,Chemist Laboratories Limited.
+1,224,Ranoxen Plus,Tablet,500 mg+20 mg,Rangs Pharmaceuticals Ltd.
+1,224,Roxenole,Tablet,500 mg+20 mg,Cosmic Pharma Limited
+1,224,Solivo,Tablet,375 mg+20 mg,Healthcare Pharmacuticals Ltd.
+1,224,Solivo,Tablet,500 mg+20 mg,Healthcare Pharmacuticals Ltd.
+1,224,Xenap Plus,Tablet,375 mg+20 mg,Astra Biopharmaceuticals Ltd.
+1,224,Xenap Plus,Tablet,500 mg+20 mg,Astra Biopharmaceuticals Ltd.
+1,224,Xenapro Plus,Tablet,500 mg+20 mg,Renata Limited
+1,224,Xenapro Plus,Tablet,375 mg+20 mg,Renata Limited
+1,224,Xenobid Plus,Tablet,500 mg+20 mg,Veritas Pharmaceuticals Ltd.
+1,224,Xenole,Tablet,375 mg+20 mg,Square Pharmaceuticals Ltd.
+1,224,Xenole,Tablet,500 mg+20 mg,Square Pharmaceuticals Ltd.
+1,225,Aktivex,Tablet,250 mg,Opso Saline Ltd.
+1,225,Aktivex,Tablet,500 mg,Opso Saline Ltd.
+1,225,Alproxen,Tablet,500 mg,Allied Pharmaceuticals Ltd.
+1,225,Alproxen,Tablet,250 mg,Allied Pharmaceuticals Ltd.
+1,225,Anaflex,Tablet,250 mg,ACI Limited.
+1,225,Anaflex,Tablet,500 mg,ACI Limited.
+1,225,Anaflex,Gel,10% w/w,ACI Limited.
+1,225,Anaflex,Suspension,125 mg/5 ml,ACI Limited.
+1,225,Anaflex SR,Tablet,500 mg,ACI Limited.
+1,225,Arnex,Tablet,500 mg,Silva Pharmaceuticals Ltd.
+1,225,Bpxen,Tablet,250 mg,Bristol Pharmaceuticals Ltd.
+1,225,Bpxen,Tablet,500 mg,Bristol Pharmaceuticals Ltd.
+1,225,Cosnap,Tablet,250 mg,Cosmo Pharma Laboratories Ltd.
+1,225,Demovo,Tablet,250 mg,Delta Pharma Limited
+1,225,Demovo,Tablet,500 mg,Delta Pharma Limited
+1,225,Diproxen,Tablet,250 mg,Drug International Ltd.
+1,225,Diproxen,Tablet,500 mg,Drug International Ltd.
+1,225,Diproxen,Gel,10% w/w,Drug International Ltd.
+1,225,Diproxen,Suspension,125 mg/5 ml,Drug International Ltd.
+1,225,Diproxen CR,Tablet,500 mg,Drug International Ltd.
+1,225,Dolwin,Tablet,500 mg,Social Marketing Company
+1,225,Eprox,Tablet,500 mg,Euro Pharma Ltd.
+1,225,Flexen SR,Tablet,500 mg,Techno Drugs Ltd.
+1,225,Fritt,Tablet,250 mg,Somatec Pharmaceuticals Ltd.
+1,225,Fritt,Tablet,500 mg,Somatec Pharmaceuticals Ltd.
+1,225,Gloxen-250,Tablet,250 mg,Globe Pharmaceuticals Limited.
+1,225,Gloxen-500,Tablet,500 mg,Globe Pharmaceuticals Limited.
+1,225,H-Nap,Tablet,500 mg,Hudson Pharmaceuticals Ltd.
+1,225,Indoprox,Tablet,250 mg,Indo Bangla Pharmaceutical
+1,225,Indoprox,Tablet,500 mg,Indo Bangla Pharmaceutical
+1,225,Megaflam,Tablet,500 mg,Marksman Pharmaceuticals Ltd.
+1,225,Midrin,Tablet,500 mg,Aztec Pharmaceuticals Ltd.
+1,225,Naid,Tablet,250 mg,Pacific Pharmaceuticals Ltd.
+1,225,Naid,Tablet,500 mg,Pacific Pharmaceuticals Ltd.
+1,225,NAN 500,Tablet,500 mg,Reliance Pharmaceuticals Ltd.
+1,225,Napasin,Tablet,250 mg,Skylab Pharmaceuticals Ltd.
+1,225,Napec,Tablet,500 mg,Unimed Unihealth MFG. Ltd.
+1,225,Napec,Tablet,250 mg,Unimed Unihealth MFG. Ltd.
+1,225,Napier 500,Tablet,500 mg,Concord Pharmaceuticals Ltd.
+1,225,Napium,Tablet,250 mg,Kumudini Pharma Ltd.
+1,225,Napium,Tablet,500 mg,Kumudini Pharma Ltd.
+1,225,Napix 500,Tablet,500 mg,Modern Pharmaceuticals Limited
+1,225,Napoxen,Tablet,250 mg,Edruc Ltd.
+1,225,Napoxen,Tablet,500 mg,Edruc Ltd.
+1,225,Napren,Tablet,250 mg,Alco Pharma Ltd.
+1,225,Napren,Tablet,500 mg,Alco Pharma Ltd.
+1,225,Napro,Tablet,250 mg,Aristopharma Ltd.
+1,225,Napro,Tablet,500 mg,Aristopharma Ltd.
+1,225,Napro-A,Tablet,250 mg,Acme Laboratories Limited.
+1,225,Napro-A,Tablet,500 mg,Acme Laboratories Limited.
+1,225,Napro-A,Suspension,125 mg/5 ml,Acme Laboratories Limited.
+1,225,Naproben,Tablet,500 mg,Benham Pharmaceuticals Ltd.
+1,225,Naprocid,Tablet,250 mg,Gaco Pharmaceuticals Ltd.
+1,225,Naprocid,Tablet,500 mg,Gaco Pharmaceuticals Ltd.
+1,225,Napronil 500,Tablet,500 mg,Pharmasia Ltd.
+1,225,Napropain,Tablet,250 mg,Julphar Bangladesh Ltd.
+1,225,Napropain,Tablet,500 mg,Julphar Bangladesh Ltd.
+1,225,Naproson,Tablet,250 mg,Jayson Pharma Ltd.
+1,225,Naproson,Tablet,500 mg,Jayson Pharma Ltd.
+1,225,Naprosyn,Tablet,250 mg,Radiant Pharmaceuticals Ltd.
+1,225,Naprosyn,Tablet,500 mg,Radiant Pharmaceuticals Ltd.
+1,225,Naprosyn,Suspension,125 mg/5 ml,Radiant Pharmaceuticals Ltd.
+1,225,Naprox,Tablet,250 mg,Eskayef Bangladesh Ltd.
+1,225,Naprox,Tablet,500 mg,Eskayef Bangladesh Ltd.
+1,225,Naprox,Suspension,125 mg/5 ml,Eskayef Bangladesh Ltd.
+1,225,Naprox,Gel,10% w/w,Eskayef Bangladesh Ltd.
+1,225,Naproxen,Tablet,250 mg,Edruc Ltd.
+1,225,Naproxen,Tablet,500 mg,Edruc Ltd.
+1,225,Naproxen,Tablet,500 mg,Amico Laboratories Ltd.
+1,225,Naproxen,Tablet,500 mg,Organic Health Care
+1,225,Naproxen,Tablet,250 mg,Albion Pharmaceuticals Ltd.
+1,225,Naproxen,Tablet,500 mg,Albion Pharmaceuticals Ltd.
+1,225,Naproxen,Tablet,250 mg,Essential Drugs Company Ltd.
+1,225,Naproxen,Tablet,500 mg,Essential Drugs Company Ltd.
+1,225,Naproxen,Tablet,500 mg,Guardian Healthcare Ltd
+1,225,Naproxen,Tablet,250 mg,Premier Pharmaceuticals Ltd.
+1,225,Naproxen,Tablet,500 mg,Premier Pharmaceuticals Ltd.
+1,225,Naproxen,Tablet,250 mg,Zenith Pharmaceuticals Ltd.
+1,225,Naproxen SR,Tablet,500 mg,Zenith Pharmaceuticals Ltd.
+1,225,Naproxin,Tablet,250 mg,Ambee Pharmaceuticals Ltd.
+1,225,Naproxin,Tablet,500 mg,Ambee Pharmaceuticals Ltd.
+1,225,Napryn,Tablet,250 mg,Healthcare Pharmacuticals Ltd.
+1,225,Napryn,Tablet,500 mg,Healthcare Pharmacuticals Ltd.
+1,225,Napryn,Gel,10% w/w,Healthcare Pharmacuticals Ltd.
+1,225,Napryn,Suspension,125 mg/5 ml,Healthcare Pharmacuticals Ltd.
+1,225,Napsod,Tablet,275 mg,Unimed Unihealth MFG. Ltd.
+1,225,Napsod,Tablet,550 mg,Unimed Unihealth MFG. Ltd.
+1,225,Naptodin,Tablet,500 mg,Desh Pharmaceuticals Ltd.
+1,225,Narox,Tablet,500 mg,Nipa Pharmaceuticals Ltd.
+1,225,Narox,Tablet,250 mg,Nipa Pharmaceuticals Ltd.
+1,225,Narox,Gel,10% w/w,Nipa Pharmaceuticals Ltd.
+1,225,Nasox,Tablet,500 mg,Seema Pharmaceuticals Ltd.
+1,225,Nasox,Tablet,500 mg,Seema Pharmaceuticals Ltd.
+1,225,Naspro,Tablet,250 mg,Popular Pharmaceuticals Ltd.
+1,225,Naspro,Tablet,500 mg,Popular Pharmaceuticals Ltd.
+1,225,Nax-N,Tablet,250 mg,Novus Pharmaceuticals Ltd.
+1,225,Nax-N,Tablet,500 mg,Novus Pharmaceuticals Ltd.
+1,225,Naxin,Tablet,250 mg,Opsonin Pharma Ltd.
+1,225,Naxin,Tablet,500 mg,Opsonin Pharma Ltd.
+1,225,Naxin,Suppository,500 mg,Opsonin Pharma Ltd.
+1,225,Naxo,Tablet,250 mg,Navana Pharmaceuticals Ltd.
+1,225,Naxo,Tablet,500 mg,Navana Pharmaceuticals Ltd.
+1,225,Naxsil,Tablet,500 mg,Silco Pharmaceutical Ltd.
+1,225,Nipoxen,Tablet,250 mg,NIPRO JMI Pharma Ltd.
+1,225,Nipoxen SR,Tablet,500 mg,NIPRO JMI Pharma Ltd.
+1,225,Novaxen,Tablet,500 mg,Leon Pharmaceuticals Ltd.
+1,225,Noxen,Tablet,500 mg,Everest Pharmaceuticals Ltd.
+1,225,Nozee,Tablet,500 mg,Syntho Laboratories Ltd.
+1,225,Nozee,Tablet,500 mg,MST Pharma
+1,225,Nproxol,Tablet,500 mg,Centeon Pharma Limited
+1,225,Nunap,Tablet,250 mg,FnF Pharmaceuticals Ltd.
+1,225,Nuprafen,Suspension,125 mg/5 ml,Beximco Pharmaceuticals Ltd.
+1,225,Nuprafen,Tablet,250 mg,Beximco Pharmaceuticals Ltd.
+1,225,Nuprafen,Tablet,500 mg,Beximco Pharmaceuticals Ltd.
+1,225,Nupralgin,Tablet,250 mg,Ibn-Sina Pharmaceuticals Ltd.
+1,225,Nupralgin,Tablet,500 mg,Ibn-Sina Pharmaceuticals Ltd.
+1,225,NX-1,Tablet,500 mg,One Pharma Ltd.
+1,225,Orxen,Tablet,250 mg,Orbit Pharmaceuticals Ltd
+1,225,Orxen,Tablet,500 mg,Orbit Pharmaceuticals Ltd
+1,225,Pairox,Suspension,125 mg/5 ml,Asiatic Laboratories Ltd.
+1,225,Pairox,Tablet,250 mg,Asiatic Laboratories Ltd.
+1,225,Pairox,Tablet,500 mg,Asiatic Laboratories Ltd.
+1,225,Proxen,Tablet,500 mg,Monicopharma Limited
+1,225,Proxen,Tablet,250 mg,Therapeutics Bangladesh Ltd.
+1,225,Ranoxen,Tablet,250 mg,Rangs Pharmaceuticals Ltd.
+1,225,Ranoxen SR,Tablet,500 mg,Rangs Pharmaceuticals Ltd.
+1,225,Releve,Tablet,500 mg,General Pharmaceuticals Ltd.
+1,225,Releve,Tablet,250 mg,General Pharmaceuticals Ltd.
+1,225,Repro,Tablet,250 mg,Doctor's Chemical Works Ltd.
+1,225,Repro,Tablet,500 mg,Doctor's Chemical Works Ltd.
+1,225,Roxen,Tablet,250 mg,Hallmark Pharmaceuticals Ltd.
+1,225,Roxen,Tablet,500 mg,Hallmark Pharmaceuticals Ltd.
+1,225,Servinaprox,Tablet,250 mg,Sandoz
+1,225,Servinaprox,Tablet,500 mg,Sandoz
+1,225,Sonap,Tablet,250 mg,Square Pharmaceuticals Ltd.
+1,225,Sonap,Tablet,500 mg,Square Pharmaceuticals Ltd.
+1,225,Sonap,Suppository,500 mg,Square Pharmaceuticals Ltd.
+1,225,Sonap,Gel,10% w/w,Square Pharmaceuticals Ltd.
+1,225,Suxen,Gel,10% w/w,Supreme Pharmaceutical Ltd.
+1,225,Ticoflex,Tablet,250 mg,Incepta Pharmaceuticals Limited
+1,225,Ticoflex,Tablet,500 mg,Incepta Pharmaceuticals Limited
+1,225,Ticoflex,Suspension,125 mg/5 ml,Incepta Pharmaceuticals Limited
+1,225,Ticoflex,Gel,10% w/w,Incepta Pharmaceuticals Limited
+1,225,Ticoflex SR,Tablet,500 mg,Incepta Pharmaceuticals Limited
+1,225,Ticolax,Tablet,250 mg,The White Horse Pharma
+1,225,Ticolax,Tablet,500 mg,The White Horse Pharma
+1,225,Tofa,Tablet,250 mg,Kemiko Pharmaceuticals Ltd.
+1,225,Tofa,Tablet,500 mg,Kemiko Pharmaceuticals Ltd.
+1,225,Ultranax,Tablet,500 mg,Ad-din pharmaceuticals Ltd.
+1,225,Venoxen,Tablet,500 mg,Orion Pharma Ltd.
+1,225,Vinap,Tablet,500 mg,Virgo Pharmaceuticals Ltd.
+1,225,Xenap,Tablet,500 mg,Astra Biopharmaceuticals Ltd.
+1,225,Xenapro,Tablet,250 mg,Renata Limited
+1,225,Xenapro,Tablet,500 mg,Renata Limited
+1,225,Xenobid,Tablet,250 mg,Veritas Pharmaceuticals Ltd.
+1,225,Xenobid,Tablet,500 mg,Veritas Pharmaceuticals Ltd.
+1,225,Xpro,Tablet,500 mg,Apex Pharmaceuticals Ltd.
+1,225,Zenosyn,Tablet,250 mg,Sharif Pharmaceuticals Ltd.
+1,225,Zenosyn,Tablet,500 mg,Sharif Pharmaceuticals Ltd.
+1,226,Aticad,Eye Drop,0.05,Square Pharmaceuticals Ltd.
+1,226,N-Mycin,Eye Drop,0.05,Aristopharma Ltd.
+1,226,Natacin,Eye Drop,0.05,Gaco Pharmaceuticals Ltd.
+1,226,Natadrop,Eye Drop,0.05,Reman Drug Laboratories Ltd.
+1,226,Natagen,Eye Drop,0.05,General Pharmaceuticals Ltd.
+1,226,Natapro,Eye Drop,0.05,Popular Pharmaceuticals Ltd.
+1,226,Natoph,Eye Drop,0.05,Ibn-Sina Pharmaceuticals Ltd.
+1,226,Nicin,Eye Drop,0.05,Nipa Pharmaceuticals Ltd.
+1,226,Ocunat,Eye Drop,0.05,Asiatic Laboratories Ltd.
+1,226,Optinat,Eye Drop,0.05,Jayson Pharma Ltd.
+1,227,Bipinor,Tablet,2.5 mg,ACI Limited.
+1,227,Bipinor,Tablet,5 mg,ACI Limited.
+1,227,Cardoneb,Tablet,2.5 mg,Eskayef Bangladesh Ltd.
+1,227,Cardoneb,Tablet,5 mg,Eskayef Bangladesh Ltd.
+1,227,Ivolol,Tablet,5 mg,Incepta Pharmaceuticals Limited
+1,227,Ivolol,Tablet,2.5 mg,Incepta Pharmaceuticals Limited
+1,227,Maxineb,Tablet,2.5 mg,Aristopharma Ltd.
+1,227,Maxineb,Tablet,5 mg,Aristopharma Ltd.
+1,227,Nebicard,Tablet,2.5 mg,Unimed Unihealth MFG. Ltd.
+1,227,Nebicard,Tablet,5 mg,Unimed Unihealth MFG. Ltd.
+1,227,Nebifast,Tablet,5 mg,Drug International Ltd.
+1,227,Nebifast,Tablet,2.5 mg,Drug International Ltd.
+1,227,Nebilol,Tablet,2.5 mg,Opsonin Pharma Ltd.
+1,227,Nebilol,Tablet,5 mg,Opsonin Pharma Ltd.
+1,227,Nebinor,Tablet,2.5 mg,Delta Pharma Limited
+1,227,Nebinor,Tablet,5 mg,Delta Pharma Limited
+1,227,Nebita,Tablet,2.5 mg,Square Pharmaceuticals Ltd.
+1,227,Nebita,Tablet,5 mg,Square Pharmaceuticals Ltd.
+1,227,Nebivas,Tablet,5 mg,Asiatic Laboratories Ltd.
+1,227,Nebivas,Tablet,2.5 mg,Asiatic Laboratories Ltd.
+1,227,Vasocor,Tablet,5 mg,Popular Pharmaceuticals Ltd.
+1,227,Vasocor,Tablet,2.5 mg,Popular Pharmaceuticals Ltd.
+1,228,Acupain,Tablet,30 mg,Ibn-Sina Pharmaceuticals Ltd.
+1,228,Acupain,Injection,20 mg/ml,Ibn-Sina Pharmaceuticals Ltd.
+1,228,Acuten,Injection,20 mg/ml,ACI Limited.
+1,228,Acuten,Tablet,30 mg,ACI Limited.
+1,228,Efopam,Tablet,30 mg,Eskayef Bangladesh Ltd.
+1,228,Nefodol,Tablet,30 mg,Novo Healthcare and Pharma Ltd.
+1,228,Neforex,Tablet,30 mg,Incepta Pharmaceuticals Limited
+1,228,Neforex,Injection,20 mg/ml,Incepta Pharmaceuticals Limited
+1,228,Xripa,Injection,20 mg/ml,Square Pharmaceuticals Ltd.
+1,228,Xripa,Tablet,30 mg,Square Pharmaceuticals Ltd.
+1,229,Avifix,Tablet,250 mg,Beximco Pharmaceuticals Ltd.
+1,229,Nefivir,Tablet,250 mg,Drug International Ltd.
+1,229,Nelidel,Tablet,250 mg,Delta Pharma Limited
+1,229,Nelvir,Tablet,250 mg,Square Pharmaceuticals Ltd.
+1,230,Nebanol Plus,Ointment,(400 IU+3.5 mg+5000 IU)/gm,Square Pharmaceuticals Ltd.
+1,230,Nebaskin Plus,Ointment,(400 IU+3.5 mg+5000 IU)/gm,Pacific Pharmaceuticals Ltd.
+1,230,Neo-B Plus,Ointment,(400 IU+3.5 mg+5000 IU)/gm,Drug International Ltd.
+1,230,Neocin Plus,Ointment,(400 IU+3.5 mg+5000 IU)/gm,Opsonin Pharma Ltd.
+1,230,Neogen Plus,Ointment,(400 IU+3.5 mg+5000 IU)/gm,General Pharmaceuticals Ltd.
+1,230,Neotracy Plus,Ointment,(400 IU+3.5 mg+5000 IU)/gm,Healthcare Pharmacuticals Ltd.
+1,230,Nuba Plus,Ointment,(400 IU+3.5 mg+5000 IU)/gm,Biopharma Laboratories Ltd.
+1,230,Polyban,Ointment,(400 IU+3.5 mg+5000 IU)/gm,Popular Pharmaceuticals Ltd.
+1,231,B Mycin,Ointment,(5 mg+500 IU)/gm,Gaco Pharmaceuticals Ltd.
+1,231,B Mycin,Powder,(5 mg+250 IU)/gm,Gaco Pharmaceuticals Ltd.
+1,231,B-Mycin,Ointment,(5 mg+500 IU)/gm,Gaco Pharmaceuticals Ltd.
+1,231,B-Mycin,Powder,(5 mg+250 IU)/gm,Gaco Pharmaceuticals Ltd.
+1,231,Bioderm,Ointment,(5 mg+500 IU)/gm,Cosmic Pharma Limited
+1,231,Bivacyn,Spray,(165000 IU+12500 IU)/150 ml,Novartis (Bangladesh) Ltd.
+1,231,Cinbac,Ointment,(5 mg+500 IU)/gm,Eskayef Bangladesh Ltd.
+1,231,Derma Aid,Powder,(5 mg+250 IU)/gm,Edruc Ltd.
+1,231,Derma Aid,Ointment,(5 mg+500 IU)/gm,Edruc Ltd.
+1,231,Germicin,Ointment,(5 mg+500 IU)/gm,Chemist Laboratories Limited.
+1,231,Mebalon,Powder,(5 mg+250 IU)/gm,Medicon Pharmaceuticals Ltd.
+1,231,Monabacin,Ointment,(5 mg+500 IU)/gm,Amico Laboratories Ltd.
+1,231,Nabacin,Ointment,(5 mg+500 IU)/gm,Pharmadesh Laboratories Ltd.
+1,231,Nebacin,Ointment,(5 mg+500 IU)/gm,Pharmadesh Laboratories Ltd.
+1,231,Nebalet,Powder,(5 mg+500 IU)/gm,Amulet Pharmaceuticals Ltd.
+1,231,Neban,Ointment,(5 mg+500 IU)/gm,Asiatic Laboratories Ltd.
+1,231,Neban,Powder,(5 mg+250 IU)/gm,Asiatic Laboratories Ltd.
+1,231,Nebanol,Ointment,(5 mg+500 IU)/gm,Square Pharmaceuticals Ltd.
+1,231,Nebanol,Powder,(5 mg+250 IU)/gm,Square Pharmaceuticals Ltd.
+1,231,Nebaskin,Ointment,(5 mg+500 IU)/gm,Pacific Pharmaceuticals Ltd.
+1,231,Nebason,Ointment,(5 mg+500 IU)/gm,Jayson Pharma Ltd.
+1,231,Nebazin,Ointment,(5 mg+500 IU)/gm,Incepta Pharmaceuticals Limited
+1,231,Nebcin,Ointment,(5 mg+500 IU)/gm,Astra Biopharmaceuticals Ltd.
+1,231,Nenol,Powder,(5 mg+4.56 mg) / gm,Alco Pharma Ltd.
+1,231,Neo B,Ointment,(5 mg+500 IU)/gm,Drug International Ltd.
+1,231,Neobac,Ointment,(5 mg+500 IU)/gm,Peoples Pharma Ltd.
+1,231,Neobac,Eye Ointment,(5 mg+500 IU)/gm,Opso Saline Ltd.
+1,231,Neobac,Ointment,(5 mg+500 IU)/gm,Rephco Pharmaceuticals Ltd.
+1,231,Neobacin,Ointment,(5 mg+10 mg)/gm,Kemiko Pharmaceuticals Ltd.
+1,231,Neoback,Ointment,(5 mg+500 IU)/gm,Pharmik Laboratories Limited
+1,231,Neobacrin,Ointment,(5 mg+500 IU)/gm,GlaxoSmithKline
+1,231,Neobazol,Ointment,(5 mg+500 IU)/gm,Ibn-Sina Pharmaceuticals Ltd.
+1,231,Neobazol,Powder,(5 mg+250 IU)/gm,Ibn-Sina Pharmaceuticals Ltd.
+1,231,Neocin,Ointment,(5 mg+500 IU)/gm,Opsonin Pharma Ltd.
+1,231,Neocin,Powder,(5 mg+250 IU)/gm,Opsonin Pharma Ltd.
+1,231,Neocitrin,Powder,0.05% + 0.45%',ACI Limited.
+1,231,Neoderm,Ointment,(5 mg+500 IU)/gm,Doctor's Chemical Works Ltd.
+1,231,Neoderm,Powder,(5 mg+250 IU)/gm,Doctor's Chemical Works Ltd.
+1,231,Neogen,Ointment,(5 mg+500 IU)/gm,General Pharmaceuticals Ltd.
+1,231,Neomycin + Bacitracin Zinc,Ointment,(5 mg+500 IU)/gm,Essential Drugs Company Ltd.
+1,231,Neomycin + Bacitracin Zinc,Eye Ointment,(5 mg+500 IU)/gm,Essential Drugs Company Ltd.
+1,231,Neotracin,Ointment,(5 mg+500 IU)/gm,Acme Laboratories Limited.
+1,231,Neotracin,Powder,(5 mg+250 IU)/gm,Acme Laboratories Limited.
+1,231,Neotracin,Eye Ointment,(5 mg+500 IU)/gm,Acme Laboratories Limited.
+1,231,Neotracy,Ointment,(5 mg+500 IU)/gm,Healthcare Pharmacuticals Ltd.
+1,231,Neuskin,Ointment,(5 mg+500 IU)/gm,Ziska Pharmaceuticals Ltd.
+1,231,NSB,Ointment,(5 mg+500 IU)/gm,Mystic Pharmaceuticals Ltd.
+1,231,Nuba,Ointment,(5 mg+10 mg)/gm,Biopharma Laboratories Ltd.
+1,231,Tybac,Powder,(5 mg+250 IU)/gm,Somatec Pharmaceuticals Ltd.
+1,232,G-Neostigmine,Injection,0.5 mg/ml,Gonoshasthaya Pharmaceuticals Ltd.
+1,232,Neos-R,Injection,0.5 mg/ml,Renata Limited
+1,232,Neosnia,Injection,0.5 mg/ml,Drug International Ltd.
+1,232,Neostig,Injection,0.5 mg/ml,Popular Pharmaceuticals Ltd.
+1,232,Prostig,Injection,0.5 mg/ml,Chemist Laboratories Limited.
+1,232,Prostigmin,Injection,0.5 mg/ml,Novo Healthcare and Pharma Ltd.
+1,232,Stigmin,Injection,0.5 mg/ml,Techno Drugs Ltd.
+1,232,Stignal,Injection,0.5 mg/ml,ACI Limited.
+1,232,Tigma,Injection,0.5 mg/ml,Healthcare Pharmacuticals Ltd.
+1,232,Versia,Injection,0.5 mg/ml,Square Pharmaceuticals Ltd.
+1,233,Nep TS,Eye Drop,0.003,Ibn-Sina Pharmaceuticals Ltd.
+1,233,Nepafen,Eye Drop,0.003,Opso Saline Ltd.
+1,233,Nepagen,Eye Drop,0.003,General Pharmaceuticals Ltd.
+1,233,Nepagen TS,Eye Drop,0.003,General Pharmaceuticals Ltd.
+1,233,Nepanac,Eye Drop,0.003,Globe Pharmaceuticals Limited.
+1,233,Neparact TS,Eye Drop,0.003,Navana Pharmaceuticals Ltd.
+1,233,Nevan,Eye Drop,0.003,Aristopharma Ltd.
+1,233,Nevan TS,Eye Drop,0.003,Aristopharma Ltd.
+1,233,Ocunep,Eye Drop,0.003,Asiatic Laboratories Ltd.
+1,233,Opanac,Eye Drop,0.003,Beximco Pharmaceuticals Ltd.
+1,233,Optafenac,Suspension,0.003,Popular Pharmaceuticals Ltd.
+1,233,Optafenac TS,Suspension,0.003,Popular Pharmaceuticals Ltd.
+1,233,Pacinac,Eye Drop,0.003,Pacific Pharmaceuticals Ltd.
+1,235,Niapid,Tablet,500 mg,Drug International Ltd.
+1,235,Niapid XR,Tablet,500 mg,Drug International Ltd.
+1,235,Nicoson,Tablet,50 mg,Jayson Pharma Ltd.
+1,235,Nicoson,Tablet,500 mg,Jayson Pharma Ltd.
+1,235,Nicotinamide,Tablet,500 mg,Rangs Pharmaceuticals Ltd.
+1,235,Nicotinamide,Tablet,750 mg,Rangs Pharmaceuticals Ltd.
+1,235,Nicotinamide,Tablet,1000 mg,Rangs Pharmaceuticals Ltd.
+1,235,Ridel ER,Tablet,500 mg,Incepta Pharmaceuticals Limited
+1,235,Vanila-E,Tablet,200 mg,Eskayef Bangladesh Ltd.
+1,236,Corangi,Tablet,10 mg,Unimed Unihealth MFG. Ltd.
+1,236,Corangi,Tablet,20 mg,Unimed Unihealth MFG. Ltd.
+1,236,Corangi,Tablet,5 mg,Unimed Unihealth MFG. Ltd.
+1,236,Nicor,Tablet,10 mg,Orion Pharma Ltd.
+1,236,Nicoral,Tablet,5 mg,General Pharmaceuticals Ltd.
+1,236,Nicoral,Tablet,10 mg,General Pharmaceuticals Ltd.
+1,237,Ampine,Tablet,10 mg,Ambee Pharmaceuticals Ltd.
+1,237,Ficard,Tablet,10 mg,Sanofi Bangladesh LTD.
+1,237,G Nifedipine,Tablet,10 mg,Gonoshasthaya Pharmaceuticals Ltd.
+1,237,Nefid,Capsule,10 mg,Opsonin Pharma Ltd.
+1,237,Nicodin,Tablet,10 mg,Jalalabad Pharmaceuticals Ltd.
+1,237,Nidipine,Tablet,10 mg,Square Pharmaceuticals Ltd.
+1,237,Nidipine SR,Tablet,20 mg,Square Pharmaceuticals Ltd.
+1,237,Nifa,Capsule,20 mg,Doctor TIMS Pharmaceuticals Ltd.
+1,237,Nifecap,Capsule,10 mg,Drug International Ltd.
+1,237,Nifecap,Capsule,5 mg,Drug International Ltd.
+1,237,Nifecap SR,Tablet,20 mg,Drug International Ltd.
+1,237,Nifedipine,Tablet,10 mg,Albion Pharmaceuticals Ltd.
+1,237,Nifin,Tablet,10 mg,Acme Laboratories Limited.
+1,237,Nipen,Tablet,10 mg,Eskayef Bangladesh Ltd.
+1,237,Nipen TR,Tablet,20 mg,Eskayef Bangladesh Ltd.
+1,238,Feverein,Tablet,100 mg,General Pharmaceuticals Ltd.
+1,238,Nibid,Tablet,100 mg,Orion Pharma Ltd.
+1,238,Nimex,Tablet,100 mg,Eskayef Bangladesh Ltd.
+1,238,Sumo,Tablet,100 mg,Navana Pharmaceuticals Ltd.
+1,239,Nimocal,Tablet,30 mg,Square Pharmaceuticals Ltd.
+1,239,Nimodi,Tablet,30 mg,Eskayef Bangladesh Ltd.
+1,239,Nimoral,Tablet,30 mg,Drug International Ltd.
+1,240,Adnix,Tablet,500 mg,Alco Pharma Ltd.
+1,240,Adnix,Suspension,100 mg/5 ml,Alco Pharma Ltd.
+1,240,Adonid,Tablet,500 mg,Rephco Pharmaceuticals Ltd.
+1,240,Adonid,Suspension,100 mg/5 ml,Rephco Pharmaceuticals Ltd.
+1,240,Albizox,Tablet,500 mg,Albion Pharmaceuticals Ltd.
+1,240,Albizox,Suspension,100 mg/5 ml,Albion Pharmaceuticals Ltd.
+1,240,Alinix,Tablet,500 mg,Healthcare Pharmacuticals Ltd.
+1,240,Alinix,Suspension,100 mg/5 ml,Healthcare Pharmacuticals Ltd.
+1,240,Antizoa,Tablet,500 mg,Julphar Bangladesh Ltd.
+1,240,Antizoa,Suspension,100 mg/5 ml,Julphar Bangladesh Ltd.
+1,240,Atinid,Tablet,500 mg,Biopharma Laboratories Ltd.
+1,240,Atinid,Suspension,100 mg/5 ml,Biopharma Laboratories Ltd.
+1,240,Dianide,Tablet,500 mg,General Pharmaceuticals Ltd.
+1,240,Dianide,Suspension,100 mg/5 ml,General Pharmaceuticals Ltd.
+1,240,Diar,Tablet,500 mg,ACI Limited.
+1,240,Diar,Suspension,100 mg/5 ml,ACI Limited.
+1,240,Diazox,Tablet,500 mg,Kumudini Pharma Ltd.
+1,240,Diazox,Suspension,100 mg/5 ml,Kumudini Pharma Ltd.
+1,240,Niazid,Tablet,500 mg,Apex Pharmaceuticals Ltd.
+1,240,Niazid,Suspension,100 mg/5 ml,Apex Pharmaceuticals Ltd.
+1,240,Nicud,Suspension,100 mg/5 ml,Monicopharma Limited
+1,240,Nidor,Suspension,100 mg/5 ml,Pharmasia Ltd.
+1,240,Nidor,Tablet,500 mg,Pharmasia Ltd.
+1,240,Nidozox,Tablet,500 mg,Acme Laboratories Limited.
+1,240,Nidozox,Suspension,100 mg/5 ml,Acme Laboratories Limited.
+1,240,Nitacure,Tablet,500 mg,Benham Pharmaceuticals Ltd.
+1,240,Nitacure,Suspension,100 mg/5 ml,Benham Pharmaceuticals Ltd.
+1,240,Nitalet,Tablet,500 mg,Amulet Pharmaceuticals Ltd.
+1,240,Nitamed,Suspension,100 mg/5 ml,MedRx Life Science Ltd
+1,240,Nitamed,Tablet,500 mg,MedRx Life Science Ltd
+1,240,Nitanid,Tablet,500 mg,Drug International Ltd.
+1,240,Nitanid,Suspension,100 mg/5 ml,Drug International Ltd.
+1,240,Nitasis,Tablet,500 mg,Navana Pharmaceuticals Ltd.
+1,240,Nitasis,Suspension,100 mg/5 ml,Navana Pharmaceuticals Ltd.
+1,240,Nitasol,Tablet,500 mg,Ibn-Sina Pharmaceuticals Ltd.
+1,240,Nitasol,Suspension,100 mg/5 ml,Ibn-Sina Pharmaceuticals Ltd.
+1,240,Nitax,Tablet,500 mg,Delta Pharma Limited
+1,240,Nitax,Suspension,100 mg/5 ml,Delta Pharma Limited
+1,240,Nitaxen,Tablet,500 mg,Leon Pharmaceuticals Ltd.
+1,240,Nitaxen,Suspension,100 mg/5 ml,Leon Pharmaceuticals Ltd.
+1,240,Nitaxide,Tablet,500 mg,Beximco Pharmaceuticals Ltd.
+1,240,Nitaxide,Suspension,100 mg/5 ml,Beximco Pharmaceuticals Ltd.
+1,240,Nitazet,Tablet,500 mg,Organic Health Care
+1,240,Nitazet,Suspension,100 mg/5 ml,Organic Health Care
+1,240,Nitazox,Tablet,500 mg,Incepta Pharmaceuticals Limited
+1,240,Nitazox,Suspension,100 mg/5 ml,Incepta Pharmaceuticals Limited
+1,240,Nitide,Tablet,500 mg,NIPRO JMI Pharma Ltd.
+1,240,Nitide,Suspension,100 mg/5 ml,NIPRO JMI Pharma Ltd.
+1,240,Nitoxin,Tablet,500 mg,Aristopharma Ltd.
+1,240,Nitoxin,Suspension,100 mg/5 ml,Aristopharma Ltd.
+1,240,Nixamid,Tablet,500 mg,Euro Pharma Ltd.
+1,240,Nixar,Tablet,500 mg,Sharif Pharmaceuticals Ltd.
+1,240,Nixar,Suspension,100 mg/5 ml,Sharif Pharmaceuticals Ltd.
+1,240,NIZ,Suspension,100 mg/5 ml,Ethical Drug Ltd.
+1,240,NIZ,Tablet,500 mg,Ethical Drug Ltd.
+1,240,Nizonid,Tablet,500 mg,Medicon Pharmaceuticals Ltd.
+1,240,Nizonid,Suspension,100 mg/5 ml,Medicon Pharmaceuticals Ltd.
+1,240,Nizox,Tablet,500 mg,Somatec Pharmaceuticals Ltd.
+1,240,Nizox,Suspension,100 mg/5 ml,Somatec Pharmaceuticals Ltd.
+1,240,NTZ,Suspension,100 mg/5 ml,Asiatic Laboratories Ltd.
+1,240,NTZ,Tablet,500 mg,Asiatic Laboratories Ltd.
+1,240,Proxa-A,Tablet,500 mg,Ad-din pharmaceuticals Ltd.
+1,240,Proxa-A,Suspension,100 mg/5 ml,Ad-din pharmaceuticals Ltd.
+1,240,Sanotide,Tablet,500 mg,Sanofi Bangladesh LTD.
+1,240,Tazonid,Tablet,500 mg,Popular Pharmaceuticals Ltd.
+1,240,Tazonid,Suspension,100 mg/5 ml,Popular Pharmaceuticals Ltd.
+1,240,Tazox,Tablet,500 mg,Novo Healthcare and Pharma Ltd.
+1,240,Tazox,Suspension,100 mg/5 ml,Novo Healthcare and Pharma Ltd.
+1,240,Toza,Tablet,500 mg,Eskayef Bangladesh Ltd.
+1,240,Toza,Suspension,100 mg/5 ml,Eskayef Bangladesh Ltd.
+1,240,Xanide,Tablet,500 mg,Globe Pharmaceuticals Limited.
+1,240,Xanide,Suspension,100 mg/5 ml,Globe Pharmaceuticals Limited.
+1,240,Xanita,Tablet,500 mg,Renata Limited
+1,240,Xanita,Suspension,100 mg/5 ml,Renata Limited
+1,240,Zoana,Tablet,500 mg,Orion Pharma Ltd.
+1,240,Zoana,Suspension,100 mg/5 ml,Orion Pharma Ltd.
+1,240,Zonam,Tablet,500 mg,MST Pharma
+1,240,Zonam,Suspension,100 mg/5 ml,MST Pharma
+1,240,Zonam,Tablet,500 mg,MST Pharma
+1,240,Zox,Tablet,500 mg,Square Pharmaceuticals Ltd.
+1,240,Zox,Suspension,100 mg/5 ml,Square Pharmaceuticals Ltd.
+1,240,Zoxan,Tablet,500 mg,Opsonin Pharma Ltd.
+1,240,Zoxan,Suspension,100 mg/5 ml,Opsonin Pharma Ltd.
+1,240,Zoxanid,Tablet,500 mg,Silva Pharmaceuticals Ltd.
+1,240,Zoxanid,Suspension,100 mg/5 ml,Silva Pharmaceuticals Ltd.
+1,241,Amoctin,Tablet,5 mg,Skylab Pharmaceuticals Ltd.
+1,241,Epam,Tablet,5 mg,Opsonin Pharma Ltd.
+1,241,Nitram,Tablet,5 mg,Albion Pharmaceuticals Ltd.
+1,241,Noctin,Tablet,5 mg,Ambee Pharmaceuticals Ltd.
+1,241,Octon,Tablet,5 mg,Gaco Pharmaceuticals Ltd.
+1,242,Furantin SR,Capsule,100 mg,Eskayef Bangladesh Ltd.
+1,242,Nintoin,Capsule,50 mg,Incepta Pharmaceuticals Limited
+1,242,Nintoin,Tablet,100 mg,Incepta Pharmaceuticals Limited
+1,242,Nintoin,Suspension,25 mg/5 ml,Incepta Pharmaceuticals Limited
+1,242,Nintoin SR,Capsule,100 mg,Incepta Pharmaceuticals Limited
+1,242,Nitrobac,Tablet,100 mg,Ibn-Sina Pharmaceuticals Ltd.
+1,242,Nitrobac SR,Capsule,100 mg,Ibn-Sina Pharmaceuticals Ltd.
+1,242,Nitrofur,Capsule,100 mg,ACI Limited.
+1,242,Nitrofur,Capsule,50 mg,ACI Limited.
+1,242,Nitrofur,Suspension,25 mg/5 ml,ACI Limited.
+1,242,Ofuran,Suspension,25 mg/5 ml,Pacific Pharmaceuticals Ltd.
+1,242,Ofuran SR,Tablet,100 mg,Pacific Pharmaceuticals Ltd.
+1,242,Rantoin,Suspension,25 mg/5 ml,Drug International Ltd.
+1,242,Rantoin,Tablet,100 mg,Drug International Ltd.
+1,242,Umactabid,Capsule,100 mg,Unimed Unihealth MFG. Ltd.
+1,242,Umactin,Tablet,50 mg,Unimed Unihealth MFG. Ltd.
+1,242,Umactin,Tablet,100 mg,Unimed Unihealth MFG. Ltd.
+1,242,Umactin,Suspension,25 mg/5 ml,Unimed Unihealth MFG. Ltd.
+1,242,Urobak,Tablet,100 mg,Opsonin Pharma Ltd.
+1,242,Urobak,Suspension,25 mg/5 ml,Opsonin Pharma Ltd.
+1,242,Urocure,Suspension,25 mg/5 ml,Square Pharmaceuticals Ltd.
+1,242,Urocure SR,Capsule,100 mg,Square Pharmaceuticals Ltd.
+1,242,Urox,Capsule,100 mg,Edruc Ltd.
+1,242,Urox,Suspension,25 mg/5 ml,Edruc Ltd.
+1,242,Utnor,Tablet,100 mg,Novelta Bestway Pharmaceuticals Ltd.
+1,243,Furament,Ointment,0.002,United Chemicals & Pharmaceuticals Ltd.
+1,243,Furasep,Cream,0.002,Beximco Pharmaceuticals Ltd.
+1,243,Furazone,Ointment,0.002,Pharmik Laboratories Limited
+1,243,Nifura,Cream,0.002,Supreme Pharmaceutical Ltd.
+1,243,Nitofa,Ointment,0.002,Pacific Pharmaceuticals Ltd.
+1,243,Nitrozon,Ointment,0.002,Pharmadesh Laboratories Ltd.
+1,243,Nivacin,Ointment,0.002,Gaco Pharmaceuticals Ltd.
+1,244,Levofed,Infusion,2 mg/2 ml,Beacon Pharmaceuticals Ltd.
+1,244,Levophed,Injection,4 mg/4 ml,Pfizer
+1,244,Norline,Injection,2 mg/2 ml,Radiant Pharmaceuticals Ltd.
+1,245,Ethinor,Tablet,5 mg,Eskayef Bangladesh Ltd.
+1,245,Menogia,Tablet,5 mg,ACI Limited.
+1,245,Menoral,Tablet,5 mg,Square Pharmaceuticals Ltd.
+1,245,Norcolut,Tablet,5 mg,City Overseas Ltd.
+1,245,Norestin,Tablet,5 mg,Beximco Pharmaceuticals Ltd.
+1,245,Normens,Tablet,5 mg,Renata Limited
+1,245,Noteron,Tablet,5 mg,Incepta Pharmaceuticals Limited
+1,245,Remens,Tablet,5 mg,Popular Pharmaceuticals Ltd.
+1,245,Rontril,Tablet,5 mg,Nuvista Pharma Ltd.
+1,246,Conrena-R,Tablet,0.3 mg+0.03 mg+75 mg,Renata Limited
+1,246,Femicon,Tablet,0.3 mg+0.03 mg+75 mg,Social Marketing Company
+1,246,Femipil,Tablet,0.3 mg+0.03 mg+75 mg,Social Marketing Company
+1,247,Minipil,Tablet,0.075 mg,Techno Drugs Ltd.
+1,247,Renatrel,Tablet,0.075 mg,Renata Limited
+1,248,Avelin,Tablet,10 mg,National Laboratories Ltd.
+1,248,Avelin,Capsule,25 mg,National Laboratories Ltd.
+1,248,Nortilin,Tablet,10 mg,Incepta Pharmaceuticals Limited
+1,248,Nortilin,Tablet,25 mg,Incepta Pharmaceuticals Limited
+1,248,Nortin,Capsule,10 mg,Navana Pharmaceuticals Ltd.
+1,248,Nortin,Capsule,25 mg,Navana Pharmaceuticals Ltd.
+1,248,Nortip,Tablet,10 mg,Globe Pharmaceuticals Limited.
+1,248,Nortip,Capsule,25 mg,Globe Pharmaceuticals Limited.
+1,248,Notrip,Tablet,10 mg,Ibn-Sina Pharmaceuticals Ltd.
+1,249,Candex,Suspension,100000 Unit/ml,Square Pharmaceuticals Ltd.
+1,249,Canstat,Tablet,500000 unit,Jayson Pharma Ltd.
+1,249,Canstat,Suspension,100000 unit/ml,Jayson Pharma Ltd.
+1,249,Costatin,Suspension,100000 unit/ml,Gaco Pharmaceuticals Ltd.
+1,249,Costatin,Tablet,500000 unit,Gaco Pharmaceuticals Ltd.
+1,249,Enystin,Suspension,100000 unit/ml,Ethical Drug Ltd.
+1,249,Fefun,Suspension,100000 unit/ml,Amico Laboratories Ltd.
+1,249,Fugisin,Suspension,100000 unit/ml,Biopharma Laboratories Ltd.
+1,249,Fungistin,Suspension,100000 unit/ml,Beximco Pharmaceuticals Ltd.
+1,249,Mycocin,Tablet,500000 unit,Ibn-Sina Pharmaceuticals Ltd.
+1,249,Mycocin,Suspension,100000 unit/ml,Ibn-Sina Pharmaceuticals Ltd.
+1,249,Mycostat,Suspension,100000 unit/ml,Silco Pharmaceutical Ltd.
+1,249,Mycostin,Suspension,100000 unit/ml,Eskayef Bangladesh Ltd.
+1,249,Mystatin,Tablet,500000 unit,Skylab Pharmaceuticals Ltd.
+1,249,Mystatin,Suspension,100000 unit/ml,Skylab Pharmaceuticals Ltd.
+1,249,Naf,Suspension,100000 unit/ml,Opsonin Pharma Ltd.
+1,249,Nyscan,Suspension,1 Lac Unit/ml,ACI Limited.
+1,249,Nysol,Suspension,100000 unit/ml,Edruc Ltd.
+1,249,Nyst,Suspension,100000 unit/ml,Somatec Pharmaceuticals Ltd.
+1,249,Nystat,Tablet,500000 unit,Acme Laboratories Limited.
+1,249,Nystat,Suspension,100000 unit/ml,Acme Laboratories Limited.
+1,249,Nystin,Suspension,100000 unit/ml,Peoples Pharma Ltd.
+1,249,Nystin J,Suspension,100000 unit/ml,Jalalabad Pharmaceuticals Ltd.
+1,249,Nystin J,Tablet,500000 unit,Jalalabad Pharmaceuticals Ltd.
+1,249,Ornys,Suspension,100000 unit/ml,Kemiko Pharmaceuticals Ltd.
+1,249,Restin,Suspension,100000 unit/ml,Rephco Pharmaceuticals Ltd.
+1,249,Restin,Tablet,100000 unit,Rephco Pharmaceuticals Ltd.
+1,249,Tatin,Suspension,100000 unit/ml,Innova Pharmaceuticals Limited.
+1,249,Zenistin,Suspension,100000 unit/ml,Zenith Pharmaceuticals Ltd.
+1,250,Mycostin,Ointment,1 Lac Unit/gm,Eskayef Bangladesh Ltd.
+1,250,Nystat,Ointment,1 Lac Unit/gm,Acme Laboratories Limited.
+1,250,Nystat,Vaginal Tablet,100000 unit,Acme Laboratories Limited.
+1,250,Nystin,Ointment,1 Lac Unit/gm,Peoples Pharma Ltd.
+1,251,Sandostatin,Injection,50 mcg/ml,Novartis (Bangladesh) Ltd.
+1,251,Sandostatin LAR,Infusion,20 mg/vial,Novartis (Bangladesh) Ltd.
+1,251,Sandostatin SC,Injection,50 mcg/ml,Novartis (Bangladesh) Ltd.
+1,252,Obactin,Drops,0.003,Ibn-Sina Pharmaceuticals Ltd.
+1,252,Oflin,Drops,0.003,Gaco Pharmaceuticals Ltd.
+1,252,Vista,Drops,0.003,Aristopharma Ltd.
+1,253,Dbac,Tablet,200 mg,Renata Limited
+1,253,Dbac,Tablet,400 mg,Renata Limited
+1,253,Flocet,Tablet,200 mg,Opsonin Pharma Ltd.
+1,253,Flocet,Tablet,400 mg,Opsonin Pharma Ltd.
+1,253,Flocet,Infusion,200 mg/100 ml,Opsonin Pharma Ltd.
+1,253,Oflacin,Tablet,200 mg,Drug International Ltd.
+1,253,Oflacin,Tablet,400 mg,Drug International Ltd.
+1,253,Oflin,Tablet,200 mg,Gaco Pharmaceuticals Ltd.
+1,253,Rutix,Tablet,200 mg,Square Pharmaceuticals Ltd.
+1,253,Rutix,Tablet,400 mg,Square Pharmaceuticals Ltd.
+1,254,Deprex,Tablet,5 mg,Square Pharmaceuticals Ltd.
+1,254,Deprex,Tablet,10 mg,Square Pharmaceuticals Ltd.
+1,254,Lanzep,Tablet,5 mg,Renata Limited
+1,254,Lanzep,Tablet,10 mg,Renata Limited
+1,254,Lopez,Tablet,5 mg,General Pharmaceuticals Ltd.
+1,254,Lopez,Tablet,10 mg,General Pharmaceuticals Ltd.
+1,254,Olanap,Tablet,5 mg,Incepta Pharmaceuticals Limited
+1,254,Olanap,Tablet,10 mg,Incepta Pharmaceuticals Limited
+1,254,Olanor,Tablet,5 mg,Beacon Pharmaceuticals Ltd.
+1,254,Olanor,Tablet,10 mg,Beacon Pharmaceuticals Ltd.
+1,254,Olanza,Tablet,10 mg,Albion Pharmaceuticals Ltd.
+1,254,Olanza,Tablet,5 mg,Albion Pharmaceuticals Ltd.
+1,254,Olapine,Tablet,10 mg,Drug International Ltd.
+1,254,Olapine,Tablet,5 mg,Drug International Ltd.
+1,254,Oleanz,Tablet,5 mg,Sun Pharmaceutical (Bangladesh) Limited
+1,254,Oleanz,Tablet,10 mg,Sun Pharmaceutical (Bangladesh) Limited
+1,254,Olzap,Tablet,5 mg,Opso Saline Ltd.
+1,254,Olzap,Tablet,10 mg,Opso Saline Ltd.
+1,254,Pericam,Tablet,5 mg,Beximco Pharmaceuticals Ltd.
+1,254,Pericam,Tablet,10 mg,Beximco Pharmaceuticals Ltd.
+1,254,Xytrex,Tablet,5 mg,ACI Limited.
+1,254,Xytrex,Tablet,10 mg,ACI Limited.
+1,255,Abetis Plus,Tablet,20 mg+12.5 mg,ACI Limited.
+1,255,Abetis Plus,Tablet,40 mg+12.5 mg,ACI Limited.
+1,255,Olme-H,Tablet,20 mg+12.5 mg,Albion Pharmaceuticals Ltd.
+1,255,Olmecar Plus,Tablet,20 mg+12.5 mg,Square Pharmaceuticals Ltd.
+1,255,Olmesan Plus,Tablet,20 mg+12.5 mg,Beximco Pharmaceuticals Ltd.
+1,255,Olmesta Plus,Tablet,20 mg+12.5 mg,Eskayef Bangladesh Ltd.
+1,255,Olmetic Plus,Tablet,20 mg+12.5 mg,Drug International Ltd.
+1,255,Olmezest H 20,Tablet,20 mg+12.5 mg,Sun Pharmaceutical (Bangladesh) Limited
+1,255,Olsart HZ 20,Tablet,20 mg+12.5 mg,Opsonin Pharma Ltd.
+1,255,Olsart HZ 40,Tablet,40 mg+12.5 mg,Opsonin Pharma Ltd.
+1,255,Orbas Plus,Tablet,20 mg+12.5 mg,Acme Laboratories Limited.
+1,255,Sevitan HTZ,Tablet,20 mg+12.5 mg,Radiant Pharmaceuticals Ltd.
+1,255,Tenizide,Tablet,20 mg+12.5 mg,Unimed Unihealth MFG. Ltd.
+1,255,Xyotil Plus,Tablet,20 mg+12.5 mg,Incepta Pharmaceuticals Limited
+1,256,Abetis,Tablet,10 mg,ACI Limited.
+1,256,Abetis,Tablet,20 mg,ACI Limited.
+1,256,Abetis,Tablet,40 mg,ACI Limited.
+1,256,Olempres,Tablet,20 mg,General Pharmaceuticals Ltd.
+1,256,Olempres,Tablet,40 mg,General Pharmaceuticals Ltd.
+1,256,Olme,Tablet,20 mg,Albion Pharmaceuticals Ltd.
+1,256,Olme,Tablet,40 mg,Albion Pharmaceuticals Ltd.
+1,256,Olme,Tablet,10 mg,Albion Pharmaceuticals Ltd.
+1,256,Olmecar,Tablet,20 mg,Square Pharmaceuticals Ltd.
+1,256,Olmecar,Tablet,40 mg,Square Pharmaceuticals Ltd.
+1,256,Olmenor,Tablet,20 mg,Delta Pharma Limited
+1,256,Olmenor,Tablet,40 mg,Delta Pharma Limited
+1,256,Olmesan,Tablet,10 mg,Beximco Pharmaceuticals Ltd.
+1,256,Olmesan,Tablet,20 mg,Beximco Pharmaceuticals Ltd.
+1,256,Olmesan,Tablet,40 mg,Beximco Pharmaceuticals Ltd.
+1,256,Olmesart,Tablet,20 mg,Sharif Pharmaceuticals Ltd.
+1,256,Olmesart,Tablet,40 mg,Sharif Pharmaceuticals Ltd.
+1,256,Olmesta,Tablet,10 mg,Eskayef Bangladesh Ltd.
+1,256,Olmesta,Tablet,20 mg,Eskayef Bangladesh Ltd.
+1,256,Olmesta,Tablet,40 mg,Eskayef Bangladesh Ltd.
+1,256,Olmetic,Tablet,20 mg,Drug International Ltd.
+1,256,Olmevas,Tablet,20 mg,Popular Pharmaceuticals Ltd.
+1,256,Olmezest,Tablet,10 mg,Sun Pharmaceutical (Bangladesh) Limited
+1,256,Olmezest,Tablet,20 mg,Sun Pharmaceutical (Bangladesh) Limited
+1,256,Olmezest,Tablet,40 mg,Sun Pharmaceutical (Bangladesh) Limited
+1,256,Olsart,Tablet,10 mg,Opsonin Pharma Ltd.
+1,256,Olsart,Tablet,20 mg,Opsonin Pharma Ltd.
+1,256,Olsart,Tablet,40 mg,Opsonin Pharma Ltd.
+1,256,Olvance,Tablet,20 mg,Biopharma Laboratories Ltd.
+1,256,Orbas,Tablet,20 mg,Acme Laboratories Limited.
+1,256,Orbas,Tablet,40 mg,Acme Laboratories Limited.
+1,256,Presulock,Tablet,20 mg,Aristopharma Ltd.
+1,256,Ransys,Tablet,10 mg,Healthcare Pharmacuticals Ltd.
+1,256,Ransys,Tablet,20 mg,Healthcare Pharmacuticals Ltd.
+1,256,Ransys,Tablet,40 mg,Healthcare Pharmacuticals Ltd.
+1,256,Sevitan,Tablet,20 mg,Radiant Pharmaceuticals Ltd.
+1,256,Tenicar,Tablet,20 mg,Unimed Unihealth MFG. Ltd.
+1,256,Tenicar,Tablet,40 mg,Unimed Unihealth MFG. Ltd.
+1,256,Xoricard,Tablet,20 mg,Apex Pharmaceuticals Ltd.
+1,256,Xyotil,Tablet,20 mg,Incepta Pharmaceuticals Limited
+1,256,Xyotil,Tablet,40 mg,Incepta Pharmaceuticals Limited
+1,257,Alacot,Eye Drop,0.001,Square Pharmaceuticals Ltd.
+1,257,Alacot DS,Eye Drop,0.002,Square Pharmaceuticals Ltd.
+1,257,Aladay,Eye Drop,0.001,Eskayef Bangladesh Ltd.
+1,257,Aladay DS,Eye Drop,0.002,Eskayef Bangladesh Ltd.
+1,257,Aladay Max,Eye Drop,0.007,Eskayef Bangladesh Ltd.
+1,257,Alchek,Eye Drop,0.001,Apex Pharmaceuticals Ltd.
+1,257,Alchek DS,Eye Drop,0.002,Apex Pharmaceuticals Ltd.
+1,257,Alercon,Eye Drop,0.001,Acme Laboratories Limited.
+1,257,Alercon DS,Eye Drop,0.002,Acme Laboratories Limited.
+1,257,Alleloc,Eye Drop,0.001,Navana Pharmaceuticals Ltd.
+1,257,Alleloc DS,Eye Drop,0.002,Navana Pharmaceuticals Ltd.
+1,257,Allet,Eye Drop,0.001,Healthcare Pharmacuticals Ltd.
+1,257,Allet DS,Eye Drop,0.002,Healthcare Pharmacuticals Ltd.
+1,257,Conrif,Eye Drop,0.001,Globe Pharmaceuticals Limited.
+1,257,Conrif DS,Eye Drop,0.002,Globe Pharmaceuticals Limited.
+1,257,Contova,Eye Drop,0.001,ACI Limited.
+1,257,Contova DS,Eye Drop,0.002,ACI Limited.
+1,257,Lopadine,Eye Drop,0.001,Incepta Pharmaceuticals Limited
+1,257,Lopadine DS,Eye Drop,0.002,Incepta Pharmaceuticals Limited
+1,257,Lopadine Max,Eye Drop,0.007,Incepta Pharmaceuticals Limited
+1,257,Olacing DS,Eye Drop,0.002,Pacific Pharmaceuticals Ltd.
+1,257,Olarif,Eye Drop,0.001,Biopharma Laboratories Ltd.
+1,257,Olarif DS,Eye Drop,0.002,Biopharma Laboratories Ltd.
+1,257,Olodin,Eye Drop,0.001,Reman Drug Laboratories Ltd.
+1,257,Olodin DS,Eye Drop,0.002,Reman Drug Laboratories Ltd.
+1,257,Ologen,Eye Drop,0.001,General Pharmaceuticals Ltd.
+1,257,Ologen DS,Eye Drop,0.002,General Pharmaceuticals Ltd.
+1,257,Ologen Max,Eye Drop,0.007,General Pharmaceuticals Ltd.
+1,257,Olon,Eye Drop,0.001,Kemiko Pharmaceuticals Ltd.
+1,257,Olon DS,Eye Drop,0.002,Kemiko Pharmaceuticals Ltd.
+1,257,Olopan,Eye Drop,0.001,Beximco Pharmaceuticals Ltd.
+1,257,Olopan DS,Eye Drop,0.002,Beximco Pharmaceuticals Ltd.
+1,257,Olopta,Eye Drop,0.001,Gaco Pharmaceuticals Ltd.
+1,257,Olopta DS,Eye Drop,0.002,Gaco Pharmaceuticals Ltd.
+1,257,Olorid,Eye Drop,0.001,Monicopharma Limited
+1,257,Olorid DS,Eye Drop,0.002,Monicopharma Limited
+1,257,Olpadin,Eye Drop,0.001,Aristopharma Ltd.
+1,257,Olpadin DS,Eye Drop,0.002,Aristopharma Ltd.
+1,257,Opatin,Eye Drop,0.001,Opsonin Pharma Ltd.
+1,257,Opatin DS,Eye Drop,0.002,Opsonin Pharma Ltd.
+1,257,Optadin,Eye Drop,0.001,Asiatic Laboratories Ltd.
+1,257,Optadin DS,Eye Drop,0.002,Asiatic Laboratories Ltd.
+1,257,Patadin,Eye Drop,0.001,Popular Pharmaceuticals Ltd.
+1,257,Patadin DS,Eye Drop,0.002,Popular Pharmaceuticals Ltd.
+1,257,Patalon,Eye Drop,0.001,Ibn-Sina Pharmaceuticals Ltd.
+1,257,Patalon DS,Eye Drop,0.002,Ibn-Sina Pharmaceuticals Ltd.
+1,258,Alercon,Nasal Spray,600 mcg/actuation,Acme Laboratories Limited.
+1,258,Lopadine,Nasal Spray,600 mcg/actuation,Incepta Pharmaceuticals Limited
+1,258,Olopan,Nasal Spray,600 mcg/actuation,Beximco Pharmaceuticals Ltd.
+1,259,Glomeg,Capsule,1000 mg,Globe Pharmaceuticals Limited.
+1,259,MaxOmega,Capsule,1000 mg,Unimed Unihealth MFG. Ltd.
+1,259,Neomega,Capsule,1000 mg,Opsonin Pharma Ltd.
+1,259,Omesoft,Capsule,1000 mg,Pacific Pharmaceuticals Ltd.
+1,259,Omg-3,Capsule,1000 mg,Drug International Ltd.
+1,260,Omesil IR 20,Capsule,20 mg+1100 mg,Silva Pharmaceuticals Ltd.
+1,260,Omesil IR 40,Capsule,40 mg+1100 mg,Silva Pharmaceuticals Ltd.
+1,260,Prazo Plus,Capsule,20 mg+1100 mg,Pacific Pharmaceuticals Ltd.
+1,261,Anasec,Capsule,20 mg,Novo Healthcare and Pharma Ltd.
+1,261,Anasec,Injection,40 mg/vial,Novo Healthcare and Pharma Ltd.
+1,261,Anasec,Powder,20 mg/Sached,Novo Healthcare and Pharma Ltd.
+1,261,Anasec,Tablet,20 mg,Novo Healthcare and Pharma Ltd.
+1,261,Anasec,Capsule,40 mg,Novo Healthcare and Pharma Ltd.
+1,261,Aspra,Capsule,20 mg,Apex Pharmaceuticals Ltd.
+1,261,Aspra,Capsule,40 mg,Apex Pharmaceuticals Ltd.
+1,261,Aspra SR,Tablet,20 mg,Apex Pharmaceuticals Ltd.
+1,261,AU-20,Capsule,20 mg,Decent Pharma Laboratories Ltd.
+1,261,Aumi,Capsule,20 mg,Hudson Pharmaceuticals Ltd.
+1,261,Aumi,Capsule,40 mg,Hudson Pharmaceuticals Ltd.
+1,261,Besectil,Capsule,20 mg,Bengal drugs Ltd.
+1,261,Besectil,Capsule,40 mg,Bengal drugs Ltd.
+1,261,Biopep,Capsule,20 mg,Cipla Ltd.
+1,261,Cosec,Capsule,20 mg,Drug International Ltd.
+1,261,Cosec,Capsule,40 mg,Drug International Ltd.
+1,261,Cosec,Injection,40 mg/vial,Drug International Ltd.
+1,261,Deu 20,Capsule,20 mg,Monicopharma Limited
+1,261,Deu 40,Injection,40 mg/vial,Monicopharma Limited
+1,261,Emez,Capsule,20 mg,Edruc Ltd.
+1,261,Emez,Capsule,40 mg,Edruc Ltd.
+1,261,Eupi,Capsule,20 mg,Pharmasia Ltd.
+1,261,Eupi,Injection,40 mg/vial,Pharmasia Ltd.
+1,261,Eupi,Capsule,40 mg,Pharmasia Ltd.
+1,261,G-Omeprazole,Capsule,20 mg,Gonoshasthaya Pharmaceuticals Ltd.
+1,261,G-Omeprazole,Injection,40 mg/vial,Gonoshasthaya Pharmaceuticals Ltd.
+1,261,GAP-20,Capsule,20 mg,Euro Pharma Ltd.
+1,261,GAP-40,Capsule,40 mg,Euro Pharma Ltd.
+1,261,GAP-40,Injection,40 mg/vial,Euro Pharma Ltd.
+1,261,Gastril,Capsule,20 mg,Ethical Drug Ltd.
+1,261,Gastril,Injection,40 mg/vial,Ethical Drug Ltd.
+1,261,Gem-20,Capsule,20 mg,Millat Pharmaceuticals Limited
+1,261,Healer,Capsule,20 mg,Amico Laboratories Ltd.
+1,261,HK 20,Capsule,20 mg,Apollo Pharmaceutical Laboratories Ltd.
+1,261,HK 40,Capsule,40 mg,Apollo Pharmaceutical Laboratories Ltd.
+1,261,I-Proton,Capsule,20 mg,Doctor TIMS Pharmaceuticals Ltd.
+1,261,Inhibita,Capsule,20 mg,Delta Pharma Limited
+1,261,Inhibita,Capsule,40 mg,Delta Pharma Limited
+1,261,Inopra,Capsule,20 mg,Innova Pharmaceuticals Limited.
+1,261,Inpro,Capsule,20 mg,Biopharma Laboratories Ltd.
+1,261,Inpro,Capsule,40 mg,Biopharma Laboratories Ltd.
+1,261,Inpro,Injection,40 mg/vial,Biopharma Laboratories Ltd.
+1,261,IPP 20,Capsule,20 mg,Aztec Pharmaceuticals Ltd.
+1,261,Lomesec 20,Capsule,20 mg,Aexim Pharmaceuticals Ltd.
+1,261,Losac,Capsule,20 mg,Standard Laboratories Limited
+1,261,Losac,Capsule,40 mg,Standard Laboratories Limited
+1,261,Losectil,Capsule,20 mg,Eskayef Bangladesh Ltd.
+1,261,Losectil,Capsule,10 mg,Eskayef Bangladesh Ltd.
+1,261,Losectil,Capsule,40 mg,Eskayef Bangladesh Ltd.
+1,261,Losectil,Powder,20 mg/Sached,Eskayef Bangladesh Ltd.
+1,261,Losectil,Powder,40 mg/Sached,Eskayef Bangladesh Ltd.
+1,261,Losectil,Injection,40 mg/vial,Eskayef Bangladesh Ltd.
+1,261,Losectil,Tablet,40 mg,Eskayef Bangladesh Ltd.
+1,261,Losek,Capsule,20 mg,Bristol Pharmaceuticals Ltd.
+1,261,Losek,Capsule,40 mg,Bristol Pharmaceuticals Ltd.
+1,261,Lotil,Capsule,20 mg,Albion Pharmaceuticals Ltd.
+1,261,Mepra,Capsule,20 mg,Marksman Pharmaceuticals Ltd.
+1,261,Mezol,Capsule,20 mg,Hope Pharmaceuticals Ltd.
+1,261,Neome,Capsule,20 mg,FnF Pharmaceuticals Ltd.
+1,261,Neopra 20,Capsule,20 mg,Supreme Pharmaceutical Ltd.
+1,261,Norain,Capsule,20 mg,GlaxoSmithKline
+1,261,Nuprazol,Capsule,20 mg,Nuvista Pharma Ltd.
+1,261,O-20,Capsule,20 mg,Asiatic Laboratories Ltd.
+1,261,O-40,Capsule,40 mg,Asiatic Laboratories Ltd.
+1,261,OC-20,Capsule,20 mg,Central Pharmaceuticals Ltd (CPL)
+1,261,OLE 20,Capsule,20 mg,Bios Pharmaceuticals Ltd.
+1,261,OM,Capsule,20 mg,Ambee Pharmaceuticals Ltd.
+1,261,OM,Capsule,40 mg,Ambee Pharmaceuticals Ltd.
+1,261,Omag-DR,Capsule,20 mg,Rangs Pharmaceuticals Ltd.
+1,261,Omaprin,Capsule,20 mg,Doctor's Chemical Works Ltd.
+1,261,Omaprin,Capsule,40 mg,Doctor's Chemical Works Ltd.
+1,261,OME,Capsule,20 mg,Somatec Pharmaceuticals Ltd.
+1,261,OME,Capsule,40 mg,Somatec Pharmaceuticals Ltd.
+1,261,Omeben,Capsule,20 mg,Benham Pharmaceuticals Ltd.
+1,261,Omeben,Capsule,40 mg,Benham Pharmaceuticals Ltd.
+1,261,Omecap,Capsule,20 mg,Chemist Laboratories Limited.
+1,261,Omecap,Capsule,40 mg,Chemist Laboratories Limited.
+1,261,Omecare,Capsule,20 mg,Novelta Bestway Pharmaceuticals Ltd.
+1,261,Omecare,Capsule,40 mg,Novelta Bestway Pharmaceuticals Ltd.
+1,261,Omecent,Capsule,20 mg,Centeon Pharma Limited
+1,261,Omecent,Capsule,40 mg,Centeon Pharma Limited
+1,261,Omecron 20,Capsule,20 mg,NIPRO JMI Pharma Ltd.
+1,261,Omecron 40,Capsule,40 mg,NIPRO JMI Pharma Ltd.
+1,261,Omectil,Tablet,20 mg,United Chemicals & Pharmaceuticals Ltd.
+1,261,Omefast,Capsule,20 mg,S.N. Pharmaceutical Ltd.
+1,261,Omegut,Capsule,20 mg,Popular Pharmaceuticals Ltd.
+1,261,Omegut,Capsule,40 mg,Popular Pharmaceuticals Ltd.
+1,261,Omegut,Injection,40 mg/10 ml,Popular Pharmaceuticals Ltd.
+1,261,Omel-20,Capsule,20 mg,Medicon Pharmaceuticals Ltd.
+1,261,Omel-40,Capsule,40 mg,Medicon Pharmaceuticals Ltd.
+1,261,Omelet,Capsule,20 mg,Amulet Pharmaceuticals Ltd.
+1,261,Omelet,Capsule,40 mg,Amulet Pharmaceuticals Ltd.
+1,261,Omelock,Capsule,20 mg,One Pharma Ltd.
+1,261,Omelock,Capsule,40 mg,One Pharma Ltd.
+1,261,Omemed,Capsule,20 mg,MedRx Life Science Ltd
+1,261,Omemed,Capsule,40 mg,MedRx Life Science Ltd
+1,261,Omenaaf,Capsule,20 mg,Naafco Pharma Ltd.
+1,261,Omenat,Capsule,20 mg,National Laboratories Ltd.
+1,261,Omenix,Tablet,40 mg,Incepta Pharmaceuticals Limited
+1,261,Omenix,Tablet,10 mg,Incepta Pharmaceuticals Limited
+1,261,Omenix,Injection,40 mg/vial,Incepta Pharmaceuticals Limited
+1,261,Omenix,Capsule,20 mg,Incepta Pharmaceuticals Limited
+1,261,Omenix,Capsule,40 mg,Incepta Pharmaceuticals Limited
+1,261,Omenix,Powder,20 mg/6.5 gm,Incepta Pharmaceuticals Limited
+1,261,Omenix,Powder,40 mg/6.5 gm,Incepta Pharmaceuticals Limited
+1,261,Omenix DR,Tablet,20 mg,Incepta Pharmaceuticals Limited
+1,261,Omenta,Capsule,20 mg,Julphar Bangladesh Ltd.
+1,261,Omenta,Capsule,40 mg,Julphar Bangladesh Ltd.
+1,261,Omenta,Injection,40 mg/vial,Julphar Bangladesh Ltd.
+1,261,Omep,Capsule,10 mg,Aristopharma Ltd.
+1,261,Omep,Capsule,20 mg,Aristopharma Ltd.
+1,261,Omep,Capsule,40 mg,Aristopharma Ltd.
+1,261,Omep,Injection,40 mg/10 ml,Aristopharma Ltd.
+1,261,Omepra,Capsule,20 mg,Alco Pharma Ltd.
+1,261,Omepra,Capsule,40 mg,Alco Pharma Ltd.
+1,261,Omeprazole,Capsule,20 mg,Essential Drugs Company Ltd.
+1,261,Omeprazole,Capsule,40 mg,Essential Drugs Company Ltd.
+1,261,Omeprazole-20,Capsule,20 mg,APC Pharma Ltd.
+1,261,Omeprol,Capsule,20 mg,Ziska Pharmaceuticals Ltd.
+1,261,Omeprol,Capsule,40 mg,Ziska Pharmaceuticals Ltd.
+1,261,Omeprol,Injection,40 mg/vial,Ziska Pharmaceuticals Ltd.
+1,261,Omesil,Capsule,20 mg,Silva Pharmaceuticals Ltd.
+1,261,Omesil,Capsule,40 mg,Silva Pharmaceuticals Ltd.
+1,261,Omesil,Tablet,20 mg,Silva Pharmaceuticals Ltd.
+1,261,Omesil,Tablet,40 mg,Silva Pharmaceuticals Ltd.
+1,261,Omesil Fast,Powder,20 mg/Sached,Silva Pharmaceuticals Ltd.
+1,261,Omesil Fast,Powder,40 mg/Sached,Silva Pharmaceuticals Ltd.
+1,261,Omet,Capsule,20 mg,Pharmadesh Laboratories Ltd.
+1,261,Ometac,Injection,40 mg/vial,Navana Pharmaceuticals Ltd.
+1,261,Ometac,Capsule,20 mg,Navana Pharmaceuticals Ltd.
+1,261,Ometac,Capsule,40 mg,Navana Pharmaceuticals Ltd.
+1,261,Ometem,Capsule,20 mg,Team Pharmaceuticals Ltd.
+1,261,Ometem,Capsule,40 mg,Team Pharmaceuticals Ltd.
+1,261,Ometid,Powder,20 mg/Sached,Opsonin Pharma Ltd.
+1,261,Ometid,Capsule,20 mg,Opsonin Pharma Ltd.
+1,261,Ometid,Capsule,40 mg,Opsonin Pharma Ltd.
+1,261,Ometid,Injection,40 mg/vial,Opsonin Pharma Ltd.
+1,261,Ometop,Capsule,20 mg,Novus Pharmaceuticals Ltd.
+1,261,Ometor,Capsule,20 mg,Astra Biopharmaceuticals Ltd.
+1,261,Ometor,Capsule,40 mg,Astra Biopharmaceuticals Ltd.
+1,261,Ometor,Injection,40 mg/vial,Astra Biopharmaceuticals Ltd.
+1,261,Omevir,Capsule,20 mg,Virgo Pharmaceuticals Ltd.
+1,261,Omex,Injection,40 mg/vial,Kemiko Pharmaceuticals Ltd.
+1,261,Omex,Capsule,20 mg,Kemiko Pharmaceuticals Ltd.
+1,261,Omex,Capsule,40 mg,Kemiko Pharmaceuticals Ltd.
+1,261,Omezole,Capsule,20 mg,Medimet Pharmaceuticals Ltd.
+1,261,Omidex,Capsule,20 mg,Modern Pharmaceuticals Limited
+1,261,Omilant,Capsule,20 mg,Guardian Healthcare Ltd
+1,261,Omiloc,Capsule,40 mg,Kumudini Pharma Ltd.
+1,261,Omiloc,Capsule,20 mg,Kumudini Pharma Ltd.
+1,261,Omilux,Capsule,20 mg,Quality Pharmaceuticals (Pvt) Ltd.
+1,261,Omirex,Capsule,20 mg,Jayson Pharma Ltd.
+1,261,Omirex,Capsule,40 mg,Jayson Pharma Ltd.
+1,261,Omitac,Capsule,20 mg,Gaco Pharmaceuticals Ltd.
+1,261,Omitin,Capsule,20 mg,Nipa Pharmaceuticals Ltd.
+1,261,Omitin,Capsule,40 mg,Nipa Pharmaceuticals Ltd.
+1,261,Omixen,Capsule,20 mg,Allied Pharmaceuticals Ltd.
+1,261,Omizit,Capsule,20 mg,The White Horse Pharma
+1,261,Ompa,Capsule,20 mg,Seema Pharmaceuticals Ltd.
+1,261,Ompee,Capsule,20 mg,Jalalabad Pharmaceuticals Ltd.
+1,261,Omrazol,Capsule,20 mg,Ad-din pharmaceuticals Ltd.
+1,261,Omrazol,Capsule,40 mg,Ad-din pharmaceuticals Ltd.
+1,261,Omsec,Capsule,20 mg,Techno Drugs Ltd.
+1,261,Omsec 40,Injection,40 mg/vial,Techno Drugs Ltd.
+1,261,OP-20,Capsule,20 mg,Globe Pharmaceuticals Limited.
+1,261,OP-20,Powder,20 mg/Sached,Globe Pharmaceuticals Limited.
+1,261,OP-40,Capsule,40 mg,Globe Pharmaceuticals Limited.
+1,261,OP-40,Injection,40 mg/vial,Globe Pharmaceuticals Limited.
+1,261,OP-40,Powder,40 mg/Sached,Globe Pharmaceuticals Limited.
+1,261,Opal,Capsule,20 mg,Healthcare Pharmacuticals Ltd.
+1,261,Opal,Capsule,40 mg,Healthcare Pharmacuticals Ltd.
+1,261,Opal,Injection,40 mg/vial,Healthcare Pharmacuticals Ltd.
+1,261,Opezen,Capsule,20 mg,Zenith Pharmaceuticals Ltd.
+1,261,Opezen,Capsule,40 mg,Zenith Pharmaceuticals Ltd.
+1,261,Opezen SR,Tablet,20 mg,Zenith Pharmaceuticals Ltd.
+1,261,Opmax,Capsule,20 mg,Concord Pharmaceuticals Ltd.
+1,261,Opmax,Capsule,40 mg,Concord Pharmaceuticals Ltd.
+1,261,Opra,Capsule,20 mg,Cosmo Pharma Laboratories Ltd.
+1,261,Orpra,Capsule,20 mg,Orbit Pharmaceuticals Ltd
+1,261,Orpra,Capsule,40 mg,Orbit Pharmaceuticals Ltd
+1,261,Osecton,Capsule,20 mg,Salton Pharmaceuticals Ltd.
+1,261,Osecton,Capsule,40 mg,Salton Pharmaceuticals Ltd.
+1,261,Osyn-20,Capsule,20 mg,MST Pharma
+1,261,Ozole,Capsule,20 mg,Peoples Pharma Ltd.
+1,261,Pear,Capsule,20 mg,Prime Pharmaceuticals Ltd.
+1,261,Peplo,Capsule,20 mg,Silco Pharmaceutical Ltd.
+1,261,Peplo,Capsule,40 mg,Silco Pharmaceutical Ltd.
+1,261,Peptral,Capsule,40 mg,Labaid Pharma Ltd.
+1,261,Peptral,Capsule,20 mg,Labaid Pharma Ltd.
+1,261,Perizol,Capsule,20 mg,Leon Pharmaceuticals Ltd.
+1,261,Perizol,Capsule,40 mg,Leon Pharmaceuticals Ltd.
+1,261,Phoenix Omeprazole,Capsule,20 mg,Phoenix Chemicals Laboratory (BD) Ltd
+1,261,Piazol,Capsule,20 mg,Globex Pharmaceuticals Ltd.
+1,261,Piazol,Capsule,40 mg,Globex Pharmaceuticals Ltd.
+1,261,PPI,Capsule,20 mg,Acme Laboratories Limited.
+1,261,PPI,Capsule,40 mg,Acme Laboratories Limited.
+1,261,PPI,Injection,40 mg/10 ml,Acme Laboratories Limited.
+1,261,Pram,Capsule,20 mg,Mystic Pharmaceuticals Ltd.
+1,261,Prazo,Tablet,20 mg,Pacific Pharmaceuticals Ltd.
+1,261,Prazo,Capsule,20 mg,Pacific Pharmaceuticals Ltd.
+1,261,Prazole,Capsule,20 mg,Renata Limited
+1,261,Prazomax,Capsule,20 mg,Social Marketing Company
+1,261,Prazomax,Capsule,40 mg,Social Marketing Company
+1,261,Prazover,Capsule,20 mg,Veritas Pharmaceuticals Ltd.
+1,261,Prazover,Capsule,40 mg,Veritas Pharmaceuticals Ltd.
+1,261,Prazover DR,Tablet,20 mg,Veritas Pharmaceuticals Ltd.
+1,261,Presec,Capsule,10 mg,Unimed Unihealth MFG. Ltd.
+1,261,Presec,Capsule,40 mg,Unimed Unihealth MFG. Ltd.
+1,261,Presec,Capsule,20 mg,Unimed Unihealth MFG. Ltd.
+1,261,Presectil,Capsule,20 mg,Premier Pharmaceuticals Ltd.
+1,261,Prevas,Capsule,20 mg,General Pharmaceuticals Ltd.
+1,261,Prevas,Capsule,40 mg,General Pharmaceuticals Ltd.
+1,261,Prevas,Injection,40 mg/vial,General Pharmaceuticals Ltd.
+1,261,Prevencid,Capsule,20 mg,Rangs Pharmaceuticals Ltd.
+1,261,Prevencid,Capsule,40 mg,Rangs Pharmaceuticals Ltd.
+1,261,Probitor,Capsule,10 mg,Sandoz
+1,261,Probitor,Capsule,20 mg,Sandoz
+1,261,Probitor,Capsule,40 mg,Sandoz
+1,261,Procap,Capsule,20 mg,Orion Pharma Ltd.
+1,261,Procap,Capsule,40 mg,Orion Pharma Ltd.
+1,261,Procap,Injection,40 mg/vial,Orion Pharma Ltd.
+1,261,Proceptin,Capsule,20 mg,Beximco Pharmaceuticals Ltd.
+1,261,Proceptin,Capsule,40 mg,Beximco Pharmaceuticals Ltd.
+1,261,Proceptin,Injection,40 mg/10 ml,Beximco Pharmaceuticals Ltd.
+1,261,Prolok,Capsule,40 mg,Ibn-Sina Pharmaceuticals Ltd.
+1,261,Prolok,Capsule,20 mg,Ibn-Sina Pharmaceuticals Ltd.
+1,261,Prolok,Injection,40 mg/vial,Ibn-Sina Pharmaceuticals Ltd.
+1,261,Promezol,Capsule,20 mg,Sharif Pharmaceuticals Ltd.
+1,261,Promezol,Capsule,40 mg,Sharif Pharmaceuticals Ltd.
+1,261,Propin,Capsule,20 mg,Hallmark Pharmaceuticals Ltd.
+1,261,Propin,Capsule,40 mg,Hallmark Pharmaceuticals Ltd.
+1,261,Prosectil,Capsule,20 mg,Pharmacil Limited
+1,261,Prosectil,Capsule,40 mg,Pharmacil Limited
+1,261,Prosectil,Injection,40 mg/vial,Pharmacil Limited
+1,261,Protobit,Capsule,20 mg,Indo Bangla Pharmaceutical
+1,261,Rampro,Capsule,20 mg,RN Pharmaceuticals
+1,261,Ranzo,Capsule,20 mg,Oyster Pharmaceuticals Ltd.
+1,261,Re 20,Capsule,20 mg,Reman Drug Laboratories Ltd.
+1,261,Re 40,Capsule,40 mg,Reman Drug Laboratories Ltd.
+1,261,Regerd,Capsule,20 mg,Organic Health Care
+1,261,Regerd,Capsule,40 mg,Organic Health Care
+1,261,Roceptin,Capsule,20 mg,Desh Pharmaceuticals Ltd.
+1,261,Rome,Capsule,20 mg,Rephco Pharmaceuticals Ltd.
+1,261,Romilok,Capsule,40 mg,Reliance Pharmaceuticals Ltd.
+1,261,Romilok,Capsule,20 mg,Reliance Pharmaceuticals Ltd.
+1,261,S-Ome,Tablet,20 mg,Somatec Pharmaceuticals Ltd.
+1,261,S-Ome,Tablet,40 mg,Somatec Pharmaceuticals Ltd.
+1,261,SB-Omec,Capsule,20 mg,Sunman-Birdem Pharma Ltd.
+1,261,SB-Omec,Capsule,40 mg,Sunman-Birdem Pharma Ltd.
+1,261,Seclo,Capsule,20 mg,Square Pharmaceuticals Ltd.
+1,261,Seclo,Capsule,40 mg,Square Pharmaceuticals Ltd.
+1,261,Seclo,Tablet,20 mg,Square Pharmaceuticals Ltd.
+1,261,Seclo,Injection,40 mg/10 ml,Square Pharmaceuticals Ltd.
+1,261,Sectil,Capsule,20 mg,Cosmic Pharma Limited
+1,261,Sectil,Capsule,40 mg,Cosmic Pharma Limited
+1,261,Selclogen,Capsule,20 mg,Biogene Pharma Ltd.
+1,261,Seloktil,Capsule,20 mg,Belsen Pharmaceuticals Ltd.
+1,261,Som-20,Capsule,20 mg,Shamsul Al-Amin Pharmaceutical Ltd.
+1,261,Som-40,Capsule,40 mg,Shamsul Al-Amin Pharmaceutical Ltd.
+1,261,Stosec,Capsule,20 mg,Opso Saline Ltd.
+1,261,Stosec,Injection,40 mg/vial,Opso Saline Ltd.
+1,261,Tase,Capsule,20 mg,Union Pharmaceuticals Ltd.
+1,261,Ulsacare,Capsule,20 mg,Momotaz Pharmaceuticals Ltd.
+1,261,Xeldrin,Capsule,10 mg,ACI Limited.
+1,261,Xeldrin,Capsule,20 mg,ACI Limited.
+1,261,Xeldrin,Capsule,40 mg,ACI Limited.
+1,261,Xeldrin,Injection,40 mg/10 ml,ACI Limited.
+1,261,Xelopes,Capsule,20 mg,Beacon Pharmaceuticals Ltd.
+1,261,Xelopes,Capsule,40 mg,Beacon Pharmaceuticals Ltd.
+1,261,Xelopes,Injection,40 mg/10 ml,Beacon Pharmaceuticals Ltd.
+1,261,Xerosec,Capsule,10 mg,Sanofi Bangladesh LTD.
+1,261,Xerosec,Capsule,20 mg,Sanofi Bangladesh LTD.
+1,261,Xerosec,Capsule,40 mg,Sanofi Bangladesh LTD.
+1,261,Zilon,Capsule,20 mg,Radiant Pharmaceuticals Ltd.
+1,261,Zilon,Capsule,40 mg,Radiant Pharmaceuticals Ltd.
+1,261,Zoom,Capsule,20 mg,Everest Pharmaceuticals Ltd.
+1,261,Zoom,Capsule,40 mg,Everest Pharmaceuticals Ltd.
+1,262,Anset,Tablet,4 mg,Opsonin Pharma Ltd.
+1,262,Anset,Tablet,8 mg,Opsonin Pharma Ltd.
+1,262,Anset,Syrup,4 mg/5 ml,Opsonin Pharma Ltd.
+1,262,Anset,Injection,8 mg/4 ml,Opsonin Pharma Ltd.
+1,262,Anset,Suppository,16 mg,Opsonin Pharma Ltd.
+1,262,Apulset,Injection,8 mg/4 ml,Aristopharma Ltd.
+1,262,Apulset,Tablet,4 mg,Aristopharma Ltd.
+1,262,Apulset,Tablet,8 mg,Aristopharma Ltd.
+1,262,Apulset,Syrup,4 mg/5 ml,Aristopharma Ltd.
+1,262,Apulset,Suppository,16 mg,Aristopharma Ltd.
+1,262,Avona,Tablet,4 mg,Popular Pharmaceuticals Ltd.
+1,262,Avona,Tablet,8 mg,Popular Pharmaceuticals Ltd.
+1,262,Avona,Injection,8 mg/4 ml,Popular Pharmaceuticals Ltd.
+1,262,Avona,Syrup,4 mg/5 ml,Popular Pharmaceuticals Ltd.
+1,262,Biomifix,Tablet,8 mg,Apex Pharmaceuticals Ltd.
+1,262,Biomifix,Syrup,4 mg/5 ml,Apex Pharmaceuticals Ltd.
+1,262,Danston,Tablet,4 mg,Biopharma Laboratories Ltd.
+1,262,Danston,Tablet,8 mg,Biopharma Laboratories Ltd.
+1,262,Danston,Syrup,4 mg/5 ml,Biopharma Laboratories Ltd.
+1,262,Dantron,Tablet,8 mg,One Pharma Ltd.
+1,262,Dantron,Syrup,4 mg/5 ml,One Pharma Ltd.
+1,262,Emeren,Oral Soluble Film,4 mg,Renata Limited
+1,262,Emeren,Oral Soluble Film,8 mg,Renata Limited
+1,262,Emeren,Tablet,4 mg,Renata Limited
+1,262,Emeren,Tablet,8 mg,Renata Limited
+1,262,Emeren,Injection,8 mg/4 ml,Renata Limited
+1,262,Emeren,Syrup,8 mg/4 ml,Renata Limited
+1,262,Emeset,Tablet,8 mg,Veritas Pharmaceuticals Ltd.
+1,262,Emeset,Syrup,4 mg/5 ml,Veritas Pharmaceuticals Ltd.
+1,262,Emeset,Tablet,4 mg,Veritas Pharmaceuticals Ltd.
+1,262,Emirest,Tablet,8 mg,Pharmasia Ltd.
+1,262,Emirest,Tablet,4 mg,Pharmasia Ltd.
+1,262,Emirest,Syrup,4 mg/5 ml,Pharmasia Ltd.
+1,262,Emiset,Injection,8 mg/4 ml,Alco Pharma Ltd.
+1,262,Emiset,Syrup,4 mg/5 ml,Alco Pharma Ltd.
+1,262,Emiset,Tablet,4 mg,Alco Pharma Ltd.
+1,262,Emiset,Tablet,8 mg,Alco Pharma Ltd.
+1,262,Emistat,Tablet,4 mg,Healthcare Pharmacuticals Ltd.
+1,262,Emistat,Tablet,8 mg,Healthcare Pharmacuticals Ltd.
+1,262,Emistat,Injection,8 mg/4 ml,Healthcare Pharmacuticals Ltd.
+1,262,Emistat,Syrup,4 mg/5 ml,Healthcare Pharmacuticals Ltd.
+1,262,Emiston,Tablet,4 mg,Ibn-Sina Pharmaceuticals Ltd.
+1,262,Emiston,Syrup,4 mg/5 ml,Ibn-Sina Pharmaceuticals Ltd.
+1,262,Emiston,Tablet,8 mg,Ibn-Sina Pharmaceuticals Ltd.
+1,262,Emiston,Injection,8 mg/4 ml,Ibn-Sina Pharmaceuticals Ltd.
+1,262,Jafa,Tablet,8 mg,Doctor TIMS Pharmaceuticals Ltd.
+1,262,Leofran,Injection,8 mg/4 ml,Leon Pharmaceuticals Ltd.
+1,262,Leofran,Tablet,8 mg,Leon Pharmaceuticals Ltd.
+1,262,Leofran,Syrup,4 mg/5 ml,Leon Pharmaceuticals Ltd.
+1,262,Nauset,Syrup,4 mg/5 ml,Navana Pharmaceuticals Ltd.
+1,262,Nauset,Tablet,8 mg,Navana Pharmaceuticals Ltd.
+1,262,Nauset,Injection,8 mg/4 ml,Navana Pharmaceuticals Ltd.
+1,262,Nomiset,Tablet,8 mg,Beacon Pharmaceuticals Ltd.
+1,262,Novatron,Tablet,8 mg,Radiant Pharmaceuticals Ltd.
+1,262,Novatron,Injection,8 mg/4 ml,Radiant Pharmaceuticals Ltd.
+1,262,Odatron,Injection,8 mg/4 ml,Pacific Pharmaceuticals Ltd.
+1,262,Ofmit,Tablet,4 mg,Nuvista Pharma Ltd.
+1,262,Ofmit,Tablet,8 mg,Nuvista Pharma Ltd.
+1,262,Ofmit,Injection,8 mg/4 ml,Nuvista Pharma Ltd.
+1,262,Ofran,Tablet,8 mg,Square Pharmaceuticals Ltd.
+1,262,Ofran,Syrup,4 mg/5 ml,Square Pharmaceuticals Ltd.
+1,262,Ofran,Injection,8 mg/4 ml,Square Pharmaceuticals Ltd.
+1,262,Ofran,Suppository,16 mg,Square Pharmaceuticals Ltd.
+1,262,Onaseron,Tablet,8 mg,Incepta Pharmaceuticals Limited
+1,262,Onaseron,Syrup,4 mg/5 ml,Incepta Pharmaceuticals Limited
+1,262,Onaseron,Injection,2 mg/ml,Incepta Pharmaceuticals Limited
+1,262,Onaseron ODT,Tablet,4 mg,Incepta Pharmaceuticals Limited
+1,262,Onasia,Tablet,8 mg,Orion Pharma Ltd.
+1,262,Onasia,Syrup,4 mg/5 ml,Orion Pharma Ltd.
+1,262,Onasia,Injection,8 mg/4 ml,Orion Pharma Ltd.
+1,262,Onatron,Tablet,8 mg,Novelta Bestway Pharmaceuticals Ltd.
+1,262,Onatron,Syrup,4 mg/5 ml,Novelta Bestway Pharmaceuticals Ltd.
+1,262,Oncodex,Tablet,4 mg,Jayson Pharma Ltd.
+1,262,Oncodex,Tablet,8 mg,Jayson Pharma Ltd.
+1,262,Oncodex,Injection,8 mg/4 ml,Jayson Pharma Ltd.
+1,262,Ondagen,Injection,8 mg/4 ml,General Pharmaceuticals Ltd.
+1,262,Ondagen,Tablet,8 mg,General Pharmaceuticals Ltd.
+1,262,Ondamax,Tablet,4 mg,Somatec Pharmaceuticals Ltd.
+1,262,Ondamax,Tablet,8 mg,Somatec Pharmaceuticals Ltd.
+1,262,Ondamax,Syrup,4 mg/5 ml,Somatec Pharmaceuticals Ltd.
+1,262,Ondantor,Tablet,4 mg,Novartis (Bangladesh) Ltd.
+1,262,Ondantor,Tablet,8 mg,Novartis (Bangladesh) Ltd.
+1,262,Ondaset,Tablet,8 mg,Ziska Pharmaceuticals Ltd.
+1,262,Ondaset,Injection,8 mg/4 ml,Ziska Pharmaceuticals Ltd.
+1,262,Ondason,Tablet,8 mg,Drug International Ltd.
+1,262,Ondason,Syrup,4 mg/5 ml,Drug International Ltd.
+1,262,Ondason,Injection,8 mg/4 ml,Drug International Ltd.
+1,262,Ondason ODT,Tablet,4 mg,Drug International Ltd.
+1,262,Ondason ODT,Tablet,8 mg,Drug International Ltd.
+1,262,Onfast,Syrup,4 mg/5 ml,MST Pharma
+1,262,Onfast,Tablet,8 mg,MST Pharma
+1,262,Onlit,Tablet,4 mg,Asiatic Laboratories Ltd.
+1,262,Onlit,Tablet,8 mg,Asiatic Laboratories Ltd.
+1,262,Onlit,Injection,8 mg/4 ml,Asiatic Laboratories Ltd.
+1,262,Onlit,Syrup,4 mg/5 ml,Asiatic Laboratories Ltd.
+1,262,Onride,Tablet,8 mg,Medicon Pharmaceuticals Ltd.
+1,262,Onride,Syrup,4 mg/5 ml,Medicon Pharmaceuticals Ltd.
+1,262,Onsat,Oral Soluble Film,4 mg,Beximco Pharmaceuticals Ltd.
+1,262,Onsat,Oral Soluble Film,8 mg,Beximco Pharmaceuticals Ltd.
+1,262,Onsat,Syrup,4 mg/5 ml,Beximco Pharmaceuticals Ltd.
+1,262,Onsat,Tablet,8 mg,Beximco Pharmaceuticals Ltd.
+1,262,Onsat,Injection,8 mg/4 ml,Beximco Pharmaceuticals Ltd.
+1,262,Osedan,Tablet,8 mg,Euro Pharma Ltd.
+1,262,Osedan,Injection,8 mg/4 ml,Euro Pharma Ltd.
+1,262,Osetron,Tablet,8 mg,ACI Limited.
+1,262,Osetron,Syrup,4 mg/5 ml,ACI Limited.
+1,262,Osetron,Injection,8 mg/4 ml,ACI Limited.
+1,262,Periset,Injection,8 mg/4 ml,Acme Laboratories Limited.
+1,262,Periset,Tablet,8 mg,Acme Laboratories Limited.
+1,262,Periset,Syrup,4 mg/5 ml,Acme Laboratories Limited.
+1,262,Premesis,Tablet,4 mg,Globe Pharmaceuticals Limited.
+1,262,Premesis,Tablet,8 mg,Globe Pharmaceuticals Limited.
+1,262,Premesis,Syrup,4 mg/5 ml,Globe Pharmaceuticals Limited.
+1,262,Premesis,Injection,8 mg/4 ml,Globe Pharmaceuticals Limited.
+1,262,Pukenil,Syrup,4 mg/5 ml,Team Pharmaceuticals Ltd.
+1,262,Pukenil,Tablet,8 mg,Team Pharmaceuticals Ltd.
+1,262,Seroset,Tablet,8 mg,Globex Pharmaceuticals Ltd.
+1,262,Seroset,Injection,8 mg/4 ml,Globex Pharmaceuticals Ltd.
+1,262,Seton,Tablet,4 mg,Delta Pharma Limited
+1,262,Seton,Tablet,8 mg,Delta Pharma Limited
+1,262,Setroanaaf,Syrup,4 mg/5 ml,Naafco Pharma Ltd.
+1,262,Setronax 8,Tablet,8 mg,Monicopharma Limited
+1,262,Vomidyl,Tablet,8 mg,Social Marketing Company
+1,262,Vomiset,Injection,8 mg/4 ml,Julphar Bangladesh Ltd.
+1,262,Vomiset,Tablet,8 mg,Julphar Bangladesh Ltd.
+1,262,Vomiset,Syrup,4 mg/5 ml,Julphar Bangladesh Ltd.
+1,262,Vomitof,Syrup,4 mg/5 ml,Chemist Laboratories Limited.
+1,262,Vomitof,Injection,8 mg/4 ml,Chemist Laboratories Limited.
+1,262,Vomitron,Injection,8 mg/4 ml,Pharmacil Limited
+1,262,Vomitron,Tablet,4 mg,Pharmacil Limited
+1,262,Vomitron,Tablet,8 mg,Pharmacil Limited
+1,262,Zofer MD 4,Tablet,4 mg,Sun Pharmaceutical (Bangladesh) Limited
+1,262,Zofra,Syrup,4 mg/5 ml,Eskayef Bangladesh Ltd.
+1,262,Zofra,Injection,8 mg/4 ml,Eskayef Bangladesh Ltd.
+1,262,Zofra ODT 4,Tablet,4 mg,Eskayef Bangladesh Ltd.
+1,262,Zofra ODT 8,Tablet,8 mg,Eskayef Bangladesh Ltd.
+1,263,ACI ORS Fruity,Powder,N/A,ACI Limited.
+1,263,Asaline Fruity,Powder,N/A,Apex Pharmaceuticals Ltd.
+1,263,K-Saline Fruity,Powder,N/A,Kemiko Pharmaceuticals Ltd.
+1,263,O Fruity Saline,Powder,N/A,Zenith Pharmaceuticals Ltd.
+1,263,ORS-ORS,Powder,N/A,Renata Limited
+1,263,,,,
+1,263,Orsaline Fruity,Powder,N/A,Essential Drugs Company Ltd.
+1,263,ORSaline Fruity,Powder,N/A,Social Marketing Company
+1,263,Saline Plus,Powder,N/A,Renata Limited
+1,263,Saline R,Powder,N/A,Renata Limited
+1,263,Unisaline Fruity,Powder,N/A,Ibn-Sina Pharmaceuticals Ltd.
+1,264,ACI ORS,Powder,10.5 gm/sachet,ACI Limited.
+1,264,Acme's ORS,Powder,13.95 gm,Acme Laboratories Limited.
+1,264,E-Saline,Powder,13.95 gm,Edruc Ltd.
+1,264,Easy ORS,Powder,19.95 gm,Central Pharmaceuticals Ltd (CPL)
+1,264,G-ORS,Powder,13.95 gm,Gonoshasthaya Pharmaceuticals Ltd.
+1,264,GPL ORS,Powder,13.95 gm,General Pharmaceuticals Ltd.
+1,264,IB Oral Saline,Powder,13.95 gm,Indo Bangla Pharmaceutical
+1,264,K-Saline N,Powder,13.95 gm,Kemiko Pharmaceuticals Ltd.
+1,264,Medimet's ORS,Powder,13.95 gm,Medimet Pharmaceuticals Ltd.
+1,264,Millat's ORS,Powder,13.95 gm,Millat Pharmaceuticals Limited
+1,264,Naafco Orsaline,Powder,13.95 gm,Naafco Pharma Ltd.
+1,264,Neosaline,Powder,10.25 gm,Eskayef Bangladesh Ltd.
+1,264,New Orsa-A,Powder,13.95 gm,Ad-din pharmaceuticals Ltd.
+1,264,Novo ORS Saline,Powder,13.95 gm,Novo Healthcare and Pharma Ltd.
+1,264,Nutrisal Orsaline-N,Powder,13.95 gm,Guardian Healthcare Ltd
+1,264,O Saline,Powder,13.95 gm,Zenith Pharmaceuticals Ltd.
+1,264,O Saline-N,Powder,10.25 gm,Zenith Pharmaceuticals Ltd.
+1,264,Oralsaline,Powder,19.95 gm,Medicon Pharmaceuticals Ltd.
+1,264,Orasol Saline,Powder,13.95 gm,Sonear Laboratories Ltd.
+1,264,ORS,Powder,10 gm/sachet,Popular Pharmaceuticals Ltd.
+1,264,ORS Saline-Plus,Powder,10.25 gm,Renata Limited
+1,264,ORS Saline-R,Powder,10.25 gm (reduced osmolarity),Renata Limited
+1,264,ORS-BRAC Saline,Powder,13.95 gm,Renata Limited
+1,264,ORS-N,Powder,10.25 gm,Renata Limited
+1,264,ORS-Rena Saline,Powder,13.95 gm,Renata Limited
+1,264,Orsaline-N,Powder,13.95 gm,Essential Drugs Company Ltd.
+1,264,Orsaline-N,Powder,13.95 gm,Bristol Pharmaceuticals Ltd.
+1,264,ORSaline-N,Powder,13.95 gm,Social Marketing Company
+1,264,Pharma Saline,Powder,13.95 gm,Pharmadesh Laboratories Ltd.
+1,264,Phoenix ORS,Powder,13.95 gm,Phoenix Chemicals Laboratory (BD) Ltd
+1,264,R-Saline-N,Powder,13.95 gm,Rephco Pharmaceuticals Ltd.
+1,264,Renasaline-N,Powder,10.25 gm,Renata Limited
+1,264,Sos Saline,Powder,13.95 gm,Supreme Pharmaceutical Ltd.
+1,264,SR Saline,Powder,13.95 gm,Seema Pharmaceuticals Ltd.
+1,264,Super Saline,Powder,13.95 gm,Amico Laboratories Ltd.
+1,264,Unisaline,Powder,10.25 gm,Ibn-Sina Pharmaceuticals Ltd.
+1,264,Virgo's Orsaline,Powder,13.95 gm,Virgo Pharmaceuticals Ltd.
+1,264,Zeosaline,Powder,13.95 gm,Sharif Pharmaceuticals Ltd.
+1,264,Ziska Oral Saline,Powder,13.95 gm,Ziska Pharmaceuticals Ltd.
+1,265,Easy ORS,Powder,N/A,Central Pharmaceuticals Ltd (CPL)
+1,265,Neorice Saline,Powder,N/A,Eskayef Bangladesh Ltd.
+1,265,Rice ORS,Powder,N/A,Square Pharmaceuticals Ltd.
+1,265,Rice Saline,Powder,N/A,Zenith Pharmaceuticals Ltd.
+1,265,Rice Saline,Powder,N/A,General Pharmaceuticals Ltd.
+1,266,Adiponil,Capsule,120 mg,Incepta Pharmaceuticals Limited
+1,266,Dietil,Capsule,120 mg,Eskayef Bangladesh Ltd.
+1,266,Lowet,Capsule,120 mg,Albion Pharmaceuticals Ltd.
+1,266,Obitrol,Capsule,120 mg,Drug International Ltd.
+1,266,Olistat,Capsule,120 mg,Square Pharmaceuticals Ltd.
+1,266,Olistat,Capsule,60 mg,Square Pharmaceuticals Ltd.
+1,266,Orlis,Capsule,120 mg,Pharmacil Limited
+1,266,Ornical,Capsule,120 mg,ACI Limited.
+1,266,Slimfast,Capsule,120 mg,Healthcare Pharmacuticals Ltd.
+1,266,Slimfast,Capsule,60 mg,Healthcare Pharmacuticals Ltd.
+1,266,Slimi,Capsule,60 mg,Unimed Unihealth MFG. Ltd.
+1,266,Xenical,Capsule,120 mg,Roche Bangladesh Limited
+1,266,Xenobese,Capsule,120 mg,Radiant Pharmaceuticals Ltd.
+1,267,Gat,Tablet,500 mg,Globe Pharmaceuticals Limited.
+1,267,OR-500,Tablet,500 mg,Zenith Pharmaceuticals Ltd.
+1,267,Ornid,Tablet,500 mg,Drug International Ltd.
+1,267,Ornil,Tablet,500 mg,Opsonin Pharma Ltd.
+1,267,Ornizol,Tablet,500 mg,Alco Pharma Ltd.
+1,267,Robic,Tablet,500 mg,Square Pharmaceuticals Ltd.
+1,267,Troniz,Tablet,500 mg,Unimed Unihealth MFG. Ltd.
+1,267,Ulnid,Tablet,500 mg,Ultra Pharma Ltd.
+1,267,Xynor,Tablet,500 mg,Beximco Pharmaceuticals Ltd.
+1,268,Aviflu,Capsule,75 mg,Square Pharmaceuticals Ltd.
+1,268,Delaflu,Capsule,75 mg,Delta Pharma Limited
+1,268,Flutavir,Capsule,75 mg,Incepta Pharmaceuticals Limited
+1,268,G-Oseltamivir,Capsule,75 mg,Gonoshasthaya Pharmaceuticals Ltd.
+1,268,G-Oseltamivir,Suspension,60 mg/5 ml,Gonoshasthaya Pharmaceuticals Ltd.
+1,268,Omeflu,Capsule,75 mg,Techno Drugs Ltd.
+1,268,Omeflu,Suspension,60 mg/5 ml,Techno Drugs Ltd.
+1,268,Oseflu,Capsule,75 mg,Beximco Pharmaceuticals Ltd.
+1,268,Oseflu,Suspension,60 mg/5 ml,Beximco Pharmaceuticals Ltd.
+1,268,Oselta,Suspension,60 mg/5 ml,Popular Pharmaceuticals Ltd.
+1,268,Oselta,Capsule,75 mg,Popular Pharmaceuticals Ltd.
+1,268,Oseltamivir,Capsule,75 mg,Essential Drugs Company Ltd.
+1,268,Oseltamivir,Suspension,60 mg/5 ml,Essential Drugs Company Ltd.
+1,268,Osevir,Capsule,75 mg,Drug International Ltd.
+1,268,Pandeflu,Capsule,75 mg,ACI Limited.
+1,268,Sk-Flu,Capsule,75 mg,Eskayef Bangladesh Ltd.
+1,268,SK-Flu,Suspension,60 mg/5 ml,Eskayef Bangladesh Ltd.
+1,268,Tamiflu,Capsule,75 mg,Roche Bangladesh Limited
+1,269,Osicent,Tablet,80 mg,Incepta Pharmaceuticals Limited
+1,269,Osimert,Tablet,80 mg,Everest Pharmaceuticals Ltd.
+1,269,Osinib,Tablet,80 mg,Drug International Ltd.
+1,270,Eloxatin,Infusion,5 mg/ml,Sanofi Bangladesh LTD.
+1,270,Oxaliplat,Infusion,5 mg/ml,Healthcare Pharmacuticals Ltd.
+1,270,Oxaliplatin AqVida,Infusion,5 mg/ml,BioRx
+1,270,Oxaliplatin SANDOZ,Infusion,5 mg/ml,Sandoz
+1,270,Oxalotin,Infusion,5 mg/ml,Techno Drugs Ltd.
+1,270,Oxiplat,Infusion,5 mg/ml,Drug International Ltd.
+1,270,Sindoxplatin,Infusion,5 mg/ml,Actavis (BOTS Pvt. Limited)
+1,270,Xaloplat,Infusion,5 mg/ml,Beacon Pharmaceuticals Ltd.
+1,271,Dayprox,Tablet,600 mg,Eskayef Bangladesh Ltd.
+1,271,Demarin,Tablet,600 mg,ACI Limited.
+1,271,Frepain,Tablet,600 mg,Orion Pharma Ltd.
+1,271,Juveprox,Tablet,600 mg,Healthcare Pharmacuticals Ltd.
+1,271,Oxana,Tablet,600 mg,Globe Pharmaceuticals Limited.
+1,271,Oxaprozen,Tablet,600 mg,Sanofi Bangladesh LTD.
+1,272,Leptal,Tablet,300 mg,Healthcare Pharmacuticals Ltd.
+1,272,Leptal,Tablet,600 mg,Healthcare Pharmacuticals Ltd.
+1,272,Oxazep,Tablet,300 mg,Incepta Pharmaceuticals Limited
+1,272,Oxazep,Tablet,600 mg,Incepta Pharmaceuticals Limited
+1,272,Oxazep,Suspension,300 mg/5 ml,Incepta Pharmaceuticals Limited
+1,272,Oxetol,Tablet,150 mg,Sun Pharmaceutical (Bangladesh) Limited
+1,272,Oxetol,Tablet,300 mg,Sun Pharmaceutical (Bangladesh) Limited
+1,272,Oxipine,Tablet,300 mg,Albion Pharmaceuticals Ltd.
+1,272,Trileptal,Tablet,300 mg,Novartis (Bangladesh) Ltd.
+1,272,Trileptal,Tablet,600 mg,Novartis (Bangladesh) Ltd.
+1,272,Trileptal,Suspension,300 mg/5 ml,Novartis (Bangladesh) Ltd.
+1,273,Buprocaine,Eye Drop,0.004,General Pharmaceuticals Ltd.
+1,273,Novocaine,Eye Drop,0.004,Opso Saline Ltd.
+1,273,Oxycaine,Eye Drop,0.004,Reman Drug Laboratories Ltd.
+1,274,Afrin,Nasal Drop,0.0003,Aristopharma Ltd.
+1,274,Afrin,Nasal Drop,0.0005,Aristopharma Ltd.
+1,274,Azolin,Nasal Drop,0.0005,Acme Laboratories Limited.
+1,274,Azolin,Nasal Drop,0.0003,Acme Laboratories Limited.
+1,274,Confree,Nasal Drop,0.0005,Asiatic Laboratories Ltd.
+1,274,Confree,Nasal Drop,0.0003,Asiatic Laboratories Ltd.
+1,274,Congenil,Nasal Drop,0.0005,Navana Pharmaceuticals Ltd.
+1,274,Congenil,Nasal Drop,0.0003,Navana Pharmaceuticals Ltd.
+1,274,G-Con,Nasal Drop,0.0003,Kemiko Pharmaceuticals Ltd.
+1,274,G-Con,Nasal Drop,0.0005,Kemiko Pharmaceuticals Ltd.
+1,274,Liazol,Nasal Drop,0.0005,Drug International Ltd.
+1,274,Liazol,Nasal Drop,0.0003,Drug International Ltd.
+1,274,Nasalox,Nasal Drop,0.0005,General Pharmaceuticals Ltd.
+1,274,Nasalox,Nasal Drop,0.0003,General Pharmaceuticals Ltd.
+1,274,Nasoclin,Nasal Drop,0.0005,Chemist Laboratories Limited.
+1,274,Natazol,Nasal Drop,0.0005,Ibn-Sina Pharmaceuticals Ltd.
+1,274,Natazol,Nasal Drop,0.0003,Ibn-Sina Pharmaceuticals Ltd.
+1,274,Nazol,Nasal Drop,0.0003,National Laboratories Ltd.
+1,274,Nazol,Nasal Drop,0.0005,National Laboratories Ltd.
+1,274,Nazolin,Nasal Spray,0.0005,Beximco Pharmaceuticals Ltd.
+1,274,Nocon,Nasal Drop,0.0005,Square Pharmaceuticals Ltd.
+1,274,Nocon,Nasal Drop,0.0003,Square Pharmaceuticals Ltd.
+1,274,Oxrin,Nasal Drop,0.0005,Globe Pharmaceuticals Limited.
+1,274,Oxrin,Nasal Drop,0.0003,Globe Pharmaceuticals Limited.
+1,274,Oxydrop,Nasal Drop,0.0005,NIPRO JMI Pharma Ltd.
+1,274,Oxydrop,Nasal Drop,0.0003,NIPRO JMI Pharma Ltd.
+1,274,Oxymet,Nasal Drop,0.0005,Opso Saline Ltd.
+1,274,Oxymet,Nasal Drop,0.0003,Opso Saline Ltd.
+1,274,Oxynex,Nasal Drop,0.0005,Opsonin Pharma Ltd.
+1,274,Oxynex,Nasal Drop,0.0003,Opsonin Pharma Ltd.
+1,274,Oxynex,Nasal Spray,0.0005,Opsonin Pharma Ltd.
+1,274,Rynex,Nasal Drop,0.0005,Incepta Pharmaceuticals Limited
+1,274,Rynex,Nasal Drop,0.0003,Incepta Pharmaceuticals Limited
+1,274,Rynex,Nasal Spray,0.0005,Incepta Pharmaceuticals Limited
+1,274,Synex,Nasal Drop,0.0005,Gaco Pharmaceuticals Ltd.
+1,274,Xylocon,Nasal Drop,0.0005,Square Pharmaceuticals Ltd.
+1,274,Xylocon,Nasal Drop,0.0003,Square Pharmaceuticals Ltd.
+1,275,Narco,Tablet,5 mg,Globe Pharmaceuticals Limited.
+1,275,Narco,Tablet,10 mg,Globe Pharmaceuticals Limited.
+1,275,Narco,Injection,1 mg/ml,Globe Pharmaceuticals Limited.
+1,275,O-Morphon,Tablet,10 mg,Ziska Pharmaceuticals Ltd.
+1,275,O-Morphon,Injection,1 mg/ml,Ziska Pharmaceuticals Ltd.
+1,275,O-Morphon,Tablet,5 mg,Ziska Pharmaceuticals Ltd.
+1,276,A-Spasm,Tablet,5 mg,Acme Laboratories Limited.
+1,276,Anil,Tablet,5 mg,Gaco Pharmaceuticals Ltd.
+1,276,Antrenex,Tablet,5 mg,Opsonin Pharma Ltd.
+1,276,Antrenyl,Tablet,5 mg,Sandoz
+1,276,Antrenyl,Tablet,5 mg,Novartis (Bangladesh) Ltd.
+1,276,Isonil,Tablet,5 mg,Amico Laboratories Ltd.
+1,276,Oxafen,Tablet,5 mg,Nipa Pharmaceuticals Ltd.
+1,277,Petracin,Ointment,3% + 0.013%,Peoples Pharma Ltd.
+1,277,Polytetra,Ointment,3% + 0.013%,Pharmadesh Laboratories Ltd.
+1,277,Renamycin,Ointment,3% + 0.013%,Renata Limited
+1,278,Oxy Otic,Ear Drop,(25 mg+50000 Unit+250 mg)/100 ml,Opsonin Pharma Ltd.
+1,278,Oxymin Plus,Ear Drop,(25 mg+50000 Unit+250 mg)/100 ml,Sharif Pharmaceuticals Ltd.
+1,278,Renamycin,E/E Drop,(25 mg+50000 Unit+250 mg)/100 ml,Gaco Pharmaceuticals Ltd.
+1,278,Renamycin,Ear Drop,(25 mg+50000 Unit+250 mg)/100 ml,Renata Limited
+1,279,Chemomycine,Capsule,250 mg,Salton Pharmaceuticals Ltd.
+1,279,Curomycin,Capsule,250 mg,Team Pharmaceuticals Ltd.
+1,279,Impetet,Capsule,250 mg,ACI Limited.
+1,279,Jexiline,Capsule,250 mg,Biogene Pharma Ltd.
+1,279,Opsocycline,Capsule,250 mg,Opsonin Pharma Ltd.
+1,279,Oramycin,Tablet,500 mg,Desh Pharmaceuticals Ltd.
+1,279,Oramycin,Capsule,250 mg,Desh Pharmaceuticals Ltd.
+1,279,Oxacin,Capsule,250 mg,Doctor's Chemical Works Ltd.
+1,279,Oxaline,Capsule,250 mg,Pharmadesh Laboratories Ltd.
+1,279,Oxecylin,Capsule,250 mg,Acme Laboratories Limited.
+1,279,Oxycap,Capsule,250 mg,Globe Pharmaceuticals Limited.
+1,279,Oxycin,Capsule,250 mg,Nipa Pharmaceuticals Ltd.
+1,279,Oxylin,Tablet,500 mg,Gaco Pharmaceuticals Ltd.
+1,279,Oxymycin,Capsule,250 mg,National Laboratories Ltd.
+1,279,Oxymycin H,Tablet,500 mg,Jayson Pharma Ltd.
+1,279,Oxytetracycline,Capsule,250 mg,Reliance Pharmaceuticals Ltd.
+1,279,Oxytetracycline,Capsule,250 mg,Elixir Pharmaceuticals Ltd.
+1,279,Petracin,Capsule,250 mg,Peoples Pharma Ltd.
+1,279,Renamycin,Capsule,250 mg,Renata Limited
+1,279,Renamycin,Injection,50 mg/ml,Renata Limited
+1,279,Sq Cycline,Capsule,250 mg,Square Pharmaceuticals Ltd.
+1,279,Teracin,Tablet,500 mg,Medicon Pharmaceuticals Ltd.
+1,279,Tetrac,Capsule,250 mg,Ethical Drug Ltd.
+1,279,Unicycline,Capsule,250 mg,United Chemicals & Pharmaceuticals Ltd.
+1,279,Zenoxy,Capsule,250 mg,Zenith Pharmaceuticals Ltd.
+1,280,Inducin,Injection,10 IU/ml,Incepta Pharmaceuticals Limited
+1,280,Linda S,Injection,5 IU/ml,Nuvista Pharma Ltd.
+1,280,Linda-S DS,Injection,10 IU/ml,Nuvista Pharma Ltd.
+1,280,Ocin,Injection,5 IU/ml,Opsonin Pharma Ltd.
+1,280,Otina,Injection,5 IU/ml,Globe Pharmaceuticals Limited.
+1,280,Oxyto,Injection,5 IU/ml,Ziska Pharmaceuticals Ltd.
+1,280,Oxyton,Injection,5 IU/ml,Renata Limited
+1,280,Pitocin,Injection,5 IU/ml,Chemist Laboratories Limited.
+1,280,Pitocin DS,Injection,10 IU/ml,Chemist Laboratories Limited.
+1,280,Syntocin,Injection,5 IU/ml,Techno Drugs Ltd.
+1,280,Syntocin,Injection,10 IU/ml,Techno Drugs Ltd.
+1,280,Syntocinon,Injection,5 IU/ml,Novartis (Bangladesh) Ltd.
+1,281,Ontaxel,Infusion,6 mg/ml,Drug International Ltd.
+1,281,Paclitaxel Actavis,Infusion,6 mg/ml,Actavis (BOTS Pvt. Limited)
+1,281,Paclitaxel AqVida,Infusion,6 mg/ml,BioRx
+1,281,Paclitaxel PhaRes,Infusion,6 mg/ml,ZAS Corporation
+1,281,Paclitaxel SANDOZ,Infusion,6 mg/ml,Sandoz
+1,281,Paclitex,Infusion,6 mg/ml,Techno Drugs Ltd.
+1,281,Paxel,Infusion,6 mg/ml,Healthcare Pharmacuticals Ltd.
+1,281,PXJ,Infusion,6 mg/ml,"Gosun Pharmaceutical Ltd, China"
+1,281,Xelpac,Infusion,6 mg/ml,Beacon Pharmaceuticals Ltd.
+1,282,Palimax ER,Tablet,6 mg,ACI Limited.
+1,282,Palimax ER,Tablet,1.5 mg,ACI Limited.
+1,282,Palimax ER,Tablet,3 mg,ACI Limited.
+1,283,Palanomed,Tablet,0.5 mg,MedRx Life Science Ltd
+1,283,Palnox,Injection,0.25 mg/5 ml,Drug International Ltd.
+1,283,Palnox,Injection,0.075 mg/1.5 ml,Drug International Ltd.
+1,283,Palnox,Tablet,0.5 mg,Drug International Ltd.
+1,283,Palon,Tablet,0.5 mg,Pharmasia Ltd.
+1,283,Palon,Injection,0.075 mg/1.5 ml,Pharmasia Ltd.
+1,283,Palon,Injection,0.25 mg/5 ml,Pharmasia Ltd.
+1,283,Palorex,Tablet,0.5 mg,Julphar Bangladesh Ltd.
+1,283,Paloron,Injection,0.075 mg/1.5 ml,Ziska Pharmaceuticals Ltd.
+1,283,Paloron,Injection,0.25 mg/5 ml,Ziska Pharmaceuticals Ltd.
+1,283,Paloron,Tablet,0.50 mg,Ziska Pharmaceuticals Ltd.
+1,283,Paloset,Injection,0.075 mg/1.5 ml,Square Pharmaceuticals Ltd.
+1,283,Paloset,Injection,0.25 mg/5 ml,Square Pharmaceuticals Ltd.
+1,283,Paloset,Tablet,0.5 mg,Square Pharmaceuticals Ltd.
+1,283,Palosis,Tablet,0.5 mg,Eskayef Bangladesh Ltd.
+1,283,Palosis,Capsule,0.5 mg,Eskayef Bangladesh Ltd.
+1,283,Palostar,Injection,0.075 mg/1.5 ml,Orion Pharma Ltd.
+1,283,Palostar,Tablet,0.5 mg,Orion Pharma Ltd.
+1,283,Palostat,Tablet,0.5 mg,Ibn-Sina Pharmaceuticals Ltd.
+1,283,Palostat,Injection,0.075 mg/1.5 ml,Ibn-Sina Pharmaceuticals Ltd.
+1,283,Palostat,Injection,0.25 mg/5 ml,Ibn-Sina Pharmaceuticals Ltd.
+1,283,Palotic,Injection,0.075 mg/1.5 ml,Popular Pharmaceuticals Ltd.
+1,283,Palotic,Tablet,0.5 mg,Popular Pharmaceuticals Ltd.
+1,283,Paloxi,Tablet,0.5 mg,Beacon Pharmaceuticals Ltd.
+1,283,Paloxi,Capsule,0.50 mg,Beacon Pharmaceuticals Ltd.
+1,283,Paloxi,Injection,0.075 mg/1.5 ml,Beacon Pharmaceuticals Ltd.
+1,283,Paloxi,Injection,0.25 mg/5 ml,Beacon Pharmaceuticals Ltd.
+1,283,Paloxiron,Injection,0.075 mg/1.5 ml,Incepta Pharmaceuticals Limited
+1,283,Paloxiron,Injection,0.25 mg/5 ml,Incepta Pharmaceuticals Limited
+1,283,Paloxiron,Tablet,0.5 mg,Incepta Pharmaceuticals Limited
+1,283,Palzen,Injection,0.075 mg/1.5 ml,Healthcare Pharmacuticals Ltd.
+1,283,Palzen,Injection,0.25 mg/5 ml,Healthcare Pharmacuticals Ltd.
+1,283,Palzen,Tablet,0.5 mg,Healthcare Pharmacuticals Ltd.
+1,283,Panoset,Injection,0.25 mg/5 ml,Opsonin Pharma Ltd.
+1,283,Panoset,Injection,0.075 mg/1.5 ml,Opsonin Pharma Ltd.
+1,283,Panoset,Tablet,0.5 mg,Opsonin Pharma Ltd.
+1,283,Patron,Injection,0.075 mg/1.5 ml,Acme Laboratories Limited.
+1,283,Patron,Injection,0.25 mg/5 ml,Acme Laboratories Limited.
+1,283,Patron,Tablet,0.5 mg,Acme Laboratories Limited.
+1,284,A-zyme,Tablet,325 mg,Acme Laboratories Limited.
+1,284,Crezyme,Tablet,325 mg,Opsonin Pharma Ltd.
+1,284,Pancrestal,Tablet,325 mg,Gaco Pharmaceuticals Ltd.
+1,284,Ppzyme,Capsule,325 mg,Peoples Pharma Ltd.
+1,284,Renzyme,Tablet,325 mg,Rephco Pharmaceuticals Ltd.
+1,284,Suprazyme,Tablet,325 mg,Supreme Pharmaceutical Ltd.
+1,284,Suzyme,Tablet,325 mg,Square Pharmaceuticals Ltd.
+1,284,Zymet,Tablet,325 mg,Beximco Pharmaceuticals Ltd.
+1,285,AUP-20,Tablet,20 mg,Decent Pharma Laboratories Ltd.
+1,285,AUP-40,Tablet,40 mg,Decent Pharma Laboratories Ltd.
+1,285,Cospra 20,Tablet,20 mg,Cosmo Pharma Laboratories Ltd.
+1,285,Detonix,Tablet,20 mg,Desh Pharmaceuticals Ltd.
+1,285,Exipro,Tablet,20 mg,Leon Pharmaceuticals Ltd.
+1,285,Exipro,Tablet,40 mg,Leon Pharmaceuticals Ltd.
+1,285,Exopan,Tablet,40 mg,Edruc Ltd.
+1,285,Exopan,Tablet,20 mg,Edruc Ltd.
+1,285,Gaslev,Tablet,20 mg,The White Horse Pharma
+1,285,Gaspain,Tablet,20 mg,Ethical Drug Ltd.
+1,285,Gaspain,Tablet,40 mg,Ethical Drug Ltd.
+1,285,Hiprazole,Tablet,20 mg,Hudson Pharmaceuticals Ltd.
+1,285,Labpan,Tablet,40 mg,Labaid Pharma Ltd.
+1,285,Labpan,Tablet,20 mg,Labaid Pharma Ltd.
+1,285,Neopanta,Tablet,20 mg,Supreme Pharmaceutical Ltd.
+1,285,Neopanta,Tablet,40 mg,Supreme Pharmaceutical Ltd.
+1,285,Nixpan,Tablet,40 mg,Ad-din pharmaceuticals Ltd.
+1,285,Nixpan,Tablet,20 mg,Ad-din pharmaceuticals Ltd.
+1,285,Novapan,Tablet,40 mg,Novus Pharmaceuticals Ltd.
+1,285,Otonix,Tablet,20 mg,Peoples Pharma Ltd.
+1,285,Otonix,Tablet,40 mg,Peoples Pharma Ltd.
+1,285,P-20,Tablet,20 mg,Asiatic Laboratories Ltd.
+1,285,P-40,Tablet,40 mg,Asiatic Laboratories Ltd.
+1,285,P-Gut,Tablet,20 mg,Globe Pharmaceuticals Limited.
+1,285,P-Gut,Tablet,40 mg,Globe Pharmaceuticals Limited.
+1,285,P-Gut,Injection,40 mg/vial,Globe Pharmaceuticals Limited.
+1,285,P-Lock,Tablet,40 mg,One Pharma Ltd.
+1,285,P-Lock,Tablet,20 mg,One Pharma Ltd.
+1,285,P-Proton,Tablet,20 mg,Doctor TIMS Pharmaceuticals Ltd.
+1,285,Pagerd,Tablet,20 mg,Organic Health Care
+1,285,Pagerd,Tablet,40 mg,Organic Health Care
+1,285,Pamel,Tablet,20 mg,Medicon Pharmaceuticals Ltd.
+1,285,Pamel,Tablet,40 mg,Medicon Pharmaceuticals Ltd.
+1,285,Panfast,Injection,40 mg/vial,Monicopharma Limited
+1,285,Panloc,Tablet,20 mg,Kumudini Pharma Ltd.
+1,285,Panloc,Tablet,40 mg,Kumudini Pharma Ltd.
+1,285,Panmed,Tablet,40 mg,MedRx Life Science Ltd
+1,285,Panmed,Tablet,20 mg,MedRx Life Science Ltd
+1,285,Panoral,Injection,40 mg/vial,Eskayef Bangladesh Ltd.
+1,285,Panoral,Tablet,20 mg,Eskayef Bangladesh Ltd.
+1,285,Panoral,Tablet,40 mg,Eskayef Bangladesh Ltd.
+1,285,Panotem,Tablet,20 mg,Team Pharmaceuticals Ltd.
+1,285,Panotem,Tablet,40 mg,Team Pharmaceuticals Ltd.
+1,285,Panoz,Tablet,20 mg,Astra Biopharmaceuticals Ltd.
+1,285,Panprazo,Tablet,20 mg,Pacific Pharmaceuticals Ltd.
+1,285,Panprin,Tablet,20 mg,Doctor's Chemical Works Ltd.
+1,285,Panprin,Tablet,40 mg,Doctor's Chemical Works Ltd.
+1,285,Panpro,Tablet,20 mg,Biopharma Laboratories Ltd.
+1,285,Panpro,Tablet,40 mg,Biopharma Laboratories Ltd.
+1,285,Panpro,Injection,40 mg/vial,Biopharma Laboratories Ltd.
+1,285,Pansec,Tablet,20 mg,Drug International Ltd.
+1,285,Pansec,Tablet,40 mg,Drug International Ltd.
+1,285,Pansec,Injection,40 mg/vial,Drug International Ltd.
+1,285,Pansiv,Tablet,40 mg,MST Pharma
+1,285,Pansiv,Tablet,20 mg,MST Pharma
+1,285,Pansos 20,Tablet,20 mg,NIPRO JMI Pharma Ltd.
+1,285,Pansos 40,Tablet,40 mg,NIPRO JMI Pharma Ltd.
+1,285,Pantac,Tablet,20 mg,Navana Pharmaceuticals Ltd.
+1,285,Pantac,Tablet,40 mg,Navana Pharmaceuticals Ltd.
+1,285,Pantaloc 40,Tablet,40 mg,Aexim Pharmaceuticals Ltd.
+1,285,Pantex,Tablet,20 mg,ACI Limited.
+1,285,Pantex,Injection,40 mg/10 ml,ACI Limited.
+1,285,Pantex,Capsule,20 mg,ACI Limited.
+1,285,Pantex,Capsule,40 mg,ACI Limited.
+1,285,Pantex,Tablet,40 mg,ACI Limited.
+1,285,Pantid,Tablet,20 mg,Opsonin Pharma Ltd.
+1,285,Pantid,Tablet,40 mg,Opsonin Pharma Ltd.
+1,285,Pantid,Injection,40 mg/vial,Opsonin Pharma Ltd.
+1,285,Pantium,Tablet,40 mg,Radiant Pharmaceuticals Ltd.
+1,285,Pantium,Tablet,20 mg,Radiant Pharmaceuticals Ltd.
+1,285,Panto,Tablet,20 mg,Somatec Pharmaceuticals Ltd.
+1,285,Panto,Tablet,40 mg,Somatec Pharmaceuticals Ltd.
+1,285,Panto SP,Tablet,40 mg,Seema Pharmaceuticals Ltd.
+1,285,Panto SP,Tablet,20 mg,Seema Pharmaceuticals Ltd.
+1,285,Pantoaid,Tablet,20 mg,Novo Healthcare and Pharma Ltd.
+1,285,Pantoaid,Tablet,40 mg,Novo Healthcare and Pharma Ltd.
+1,285,Pantobex,Tablet,20 mg,Beximco Pharmaceuticals Ltd.
+1,285,Pantobex,Tablet,40 mg,Beximco Pharmaceuticals Ltd.
+1,285,Pantobex,Injection,40 mg/10 ml,Beximco Pharmaceuticals Ltd.
+1,285,Pantobio,Tablet,20 mg,Biogene Pharma Ltd.
+1,285,Pantochem,Tablet,20 mg,Chemist Laboratories Limited.
+1,285,Pantochem,Tablet,40 mg,Chemist Laboratories Limited.
+1,285,Pantocure,Tablet,20 mg,Rangs Pharmaceuticals Ltd.
+1,285,Pantodac,Tablet,20 mg,Ziska Pharmaceuticals Ltd.
+1,285,Pantodac,Tablet,40 mg,Ziska Pharmaceuticals Ltd.
+1,285,Pantofast,Tablet,20 mg,S.N. Pharmaceutical Ltd.
+1,285,Pantogen,Tablet,20 mg,General Pharmaceuticals Ltd.
+1,285,Pantogen,Tablet,40 mg,General Pharmaceuticals Ltd.
+1,285,Pantogut,Tablet,20 mg,Popular Pharmaceuticals Ltd.
+1,285,Pantogut,Tablet,40 mg,Popular Pharmaceuticals Ltd.
+1,285,Pantogut,Injection,40 mg/10 ml,Popular Pharmaceuticals Ltd.
+1,285,Pantolam,Tablet,20 mg,Orbit Pharmaceuticals Ltd
+1,285,Pantolam,Tablet,40 mg,Orbit Pharmaceuticals Ltd
+1,285,Pantolok,Tablet,20 mg,Ibn-Sina Pharmaceuticals Ltd.
+1,285,Pantolok,Tablet,40 mg,Ibn-Sina Pharmaceuticals Ltd.
+1,285,Pantolok,Injection,40 mg/vial,Ibn-Sina Pharmaceuticals Ltd.
+1,285,Pantomax,Tablet,20 mg,Pharmacil Limited
+1,285,Pantomax,Tablet,40 mg,Pharmacil Limited
+1,285,Pantomax,Injection,40 mg/vial,Pharmacil Limited
+1,285,Panton-AX,Tablet,20 mg,Bristol Pharmaceuticals Ltd.
+1,285,Panton-AX,Tablet,40 mg,Bristol Pharmaceuticals Ltd.
+1,285,Pantonaaf,Tablet,20 mg,Naafco Pharma Ltd.
+1,285,Pantonix,Tablet,20 mg,Incepta Pharmaceuticals Limited
+1,285,Pantonix,Tablet,40 mg,Incepta Pharmaceuticals Limited
+1,285,Pantonix,Injection,40 mg/vial,Incepta Pharmaceuticals Limited
+1,285,Pantopra,Tablet,20 mg,Alco Pharma Ltd.
+1,285,Pantopra,Tablet,40 mg,Alco Pharma Ltd.
+1,285,Pantoprazole,Tablet,40 mg,Essential Drugs Company Ltd.
+1,285,Pantoprazole,Tablet,20 mg,Essential Drugs Company Ltd.
+1,285,Pantoprazole,Tablet,20 mg,Sharif Pharmaceuticals Ltd.
+1,285,Pantoprazole 20,Tablet,20 mg,Albion Pharmaceuticals Ltd.
+1,285,Pantoprazole 40,Tablet,40 mg,Albion Pharmaceuticals Ltd.
+1,285,Pantoprox,Tablet,20 mg,Social Marketing Company
+1,285,Pantoraz,Tablet,20 mg,Premier Pharmaceuticals Ltd.
+1,285,Pantoraz,Tablet,40 mg,Premier Pharmaceuticals Ltd.
+1,285,Pantosec,Injection,40 mg/vial,Techno Drugs Ltd.
+1,285,Pantosil,Tablet,20 mg,Silva Pharmaceuticals Ltd.
+1,285,Pantosil,Tablet,40 mg,Silva Pharmaceuticals Ltd.
+1,285,Pantotop,Tablet,20 mg,Benham Pharmaceuticals Ltd.
+1,285,Pantotop,Tablet,40 mg,Benham Pharmaceuticals Ltd.
+1,285,Pantova,Tablet,20 mg,Innova Pharmaceuticals Limited.
+1,285,Pantova,Tablet,40 mg,Innova Pharmaceuticals Limited.
+1,285,Pantover,Injection,40 mg/vial,Veritas Pharmaceuticals Ltd.
+1,285,Pantover,Tablet,20 mg,Veritas Pharmaceuticals Ltd.
+1,285,Pantover,Tablet,40 mg,Veritas Pharmaceuticals Ltd.
+1,285,Pantozol,Tablet,20 mg,Gaco Pharmaceuticals Ltd.
+1,285,Pantozol,Tablet,40 mg,Gaco Pharmaceuticals Ltd.
+1,285,Pantrol,Tablet,40 mg,Apex Pharmaceuticals Ltd.
+1,285,Pantrol,Tablet,20 mg,Apex Pharmaceuticals Ltd.
+1,285,Panzer,Tablet,20 mg,Sun Pharmaceutical (Bangladesh) Limited
+1,285,Panzer,Tablet,40 mg,Sun Pharmaceutical (Bangladesh) Limited
+1,285,Panzol,Tablet,20 mg,Amico Laboratories Ltd.
+1,285,Panzol,Tablet,40 mg,Amico Laboratories Ltd.
+1,285,Panzum,Tablet,20 mg,Everest Pharmaceuticals Ltd.
+1,285,Panzum,Tablet,40 mg,Everest Pharmaceuticals Ltd.
+1,285,PC-20,Tablet,20 mg,Central Pharmaceuticals Ltd (CPL)
+1,285,Pelican,Tablet,20 mg,Delta Pharma Limited
+1,285,Pelican,Tablet,40 mg,Delta Pharma Limited
+1,285,Pentosa,Tablet,20 mg,Pharmasia Ltd.
+1,285,Pentosa,Tablet,40 mg,Pharmasia Ltd.
+1,285,Phoenix Pantoprazole,Tablet,20 mg,Phoenix Chemicals Laboratory (BD) Ltd
+1,285,Pramax,Tablet,20 mg,Concord Pharmaceuticals Ltd.
+1,285,Pramax,Tablet,40 mg,Concord Pharmaceuticals Ltd.
+1,285,Prazolin,Tablet,20 mg,Rephco Pharmaceuticals Ltd.
+1,285,Prazolin,Tablet,40 mg,Rephco Pharmaceuticals Ltd.
+1,285,Pregel,Injection,40 mg/vial,Healthcare Pharmacuticals Ltd.
+1,285,Pregel,Tablet,20 mg,Healthcare Pharmacuticals Ltd.
+1,285,Pregel,Tablet,40 mg,Healthcare Pharmacuticals Ltd.
+1,285,Pretonix,Tablet,20 mg,Pharmadesh Laboratories Ltd.
+1,285,Pretonix,Tablet,40 mg,Pharmadesh Laboratories Ltd.
+1,285,Propenta,Tablet,20 mg,Shamsul Al-Amin Pharmaceutical Ltd.
+1,285,Protium,Tablet,20 mg,Unimed Unihealth MFG. Ltd.
+1,285,Protium,Tablet,40 mg,Unimed Unihealth MFG. Ltd.
+1,285,Protocid,Tablet,20 mg,Acme Laboratories Limited.
+1,285,Protocid,Tablet,40 mg,Acme Laboratories Limited.
+1,285,Protocid,Injection,40 mg/10 ml,Acme Laboratories Limited.
+1,285,Protoloc,Tablet,20 mg,Beacon Pharmaceuticals Ltd.
+1,285,Protoloc,Tablet,40 mg,Beacon Pharmaceuticals Ltd.
+1,285,Proton-P,Tablet,20 mg,Aristopharma Ltd.
+1,285,Proton-P,Tablet,40 mg,Aristopharma Ltd.
+1,285,Proton-P,Injection,40 mg/10 ml,Aristopharma Ltd.
+1,285,Protonil,Tablet,20 mg,Renata Limited
+1,285,Protonil,Tablet,40 mg,Renata Limited
+1,285,Protopa,Tablet,20 mg,Apollo Pharmaceutical Laboratories Ltd.
+1,285,Protozin,Tablet,20 mg,Euro Pharma Ltd.
+1,285,Protozin,Tablet,40 mg,Euro Pharma Ltd.
+1,285,PZ-20,Tablet,20 mg,Modern Pharmaceuticals Limited
+1,285,PZ-40,Tablet,40 mg,Modern Pharmaceuticals Limited
+1,285,Topra,Tablet,20 mg,Jayson Pharma Ltd.
+1,285,Topra,Tablet,40 mg,Jayson Pharma Ltd.
+1,285,Topracid,Tablet,20 mg,APC Pharma Ltd.
+1,285,Topracid,Tablet,40 mg,APC Pharma Ltd.
+1,285,Tropaz,Tablet,40 mg,Orion Pharma Ltd.
+1,285,Tropaz,Tablet,20 mg,Orion Pharma Ltd.
+1,285,Trupan,Tablet,20 mg,Square Pharmaceuticals Ltd.
+1,285,Trupan,Tablet,40 mg,Square Pharmaceuticals Ltd.
+1,285,Trupan,Injection,40 mg/vial,Square Pharmaceuticals Ltd.
+1,285,Tuknil,Tablet,20 mg,Aztec Pharmaceuticals Ltd.
+1,285,Zenopan,Tablet,20 mg,Zenith Pharmaceuticals Ltd.
+1,285,Zopan,Tablet,20 mg,Kemiko Pharmaceuticals Ltd.
+1,285,Zopan,Tablet,40 mg,Kemiko Pharmaceuticals Ltd.
+1,286,Napa,Infusion,10 mg/ml,Beximco Pharmaceuticals Ltd.
+1,286,Paraciv,Infusion,10 mg/ml,Beacon Pharmaceuticals Ltd.
+1,286,Renova,Infusion,10 mg/ml,Opsonin Pharma Ltd.
+1,286,Reset,Infusion,10 mg/ml,Incepta Pharmaceuticals Limited
+1,286,Tamen,Infusion,10 mg/ml,Eskayef Bangladesh Ltd.
+1,287,Ace Plus,Tablet,500 mg+65 mg,Square Pharmaceuticals Ltd.
+1,287,Acep Plus,Tablet,500 mg+65 mg,Zenith Pharmaceuticals Ltd.
+1,287,Aceta-X,Tablet,500 mg+65 mg,Biopharma Laboratories Ltd.
+1,287,ACT Plus,Tablet,500 mg+65 mg,Ambee Pharmaceuticals Ltd.
+1,287,Adol Plus,Tablet,500 mg+65 mg,Union Pharmaceuticals Ltd.
+1,287,Alpara-C,Tablet,500 mg+65 mg,Allied Pharmaceuticals Ltd.
+1,287,Anapol Plus,Tablet,500 mg+65 mg,Pharmik Laboratories Limited
+1,287,Archi Extra,Tablet,500 mg+65 mg,Aexim Pharmaceuticals Ltd.
+1,287,Asmol Plus,Tablet,500 mg+65 mg,Sharif Pharmaceuticals Ltd.
+1,287,Asta Plus,Tablet,500 mg+65 mg,Rephco Pharmaceuticals Ltd.
+1,287,Atopen Plus,Tablet,500 mg+65 mg,Kemiko Pharmaceuticals Ltd.
+1,287,Benalgin Plus,Tablet,500 mg+65 mg,Benham Pharmaceuticals Ltd.
+1,287,Bepol Plus,Tablet,500 mg+65 mg,Bengal drugs Ltd.
+1,287,Caf-N,Tablet,500 mg+65 mg,Globex Pharmaceuticals Ltd.
+1,287,Caface,Tablet,500 mg+65 mg,Leon Pharmaceuticals Ltd.
+1,287,Cafceta,Tablet,500 mg+65 mg,Peoples Pharma Ltd.
+1,287,Cafecool Plus,Tablet,500 mg+65 mg,Doctor TIMS Pharmaceuticals Ltd.
+1,287,Cafedon,Tablet,500 mg+65 mg,Healthcare Pharmacuticals Ltd.
+1,287,Cafenol,Tablet,500 mg+65 mg,General Pharmaceuticals Ltd.
+1,287,Cafeta,Tablet,500 mg+65 mg,Nipa Pharmaceuticals Ltd.
+1,287,Caffo,Tablet,500 mg+65 mg,Somatec Pharmaceuticals Ltd.
+1,287,Caftyl,Tablet,500 mg+65 mg,One Pharma Ltd.
+1,287,Centamol,Tablet,500 mg+65 mg,Central Pharmaceuticals Ltd (CPL)
+1,287,Cetacaf,Tablet,500 mg+65 mg,United Chemicals & Pharmaceuticals Ltd.
+1,287,Cetadol Plus,Tablet,500 mg+65 mg,Doctor's Chemical Works Ltd.
+1,287,Cetal Plus,Tablet,500 mg+65 mg,Supreme Pharmaceutical Ltd.
+1,287,Cetam Plus,Tablet,500 mg+65 mg,Pacific Pharmaceuticals Ltd.
+1,287,Cetol Plus,Tablet,500 mg+65 mg,Aztec Pharmaceuticals Ltd.
+1,287,Clofamol,Tablet,500 mg+65 mg,Ziska Pharmaceuticals Ltd.
+1,287,Cpmol,Tablet,500 mg+65 mg,Cosmo Pharma Laboratories Ltd.
+1,287,DC-Plus,Tablet,500 mg+65 mg,Decent Pharma Laboratories Ltd.
+1,287,Depol Extra,Tablet,500 mg+65 mg,Desh Pharmaceuticals Ltd.
+1,287,Dola Extra,Tablet,500 mg+65 mg,Millat Pharmaceuticals Limited
+1,287,Dual,Tablet,500 mg+65 mg,Medicon Pharmaceuticals Ltd.
+1,287,Duet,Tablet,500 mg+65 mg,Silva Pharmaceuticals Ltd.
+1,287,Ease Plus,Tablet,500 mg+65 mg,Orbit Pharmaceuticals Ltd
+1,287,Enyl Plus,Tablet,500 mg+65 mg,Euro Pharma Ltd.
+1,287,Extramol,Tablet,500 mg+65 mg,Crystal Pharmaceuticals Ltd.
+1,287,Fap Plus,Tablet,500 mg+65 mg,Beacon Pharmaceuticals Ltd.
+1,287,Fast Plus,Tablet,500 mg+65 mg,Acme Laboratories Limited.
+1,287,Fea Plus,Tablet,500 mg+65 mg,Navana Pharmaceuticals Ltd.
+1,287,Fenenil,Tablet,500 mg+65 mg,Drug International Ltd.
+1,287,Feva Plus,Tablet,500 mg+65 mg,Ad-din pharmaceuticals Ltd.
+1,287,Feverex,Tablet,500 mg+65 mg,Radiant Pharmaceuticals Ltd.
+1,287,Fevrex Plus,Tablet,500 mg+65 mg,Novus Pharmaceuticals Ltd.
+1,287,Fibi Plus,Tablet,500 mg+65 mg,MST Pharma
+1,287,Fibi Plus,Tablet,500 mg+65 mg,Syntho Laboratories Ltd.
+1,287,Gesic Plus,Tablet,500 mg+65 mg,Popular Pharmaceuticals Ltd.
+1,287,Hedex,Tablet,500 mg+65 mg,Orion Pharma Ltd.
+1,287,Hepa-Plus,Tablet,500 mg+65 mg,Hudson Pharmaceuticals Ltd.
+1,287,Indomol Plus,Tablet,500 mg+65 mg,Indo Bangla Pharmaceutical
+1,287,Inopa Extra,Tablet,500 mg+65 mg,Innova Pharmaceuticals Limited.
+1,287,K-Pol,Tablet,500 mg+65 mg,Modern Pharmaceuticals Limited
+1,287,Napa Extra,Tablet,500 mg+65 mg,Beximco Pharmaceuticals Ltd.
+1,287,Neopara Plus,Tablet,500 mg+65 mg,Bristol Pharmaceuticals Ltd.
+1,287,Nor Plus,Tablet,500 mg+65 mg,Novelta Bestway Pharmaceuticals Ltd.
+1,287,Notem Plus,Tablet,500 mg+65 mg,Standard Laboratories Limited
+1,287,Nova Plus,Tablet,500 mg+65 mg,Cosmic Pharma Limited
+1,287,Nuceta Plus,Tablet,500 mg+65 mg,FnF Pharmaceuticals Ltd.
+1,287,Orpa Plus,Tablet,500 mg+65 mg,Belsen Pharmaceuticals Ltd.
+1,287,P+C,Tablet,500 mg+65 mg,Alco Pharma Ltd.
+1,287,Pac,Tablet,500 mg+65 mg,Ibn-Sina Pharmaceuticals Ltd.
+1,287,Pace,Tablet,500 mg+65 mg,Marksman Pharmaceuticals Ltd.
+1,287,Painil Plus,Tablet,500 mg+65 mg,Kumudini Pharma Ltd.
+1,287,Panadol Extra,Tablet,500 mg+65 mg,GlaxoSmithKline
+1,287,Panalgin Plus,Tablet,500 mg+65 mg,S.N. Pharmaceutical Ltd.
+1,287,Panol Plus,Tablet,500 mg+65 mg,Virgo Pharmaceuticals Ltd.
+1,287,Para Caf,Tablet,500 mg+65 mg,Seema Pharmaceuticals Ltd.
+1,287,Para Fast,Tablet,500 mg+65 mg,APC Pharma Ltd.
+1,287,Para-C,Tablet,500 mg+65 mg,Amico Laboratories Ltd.
+1,287,Paracet Plus,Tablet,500 mg+65 mg,The White Horse Pharma
+1,287,Paracin,Tablet,500 mg+65 mg,Pharmadesh Laboratories Ltd.
+1,287,Paradil Extra,Tablet,500 mg+65 mg,Biogene Pharma Ltd.
+1,287,Paragesic-C,Tablet,500 mg+65 mg,Social Marketing Company
+1,287,Paramex C,Tablet,500 mg+65 mg,National Laboratories Ltd.
+1,287,Paranaaf Plus,Tablet,500 mg+65 mg,Naafco Pharma Ltd.
+1,287,Paraxia Plus,Tablet,500 mg+65 mg,Pharmasia Ltd.
+1,287,Paret Plus,Tablet,500 mg+65 mg,Oyster Pharmaceuticals Ltd.
+1,287,Pax,Tablet,500 mg+65 mg,Shamsul Al-Amin Pharmaceutical Ltd.
+1,287,PCAF,Tablet,500 mg+65 mg,Everest Pharmaceuticals Ltd.
+1,287,Phoenix Paracetamol Plus,Tablet,500 mg+65 mg,Phoenix Chemicals Laboratory (BD) Ltd
+1,287,PM Plus,Tablet,500 mg+65 mg,Reliance Pharmaceuticals Ltd.
+1,287,POL Plus,Tablet,500 mg+65 mg,Globe Pharmaceuticals Limited.
+1,287,Premol Plus,Tablet,500 mg+65 mg,Premier Pharmaceuticals Ltd.
+1,287,Pricet Plus,Tablet,500 mg+65 mg,Prime Pharmaceuticals Ltd.
+1,287,Promel Plus,Tablet,500 mg+65 mg,Apollo Pharmaceutical Laboratories Ltd.
+1,287,Pyra Plus,Tablet,500 mg+65 mg,Renata Limited
+1,287,Pyrenol,Tablet,500 mg+65 mg,Delta Pharma Limited
+1,287,Pyrex Plus,Tablet,500 mg+65 mg,Concord Pharmaceuticals Ltd.
+1,287,Pyrexil Plus,Tablet,500 mg+65 mg,Veritas Pharmaceuticals Ltd.
+1,287,Reliv Plus,Tablet,500 mg+65 mg,Astra Biopharmaceuticals Ltd.
+1,287,Remalgin Plus,Tablet,500 mg+65 mg,Reman Drug Laboratories Ltd.
+1,287,Renova Plus,Tablet,500 mg+65 mg,Opsonin Pharma Ltd.
+1,287,Reset Plus,Tablet,500 mg+65 mg,Incepta Pharmaceuticals Limited
+1,287,Tacs,Tablet,500 mg+65 mg,Rangs Pharmaceuticals Ltd.
+1,287,Tamen X,Tablet,500 mg+65 mg,Eskayef Bangladesh Ltd.
+1,287,Tamino Plus,Tablet,500 mg+65 mg,NIPRO JMI Pharma Ltd.
+1,287,Tamol Plus,Tablet,500 mg+65 mg,Apex Pharmaceuticals Ltd.
+1,287,Temfin,Tablet,500 mg+65 mg,Organic Health Care
+1,287,Temnor Plus,Tablet,500 mg+65 mg,Centeon Pharma Limited
+1,287,Temol Extra,Tablet,500 mg+65 mg,Team Pharmaceuticals Ltd.
+1,287,Tempanil Extra,Tablet,500 mg+65 mg,Amulet Pharmaceuticals Ltd.
+1,287,Tempol Extra,Tablet,500 mg+65 mg,Asiatic Laboratories Ltd.
+1,287,Temrif Plus,Tablet,500 mg+65 mg,Monicopharma Limited
+1,287,Timidal Plus,Tablet,500 mg+65 mg,Gaco Pharmaceuticals Ltd.
+1,287,TY-Plus,Tablet,500 mg+65 mg,Edruc Ltd.
+1,287,Tylen Plus,Tablet,500 mg+65 mg,Julphar Bangladesh Ltd.
+1,287,Xcel Plus,Tablet,500 mg+65 mg,ACI Limited.
+1,287,Xpa-C,Tablet,500 mg+65 mg,Aristopharma Ltd.
+1,287,Zara Extra,Tablet,500 mg+65 mg,RN Pharmaceuticals
+1,287,Zerin XP,Tablet,500 mg+65 mg,Jayson Pharma Ltd.
+1,288,Actol M,Tablet,500 mg+100 mg,Somatec Pharmaceuticals Ltd.
+1,288,Napa-soft,Tablet,500 mg+100 mg,Beximco Pharmaceuticals Ltd.
+1,288,Norsoft,Tablet,500 mg+100 mg,Novelta Bestway Pharmaceuticals Ltd.
+1,288,Pamix-M,Tablet,500 mg+100 mg,Ziska Pharmaceuticals Ltd.
+1,288,Paradote,Tablet,500 mg+100 mg,Renata Limited
+1,288,Paramin,Tablet,500 mg+100 mg,Sharif Pharmaceuticals Ltd.
+1,288,Renomet,Tablet,500 mg+100 mg,Opsonin Pharma Ltd.
+1,288,Tamepro,Tablet,500 mg+100 mg,Eskayef Bangladesh Ltd.
+1,289,Aceta-T,Tablet,325 mg+37.5 mg,Biopharma Laboratories Ltd.
+1,289,Acetram,Tablet,325 mg+37.5 mg,Square Pharmaceuticals Ltd.
+1,289,Alkafen,Tablet,325 mg+37.5 mg,Navana Pharmaceuticals Ltd.
+1,289,Atopen-X,Tablet,325 mg+37.5 mg,Kemiko Pharmaceuticals Ltd.
+1,289,Doloran Plus,Tablet,325 mg+37.5 mg,Sandoz
+1,289,Fapdol,Tablet,325 mg+37.5 mg,Beacon Pharmaceuticals Ltd.
+1,289,Fastdol,Tablet,325 mg+37.5 mg,Acme Laboratories Limited.
+1,289,Fevedol,Tablet,325 mg+37.5 mg,Drug International Ltd.
+1,289,Napadol,Tablet,325 mg+37.5 mg,Beximco Pharmaceuticals Ltd.
+1,289,Nordol,Tablet,325 mg+37.5 mg,Novelta Bestway Pharmaceuticals Ltd.
+1,289,Novodol,Tablet,325 mg+37.5 mg,Orion Pharma Ltd.
+1,289,P-Dol,Tablet,325 mg+37.5 mg,Popular Pharmaceuticals Ltd.
+1,289,Panol-T,Tablet,325 mg+37.5 mg,Virgo Pharmaceuticals Ltd.
+1,289,Paratadol,Tablet,325 mg+37.5 mg,Euro Pharma Ltd.
+1,289,Poladol,Tablet,325 mg+37.5 mg,Globe Pharmaceuticals Limited.
+1,289,Pyredol,Tablet,325 mg+37.5 mg,Delta Pharma Limited
+1,289,Pyrex T,Tablet,325 mg+37.5 mg,Concord Pharmaceuticals Ltd.
+1,289,Renova-T,Tablet,325 mg+37.5 mg,Opsonin Pharma Ltd.
+1,289,Resadol,Tablet,325 mg+37.5 mg,Incepta Pharmaceuticals Limited
+1,289,Sinergix,Tablet,325 mg+37.5 mg,Renata Limited
+1,289,Syndol Plus,Tablet,325 mg+37.5 mg,Healthcare Pharmacuticals Ltd.
+1,289,TacsDol,Tablet,325 mg+37.5 mg,Rangs Pharmaceuticals Ltd.
+1,289,Tamenol,Tablet,325 mg+37.5 mg,Eskayef Bangladesh Ltd.
+1,289,Tempol-D,Tablet,325 mg+37.5 mg,Asiatic Laboratories Ltd.
+1,289,TM-Plus,Tablet,325 mg+37.5 mg,Desh Pharmaceuticals Ltd.
+1,289,Trado Plus,Tablet,325 mg+37.5 mg,Pacific Pharmaceuticals Ltd.
+1,289,Tramatol,Tablet,325 mg+37.5 mg,Somatec Pharmaceuticals Ltd.
+1,289,Tramimed,Tablet,325 mg+37.5 mg,MedRx Life Science Ltd
+1,289,Tramp,Tablet,325 mg+37.5 mg,General Pharmaceuticals Ltd.
+1,289,TRD-P,Tablet,325 mg+37.5 mg,Mundipharma (BD) Pvt. Ltd.
+1,289,Trugesic,Tablet,325 mg+37.5 mg,Doctor TIMS Pharmaceuticals Ltd.
+1,289,Utracet,Tablet,325 mg+37.5 mg,Unimed Unihealth MFG. Ltd.
+1,289,Xcel Max,Tablet,325 mg+37.5 mg,ACI Limited.
+1,290,0.083333333,Tablet,500 mg,Mystic Pharmaceuticals Ltd.
+1,290,0.083333333,Suspension,120 mg/5 ml,Mystic Pharmaceuticals Ltd.
+1,290,A-One XR,Tablet,665 mg,Apex Pharmaceuticals Ltd.
+1,290,Ace,Tablet,500 mg,Square Pharmaceuticals Ltd.
+1,290,Ace,Suspension,120 mg/5 ml,Square Pharmaceuticals Ltd.
+1,290,Ace,Syrup,120 mg/5 ml,Square Pharmaceuticals Ltd.
+1,290,Ace,Pediatric Drop,80 mg/ml,Square Pharmaceuticals Ltd.
+1,290,Ace,Suppository,60 mg,Square Pharmaceuticals Ltd.
+1,290,Ace,Suppository,125 mg,Square Pharmaceuticals Ltd.
+1,290,Ace,Suppository,250 mg,Square Pharmaceuticals Ltd.
+1,290,Ace,Suppository,500 mg,Square Pharmaceuticals Ltd.
+1,290,Ace XR,Tablet,665 mg,Square Pharmaceuticals Ltd.
+1,290,Acep,Tablet,500 mg,Zenith Pharmaceuticals Ltd.
+1,290,Acep,Suspension,125 mg/5 ml,Zenith Pharmaceuticals Ltd.
+1,290,Acep,Pediatric Drop,80 mg/ml,Zenith Pharmaceuticals Ltd.
+1,290,Aceta,Tablet,500 mg,Biopharma Laboratories Ltd.
+1,290,Aceta,Suspension,120 mg/5 ml,Biopharma Laboratories Ltd.
+1,290,Aceta,Pediatric Drop,80 mg/ml,Biopharma Laboratories Ltd.
+1,290,Aceta Extend,Tablet,665 mg,Biopharma Laboratories Ltd.
+1,290,Acetamine,Tablet,500 mg,Hope Pharmaceuticals Ltd.
+1,290,Aceto,Tablet,500 mg,Reliance Pharmaceuticals Ltd.
+1,290,Aceto,Suspension,120 mg/5 ml,Reliance Pharmaceuticals Ltd.
+1,290,Act,Tablet,500 mg,Ambee Pharmaceuticals Ltd.
+1,290,Act,Suspension,120 mg/5 ml,Ambee Pharmaceuticals Ltd.
+1,290,Act,Pediatric Drop,80 mg/ml,Ambee Pharmaceuticals Ltd.
+1,290,Actol,Tablet,500 mg,Somatec Pharmaceuticals Ltd.
+1,290,Actol,Suspension,125 mg/5 ml,Somatec Pharmaceuticals Ltd.
+1,290,Adol,Tablet,500 mg,Union Pharmaceuticals Ltd.
+1,290,Adol,Suspension,120 mg/5 ml,Union Pharmaceuticals Ltd.
+1,290,Alkaparol,Suspension,120 mg/5 ml,Alkad Laboratories
+1,290,Ana,Suspension,120 mg/5 ml,Cipla Ltd.
+1,290,Ana,Tablet,500 mg,Cipla Ltd.
+1,290,Analpain,Tablet,500 mg,Pharmadesh Laboratories Ltd.
+1,290,Analpain,Suspension,120 mg/5 ml,Pharmadesh Laboratories Ltd.
+1,290,Analpain,Pediatric Drop,80 mg/ml,Pharmadesh Laboratories Ltd.
+1,290,Anamol,Suspension,120 mg/5 ml,Maks Drugs Ltd.
+1,290,Anamol,Tablet,500 mg,Maks Drugs Ltd.
+1,290,Anapol,Tablet,500 mg,Pharmik Laboratories Limited
+1,290,Anapol,Suspension,120 mg/5 ml,Pharmik Laboratories Limited
+1,290,Asmol,Tablet,500 mg,Sharif Pharmaceuticals Ltd.
+1,290,Asmol,Suspension,120 mg/5 ml,Sharif Pharmaceuticals Ltd.
+1,290,Asta,Suspension,120 mg/5 ml,Rephco Pharmaceuticals Ltd.
+1,290,Asta,Tablet,500 mg,Rephco Pharmaceuticals Ltd.
+1,290,Atopen,Tablet,500 mg,Kemiko Pharmaceuticals Ltd.
+1,290,Atopen,Suspension,120 mg/5 ml,Kemiko Pharmaceuticals Ltd.
+1,290,ATP,Tablet,500 mg,General Pharmaceuticals Ltd.
+1,290,ATP,Suspension,120 mg/5 ml,General Pharmaceuticals Ltd.
+1,290,ATP,Syrup,120 mg/5 ml,General Pharmaceuticals Ltd.
+1,290,Benalgin,Suspension,120 mg/5 ml,Benham Pharmaceuticals Ltd.
+1,290,Benalgin XR,Tablet,665 mg,Benham Pharmaceuticals Ltd.
+1,290,Bepol,Suspension,120 mg/5 ml,Bengal drugs Ltd.
+1,290,Bepol,Suspension,120 mg/5 ml,Bengal drugs Ltd.
+1,290,Centamol,Tablet,500 mg,Central Pharmaceuticals Ltd (CPL)
+1,290,Centamol,Suspension,120 mg/5 ml,Central Pharmaceuticals Ltd (CPL)
+1,290,Cetadol,Tablet,500 mg,Doctor's Chemical Works Ltd.
+1,290,Cetadol,Suspension,120 mg/5 ml,Doctor's Chemical Works Ltd.
+1,290,Cetal,Tablet,500 mg,Supreme Pharmaceutical Ltd.
+1,290,Cetal,Suspension,120 mg/5 ml,Supreme Pharmaceutical Ltd.
+1,290,Cetam,Tablet,500 mg,Pacific Pharmaceuticals Ltd.
+1,290,Cetam,Suspension,120 mg/5 ml,Pacific Pharmaceuticals Ltd.
+1,290,Cetol,Suspension,120 mg/5 ml,Aztec Pharmaceuticals Ltd.
+1,290,Cetol,Tablet,500 mg,Aztec Pharmaceuticals Ltd.
+1,290,Cpmol,Tablet,500 mg,Cosmo Pharma Laboratories Ltd.
+1,290,Crystamol,Tablet,500 mg,Crystal Pharmaceuticals Ltd.
+1,290,Crystamol,Suspension,120 mg/5 ml,Crystal Pharmaceuticals Ltd.
+1,290,D Cetamol,Tablet,500 mg,Decent Pharma Laboratories Ltd.
+1,290,D Cetamol,Suspension,120 mg/5 ml,Decent Pharma Laboratories Ltd.
+1,290,Depol,Tablet,500 mg,Desh Pharmaceuticals Ltd.
+1,290,Depol,Suspension,125 mg/5 ml,Desh Pharmaceuticals Ltd.
+1,290,Depyrin,Suspension,120 mg/5 ml,Delta Pharma Limited
+1,290,Depyrin,Tablet,500 mg,Delta Pharma Limited
+1,290,Disprol,Tablet,500 mg,Reckitt & Benckiser Bangladesh Ltd.
+1,290,Dola,Tablet,500 mg,Millat Pharmaceuticals Limited
+1,290,Dola,Suspension,120 mg/5 ml,Millat Pharmaceuticals Limited
+1,290,Doliprane,Suppository,125 mg,Sanofi Bangladesh LTD.
+1,290,Doliprane,Suppository,250 mg,Sanofi Bangladesh LTD.
+1,290,Doliprane,Tablet,500 mg,Sanofi Bangladesh LTD.
+1,290,Doliprane,Syrup,120 mg/5 ml,Sanofi Bangladesh LTD.
+1,290,Doliprane,Suspension,120 mg/5 ml,Sanofi Bangladesh LTD.
+1,290,Ease,Tablet,500 mg,Orbit Pharmaceuticals Ltd
+1,290,Ease,Suspension,120 mg/5 ml,Orbit Pharmaceuticals Ltd
+1,290,Eco,Suspension,120 mg/5 ml,Save Pharmaceutical
+1,290,Eco,Tablet,500 mg,Save Pharmaceutical
+1,290,Enyl,Tablet,500 mg,Euro Pharma Ltd.
+1,290,Enyl,Suspension,120 mg/5 ml,Euro Pharma Ltd.
+1,290,Exceta,Tablet,665 mg,Beacon Pharmaceuticals Ltd.
+1,290,Fap,Tablet,500 mg,Beacon Pharmaceuticals Ltd.
+1,290,Fast,Tablet,500 mg,Acme Laboratories Limited.
+1,290,Fast,Suspension,120 mg/5 ml,Acme Laboratories Limited.
+1,290,Fast,Pediatric Drop,80 mg/ml,Acme Laboratories Limited.
+1,290,Fast,Suppository,125 mg,Acme Laboratories Limited.
+1,290,Fast,Suppository,250 mg,Acme Laboratories Limited.
+1,290,Fast,Suppository,500 mg,Acme Laboratories Limited.
+1,290,Fast XR,Tablet,665 mg,Acme Laboratories Limited.
+1,290,Fea,Tablet,500 mg,Navana Pharmaceuticals Ltd.
+1,290,Fea,Suspension,120 mg/5 ml,Navana Pharmaceuticals Ltd.
+1,290,Fea-XR,Tablet,665 mg,Navana Pharmaceuticals Ltd.
+1,290,Feva,Tablet,500 mg,Ad-din pharmaceuticals Ltd.
+1,290,Feva,Suspension,120 mg/5 ml,Ad-din pharmaceuticals Ltd.
+1,290,Feva,Pediatric Drop,80 mg/ml,Ad-din pharmaceuticals Ltd.
+1,290,Feva,Suppository,125 mg,Ad-din pharmaceuticals Ltd.
+1,290,Feva,Suppository,250 mg,Ad-din pharmaceuticals Ltd.
+1,290,Feva,Suppository,500 mg,Ad-din pharmaceuticals Ltd.
+1,290,Fevac,Suspension,120 mg/5 ml,Orion Pharma Ltd.
+1,290,Fevac,Tablet,500 mg,Orion Pharma Ltd.
+1,290,Fevac,Pediatric Drop,80 mg/ml,Orion Pharma Ltd.
+1,290,Feverol,Tablet,500 mg,Bios Pharmaceuticals Ltd.
+1,290,Feverol,Syrup,120 mg/5 ml,Bios Pharmaceuticals Ltd.
+1,290,Fevrex,Tablet,500 mg,Novus Pharmaceuticals Ltd.
+1,290,Fevrex,Suspension,120 mg/5 ml,Novus Pharmaceuticals Ltd.
+1,290,Fibi,Suspension,120 mg/5 ml,MST Pharma
+1,290,Fibi,Tablet,500 mg,MST Pharma
+1,290,Fibi XR,Tablet,665 mg,MST Pharma
+1,290,G-Paracetamol,Tablet,500 mg,Gonoshasthaya Pharmaceuticals Ltd.
+1,290,G-Paracetamol,Syrup,120 mg/5 ml,Gonoshasthaya Pharmaceuticals Ltd.
+1,290,G-Paracetamol,Suspension,120 mg/5 ml,Gonoshasthaya Pharmaceuticals Ltd.
+1,290,Gesic,Suspension,120 mg/5 ml,Popular Pharmaceuticals Ltd.
+1,290,Gesic,Tablet,500 mg,Popular Pharmaceuticals Ltd.
+1,290,Gesic,Pediatric Drop,80 mg/ml,Popular Pharmaceuticals Ltd.
+1,290,Getamol,Tablet,500 mg,Greenland Pharmaceuticals Limited
+1,290,Getamol,Syrup,120 mg/5 ml,Greenland Pharmaceuticals Limited
+1,290,Hepa,Tablet,500 mg,Hudson Pharmaceuticals Ltd.
+1,290,Hepa,Suspension,120 mg/5 ml,Hudson Pharmaceuticals Ltd.
+1,290,Inopa,Tablet,500 mg,Innova Pharmaceuticals Limited.
+1,290,Inopa,Suspension,120 mg/5 ml,Innova Pharmaceuticals Limited.
+1,290,Ispha,Suspension,120 mg/5 ml,Globex Pharmaceuticals Ltd.
+1,290,Ispha,Tablet,500 mg,Globex Pharmaceuticals Ltd.
+1,290,Longpara,Tablet,665 mg,Ibn-Sina Pharmaceuticals Ltd.
+1,290,M-Pol,Tablet,500 mg,Modern Pharmaceuticals Limited
+1,290,M-Pol,Suspension,120 mg/5 ml,Modern Pharmaceuticals Limited
+1,290,Napa,Suppository,500 mg,Beximco Pharmaceuticals Ltd.
+1,290,Napa,Tablet,120 mg,Beximco Pharmaceuticals Ltd.
+1,290,Napa,Tablet,500 mg,Beximco Pharmaceuticals Ltd.
+1,290,Napa,Suspension,120 mg/5 ml,Beximco Pharmaceuticals Ltd.
+1,290,Napa,Syrup,120 mg/5 ml,Beximco Pharmaceuticals Ltd.
+1,290,Napa,Pediatric Drop,80 mg/ml,Beximco Pharmaceuticals Ltd.
+1,290,Napa,Suppository,60 mg,Beximco Pharmaceuticals Ltd.
+1,290,Napa,Suppository,125 mg,Beximco Pharmaceuticals Ltd.
+1,290,Napa,Suppository,250 mg,Beximco Pharmaceuticals Ltd.
+1,290,Napa DT,Tablet,500 mg,Beximco Pharmaceuticals Ltd.
+1,290,Napa Extend,Tablet,665 mg,Beximco Pharmaceuticals Ltd.
+1,290,Napa Rapid,Caplet,500 mg,Beximco Pharmaceuticals Ltd.
+1,290,Nebs,Tablet,500 mg,Ethical Drug Ltd.
+1,290,Nebs,Suspension,120 mg/5 ml,Ethical Drug Ltd.
+1,290,Neopara,Tablet,500 mg,Bristol Pharmaceuticals Ltd.
+1,290,Nipa,Tablet,500 mg,Nipa Pharmaceuticals Ltd.
+1,290,Nipa,Suspension,120 mg/5 ml,Nipa Pharmaceuticals Ltd.
+1,290,Nipa,Pediatric Drop,80 mg/ml,Nipa Pharmaceuticals Ltd.
+1,290,Notem,Tablet,500 mg,Standard Laboratories Limited
+1,290,Notem,Suspension,120 mg/5 ml,Standard Laboratories Limited
+1,290,Nova,Tablet,500 mg,Cosmic Pharma Limited
+1,290,Nova,Suspension,120 mg/5 ml,Cosmic Pharma Limited
+1,290,Nuceta,Tablet,500 mg,FnF Pharmaceuticals Ltd.
+1,290,P-Mol,Suspension,120 mg/5 ml,Momotaz Pharmaceuticals Ltd.
+1,290,Painil,Tablet,500 mg,Kumudini Pharma Ltd.
+1,290,Painil,Suspension,120 mg/5 ml,Kumudini Pharma Ltd.
+1,290,PAM,Suspension,120 mg/5 ml,Everest Pharmaceuticals Ltd.
+1,290,PAM,Tablet,500 mg,Everest Pharmaceuticals Ltd.
+1,290,Panalgin,Tablet,500 mg,S.N. Pharmaceutical Ltd.
+1,290,Panol,Tablet,500 mg,Virgo Pharmaceuticals Ltd.
+1,290,Panol,Suspension,125 mg/5 ml,Virgo Pharmaceuticals Ltd.
+1,290,Para,Tablet,500 mg,Amico Laboratories Ltd.
+1,290,Para,Suspension,120 mg/5 ml,Amico Laboratories Ltd.
+1,290,Para,Pediatric Drop,80 mg/ml,Amico Laboratories Ltd.
+1,290,Para C,Tablet,500 mg,Chemist Laboratories Limited.
+1,290,Para C,Suspension,120 mg/5 ml,Chemist Laboratories Limited.
+1,290,Para-AL,Suspension,120 mg/5 ml,Albion Pharmaceuticals Ltd.
+1,290,Paracetamol,Tablet,500 mg,Essential Drugs Company Ltd.
+1,290,Paracetamol,Suspension,120 mg/5 ml,Essential Drugs Company Ltd.
+1,290,Paracetamol,Tablet,500 mg,Marker Pharmaceuticals Ltd.
+1,290,Paracetamol,Suspension,120 mg/5 ml,Organic Health Care
+1,290,Paracetamol,Tablet,500 mg,Bengal drugs Ltd.
+1,290,Paracetamol,Tablet,500 mg,Shamsul Al-Amin Pharmaceutical Ltd.
+1,290,Paradil,Tablet,500 mg,Biogene Pharma Ltd.
+1,290,Paradil,Suspension,120 mg/5 ml,Biogene Pharma Ltd.
+1,290,Paradon,Tablet,500 mg,Healthcare Pharmacuticals Ltd.
+1,290,Parafen,Tablet,500 mg,Ziska Pharmaceuticals Ltd.
+1,290,Parafen,Suspension,120 mg/5 ml,Ziska Pharmaceuticals Ltd.
+1,290,Parafol,Tablet,500 mg,United Chemicals & Pharmaceuticals Ltd.
+1,290,Parafol,Suspension,120 mg/5 ml,United Chemicals & Pharmaceuticals Ltd.
+1,290,Paragesic,Tablet,500 mg,Social Marketing Company
+1,290,Paramex,Suspension,120 mg/5 ml,National Laboratories Ltd.
+1,290,Paramex,Tablet,500 mg,National Laboratories Ltd.
+1,290,Paramol,Tablet,500 mg,Seema Pharmaceuticals Ltd.
+1,290,Paramol,Suspension,120 mg/5 ml,Seema Pharmaceuticals Ltd.
+1,290,Paranaaf,Suspension,120 mg/5 ml,Naafco Pharma Ltd.
+1,290,Parapyrol,Tablet,500 mg,GlaxoSmithKline
+1,290,Parapyrol,Suspension,120 mg/5 ml,GlaxoSmithKline
+1,290,Paratem,Tablet,500 mg,Therapeutics Bangladesh Ltd.
+1,290,Paratem,Suspension,120 mg/5 ml,Therapeutics Bangladesh Ltd.
+1,290,Paraxia,Pediatric Drop,80 mg/ml,Pharmasia Ltd.
+1,290,Paraxia,Tablet,500 mg,Pharmasia Ltd.
+1,290,Paraxia,Suspension,120 mg/5 ml,Pharmasia Ltd.
+1,290,Paret,Tablet,500 mg,Oyster Pharmaceuticals Ltd.
+1,290,Peace,Tablet,500 mg,Novo Healthcare and Pharma Ltd.
+1,290,Pedicit,Suspension,120 mg/5 ml,Unique Pharmaceuticals Ltd.
+1,290,Pedicit,Tablet,500 mg,Unique Pharmaceuticals Ltd.
+1,290,Phenamol,Syrup,120 mg/5 ml,Phoenix Chemicals Laboratory (BD) Ltd
+1,290,PM,Suspension,120 mg/5 ml,Reliance Pharmaceuticals Ltd.
+1,290,Pol,Tablet,500 mg,Globe Pharmaceuticals Limited.
+1,290,Pol,Suspension,120 mg/5 ml,Globe Pharmaceuticals Limited.
+1,290,Preduet,Tablet,500 mg,Silva Pharmaceuticals Ltd.
+1,290,Preduet,Suspension,120 mg/5 ml,Silva Pharmaceuticals Ltd.
+1,290,Prefer,Tablet,500 mg,Marksman Pharmaceuticals Ltd.
+1,290,Prefer,Suspension,120 mg/5 ml,Marksman Pharmaceuticals Ltd.
+1,290,Premol,Tablet,500 mg,Premier Pharmaceuticals Ltd.
+1,290,Premol,Suspension,120 mg/5 ml,Premier Pharmaceuticals Ltd.
+1,290,Promel,Tablet,500 mg,Apollo Pharmaceutical Laboratories Ltd.
+1,290,Promel,Suspension,120 mg/5 ml,Apollo Pharmaceutical Laboratories Ltd.
+1,290,Pyrac,Tablet,500 mg,Medimet Pharmaceuticals Ltd.
+1,290,Pyrac,Suspension,120 mg/5 ml,Medimet Pharmaceuticals Ltd.
+1,290,Pyralgin,Tablet,500 mg,Renata Limited
+1,290,Pyralgin,Suspension,120 mg/5 ml,Renata Limited
+1,290,Pyralgin ER,Tablet,665 mg,Renata Limited
+1,290,Pyramol,Tablet,500 mg,Peoples Pharma Ltd.
+1,290,Pyramol,Suspension,120 mg/5 ml,Peoples Pharma Ltd.
+1,290,Pyrenol XR,Tablet,665 mg,Delta Pharma Limited
+1,290,Pyresin,Tablet,500 mg,Novelta Bestway Pharmaceuticals Ltd.
+1,290,Pyresin,Tablet,665 mg,Novelta Bestway Pharmaceuticals Ltd.
+1,290,Pyrex,Tablet,500 mg,Concord Pharmaceuticals Ltd.
+1,290,Pyrex XR,Tablet,665 mg,Concord Pharmaceuticals Ltd.
+1,290,Pyrexil,Tablet,500 mg,Veritas Pharmaceuticals Ltd.
+1,290,Pyrin,Suspension,120 mg/5 ml,Quality Pharmaceuticals (Pvt) Ltd.
+1,290,Pyrin,Tablet,500 mg,Quality Pharmaceuticals (Pvt) Ltd.
+1,290,Qcet,Tablet,500 mg,Opso Saline Ltd.
+1,290,Reliv,Tablet,500 mg,Astra Biopharmaceuticals Ltd.
+1,290,Reliv,Suspension,120 mg/5 ml,Astra Biopharmaceuticals Ltd.
+1,290,Remalgin,Tablet,500 mg,Reman Drug Laboratories Ltd.
+1,290,Remalgin,Suspension,125 mg/5 ml,Reman Drug Laboratories Ltd.
+1,290,Remol,Tablet,500 mg,Doctor TIMS Pharmaceuticals Ltd.
+1,290,Remol,Suspension,120 mg/5 ml,Doctor TIMS Pharmaceuticals Ltd.
+1,290,Renova,Tablet,500 mg,Opsonin Pharma Ltd.
+1,290,Renova,Suspension,120 mg/5 ml,Opsonin Pharma Ltd.
+1,290,Renova,Syrup,120 mg/5 ml,Opsonin Pharma Ltd.
+1,290,Renova,Pediatric Drop,80 mg/ml,Opsonin Pharma Ltd.
+1,290,Renova,Suppository,60 mg,Opsonin Pharma Ltd.
+1,290,Renova,Suppository,125 mg,Opsonin Pharma Ltd.
+1,290,Renova,Suppository,250 mg,Opsonin Pharma Ltd.
+1,290,Renova,Suppository,500 mg,Opsonin Pharma Ltd.
+1,290,Renova XR,Tablet,665 mg,Opsonin Pharma Ltd.
+1,290,Reset,Tablet,500 mg,Incepta Pharmaceuticals Limited
+1,290,Reset,Suspension,120 mg/5 ml,Incepta Pharmaceuticals Limited
+1,290,Reset,Pediatric Drop,80 mg/ml,Incepta Pharmaceuticals Limited
+1,290,Reset,Syrup,120 mg/5 ml,Incepta Pharmaceuticals Limited
+1,290,Reset ER,Tablet,665 mg,Incepta Pharmaceuticals Limited
+1,290,Seridol,Tablet,500 mg,Sonear Laboratories Ltd.
+1,290,Servigesic,Tablet,500 mg,Novartis (Bangladesh) Ltd.
+1,290,Shafa,Suspension,120 mg/5 ml,Seba Laboratories Ltd.
+1,290,Silpa,Tablet,500 mg,Silva Pharmaceuticals Ltd.
+1,290,Silpa,Suspension,125 mg/5 ml,Silva Pharmaceuticals Ltd.
+1,290,Silpol,Tablet,500 mg,Silco Pharmaceutical Ltd.
+1,290,Silpol,Suspension,120 mg/5 ml,Silco Pharmaceutical Ltd.
+1,290,Sinapol,Tablet,500 mg,Ibn-Sina Pharmaceuticals Ltd.
+1,290,Sinapol,Suspension,125 mg/5 ml,Ibn-Sina Pharmaceuticals Ltd.
+1,290,Sinapol,Tablet,665 mg,Ibn-Sina Pharmaceuticals Ltd.
+1,290,Sinapol,Pediatric Drop,80 mg/ml,Ibn-Sina Pharmaceuticals Ltd.
+1,290,Tam-ER,Tablet,665 mg,Bengal drugs Ltd.
+1,290,Tamen,Tablet,500 mg,Eskayef Bangladesh Ltd.
+1,290,Tamen,Syrup,120 mg/5 ml,Eskayef Bangladesh Ltd.
+1,290,Tamen,Pediatric Drop,80 mg/ml,Eskayef Bangladesh Ltd.
+1,290,Tamen,Suppository,250 mg,Eskayef Bangladesh Ltd.
+1,290,Tamen,Suppository,500 mg,Eskayef Bangladesh Ltd.
+1,290,Tamen,Tablet,120 mg,Eskayef Bangladesh Ltd.
+1,290,Tamen Ultra,Tablet,500 mg,Eskayef Bangladesh Ltd.
+1,290,Tamen XR,Tablet,665 mg,Eskayef Bangladesh Ltd.
+1,290,Tamino,Tablet,500 mg,NIPRO JMI Pharma Ltd.
+1,290,Tamino,Suspension,120 mg/5 ml,NIPRO JMI Pharma Ltd.
+1,290,Tamino ER,Tablet,665 mg,NIPRO JMI Pharma Ltd.
+1,290,Tamol,Tablet,500 mg,Apex Pharmaceuticals Ltd.
+1,290,Tamol,Suspension,120 mg/5 ml,Apex Pharmaceuticals Ltd.
+1,290,Tandamol,Tablet,500 mg,Medicon Pharmaceuticals Ltd.
+1,290,Tandamol,Suspension,120 mg/5 ml,Medicon Pharmaceuticals Ltd.
+1,290,Temnor,Tablet,500 mg,Centeon Pharma Limited
+1,290,Temol,Suspension,120 mg/5 ml,Team Pharmaceuticals Ltd.
+1,290,Temol,Tablet,500 mg,Team Pharmaceuticals Ltd.
+1,290,Tempac,Tablet,500 mg,Hallmark Pharmaceuticals Ltd.
+1,290,Tempac,Suspension,120 mg/5 ml,Hallmark Pharmaceuticals Ltd.
+1,290,Tempac,Tablet,250 mg,Hallmark Pharmaceuticals Ltd.
+1,290,Tempanil,Tablet,500 mg,Amulet Pharmaceuticals Ltd.
+1,290,Tempanil,Suspension,120 mg/5 ml,Amulet Pharmaceuticals Ltd.
+1,290,Tempil,Tablet,500 mg,Alco Pharma Ltd.
+1,290,Tempil,Suspension,120 mg/5 ml,Alco Pharma Ltd.
+1,290,Tempol,Suspension,120 mg/5 ml,Asiatic Laboratories Ltd.
+1,290,Tempol,Pediatric Drop,80 mg/ml,Asiatic Laboratories Ltd.
+1,290,Tempol,Tablet,500 mg,Asiatic Laboratories Ltd.
+1,290,Temrif,Syrup,120 mg/5 ml,Monicopharma Limited
+1,290,Temrif,Tablet,500 mg,Monicopharma Limited
+1,290,Timidal,Tablet,500 mg,Gaco Pharmaceuticals Ltd.
+1,290,Timidal,Suspension,120 mg/5 ml,Gaco Pharmaceuticals Ltd.
+1,290,Tydenol,Tablet,500 mg,Edruc Ltd.
+1,290,Tydenol,Suspension,120 mg/5 ml,Edruc Ltd.
+1,290,Tylen,Tablet,500 mg,Julphar Bangladesh Ltd.
+1,290,Tylen,Suspension,120 mg/5 ml,Julphar Bangladesh Ltd.
+1,290,Tynol,Tablet,500 mg,Salton Pharmaceuticals Ltd.
+1,290,Xcel,Tablet,500 mg,ACI Limited.
+1,290,Xcel,Suspension,120 mg/5 ml,ACI Limited.
+1,290,Xcel,Syrup,120 mg/5 ml,ACI Limited.
+1,290,Xcel,Pediatric Drop,80 mg/ml,ACI Limited.
+1,290,Xcel,Suppository,250 mg,ACI Limited.
+1,290,Xcel,Suppository,125 mg,ACI Limited.
+1,290,Xcel,Suppository,500 mg,ACI Limited.
+1,290,Xcel DT,Tablet,120 mg,ACI Limited.
+1,290,Xcel ER,Tablet,665 mg,ACI Limited.
+1,290,Xpa,Tablet,500 mg,Aristopharma Ltd.
+1,290,Xpa,Suspension,120 mg/5 ml,Aristopharma Ltd.
+1,290,Xpa,Pediatric Drop,80 mg/ml,Aristopharma Ltd.
+1,290,Xpa,Suppository,125 mg,Aristopharma Ltd.
+1,290,Xpa,Suppository,250 mg,Aristopharma Ltd.
+1,290,Xpa,Suppository,500 mg,Aristopharma Ltd.
+1,290,Xpa XR,Tablet,665 mg,Aristopharma Ltd.
+1,290,Zerin,Tablet,500 mg,Jayson Pharma Ltd.
+1,290,Zerin,Suspension,120 mg/5 ml,Jayson Pharma Ltd.
+1,290,Zerin,Pediatric Drop,80 mg/ml,Jayson Pharma Ltd.
+1,291,Paricap,Capsule,1 mcg,Drug International Ltd.
+1,291,Paricon,Capsule,1 mcg,Beacon Pharmaceuticals Ltd.
+1,291,Paritol,Capsule,1 mcg,Opsonin Pharma Ltd.
+1,291,Paritol,Capsule,2 mcg,Opsonin Pharma Ltd.
+1,292,Melev,Tablet,20 mg,Beximco Pharmaceuticals Ltd.
+1,292,Oxat,Tablet,20 mg,Square Pharmaceuticals Ltd.
+1,292,Panirid,Tablet,20 mg,Incepta Pharmaceuticals Limited
+1,292,Parotin,Tablet,10 mg,ACI Limited.
+1,292,Parotin,Tablet,20 mg,ACI Limited.
+1,292,Paroxet,Tablet,20 mg,Jayson Pharma Ltd.
+1,293,G Pefloxacin,Infusion,400 mg/5 ml,Gonoshasthaya Pharmaceuticals Ltd.
+1,293,G Pefloxacin,Tablet,400 mg,Gonoshasthaya Pharmaceuticals Ltd.
+1,293,Isofloxin,Tablet,400 mg,Beximco Pharmaceuticals Ltd.
+1,293,Nobac,Tablet,400 mg,Ibn-Sina Pharmaceuticals Ltd.
+1,293,Pefla,Tablet,400 mg,Sonear Laboratories Ltd.
+1,293,Peflacine,Tablet,400 mg,Sanofi Bangladesh LTD.
+1,293,Peflon,Tablet,400 mg,GlaxoSmithKline
+1,293,Peflox,Tablet,400 mg,Drug International Ltd.
+1,293,Peloxin M,Tablet,400 mg,Pharmadesh Laboratories Ltd.
+1,293,Piprox,Infusion,400 mg/5 ml,Opso Saline Ltd.
+1,293,Piprox,Infusion,400 mg/5 ml,Opsonin Pharma Ltd.
+1,293,Piprox,Tablet,400 mg,Opsonin Pharma Ltd.
+1,293,Pleflacine,Tablet,400 mg,Sanofi Bangladesh LTD.
+1,293,Pleflacine,Infusion,400 mg/5 ml,Sanofi Bangladesh LTD.
+1,294,PEG-Filastin,Injection,6 mg/0.6 ml,Incepta Pharmaceuticals Limited
+1,294,Pegfilgrast,Injection,6 mg/0.6 ml,Beacon Pharmaceuticals Ltd.
+1,294,Pegneufil,Injection,6 mg/0.6 ml,Healthcare Pharmacuticals Ltd.
+1,295,Optipeg-A,Injection,135 mcg/0.5 ml,Incepta Pharmaceuticals Limited
+1,295,Optipeg-A,Injection,180 mcg/0.5 ml,Incepta Pharmaceuticals Limited
+1,295,Pegferon,Injection,135 mcg/0.5 ml,Healthcare Pharmacuticals Ltd.
+1,295,Pegferon,Injection,180 mcg/0.5 ml,Healthcare Pharmacuticals Ltd.
+1,295,Pegin,Injection,180 mcg/0.5 ml,Beacon Pharmaceuticals Ltd.
+1,295,Pegin,Injection,135 mcg/0.5 ml,Beacon Pharmaceuticals Ltd.
+1,296,Alimta,Infusion,500 mg/vial,Eli Lilly and Company
+1,296,Pemeta,Infusion,100 mg/vial,Drug International Ltd.
+1,296,Pemetrex,Infusion,500 mg/5 ml,Beacon Pharmaceuticals Ltd.
+1,296,Pemetrex,Infusion,100 mg/ml,Beacon Pharmaceuticals Ltd.
+1,297,Oxifyl CR,Tablet,400 mg,Square Pharmaceuticals Ltd.
+1,297,Pentollin,Tablet,400 mg,Sonear Laboratories Ltd.
+1,297,Trental,Tablet,400 mg,Sanofi Bangladesh LTD.
+1,297,Vasolax,Tablet,400 mg,Beximco Pharmaceuticals Ltd.
+1,298,Colmint,Capsule,187 mg/0.2 ml,Square Pharmaceuticals Ltd.
+1,298,Liqumint,Capsule,0.2 ml,Beacon Pharmaceuticals Ltd.
+1,298,Medimint,Capsule,0.2 ml,Rangs Pharmaceuticals Ltd.
+1,298,Mintek,Capsule,0.2 ml,Drug International Ltd.
+1,298,Mintol,Capsule,0.2 ml,General Pharmaceuticals Ltd.
+1,299,Cadnyl,Tablet,4 mg,Square Pharmaceuticals Ltd.
+1,299,Coversyl 4,Tablet,4 mg,Servier Bangladesh Operation
+1,299,Coversyl 8,Tablet,8 mg,Servier Bangladesh Operation
+1,299,Inopil,Tablet,2 mg,Delta Pharma Limited
+1,299,Inopil,Tablet,4 mg,Delta Pharma Limited
+1,299,Pendoril,Tablet,4 mg,Renata Limited
+1,299,Pendoril,Tablet,2 mg,Renata Limited
+1,299,Pendoril,Tablet,8 mg,Renata Limited
+1,299,Pericard,Tablet,2 mg,Asiatic Laboratories Ltd.
+1,299,Pericard,Tablet,4 mg,Asiatic Laboratories Ltd.
+1,299,Peripril,Tablet,2 mg,Incepta Pharmaceuticals Limited
+1,299,Peripril,Tablet,4 mg,Incepta Pharmaceuticals Limited
+1,299,Peripril,Tablet,8 mg,Incepta Pharmaceuticals Limited
+1,299,Versil,Tablet,4 mg,Acme Laboratories Limited.
+1,300,Crotam Plus,Lotion,5%+10%,Ethical Drug Ltd.
+1,300,Crotamed,Lotion,5%+10%,MedRx Life Science Ltd
+1,300,Elimate Plus,Lotion,5%+10%,Incepta Pharmaceuticals Limited
+1,300,Lorix Plus,Lotion,5%+10%,Opsonin Pharma Ltd.
+1,300,Permicot,Lotion,5%+10%,Sanofi Bangladesh LTD.
+1,300,Permisol Max,Lotion,5%+10%,ACI Limited.
+1,300,Unix-C,Lotion,5%+10%,Unimed Unihealth MFG. Ltd.
+1,301,Arotrix,Cream,5% w/w,Aristopharma Ltd.
+1,301,Cabis,Cream,5% w/w,Doctor's Chemical Works Ltd.
+1,301,Delice,Cream,5% w/w,Amico Laboratories Ltd.
+1,301,Deorix,Cream,5% w/w,Popular Pharmaceuticals Ltd.
+1,301,Dermanix,Cream,5% w/w,Novo Healthcare and Pharma Ltd.
+1,301,Elimate,Cream,5% w/w,Incepta Pharmaceuticals Limited
+1,301,Ermite,Cream,5% w/w,Jayson Pharma Ltd.
+1,301,Florixe,Cream,5% w/w,Cosmic Pharma Limited
+1,301,Licerin,Cream,5% w/w,Drug International Ltd.
+1,301,Lorix,Cream,5% w/w,Opsonin Pharma Ltd.
+1,301,Lotrix,Cream,5% w/w,GlaxoSmithKline
+1,301,Mecabis,Cream,5% w/w,Asiatic Laboratories Ltd.
+1,301,Mithin,Cream,5% w/w,Edruc Ltd.
+1,301,Neeper,Cream,5% w/w,Kemiko Pharmaceuticals Ltd.
+1,301,Noscab,Cream,5% w/w,Beximco Pharmaceuticals Ltd.
+1,301,Perbix,Cream,5% w/w,Albion Pharmaceuticals Ltd.
+1,301,Perclear,Cream,5% w/w,Amulet Pharmaceuticals Ltd.
+1,301,Perls,Cream,5% w/w,Globe Pharmaceuticals Limited.
+1,301,Perma,Cream,5% w/w,Alco Pharma Ltd.
+1,301,Permenin,Cream,5% w/w,Medicon Pharmaceuticals Ltd.
+1,301,Permet,Cream,5% w/w,Gaco Pharmaceuticals Ltd.
+1,301,Permethi,Cream,5% w/w,Pharmasia Ltd.
+1,301,Permin,Cream,5% w/w,Acme Laboratories Limited.
+1,301,Permisol,Cream,5% w/w,ACI Limited.
+1,301,Perosa,Cream,5% w/w,Eskayef Bangladesh Ltd.
+1,301,Pesimex,Cream,5% w/w,Pharmadesh Laboratories Ltd.
+1,301,Remathrin,Cream,5% w/w,Reman Drug Laboratories Ltd.
+1,301,Scabex,Cream,5% w/w,Square Pharmaceuticals Ltd.
+1,301,Scabfre,Cream,5% w/w,Pacific Pharmaceuticals Ltd.
+1,301,Scabid,Cream,5% w/w,Chemist Laboratories Limited.
+1,301,Scameth,Cream,5% w/w,Millat Pharmaceuticals Limited
+1,301,Scaper,Cream,5% w/w,Biopharma Laboratories Ltd.
+1,301,Scarin,Cream,5% w/w,Ibn-Sina Pharmaceuticals Ltd.
+1,301,Skillin,Cream,5% w/w,General Pharmaceuticals Ltd.
+1,301,Unix,Cream,5% w/w,Unimed Unihealth MFG. Ltd.
+1,301,Zunex,Cream,5% w/w,Rephco Pharmaceuticals Ltd.
+1,302,G-Pethidine,Injection,50 mg/ml,Gonoshasthaya Pharmaceuticals Ltd.
+1,302,Pethidine,Injection,100 mg/2 ml,Ambee Pharmaceuticals Ltd.
+1,302,Pethidine,Injection,50 mg/ml,Essential Drugs Company Ltd.
+1,302,Pethidine,Injection,50 mg/ml,Jayson Pharma Ltd.
+1,302,Pethidine,Injection,50 mg/ml,National Laboratories Ltd.
+1,302,Pethidine 50,Injection,50 mg/ml,Rephco Pharmaceuticals Ltd.
+1,302,Pethidine 50,Injection,50 mg/ml,Standard Laboratories Limited
+1,302,Pethidine Ziska,Injection,50 mg/ml,Ziska Pharmaceuticals Ltd.
+1,302,Pethidine-R,Injection,100 mg/2 ml,Renata Limited
+1,302,Pethin,Injection,100 mg/2 ml,Popular Pharmaceuticals Ltd.
+1,303,Aerovil,Syrup,15 mg/5 ml,Beximco Pharmaceuticals Ltd.
+1,303,Alervil,Syrup,15 mg/5 ml,Incepta Pharmaceuticals Limited
+1,303,Amarin,Tablet,22.7 mg,Opsonin Pharma Ltd.
+1,303,Amarin,Syrup,15 mg/5 ml,Opsonin Pharma Ltd.
+1,303,Amarin,Injection,45.5 mg/2 ml,Opsonin Pharma Ltd.
+1,303,Avil,Tablet,22.7 mg,Sanofi Bangladesh LTD.
+1,303,Avil,Syrup,15 mg/5 ml,Sanofi Bangladesh LTD.
+1,303,Avil,Injection,45.5 mg/2 ml,Sanofi Bangladesh LTD.
+1,303,Avil Retard,Tablet,75 mg,Sanofi Bangladesh LTD.
+1,303,Fenimex,Injection,45.5 mg/2 ml,Asiatic Laboratories Ltd.
+1,303,Pevil,Tablet,22.7 mg,ACI Limited.
+1,304,Barbina,Tablet,30 mg,Orion Pharma Ltd.
+1,304,Barbit,Tablet,30 mg,Incepta Pharmaceuticals Limited
+1,304,Barbit,Tablet,60 mg,Incepta Pharmaceuticals Limited
+1,304,Barbit,Elixir,20 mg/5 ml,Incepta Pharmaceuticals Limited
+1,304,Barbit,Injection,200 mg/ml,Incepta Pharmaceuticals Limited
+1,304,Barbiton,Tablet,15 mg,Reliance Pharmaceuticals Ltd.
+1,304,Berdinal,Tablet,50 mg,Gaco Pharmaceuticals Ltd.
+1,304,Berdinal,Injection,200 mg/ml,Gaco Pharmaceuticals Ltd.
+1,304,Emer,Tablet,15 mg,Opsonin Pharma Ltd.
+1,304,Emer,Tablet,30 mg,Opsonin Pharma Ltd.
+1,304,Emer,Tablet,60 mg,Opsonin Pharma Ltd.
+1,304,Emer,Elixir,20 mg/5 ml,Opsonin Pharma Ltd.
+1,304,Emer,Injection,200 mg/ml,Opsonin Pharma Ltd.
+1,304,Epinal,Tablet,30 mg,Square Pharmaceuticals Ltd.
+1,304,Epinal,Tablet,60 mg,Square Pharmaceuticals Ltd.
+1,304,Epinal,Elixir,20 mg/5 ml,Square Pharmaceuticals Ltd.
+1,304,Epinal,Injection,200 mg/ml,Square Pharmaceuticals Ltd.
+1,304,G-Phenobarbitone,Tablet,30 mg,Gonoshasthaya Pharmaceuticals Ltd.
+1,304,G-Phenobarbitone,Injection,200 mg/ml,Gonoshasthaya Pharmaceuticals Ltd.
+1,304,Gardenal,Tablet,60 mg,Sanofi Bangladesh LTD.
+1,304,Pheno,Tablet,15 mg,Delta Pharma Limited
+1,304,Pheno,Elixir,20 mg/5 ml,Delta Pharma Limited
+1,304,Pheno,Tablet,30 mg,Delta Pharma Limited
+1,304,Pheno,Tablet,60 mg,Delta Pharma Limited
+1,304,Phenoba,Tablet,30 mg,Biopharma Laboratories Ltd.
+1,304,Phenoba,Tablet,60 mg,Biopharma Laboratories Ltd.
+1,304,Phenobarbitone,Tablet,30 mg,Seema Pharmaceuticals Ltd.
+1,304,Phenobarbitone 30,Tablet,30 mg,Essential Drugs Company Ltd.
+1,304,Phenoson,Tablet,60 mg,Jayson Pharma Ltd.
+1,304,Phenoson,Tablet,30 mg,Jayson Pharma Ltd.
+1,305,Biopen VK,Tablet,250 mg,Biopharma Laboratories Ltd.
+1,305,Biopen VK,Suspension,125 mg/5 ml,Biopharma Laboratories Ltd.
+1,305,Crystapen V,Tablet,125 mg/5 ml,GlaxoSmithKline
+1,305,Crystapen V,Tablet,250 mg,GlaxoSmithKline
+1,305,Cytapen V,Tablet,250 mg,Edruc Ltd.
+1,305,Cytapen V,Suspension,125 mg/5 ml,Edruc Ltd.
+1,305,Eracillin K,Tablet,250 mg,Gaco Pharmaceuticals Ltd.
+1,305,Eracillin K,Suspension,125 mg/5 ml,Gaco Pharmaceuticals Ltd.
+1,305,G-Penicillin,Tablet,250 mg,Gonoshasthaya Pharmaceuticals Ltd.
+1,305,G-Penicillin,Suspension,125 mg/5 ml,Gonoshasthaya Pharmaceuticals Ltd.
+1,305,H-Pen,Tablet,250 mg,Hudson Pharmaceuticals Ltd.
+1,305,Oicin,Tablet,250 mg,Save Pharmaceutical
+1,305,Open,Tablet,250 mg,Opsonin Pharma Ltd.
+1,305,Open,Tablet,500 mg,Opsonin Pharma Ltd.
+1,305,Open,Suspension,125 mg/5 ml,Opsonin Pharma Ltd.
+1,305,Ora K,Tablet,250 mg,Desh Pharmaceuticals Ltd.
+1,305,Ora K,Suspension,125 mg/5 ml,Desh Pharmaceuticals Ltd.
+1,305,Oracyn K,Tablet,250 mg,Sanofi Bangladesh LTD.
+1,305,Oracyn K,Tablet,500 mg,Sanofi Bangladesh LTD.
+1,305,Oracyn K,Suspension,125 mg/5 ml,Sanofi Bangladesh LTD.
+1,305,Pacin-V,Tablet,250 mg,Zenith Pharmaceuticals Ltd.
+1,305,Pen C,Tablet,250 mg,Chemist Laboratories Limited.
+1,305,Pen C,Suspension,125 mg/5 ml,Chemist Laboratories Limited.
+1,305,Pen VK,Tablet,250 mg,Renata Limited
+1,305,Pen VK,Suspension,125 mg/5 ml,Renata Limited
+1,305,Penacin V,Tablet,250 mg,Ziska Pharmaceuticals Ltd.
+1,305,Penci-V,Tablet,250 mg,Skylab Pharmaceuticals Ltd.
+1,305,Penci-V,Suspension,125 mg/5 ml,Skylab Pharmaceuticals Ltd.
+1,305,Pencillin V,Suspension,125 mg/5 ml,Essential Drugs Company Ltd.
+1,305,Pencillin V,Tablet,250 mg,Essential Drugs Company Ltd.
+1,305,Pencin V,Tablet,250 mg,Nipa Pharmaceuticals Ltd.
+1,305,Penco V,Tablet,250 mg,Supreme Pharmaceutical Ltd.
+1,305,Penicillin,Tablet,250 mg,Bristol Pharmaceuticals Ltd.
+1,305,Penicillin V,Tablet,250 mg,Indo Bangla Pharmaceutical
+1,305,Penicillin V,Suspension,125 mg/5 ml,Indo Bangla Pharmaceutical
+1,305,Penigen,Tablet,250 mg,General Pharmaceuticals Ltd.
+1,305,Pentab,Tablet,250 mg,Sonear Laboratories Ltd.
+1,305,Penvik,Tablet,250 mg,Square Pharmaceuticals Ltd.
+1,305,Penvik,Suspension,125 mg/5 ml,Square Pharmaceuticals Ltd.
+1,305,Penvik DS,Tablet,500 mg,Square Pharmaceuticals Ltd.
+1,305,Penvik Forte,Suspension,250 mg/5 ml,Square Pharmaceuticals Ltd.
+1,305,Pepin,Suspension,125 mg/5 ml,Kemiko Pharmaceuticals Ltd.
+1,305,Pharmapen,Tablet,250 mg,Pharmadesh Laboratories Ltd.
+1,305,Pharmapen,Suspension,125 mg/5 ml,Pharmadesh Laboratories Ltd.
+1,305,Phenopen,Suspension,125 mg/5 ml,NIPRO JMI Pharma Ltd.
+1,305,Phenoxyl VK,Tablet,250 mg,Jayson Pharma Ltd.
+1,305,Phenoxyl VK,Suspension,125 mg/5 ml,Jayson Pharma Ltd.
+1,305,Phenoxymethyl 250,Tablet,250 mg,APC Pharma Ltd.
+1,305,Reocin K,Suspension,125 mg/5 ml,Rephco Pharmaceuticals Ltd.
+1,305,Reocin K,Tablet,250 mg,Rephco Pharmaceuticals Ltd.
+1,305,Rycin K,Tablet,250 mg,Albion Pharmaceuticals Ltd.
+1,305,Rycin K,Tablet,500 mg,Albion Pharmaceuticals Ltd.
+1,305,Tipen,Suspension,125 mg/5 ml,Therapeutics Bangladesh Ltd.
+1,305,Vicin K,Suspension,125 mg/5 ml,Peoples Pharma Ltd.
+1,305,Biopen VK,Tablet,251 mg,Biopharma Laboratories Ltd.
+1,306,D-Toin,Tablet,100 mg,Drug International Ltd.
+1,306,Diphedan,Tablet,100 mg,Ambee Pharmaceuticals Ltd.
+1,306,Diphedan,Suspension,30 mg/5 ml,Ambee Pharmaceuticals Ltd.
+1,306,Epilax,Injection,150 mg/2 ml,Techno Drugs Ltd.
+1,306,Epitoin,Injection,150 mg/2 ml,Ziska Pharmaceuticals Ltd.
+1,306,Fosfen,Injection,150 mg/2 ml,Popular Pharmaceuticals Ltd.
+1,306,Phentin,Capsule,50 mg,Gaco Pharmaceuticals Ltd.
+1,306,Phenyton,Capsule,100 mg,National Laboratories Ltd.
+1,306,Phenyton,Suspension,30 mg/5 ml,National Laboratories Ltd.
+1,306,Sizatoin,Tablet,100 mg,Incepta Pharmaceuticals Limited
+1,306,Xentoin,Tablet,100 mg,Beacon Pharmaceuticals Ltd.
+1,307,Babykion,Injection,2 mg/ 0.2 ml,Chemist Laboratories Limited.
+1,307,Dinakion,Capsule,1 mg,Drug International Ltd.
+1,307,Dinakion,Injection,10 mg/ml,Drug International Ltd.
+1,307,Dinakion MM Pediatric,Injection,2 mg/0.2 ml,Drug International Ltd.
+1,307,K MM,Injection,10 mg/ ml,Incepta Pharmaceuticals Limited
+1,307,K MM,Injection,2 mg/0.2 ml,Incepta Pharmaceuticals Limited
+1,307,K-One,Injection,10 mg/ml,Square Pharmaceuticals Ltd.
+1,307,K-One MM,Injection,2 mg/0.2 ml,Square Pharmaceuticals Ltd.
+1,307,KayOn,Capsule,1 mg,Globe Pharmaceuticals Limited.
+1,307,Konakion,Injection,2 mg/ 0.2 ml,Roche Bangladesh Limited
+1,307,Konakion,Injection,10 mg/ ml,Roche Bangladesh Limited
+1,307,Menakion MM,Injection,2 mg/0.2 ml,Opsonin Pharma Ltd.
+1,307,Menakion MM,Injection,10 mg/ml,Opsonin Pharma Ltd.
+1,307,Ovik,Injection,2 mg/0.2 ml,Healthcare Pharmacuticals Ltd.
+1,307,Tonadin,Injection,10 mg/ml,ACI Limited.
+1,307,Tonadin,Injection,2 mg/ml,ACI Limited.
+1,308,Asipine,Eye Drop,0.01,Asiatic Laboratories Ltd.
+1,308,G Pilocarpine,Eye Drop,0.02,Gonoshasthaya Pharmaceuticals Ltd.
+1,308,Miocarpine,Eye Drop,0.02,Gaco Pharmaceuticals Ltd.
+1,308,Miocarpine,Eye Drop,0.01,Gaco Pharmaceuticals Ltd.
+1,308,Optacarpine,Eye Drop,0.02,Popular Pharmaceuticals Ltd.
+1,308,Pilo Drop,Eye Drop,0.01,Reman Drug Laboratories Ltd.
+1,308,Pilo Drop,Eye Drop,0.02,Reman Drug Laboratories Ltd.
+1,308,Pilo Drop,Eye Drop,0.04,Reman Drug Laboratories Ltd.
+1,308,Pilocarpine,Eye Drop,0.01,Opso Saline Ltd.
+1,308,Pilocarpine,Eye Drop,0.02,Opso Saline Ltd.
+1,308,Pilocarpine,Eye Drop,0.04,Opso Saline Ltd.
+1,308,Pilocarpine SL,Eye Drop,0.01,Standard Laboratories Limited
+1,308,Pilocarpine SL,Eye Drop,0.02,Standard Laboratories Limited
+1,308,Piloma,Eye Drop,0.01,Opsonin Pharma Ltd.
+1,308,Piloma,Eye Drop,0.04,Opsonin Pharma Ltd.
+1,308,Piloma,Eye Drop,0.02,Opsonin Pharma Ltd.
+1,308,Pilomin,Eye Drop,0.02,Nipa Pharmaceuticals Ltd.
+1,308,Pilomin,Eye Drop,0.04,Nipa Pharmaceuticals Ltd.
+1,308,Pilopes,Eye Drop,0.02,Drug International Ltd.
+1,309,Diatag Plus,Tablet,30 mg+2 mg,ACI Limited.
+1,309,Diatag Plus,Tablet,30 mg+4 mg,ACI Limited.
+1,309,Dieta Plus,Tablet,30 mg+2 mg,Pacific Pharmaceuticals Ltd.
+1,309,Dieta Plus,Tablet,30 mg+4 mg,Pacific Pharmaceuticals Ltd.
+1,309,Tosirin,Tablet,30 mg+2 mg,Square Pharmaceuticals Ltd.
+1,309,Tosirin,Tablet,30 mg+4 mg,Square Pharmaceuticals Ltd.
+1,310,Actomeg,Tablet,15 mg+500 mg,Unimed Unihealth MFG. Ltd.
+1,310,Actomeg,Tablet,15 mg+850 mg,Unimed Unihealth MFG. Ltd.
+1,310,CoDiaglit,Tablet,15 mg+500 mg,Beximco Pharmaceuticals Ltd.
+1,310,CoDiaglit,Tablet,15 mg+850 mg,Beximco Pharmaceuticals Ltd.
+1,310,Compimet,Tablet,15 mg+500 mg,Incepta Pharmaceuticals Limited
+1,310,Glitamin,Tablet,15 mg+500 mg,The White Horse Pharma
+1,310,Glitamin,Tablet,15 mg+850 mg,The White Horse Pharma
+1,310,Metopa,Tablet,15 mg+500 mg,Eskayef Bangladesh Ltd.
+1,310,Oglimet,Tablet,15 mg+500 mg,Kemiko Pharmaceuticals Ltd.
+1,310,Oglimet,Tablet,15 mg+850 mg,Kemiko Pharmaceuticals Ltd.
+1,310,Piobig,Tablet,15 mg+500 mg,Navana Pharmaceuticals Ltd.
+1,310,Piobig,Tablet,15 mg+850 mg,Navana Pharmaceuticals Ltd.
+1,310,Piol M,Tablet,15 mg+500 mg,Opsonin Pharma Ltd.
+1,310,Piol M,Tablet,15 mg+850 mg,Opsonin Pharma Ltd.
+1,310,Piomet,Tablet,15 mg+500 mg,Silva Pharmaceuticals Ltd.
+1,310,Piomet,Tablet,15 mg+850 mg,Silva Pharmaceuticals Ltd.
+1,310,Piomin,Tablet,15 mg+500 mg,Pacific Pharmaceuticals Ltd.
+1,310,Piomin,Tablet,15 mg+850 mg,Pacific Pharmaceuticals Ltd.
+1,310,Piover M,Tablet,15 mg+850 mg,Veritas Pharmaceuticals Ltd.
+1,310,Piover M,Tablet,15 mg+500 mg,Veritas Pharmaceuticals Ltd.
+1,310,Piozena Plus,Tablet,15 mg+500 mg,Drug International Ltd.
+1,310,Piozena Plus,Tablet,15 mg+850 mg,Drug International Ltd.
+1,310,Polimet,Tablet,15 mg+500 mg,Rephco Pharmaceuticals Ltd.
+1,310,Polimet,Tablet,15 mg+850 mg,Rephco Pharmaceuticals Ltd.
+1,310,Politor,Tablet,15 mg+500 mg,ACI Limited.
+1,310,Politor,Tablet,15 mg+850 mg,ACI Limited.
+1,310,Rezulin,Tablet,15 mg+500 mg,Square Pharmaceuticals Ltd.
+1,310,Rezulin,Tablet,15 mg+850 mg,Square Pharmaceuticals Ltd.
+1,311,Actose,Tablet,15 mg,Unimed Unihealth MFG. Ltd.
+1,311,Actose,Tablet,30 mg,Unimed Unihealth MFG. Ltd.
+1,311,Adpas,Tablet,15 mg,General Pharmaceuticals Ltd.
+1,311,Diaglit,Tablet,15 mg,Beximco Pharmaceuticals Ltd.
+1,311,Diaglit,Tablet,30 mg,Beximco Pharmaceuticals Ltd.
+1,311,Diapiotab,Tablet,15 mg,Medimet Pharmaceuticals Ltd.
+1,311,Diapiotab,Tablet,30 mg,Medimet Pharmaceuticals Ltd.
+1,311,Diatag,Tablet,15 mg,ACI Limited.
+1,311,Diatag,Tablet,30 mg,ACI Limited.
+1,311,Diatag,Tablet,45 mg,ACI Limited.
+1,311,Diatus,Tablet,15 mg,Navana Pharmaceuticals Ltd.
+1,311,Diatus,Tablet,30 mg,Navana Pharmaceuticals Ltd.
+1,311,Glitazon,Tablet,15 mg,Ibn-Sina Pharmaceuticals Ltd.
+1,311,Glucozon,Tablet,15 mg,Aristopharma Ltd.
+1,311,Glucozon,Tablet,30 mg,Aristopharma Ltd.
+1,311,Lit,Tablet,15 mg,The White Horse Pharma
+1,311,Lit,Tablet,30 mg,The White Horse Pharma
+1,311,Ogli,Tablet,15 mg,Kemiko Pharmaceuticals Ltd.
+1,311,Ogli,Tablet,30 mg,Kemiko Pharmaceuticals Ltd.
+1,311,PCT-15,Tablet,15 mg,Central Pharmaceuticals Ltd (CPL)
+1,311,Peegee,Tablet,15 mg,Jayson Pharma Ltd.
+1,311,Peegee,Tablet,30 mg,Jayson Pharma Ltd.
+1,311,Pidus,Tablet,15 mg,Acme Laboratories Limited.
+1,311,Piglit,Tablet,15 mg,Pacific Pharmaceuticals Ltd.
+1,311,Piglit,Tablet,30 mg,Pacific Pharmaceuticals Ltd.
+1,311,Pigzon,Tablet,15 mg,Sharif Pharmaceuticals Ltd.
+1,311,Pigzon,Tablet,30 mg,Sharif Pharmaceuticals Ltd.
+1,311,Piodar,Tablet,15 mg,Incepta Pharmaceuticals Limited
+1,311,Piodar,Tablet,30 mg,Incepta Pharmaceuticals Limited
+1,311,Pioglin,Tablet,15 mg,Renata Limited
+1,311,Pioglin,Tablet,30 mg,Renata Limited
+1,311,Pioglinet,Tablet,15 mg,National Laboratories Ltd.
+1,311,Piol,Tablet,15 mg,Opsonin Pharma Ltd.
+1,311,Piol,Tablet,30 mg,Opsonin Pharma Ltd.
+1,311,Piolit,Tablet,15 mg,Alco Pharma Ltd.
+1,311,Pionil,Tablet,15 mg,Medicon Pharmaceuticals Ltd.
+1,311,Piotab,Tablet,15 mg,Millat Pharmaceuticals Limited
+1,311,Piozena,Tablet,15 mg,Drug International Ltd.
+1,311,Piozena,Tablet,30 mg,Drug International Ltd.
+1,311,Piozon,Tablet,15 mg,Doctor's Chemical Works Ltd.
+1,311,Pizobet,Tablet,15 mg,Ad-din pharmaceuticals Ltd.
+1,311,Preglit,Tablet,15 mg,Biopharma Laboratories Ltd.
+1,311,Saglit,Tablet,15 mg,Sanofi Bangladesh LTD.
+1,311,Saglit,Tablet,30 mg,Sanofi Bangladesh LTD.
+1,311,Tos,Tablet,15 mg,Square Pharmaceuticals Ltd.
+1,311,Tos,Tablet,30 mg,Square Pharmaceuticals Ltd.
+1,311,Uzone,Tablet,15 mg,Union Pharmaceuticals Ltd.
+1,312,Brodactam,Infusion,4 gm+0.5 gm,Sanofi Bangladesh LTD.
+1,312,Megacilin,Infusion,(4 gm+0.5 gm)/100 ml,Popular Pharmaceuticals Ltd.
+1,312,Tazocil,Infusion,4 gm+0.5 gm,Square Pharmaceuticals Ltd.
+1,312,Tazopen,Infusion,4 gm+0.5 gm,Renata Limited
+1,312,Tazosyn,Infusion,2 gm+0.25 gm,ACI Limited.
+1,312,Tazosyn,Infusion,4 gm+0.5 gm,ACI Limited.
+1,312,Tazotam,Infusion,4 gm+0.5 gm,Pharmacil Limited
+1,313,D-Pira,Tablet,800 mg,Drug International Ltd.
+1,313,Enmecon,Tablet,800 mg,Novartis (Bangladesh) Ltd.
+1,313,Juvain,Tablet,800 mg,Opsonin Pharma Ltd.
+1,313,Juvain,Syrup,500 mg/5 ml,Opsonin Pharma Ltd.
+1,313,Lucetam,Tablet,1200 mg,City Overseas Ltd.
+1,313,Lucetum,Tablet,1200 mg,"Egis Pharmaceuticals, Hungary"
+1,313,Memopil,Tablet,800 mg,ACI Limited.
+1,313,Memopil,Syrup,500 mg/5 ml,ACI Limited.
+1,313,Memopil,Injection,3 gm/15 ml,ACI Limited.
+1,313,Memopil,Tablet,1200 mg,ACI Limited.
+1,313,Memotam,Syrup,500 mg/5 ml,Orion Pharma Ltd.
+1,313,Memotam,Tablet,800 mg,Orion Pharma Ltd.
+1,313,Neuratam,Tablet,800 mg,Ibn-Sina Pharmaceuticals Ltd.
+1,313,Neuratam,Syrup,500 mg/5 ml,Ibn-Sina Pharmaceuticals Ltd.
+1,313,Neurolep,Tablet,800 mg,Square Pharmaceuticals Ltd.
+1,313,Neurolep,Syrup,500 mg/5 ml,Square Pharmaceuticals Ltd.
+1,313,Neuropil,Tablet,1200 mg,Hallmark Pharmaceuticals Ltd.
+1,313,Neuropil,Syrup,500 mg/5 ml,Hallmark Pharmaceuticals Ltd.
+1,313,Piramax,Tablet,800 mg,Aristopharma Ltd.
+1,313,Piratam,Tablet,800 mg,General Pharmaceuticals Ltd.
+1,313,Piratam,Syrup,500 mg/5 ml,General Pharmaceuticals Ltd.
+1,314,Pulfibro,Capsule,267 mg,Unimed Unihealth MFG. Ltd.
+1,314,Pulfibro,Tablet,801 mg,Unimed Unihealth MFG. Ltd.
+1,314,Pulmosis,Capsule,267 mg,Incepta Pharmaceuticals Limited
+1,315,Flexicam,Capsule,10 mg,Renata Limited
+1,315,Flexicam,Injection,40 mg/2 ml,Renata Limited
+1,315,Pirox,Injection,40 mg/2 ml,Beximco Pharmaceuticals Ltd.
+1,315,Rheudene,Capsule,10 mg,Gaco Pharmaceuticals Ltd.
+1,315,Rheudene,Injection,40 mg/2 ml,Gaco Pharmaceuticals Ltd.
+1,316,Lip Loss,Tablet,2 mg,Drug International Ltd.
+1,316,Lipatin,Tablet,2 mg,Healthcare Pharmacuticals Ltd.
+1,316,Pavigard,Tablet,2 mg,Acme Laboratories Limited.
+1,316,Pitavas,Tablet,2 mg,Aristopharma Ltd.
+1,316,Pivalo,Tablet,2 mg,Square Pharmaceuticals Ltd.
+1,316,Pivalo,Tablet,4 mg,Square Pharmaceuticals Ltd.
+1,316,Pivasta,Tablet,2 mg,Eskayef Bangladesh Ltd.
+1,317,Antigrain,Tablet,0.5 mg,Ibn-Sina Pharmaceuticals Ltd.
+1,317,Antigrain TS,Tablet,1.5 mg,Ibn-Sina Pharmaceuticals Ltd.
+1,317,Avidro,Tablet,0.5 mg,Beximco Pharmaceuticals Ltd.
+1,317,Avidro,Tablet,1.5 mg,Beximco Pharmaceuticals Ltd.
+1,317,D-Fen,Tablet,0.5 mg,Drug International Ltd.
+1,317,D-Fen,Tablet,1.5 mg,Drug International Ltd.
+1,317,Dmigrain,Tablet,0.5 mg,NIPRO JMI Pharma Ltd.
+1,317,Dmigrain,Tablet,1.5 mg,NIPRO JMI Pharma Ltd.
+1,317,Migofen,Tablet,0.5 mg,Techno Drugs Ltd.
+1,317,Migofen,Tablet,1.5 mg,Techno Drugs Ltd.
+1,317,Migrafen,Tablet,0.5 mg,Globe Pharmaceuticals Limited.
+1,317,Migrafen TS,Tablet,1.5 mg,Globe Pharmaceuticals Limited.
+1,317,Migranex,Tablet,0.5 mg,Edruc Ltd.
+1,317,Migranex,Tablet,1.5 mg,Edruc Ltd.
+1,317,Migranil,Tablet,0.5 mg,Square Pharmaceuticals Ltd.
+1,317,Migranil,Tablet,1.5 mg,Square Pharmaceuticals Ltd.
+1,317,Pifen,Tablet,0.5 mg,Opsonin Pharma Ltd.
+1,317,Pifen,Tablet,1.5 mg,Opsonin Pharma Ltd.
+1,317,Pigrain,Tablet,0.5 mg,Supreme Pharmaceutical Ltd.
+1,317,Pigrain,Tablet,1.5 mg,Supreme Pharmaceutical Ltd.
+1,317,Pitofen,Tablet,0.5 mg,Medicon Pharmaceuticals Ltd.
+1,317,Pizo-A,Tablet,0.5 mg,Acme Laboratories Limited.
+1,317,Pizo-A,Tablet,1.5 mg,Acme Laboratories Limited.
+1,317,Pizofen,Tablet,0.5 mg,Navana Pharmaceuticals Ltd.
+1,317,Pizofen TS,Tablet,1.5 mg,Navana Pharmaceuticals Ltd.
+1,317,Pizograin,Tablet,1.5 mg,General Pharmaceuticals Ltd.
+1,317,Pizograin,Tablet,0.5 mg,General Pharmaceuticals Ltd.
+1,317,Pizonil,Tablet,1.5 mg,Renata Limited
+1,317,Pizonil,Tablet,0.5 mg,Renata Limited
+1,317,Pizotin,Tablet,0.5 mg,Nipa Pharmaceuticals Ltd.
+1,317,Pizotin,Tablet,1.5 mg,Nipa Pharmaceuticals Ltd.
+1,317,Pzen,Tablet,0.5 mg,Pacific Pharmaceuticals Ltd.
+1,317,Pzen TS,Tablet,1.5 mg,Pacific Pharmaceuticals Ltd.
+1,317,Zeromig,Tablet,0.5 mg,Eskayef Bangladesh Ltd.
+1,317,Zeromig,Tablet,1.5 mg,Eskayef Bangladesh Ltd.
+1,317,Zofen,Tablet,0.5 mg,Aristopharma Ltd.
+1,317,Zofen TS,Tablet,1.5 mg,Aristopharma Ltd.
+1,317,Zonil,Tablet,0.5 mg,Apex Pharmaceuticals Ltd.
+1,317,Zonil TS,Tablet,1.5 mg,Apex Pharmaceuticals Ltd.
+1,318,Pneumo 23,Injection,0.5 ml,Sanofi Pasteur
+1,318,Prevenar 13,Injection,0.5 ml,Pfizer
+1,318,Synflorix,Injection,0.5 ml,GlaxoSmithKline
+1,319,Autotear,Eye Drop,0.4%+0.3%,Popular Pharmaceuticals Ltd.
+1,319,Filtear,Eye Drop,0.4%+0.3%,Incepta Pharmaceuticals Limited
+1,319,Freshtear,Eye Drop,0.4%+0.3%,Eskayef Bangladesh Ltd.
+1,319,Glytear,Eye Drop,0.4%+0.3%,General Pharmaceuticals Ltd.
+1,319,I-Fort,Eye Drop,0.4%+0.3%,Biopharma Laboratories Ltd.
+1,319,I-Moist,Eye Drop,0.4%+0.3%,Drug International Ltd.
+1,319,Lubricol,Eye Drop,0.4%+0.3%,Globe Pharmaceuticals Limited.
+1,319,Oclube,Eye Drop,0.4%+0.3%,ACI Limited.
+1,319,Oculant,Eye Drop,0.4%+0.3%,Square Pharmaceuticals Ltd.
+1,319,Opcol,Eye Drop,0.4%+0.3%,Acme Laboratories Limited.
+1,319,Polygel,Eye Drop,0.4%+0.3%,Ibn-Sina Pharmaceuticals Ltd.
+1,319,Polypro,Eye Drop,0.4%+0.3%,Pacific Pharmaceuticals Ltd.
+1,319,Polysol,Eye Drop,0.4%+0.3%,Apex Pharmaceuticals Ltd.
+1,319,Syscol,Eye Drop,0.4%+0.3%,Navana Pharmaceuticals Ltd.
+1,319,Syskem,Eye Drop,0.4%+0.3%,Kemiko Pharmaceuticals Ltd.
+1,319,Systear,Eye Drop,0.4%+0.3%,Aristopharma Ltd.
+1,319,Tearcol,Eye Drop,0.4%+0.3%,Monicopharma Limited
+1,319,Tearon,Eye Drop,0.4%+0.3%,Beximco Pharmaceuticals Ltd.
+1,320,Macgol,Oral Solution,N/A,Orion Pharma Ltd.
+1,320,Movical,Powder for Solution,N/A,Ziska Pharmaceuticals Ltd.
+1,320,Movical,Oral Solution,N/A,Ziska Pharmaceuticals Ltd.
+1,320,Movilax,Powder for Solution,N/A,Incepta Pharmaceuticals Limited
+1,320,Movilax,Oral Solution,N/A,Incepta Pharmaceuticals Limited

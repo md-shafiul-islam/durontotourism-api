@@ -1,0 +1,458 @@
+package com.usoit.api.apicontroller;
+
+import java.security.Principal;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.SessionAttributes;
+
+import com.usoit.api.data.converter.UserMapper;
+import com.usoit.api.data.model.Access;
+import com.usoit.api.data.model.User;
+import com.usoit.api.data.model.UserAddress;
+import com.usoit.api.data.model.UserTemp;
+import com.usoit.api.data.vo.RestUser;
+import com.usoit.api.data.vo.RestUserDetails;
+import com.usoit.api.model.request.ReqLoginData;
+import com.usoit.api.model.request.ReqUpdateUser;
+import com.usoit.api.model.request.ReqUser;
+import com.usoit.api.payload.JWTLoginSucessReponse;
+import com.usoit.api.security.config.JwtTokenProvider;
+import com.usoit.api.security.config.SecurityConstants;
+import com.usoit.api.services.HelperServices;
+import com.usoit.api.services.TempUserServices;
+import com.usoit.api.services.UserServices;
+
+@RestController
+@RequestMapping("/api/users")
+@CrossOrigin(origins = "*", allowedHeaders = "/**")
+@SessionAttributes(names = { "currentUser" })
+public class RestUserController {
+
+	@Autowired
+	private UserServices userServices;
+
+	@Autowired
+	private JwtTokenProvider jwtTokenProvider;
+
+	@Autowired
+	private AuthenticationManager authenticationManager;
+
+	@Autowired
+	private HelperServices helperServices;
+
+	@Autowired
+	private UserMapper userMapper;
+
+	private List<User> users;
+
+	private List<RestUser> restUserList;
+
+	private List<RestUser> updateApprovePendinRestUsers;
+
+	private List<User> updatePandingUsers;
+
+	private List<User> updateableUsers;
+
+	private List<RestUser> updateableUserList;
+
+	private User authUser;
+
+	@Autowired
+	private TempUserServices tempUserServices;
+
+	@RequestMapping(value = "", method = RequestMethod.GET)
+	public ResponseEntity<List<?>> getAllUsers(Principal principal, HttpServletRequest httpServletRequest) {
+		System.out.println("Run Get users");
+		setRestUsers();
+		System.out.println("After Set User To Rest User Dozer");
+
+		return ResponseEntity.ok(restUserList);
+	}
+
+	@PostMapping(value = "/login")
+	public ResponseEntity<?> getUserLoginAction(@RequestBody ReqLoginData loginData, BindingResult bindingResult) {
+
+		System.out.println("Run User Controller User Login");
+		// ResponseEntity<?>
+
+		Authentication authentication = authenticationManager.authenticate(
+				new UsernamePasswordAuthenticationToken(loginData.getUsername(), loginData.getPassword()));
+
+		SecurityContextHolder.getContext().setAuthentication(authentication);
+
+		String jwt = SecurityConstants.TOKEN_PREFIX + jwtTokenProvider.generateToken(authentication);
+
+		return ResponseEntity.ok(new JWTLoginSucessReponse(true, jwt));
+	}
+
+	@RequestMapping(value = "/user", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<?> getUserAddAction(Principal principal, HttpServletRequest request,
+			@RequestBody ReqUser reqUser) {
+
+		User user = userMapper.getUser(reqUser);
+
+		System.out.println("User Name: " + user.getName());
+
+		System.out.println("User Department: " + user.getDepartment().getName());
+		System.out.println("User Designation: " + user.getDesignation().getName());
+		System.out.println("User Gender: " + user.getGender().getName());
+
+		if (user.getUserAddresses() != null) {
+
+			for (UserAddress userAddress : user.getUserAddresses()) {
+				System.out.println("Address Title: " + userAddress.getTitle() + " Country Name: "
+						+ userAddress.getCountry().getName());
+			}
+		}
+
+		if (userServices.save(user)) {
+			return ResponseEntity.ok("Data Recive & Save!!");
+		}
+
+		return ResponseEntity.ok("Data Recive");
+	}
+
+	@RequestMapping(value = "/user/edit/{id}", method = RequestMethod.GET)
+	public ResponseEntity<?> getUserForEditByPublicId(Principal principal, @PathVariable("id") String pubId,
+			HttpServletRequest request) {
+
+		authUser = userServices.getUerById(1);
+
+		Access access = helperServices.getAccessByUser(authUser, "user", 3);
+
+		if (pubId != null) {
+
+			if (pubId.length() == 30) {
+
+				User user = userServices.getUserByPublicID(pubId);
+
+				ReqUpdateUser reqUser = null;
+				if (user.getAuthenticationStatus() == 0) {
+
+					reqUser = userMapper.getReqUser(user);
+				} else {
+
+					if (access != null) {
+
+						if (user.getId() == authUser.getId() || access.getAll() == 1) {
+							reqUser = userMapper.getReqUser(user);
+						} else {
+							return ResponseEntity.accepted().body(
+									"Access denied, You can't Access this account update & you Access Lavel Not applicable !!");
+						}
+
+					} else {
+
+						return ResponseEntity.accepted().body("Access denied, You can't Access this account update");
+
+					}
+
+				}
+
+				if (reqUser != null) {
+
+					return ResponseEntity.ok(reqUser);
+				}
+			}
+		}
+
+		return ResponseEntity.accepted().body("User Not Found by given Id");
+	}
+
+	@RequestMapping(value = "/edit-users", method = RequestMethod.GET)
+	public ResponseEntity<List<?>> getEditableUsers(Principal principal, HttpServletRequest request) {
+
+		List<String> errors = new ArrayList<>();
+
+		setUpdateableRestUsers(errors);
+
+		if (updateableUserList != null) {
+
+			return ResponseEntity.ok(updateableUserList);
+		}
+
+		return ResponseEntity.accepted().body(errors);
+	}
+
+	private void setUpdateableRestUsers(List<String> errors) {
+
+		setUpdateUsers(errors);
+
+		if (updateableUsers != null) {
+
+			updateableUserList = userMapper.getRestUsers(updateableUsers);
+
+			if (updateableUserList != null) {
+				errors.add("Updgradeable User Mapping Failed");
+			}
+		} else {
+			errors.add("Upgradeable User Not found !!");
+		}
+
+	}
+
+	private void setUpdateUsers(List<String> errors) {
+
+		updateableUsers = userServices.getAllActiveUser();
+
+	}
+
+	@RequestMapping(value = "/user", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<?> getUserUpdateAction(Principal principal, @RequestBody UserTemp userTemp,
+			HttpServletRequest request) {
+
+		authUser = userServices.getUerById(1);
+
+		if (userTemp != null) {
+
+			System.out.println("User Temp Not Null !!");
+
+			if (!userTemp.getPublicId().isEmpty()) {
+
+				String publicId = userTemp.getPublicId();
+
+				if (userServices.updateUserAddTempUser(publicId)) {
+
+					if (tempUserServices.saveTemUser(userTemp)) {
+						return ResponseEntity.ok(new String("User Update Request Taken :) "));
+					} else {
+
+						if (userServices.reverseTempUpdate(publicId)) {
+
+							return ResponseEntity.ok(new String("User DB Update Save Failed Temp User !!! "));
+						}
+
+						return ResponseEntity.ok(new String("User DB Update Save Failed Temp User :) "));
+
+					}
+
+				} else {
+					return ResponseEntity.accepted().body("Data Recive But Save & Update Failed !!");
+				}
+			}
+
+		}
+
+		return ResponseEntity.accepted().body("Data Receive & User Null Or Data Miss Match Error!!");
+	}
+
+	@RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
+	public ResponseEntity<?> getUserForDetailsView(Principal principal, HttpServletRequest request,
+			@PathVariable("id") String pubId) {
+
+		if (pubId != null) {
+
+			if (pubId.length() == 30) {
+
+				User user = userServices.getUserByPublicID(pubId);
+
+				if (user != null) {
+
+					RestUserDetails restUser = userMapper.getRestUserDetails(user);
+
+					if (restUser != null) {
+
+						return ResponseEntity.ok(restUser);
+
+					} else {
+						return ResponseEntity.accepted().body("User Data Can't Mapp !! :)");
+					}
+				}
+			}
+		}
+
+		return ResponseEntity.accepted().body("User Not found by given ID: ");
+	}
+
+	@RequestMapping(value = "/update", method = RequestMethod.GET)
+	public ResponseEntity<List<?>> getAllUpdatePandingUsers(Principal principal, HttpServletRequest request) {
+
+		List<String> error = new ArrayList<>();
+
+		setRestUpdateUsers();
+
+		if (updateApprovePendinRestUsers != null) {
+
+			return ResponseEntity.ok(updateApprovePendinRestUsers);
+		}
+
+		error.add(new String("Update Approval Panding User(s) not Found "));
+		error.add("true");
+
+		return ResponseEntity.ok(error);
+	}
+
+	@RequestMapping(value = "/usertemp/{id}", method = RequestMethod.GET)
+	public ResponseEntity<?> getTempUserByPublicId(Principal principal, HttpServletRequest request,
+			@PathVariable("id") String pubId) {
+
+		if (pubId != null) {
+
+			if (pubId.length() == 30) {
+
+				UserTemp tempUser = tempUserServices.getUserTempByPubIdAlive(pubId);
+
+				if (tempUser != null) {
+
+					RestUserDetails restUser = userMapper.getRestUserByTempUser(tempUser);
+
+					if (restUser != null) {
+
+						return ResponseEntity.ok(restUser);
+					} else {
+						return ResponseEntity.accepted().body("User Temp Mapping Error!");
+					}
+				} else {
+					return ResponseEntity.accepted().body("User Temp Not Found");
+				}
+			}
+
+		}
+
+		return ResponseEntity.accepted().body("User Temp Not fond by given ID:");
+	}
+
+	@RequestMapping(value = "/update/approve/{id}", method = RequestMethod.PUT)
+	public ResponseEntity<?> getUpdateUserApproveAction(Principal principal, HttpServletRequest request,
+			@PathVariable("id") String publicId) {
+
+		if (publicId != null) {
+
+			if (publicId.length() == 30) {
+
+				UserTemp tempUser = tempUserServices.getUserTempByPubId(publicId);
+
+				if (tempUser == null) {
+					return ResponseEntity.accepted().body("Update Failed Requerment Data Not Found");
+				}
+
+				User user = userMapper.getUserByTempUser(tempUser);
+
+				if (user != null) {
+
+					if (userServices.updateUserByTempUser(user)) {
+
+						if (tempUserServices.updateUserData(tempUser)) {
+							return ResponseEntity.ok("Update Success");
+						}
+
+					} else {
+						return ResponseEntity.accepted().body("Update Failed Requerment Not match");
+					}
+				}
+			}
+		}
+
+		return ResponseEntity.accepted().body("Given Id not match!!");
+	}
+
+	@RequestMapping(value = "/update/reject/{id}", method = RequestMethod.PUT)
+	public ResponseEntity<?> getRejectAction(Principal principal, HttpServletRequest request,
+			@PathVariable("id") String publicId) {
+
+		if (publicId != null) {
+
+			if (publicId.length() == 30) {
+
+				if (userServices.getUpdateUserReject(publicId)) {
+
+					if (tempUserServices.getRejectedRequest(publicId)) {
+
+						ResponseEntity.ok("Status Updated Done!! ");
+
+					} else {
+						ResponseEntity.accepted().body("Status Updated !!");
+					}
+
+				} else {
+					ResponseEntity.accepted().body("Status Update Failed!!");
+				}
+			}
+		}
+
+		return ResponseEntity.accepted().body("Given Id not match!!");
+	}
+
+	private void setRestUpdateUsers() {
+
+		setUpdateUsers();
+
+		if (updatePandingUsers != null) {
+
+			System.out.println("Update Panding User Size: " + updatePandingUsers.size());
+			updateApprovePendinRestUsers = userMapper.getRestUsers(updatePandingUsers);
+			System.out.println("Update Panding Rest User Size: " + updateApprovePendinRestUsers.size());
+
+		} else {
+			System.out.println("Update User's Not Found");
+		}
+
+	}
+
+	private void setUpdateUsers() {
+
+		if (updatePandingUsers == null) {
+
+			updatePandingUsers = userServices.getUpdatePandingUser();
+
+		} else {
+
+			long size = updatePandingUsers.size();
+			long count = userServices.getCount();
+
+			if (size != count) {
+
+				updatePandingUsers = userServices.getUpdatePandingUser();
+			}
+		}
+
+	}
+
+	private void setRestUsers() {
+
+		setUsers();
+
+		System.out.println("Dozer Func");
+		restUserList = userMapper.getRestUsers(users);
+
+		System.out.println("Rest user Size: " + restUserList.size());
+
+	}
+
+	private void setUsers() {
+
+		if (users == null) {
+
+			users = userServices.getAllUser();
+		} else {
+
+			long size = users.size();
+			long count = userServices.getCount();
+
+			if (size != count) {
+
+				users = userServices.getAllUser();
+			}
+		}
+
+	}
+
+}

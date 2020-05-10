@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="common/header::common-header">
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+	<div class="wrapper">
+
+		<!-- Menu fragment set Start-->
+
+		<div th:replace="common/header::common-top-nav-menu">
+			<!-- Navbar -->
+
+			<!-- /.navbar -->
+		</div>
+
+		<div th:replace="common/header::common-sidebar-menu">
+			<!-- Main Sidebar Container -->
+
+		</div>
+
+		<!--  Menu fragment set End -->
+
+		<!-- Content Wrapper. Contains page content -->
+		<div class="content-wrapper">
+
+			<div class="row">
+
+				<div class="col-md-12" style="margin: 10px auto;">
+					<div class="card card-primary">
+						<div class="card-header">
+							<h3 class="card-title">Add Vendor</h3>
+						</div>
+						<!-- /.card-header -->
+						<!-- form start -->
+						<form role="form" id="vendor" name="vendor" th:object="${fVendor}"
+							method="post" th:action="@{/vendor/add-data}">
+							<div class="card-body">
+
+								<div class="row">
+
+									<div class="col-md-4">
+										<div class="form-group">
+											<label for="companyName">Company Name:</label> <input
+												type="text" class="form-control" th:field="*{companyName}"
+												placeholder="Company Name">
+										</div>
+									</div>
+
+									<div class="col-md-4">
+										<div class="form-group">
+											<label for="email">Email:</label> <input class="form-control"
+												id="email" th:field="*{email}" placeholder="Email" />
+										</div>
+									</div>
+
+									<div class="col-md-4">
+										<div class="form-group">
+											<label for="website">Web:</label> <input type="text"
+												class="form-control" th:field="*{website}" placeholder="Web">
+										</div>
+									</div>
+								</div>
+
+								<div class="row ptb">
+									<a th:href="@{/vendor/add-person}"
+										class="btn btn-info btn-icon-split"> <span
+										class="icon text-white-50"> <i
+											class=" nav-icon fas fa-edit"></i>
+									</span> <span class="text">Add Person</span>
+									</a>
+								</div>
+
+								<fieldset class="mp-10">
+
+									<legend>Contact Person Info</legend>
+
+									<div class="row"
+										th:if="${currentVendor.contactPersons != null}"
+										th:each="contactPerson, personState : ${currentVendor.contactPersons}">
+
+
+
+										<div class="col-md-4">
+											<div class="form-group">
+												<label for="name">Name:</label> <input type="text"
+													class="form-control"
+													th:name="|contactPersons[${personState.index}].name|"
+													th:value="${contactPerson != null ? contactPerson.getName() : ''}"
+													placeholder="Person Name">
+											</div>
+										</div>
+
+
+										<div class="col-md-4">
+											<div class="form-group">
+												<label for="phoneNo">Phone No:</label>
+
+												<div class="row">
+
+													<div class="col-md-4">
+														<select
+															th:name="|contactPersons[${personState.index}].country1|"
+															class="form-control">
+															<option value="0">code</option>
+
+															<option th:each="cItem : ${countries}"
+																th:value="${cItem.getId()}"
+																th:utext="${cItem.getDialOrPhoneCode()}" />
+														</select>
+													</div>
+
+													<div class="col-md-8">
+														<input type="text" class="form-control"
+															th:name="|contactPersons[${personState.index}].phoneNo|"
+															th:value="${person != null ? person.getPhoneNo() : ''}"
+															placeholder="Phone No.">
+													</div>
+
+												</div>
+
+
+											</div>
+										</div>
+
+										<div class="col-md-4">
+											<div class="form-group">
+												<label for="phoneNo">Phone No 2:</label>
+
+												<div class="row">
+
+													<div class="col-md-4">
+														<select
+															th:name="|contactPersons[${personState.index}].country2|"
+															class="form-control">
+															<option value="0">code</option>
+
+															<option th:each="cItem : ${countries}"
+																th:value="${cItem.getId()}"
+																th:utext="${cItem.getDialOrPhoneCode()}" />
+														</select>
+													</div>
+
+													<div class="col-md-8">
+														<input type="text" class="form-control"
+															th:name="|contactPersons[${personState.index}].phoneNo2|"
+															th:value="${person != null ? person.getPhoneNo2() : ''}"
+															placeholder="Phone No.">
+													</div>
+
+												</div>
+
+
+											</div>
+										</div>
+
+										<div class="col-md-4">
+											<div class="form-group">
+												<label for="email">Person Email:</label> <input type="email"
+													class="form-control"
+													th:name="|contactPersons[${personState.index}].email|"
+													th:value="${person != null ? person.getEmail() : ''}"
+													placeholder="Email">
+											</div>
+										</div>
+
+									</div>
+
+								</fieldset>
+
+
+
+								<div class="row ptb">
+									<a th:href="@{/vendor/add-addres}"
+										class="btn btn-info btn-icon-split"> <span
+										class="icon text-white-50"> <i
+											class=" nav-icon fas fa-edit"></i>
+									</span> <span class="text">Add Address</span>
+									</a>
+								</div>
+
+
+
+								<fieldset class="mp-10">
+
+									<legend>Address Info</legend>
+
+									<div class="row" th:if="${currentVendor.addresses != null}"
+										th:each="address, addressState : ${currentVendor.addresses}">
+
+										<div class="col-md-4">
+											<div class="form-group">
+												<label>House:</label> <input type="text"
+													class="form-control"
+													th:name="|addresses[${addressState.index}].house|"
+													th:value="${address != null ? address.getHouse() : ''}"
+													placeholder="House">
+											</div>
+										</div>
+
+
+										<div class="col-md-4">
+											<div class="form-group">
+												<label>Street:</label> <input type="text"
+													class="form-control"
+													th:name="|addresses[${addressState.index}].street|"
+													th:value="${address != null ? address.getStreet() : ''}"
+													placeholder="House">
+											</div>
+										</div>
+										
+										<div class="col-md-4">
+											<div class="form-group">
+												<label>Village/Area:</label> <input type="text"
+													class="form-control"
+													th:name="|addresses[${addressState.index}].village|"
+													th:value="${address != null ? address.getVillage() : ''}"
+													placeholder="Village">
+											</div>
+										</div>
+
+										<div class="col-md-4">
+											<div class="form-group">
+												<label>Zip Code:</label> <input type="text"
+													class="form-control"
+													th:name="|addresses[${addressState.index}].zipCode|"
+													th:value="${address != null ? address.getZipCode() : ''}"
+													placeholder="Zip Code">
+											</div>
+										</div>
+
+										<div class="col-md-4">
+
+
+											<div class="form-group">
+												<label for="city">City:</label>
+												<input class="form-control" type="text" th:name="|addresses[${addressState.index}].city|" placeholder="City" th:value="${address != null ? address.getCity() : ''}"/> 
+											</div>
+										</div>
+
+										<div class="col-md-4">
+
+											<div class="form-group">
+												<label for="country">Country:</label> <select
+													th:name="|addresses[${addressState.index}].country|"
+													class="form-control">
+													<option value="0">Select One Country...</option>
+
+													<option th:each="countyItem : ${countries}"
+														th:value="${countyItem.getId()}"
+														th:utext="${countyItem.getName()}" />
+												</select>
+											</div>
+										</div>
+
+									</div>
+
+								</fieldset>
+
+
+
+								<div class="row ptb">
+									<a th:href="@{/vendor/add-payinf}"
+										class="btn btn-info btn-icon-split"> <span
+										class="icon text-white-50"> <i
+											class=" nav-icon fas fa-edit"></i>
+									</span> <span class="text">Add Payment Inf</span>
+									</a>
+								</div>
+
+
+
+								<fieldset class="mp-10">
+									<legend>Payment Inf</legend>
+
+									<div class="row" th:if="${currentVendor.paymentInfos != null}"
+										th:each="payInf, payState : ${currentVendor.paymentInfos}">
+
+										<div class="col-md-4">
+											<div class="form-group">
+												<label>Bank Name:</label> <input type="text"
+													class="form-control"
+													th:name="|paymentInfos[${payState.index}].bankName|"
+													th:value="${payInf != null ? payInf.getBankName() : ''}"
+													placeholder="Bank Name">
+											</div>
+										</div>
+
+										<div class="col-md-4">
+											<div class="form-group">
+												<label>Branch Name:</label> <input type="text"
+													class="form-control"
+													th:name="|paymentInfos[${payState.index}].branchName|"
+													th:value="${payInf != null ? payInf.getBranchName() : ''}"
+													placeholder="Branch Name">
+											</div>
+										</div>
+
+										<div class="col-md-4">
+											<div class="form-group">
+												<label>Account Name:</label> <input type="text"
+													class="form-control"
+													th:name="|paymentInfos[${payState.index}].accountName|"
+													th:value="${payInf != null ? payInf.getAccountName() : ''}"
+													placeholder="Account Name">
+											</div>
+										</div>
+
+										<div class="col-md-4">
+											<div class="form-group">
+												<label>Account No:</label> <input type="text"
+													class="form-control"
+													th:name="|paymentInfos[${payState.index}].accountNo|"
+													th:value="${payInf != null ? payInf.getAccountNo() : ''}"
+													placeholder="Account No.">
+											</div>
+										</div>
+
+										<div class="col-md-4">
+											<div class="form-group">
+												<label for="city">City:</label>
+												<input class="form-control" type="text" th:name="|paymentInfos[${payState.index}].city|" th:value="${payInf != null ? payInf.getCity() : ''}" />
+											</div>
+										</div>
+
+										<div class="col-md-4">
+
+											<div class="form-group">
+												<label for="country">Country:</label> <select
+													th:name="|paymentInfos[${payState.index}].country|"
+													class="form-control">
+													<option value="0">Select One Country...</option>
+
+													<option th:each="countyItem : ${countries}"
+														th:value="${countyItem.getId()}"
+														th:utext="${countyItem.getName()}" />
+												</select>
+											</div>
+
+										</div>
+									</div>
+
+								</fieldset>
+
+
+							</div>
+							<!-- /.card-body -->
+
+							<div class="card-footer">
+
+								<button type="submit" class="btn btn-primary ">
+									<span> <i class="fas fa-save"></i>
+
+									</span> <span class="text">Save</span>
+								</button>
+
+							</div>
+						</form>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+		<div th:replace="common/header::common-footer">
+			<!-- /.content-wrapper -->
+
+		</div>
+
+		<!-- Control Sidebar -->
+		<aside class="control-sidebar control-sidebar-dark">
+			<!-- Control sidebar content goes here -->
+		</aside>
+		<!-- /.control-sidebar -->
+	</div>
+	<!-- ./wrapper -->
+	<div th:replace="common/header::common-script">
+		<!-- jQuery -->
+	</div>
+</body>
+</html>
+
