@@ -45,5 +45,7 @@ public double decimelTwoPoint(double value);
 	 * @return Access
 	 */
 	public Access getAccessByUser(User authUser, String string, int i);
+
+	public boolean isValidAndLenghtCheck(String publicId, int lenght);
 	
 }

@@ -81,7 +81,21 @@ public class HelperServicesImpl implements HelperServices {
 	public Access getCurrentAccess() {
 		return cAccess;
 	}
-
+	
+	@Override
+	public boolean isValidAndLenghtCheck(String publicId, int lenght) {
+		
+		if (publicId != null) {
+			
+			if (publicId.length() == lenght) {
+				
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	
 	private User checkUserValid(HttpSession httpSession, String type, int numType) {
 		User user = (User) httpSession.getAttribute("currentUser");
 

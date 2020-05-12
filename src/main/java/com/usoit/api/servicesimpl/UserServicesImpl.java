@@ -28,8 +28,6 @@ import org.springframework.stereotype.Service;
 import com.usoit.api.data.model.Credential;
 import com.usoit.api.data.model.User;
 import com.usoit.api.data.model.UserAddress;
-import com.usoit.api.data.model.UserAddressTemp;
-import com.usoit.api.data.model.UserTemp;
 import com.usoit.api.repository.UserRepository;
 import com.usoit.api.services.HelperServices;
 import com.usoit.api.services.UserServices;
@@ -228,31 +226,30 @@ public class UserServicesImpl implements UserServices {
 
 			User dbUser = userRepository.getUserByPublicId(publicId);
 			int dbId = 0;
-			
+
 			if (dbUser != null) {
-				 dbId = dbUser.getId();
-			}else {
+				dbId = dbUser.getId();
+			} else {
 				return false;
 			}
 			dbUser = null;
-			
+
 			Session session = sessionFactory.openSession();
 			Transaction transaction = null;
 
 			try {
 
 				transaction = session.beginTransaction();
-				
+
 				User upateUser = session.get(User.class, dbId);
 
 				upateUser.setUpdateApproveStatus(0);
 				upateUser.setApprovalStatus(1);
 
 				session.update(upateUser);
-				
 
 				transaction.commit();
-				
+
 				session.clear();
 
 				return true;
@@ -269,34 +266,33 @@ public class UserServicesImpl implements UserServices {
 
 		return false;
 	}
-	
+
 	@Override
 	public boolean reverseTempUpdate(String publicId) {
-		
+
 		if (publicId != null) {
 
 			User dbUser = userRepository.getUserByPublicId(publicId);
-			
+
 			int dbId = dbUser.getId();
 			dbUser = null;
-			
+
 			Session session = sessionFactory.openSession();
 			Transaction transaction = null;
 
 			try {
 
 				transaction = session.beginTransaction();
-				
+
 				User upateUser = session.get(User.class, dbId);
 
 				upateUser.setUpdateApproveStatus(1);
 				upateUser.setApprovalStatus(1);
 
 				session.update(upateUser);
-				
 
 				transaction.commit();
-				
+
 				session.clear();
 
 				return true;
@@ -310,9 +306,15 @@ public class UserServicesImpl implements UserServices {
 				}
 			}
 		}
-		
+
 		return false;
-		
+
+	}
+
+	@Override
+	public List<User> getAllConfrimUsers(String msg) {
+
+		return getConfrimUsers(msg);
 	}
 
 	@Override
@@ -323,13 +325,14 @@ public class UserServicesImpl implements UserServices {
 		Session session = sessionFactory.openSession();
 
 		try {
-			
+
 			CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
 			CriteriaQuery<User> criteriaQuery = criteriaBuilder.createQuery(User.class);
 			Root<User> root = criteriaQuery.from(User.class);
 			criteriaQuery.select(root);
 
-			criteriaQuery.where(criteriaBuilder.and(criteriaBuilder.equal(root.get("approvalStatus"), ap), criteriaBuilder.equal(root.get("updateApproveStatus"), uap)));
+			criteriaQuery.where(criteriaBuilder.and(criteriaBuilder.equal(root.get("approvalStatus"), ap),
+					criteriaBuilder.equal(root.get("updateApproveStatus"), uap)));
 
 			criteriaQuery.orderBy(criteriaBuilder.desc(root.get("id")));
 			Query<User> query = session.createQuery(criteriaQuery);
@@ -341,14 +344,13 @@ public class UserServicesImpl implements UserServices {
 			System.out.println("After Session Clear and close !!");
 
 			return query.getResultList();
-			
+
 		} catch (NoResultException e) {
-			
-			
-		}catch (Exception e) {
+
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		return null;
 
 	}
@@ -424,10 +426,195 @@ public class UserServicesImpl implements UserServices {
 		return query.getResultList();
 
 	}
-	
+
+	@Override
+	public boolean addRejectUserByPublicId(String publicId, String msg) {
+
+		if (helperServices.isValidAndLenghtCheck(publicId, 30)) {
+
+			User dbUser = userRepository.getUserByPublicId(publicId);
+
+			if (dbUser != null) {
+
+				int userId = dbUser.getId();
+
+				dbUser = null;
+
+				Session session = sessionFactory.openSession();
+				Transaction transaction = null;
+
+				try {
+
+					transaction = session.beginTransaction();
+
+					User dbUpdateUser = session.get(User.class, userId);
+					dbUpdateUser.setUpdateApproveStatus(2);
+					dbUpdateUser.setApprovalStatus(2);
+
+					session.update(dbUpdateUser);
+
+					transaction.commit();
+
+					return true;
+
+				} catch (Exception e) {
+
+					if (transaction != null) {
+
+						transaction.rollback();
+						e.printStackTrace();
+					}
+				}
+
+			}
+
+			msg = "User Not found by given Id";
+		}
+		return false;
+	}
+
+	@Override
+	public boolean getActiveActionByPubId(String pubId, String msg) {
+
+		if (helperServices.isValidAndLenghtCheck(pubId, 30)) {
+
+			User dbUser = userRepository.getUserByPublicId(pubId);
+
+			if (dbUser != null) {
+
+				int userId = dbUser.getId();
+
+				dbUser = null;
+
+				Session session = sessionFactory.openSession();
+				Transaction transaction = null;
+
+				try {
+
+					transaction = session.beginTransaction();
+
+					User dbUpdateUser = session.get(User.class, userId);
+
+					dbUpdateUser.setStatus(1);
+					session.update(dbUpdateUser);
+
+					transaction.commit();
+
+					return true;
+
+				} catch (Exception e) {
+
+					if (transaction != null) {
+
+						transaction.rollback();
+						e.printStackTrace();
+					}
+				}
+
+			}
+
+			msg = "User Not found by given Id";
+		}
+
+		return false;
+	}
+
+	@Override
+	public boolean getInactiveActionByPubId(String pubId, String msg) {
+
+		if (helperServices.isValidAndLenghtCheck(pubId, 30)) {
+
+			User dbUser = userRepository.getUserByPublicId(pubId);
+
+			if (dbUser != null) {
+
+				int userId = dbUser.getId();
+
+				dbUser = null;
+
+				Session session = sessionFactory.openSession();
+				Transaction transaction = null;
+
+				try {
+
+					transaction = session.beginTransaction();
+
+					User dbUpdateUser = session.get(User.class, userId);
+
+					dbUpdateUser.setStatus(0);
+					session.update(dbUpdateUser);
+
+					transaction.commit();
+
+					return true;
+
+				} catch (Exception e) {
+
+					if (transaction != null) {
+
+						transaction.rollback();
+						e.printStackTrace();
+					}
+				}
+
+			}
+
+			msg = "User Not found by given Id";
+		}
+
+		return false;
+	}
+
+	@Override
+	public boolean addApproveAction(String publicId, String msg) {
+
+		if (helperServices.isValidAndLenghtCheck(publicId, 30)) {
+
+			User dbUser = userRepository.getUserByPublicId(publicId);
+
+			if (dbUser != null) {
+
+				int userId = dbUser.getId();
+
+				dbUser = null;
+
+				Session session = sessionFactory.openSession();
+				Transaction transaction = null;
+
+				try {
+
+					transaction = session.beginTransaction();
+
+					User dbUpdateUser = session.get(User.class, userId);
+					dbUpdateUser.setUpdateApproveStatus(1);
+					dbUpdateUser.setApprovalStatus(1);
+					dbUpdateUser.setStatus(1);
+
+					session.update(dbUpdateUser);
+
+					transaction.commit();
+
+					return true;
+
+				} catch (Exception e) {
+
+					if (transaction != null) {
+
+						transaction.rollback();
+						e.printStackTrace();
+					}
+				}
+
+			}
+
+			msg = "User Not found by given Id";
+		}
+		return false;
+	}
+
 	@Override
 	public List<User> getAllActiveUser() {
-		
+
 		int ap = 1;
 		Session session = sessionFactory.openSession();
 
@@ -436,7 +623,8 @@ public class UserServicesImpl implements UserServices {
 		Root<User> root = criteriaQuery.from(User.class);
 		criteriaQuery.select(root);
 
-		criteriaQuery.where(criteriaBuilder.and(criteriaBuilder.equal(root.get("status"), ap), criteriaBuilder.equal(root.get("updateApproveStatus"), ap)));
+		criteriaQuery.where(criteriaBuilder.and(criteriaBuilder.equal(root.get("status"), ap),
+				criteriaBuilder.equal(root.get("updateApproveStatus"), ap)));
 
 		criteriaQuery.orderBy(criteriaBuilder.desc(root.get("id")));
 		Query<User> query = session.createQuery(criteriaQuery);
@@ -471,6 +659,100 @@ public class UserServicesImpl implements UserServices {
 		}
 
 		return false;
+	}
+	
+	@Override
+	public List<User> getAllRejectedUser() {
+		
+		List<User> list = new ArrayList<>();
+		int ap = 2;
+		Session session = sessionFactory.openSession();
+
+		Transaction transaction = null;
+
+		try {
+
+			transaction = session.beginTransaction();
+
+			CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
+			CriteriaQuery<User> criteriaQuery = criteriaBuilder.createQuery(User.class);
+			Root<User> root = criteriaQuery.from(User.class);
+			criteriaQuery.select(root);
+
+			criteriaQuery.where(criteriaBuilder.and(criteriaBuilder.equal(root.get("updateApproveStatus"), ap), criteriaBuilder.equal(root.get("approvalStatus"), ap)));
+
+			criteriaQuery.orderBy(criteriaBuilder.desc(root.get("id")));
+			Query<User> query = session.createQuery(criteriaQuery);
+
+
+			session.clear();
+			// session.close();
+
+			list = query.getResultList();
+
+			transaction.commit();
+			
+			return list;
+
+		} catch (NoResultException e) {
+			System.out.println("User Not Found!!");
+		} catch (Exception e) {
+
+			if (transaction != null) {
+
+				transaction.rollback();
+			}
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+
+	public List<User> getConfrimUsers(String msg) {
+		
+		List<User> list = new ArrayList<>();
+		int ap = 1;
+		Session session = sessionFactory.openSession();
+
+		Transaction transaction = null;
+
+		try {
+
+			transaction = session.beginTransaction();
+
+			CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
+			CriteriaQuery<User> criteriaQuery = criteriaBuilder.createQuery(User.class);
+			Root<User> root = criteriaQuery.from(User.class);
+			criteriaQuery.select(root);
+
+			criteriaQuery.where(criteriaBuilder.equal(root.get("approvalStatus"), ap));
+
+			criteriaQuery.orderBy(criteriaBuilder.desc(root.get("id")));
+			Query<User> query = session.createQuery(criteriaQuery);
+
+
+			session.clear();
+			// session.close();
+
+			list = query.getResultList();
+
+			transaction.commit();
+			
+			return list;
+
+		} catch (NoResultException e) {
+			msg = "User Not Found!!";
+		} catch (Exception e) {
+
+			if (transaction != null) {
+
+				transaction.rollback();
+			}
+			e.printStackTrace();
+		}
+		
+		return list;
+
 	}
 
 	private boolean updateCredential(Credential credential) {
@@ -589,7 +871,7 @@ public class UserServicesImpl implements UserServices {
 					}
 
 					transaction.commit();
-					
+
 					return true;
 
 				} catch (Exception e) {
@@ -679,16 +961,17 @@ public class UserServicesImpl implements UserServices {
 		userUpgrade.setUserSignaturesUrl(tempUserData.getUserSignaturesUrl());
 
 		if (tempUserData.getUserAddresses() != null) {
-			
-			if (tempUserData.getUserAddresses().size() != 0 && tempUserData.getUserAddresses().size() <= 2) {
-				
-				System.out.println("User Address Size Pass!! " );
 
-				if (tempUserData.getUserAddresses().get(0).getId() > 0 && tempUserData.getUserAddresses().get(1).getId() > 0) {
-					
-					System.out.println("User Address[0] ID Pass!! " );
-					
-					if (tempUserData.getUserAddresses().get(0) != null ) {
+			if (tempUserData.getUserAddresses().size() != 0 && tempUserData.getUserAddresses().size() <= 2) {
+
+				System.out.println("User Address Size Pass!! ");
+
+				if (tempUserData.getUserAddresses().get(0).getId() > 0
+						&& tempUserData.getUserAddresses().get(1).getId() > 0) {
+
+					System.out.println("User Address[0] ID Pass!! ");
+
+					if (tempUserData.getUserAddresses().get(0) != null) {
 
 						UserAddress tempAddress = tempUserData.getUserAddresses().get(0);
 
@@ -703,8 +986,8 @@ public class UserServicesImpl implements UserServices {
 					}
 
 					if (tempUserData.getUserAddresses().get(1) != null) {
-						
-						System.out.println("User Address[1] ID Pass!! " );
+
+						System.out.println("User Address[1] ID Pass!! ");
 
 						UserAddress tempAddress2 = tempUserData.getUserAddresses().get(1);
 
@@ -717,17 +1000,17 @@ public class UserServicesImpl implements UserServices {
 						userUpgrade.getUserAddresses().get(1).setVillage(tempAddress2.getVillage());
 						userUpgrade.getUserAddresses().get(1).setZipCode(tempAddress2.getZipCode());
 					}
-				}else {
+				} else {
 					System.out.println("User Address size Else!!");
-					
+
 					if (tempUserData.getUserAddresses().size() > 0) {
-						
+
 						List<UserAddress> userAddresses = new ArrayList<>();
-						
+
 						for (UserAddress tempAddress : tempUserData.getUserAddresses()) {
-							
+
 							UserAddress localAddress = new UserAddress();
-							
+
 							localAddress.setCity(tempAddress.getCity());
 							localAddress.setCountry(tempAddress.getCountry());
 							localAddress.setCountryCode(tempAddress.getCountryCode());
@@ -737,15 +1020,15 @@ public class UserServicesImpl implements UserServices {
 							localAddress.setUser(userUpgrade);
 							localAddress.setVillage(tempAddress.getVillage());
 							localAddress.setZipCode(tempAddress.getZipCode());
-							
+
 							userAddresses.add(localAddress);
-							
+
 						}
-						
+
 						userUpgrade.setUserAddresses(userAddresses);
 					}
 				}
-				
+
 			}
 		}
 

@@ -40,6 +40,7 @@ import com.usoit.api.services.HelperServices;
 import com.usoit.api.services.TempUserServices;
 import com.usoit.api.services.UserServices;
 
+
 @RestController
 @RequestMapping("/api/users")
 @CrossOrigin(origins = "*", allowedHeaders = "/**")
@@ -78,12 +79,25 @@ public class RestUserController {
 	@Autowired
 	private TempUserServices tempUserServices;
 
+	private List<User> userAddPandingUsers;
+
+	private List<RestUser> userRestApprovalPanding;
+
+	private List<RestUser> restRejectedUsers;
+	
+	private List<User> rejectedUsers;
+
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public ResponseEntity<List<?>> getAllUsers(Principal principal, HttpServletRequest httpServletRequest) {
 		System.out.println("Run Get users");
-		setRestUsers();
+		
+		String msg = "";
+		setRestUsers(msg);
 		System.out.println("After Set User To Rest User Dozer");
-
+		
+		System.out.println(msg);
+			
+		
 		return ResponseEntity.ok(restUserList);
 	}
 
@@ -192,6 +206,94 @@ public class RestUserController {
 		return ResponseEntity.accepted().body(errors);
 	}
 
+	@RequestMapping(value = "/user/reject/{id}", method = RequestMethod.PUT)
+	public ResponseEntity<?> getAddRejectAction(Principal principal, HttpServletRequest request, @PathVariable("id") String publicId) {
+		
+		String msg = "You can't Access this option Or Services";
+		
+		if (helperServices.isValidAndLenghtCheck(publicId, 30)) {
+			
+			if (userServices.addRejectUserByPublicId(publicId, msg)) {
+				
+				msg = "User Rejected Success !!";
+				
+			}
+			
+			
+		}
+		
+		return ResponseEntity.ok(("You can't Access this option Or Services"));
+	}
+	
+	@RequestMapping(value = "/reject", method = RequestMethod.GET)
+	public ResponseEntity<List<?>> getAllRejectedUsers(Principal principal, HttpServletRequest request) {
+		
+		List<String> msg = new ArrayList<>();
+		
+		
+		setRejectedRestUsers(msg);
+		
+		if (restRejectedUsers != null) {
+			
+			return ResponseEntity.ok(restRejectedUsers);
+		}
+		
+		
+		return ResponseEntity.accepted().body(msg);
+	}
+	
+	
+
+	@RequestMapping(value = "/user/approve/{id}", method = RequestMethod.PUT)
+	public ResponseEntity<?> getUserAddApproveAction(Principal principal, HttpServletRequest request, @PathVariable("id") String pubId) {
+		
+		String msg = "You can't access this option, Please contact administrator. Thanks";
+		
+		if (helperServices.isValidAndLenghtCheck(pubId, 30)) {
+			
+			if (userServices.addApproveAction(pubId, msg)) {
+				
+				msg = "User Approve Success";
+			}
+		}
+		
+		return ResponseEntity.accepted().body(msg);
+	}
+	
+	@RequestMapping(value = "/user/inactive/{id}", method = RequestMethod.PUT)
+	public ResponseEntity<?> getUserInactiveAction(Principal principal, HttpServletRequest request, @PathVariable("id") String pubId) {
+		
+		String msg = "You can't access this option, Please contact administrator. Thanks";
+		
+		if (helperServices.isValidAndLenghtCheck(pubId, 30)) {
+			
+			if (userServices.getInactiveActionByPubId(pubId, msg)) {
+				
+				ResponseEntity.ok("User Iactive Success");
+			}
+		}
+		
+		return ResponseEntity.accepted().body(msg);
+	}
+	
+	@RequestMapping(value = "/user/active/{id}", method = RequestMethod.PUT)
+	public ResponseEntity<?> getUserActiveAction(Principal principal, HttpServletRequest request, @PathVariable("id") String pubId) {
+		
+		String msg = "You can't access this option, Please contact administrator. Thanks";
+		
+		if (helperServices.isValidAndLenghtCheck(pubId, 30)) {
+			
+			if (userServices.getActiveActionByPubId(pubId, msg)) {
+				
+				ResponseEntity.ok("User Active Success");
+			}
+		}
+		
+		return ResponseEntity.accepted().body(msg);
+	}
+	
+	
+	
 	private void setUpdateableRestUsers(List<String> errors) {
 
 		setUpdateUsers(errors);
@@ -214,6 +316,27 @@ public class RestUserController {
 		updateableUsers = userServices.getAllActiveUser();
 
 	}
+
+	@RequestMapping(value = "/add-approvepanding", method = RequestMethod.GET)
+	public ResponseEntity<List<?>> getAllPandingUsers(Principal principal, HttpServletRequest request) {
+		
+		List<String> msg = new ArrayList<>();
+		
+		
+		
+		setAllAddPandingUsers(msg);
+		
+		if (userRestApprovalPanding != null) {
+			
+			return ResponseEntity.ok(userRestApprovalPanding);
+		}else {
+			msg.add("User Can't Mapp Contact Administrator !! " );
+		}
+		
+		return ResponseEntity.accepted().body(msg);
+	}
+	
+	
 
 	@RequestMapping(value = "/user", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> getUserUpdateAction(Principal principal, @RequestBody UserTemp userTemp,
@@ -390,6 +513,43 @@ public class RestUserController {
 
 		return ResponseEntity.accepted().body("Given Id not match!!");
 	}
+	
+	private void setRejectedRestUsers(List<String> msg) {
+		
+		setRejectedUsers(msg);
+		
+		if (rejectedUsers != null) {
+			
+			restRejectedUsers = userMapper.getRestUsers(rejectedUsers);
+		}else {
+			msg.add("Rejected User not set yet!!");
+			
+		}
+		
+		
+	}
+	
+	private void setRejectedUsers(List<String> msg) {
+		
+		rejectedUsers = userServices.getAllRejectedUser();
+		
+	}
+
+	private void setAllAddPandingUsers(List<String> msg) {
+
+		userAddPandingUsers = userServices.getAllPendingUser();
+		
+		if (userAddPandingUsers != null) {
+			
+			System.out.println("Approve Panding Size: " + userAddPandingUsers.size());
+			userRestApprovalPanding = userMapper.getRestUsers(userAddPandingUsers);
+			
+		}else {
+			
+			msg.add("Approval Pending user not found");
+		}
+		
+	}
 
 	private void setRestUpdateUsers() {
 
@@ -426,32 +586,20 @@ public class RestUserController {
 
 	}
 
-	private void setRestUsers() {
+	private void setRestUsers(String msg) {
 
-		setUsers();
+		setUsers(msg);
 
-		System.out.println("Dozer Func");
+		System.out.println("User Mapper Func");
 		restUserList = userMapper.getRestUsers(users);
 
 		System.out.println("Rest user Size: " + restUserList.size());
 
 	}
 
-	private void setUsers() {
+	private void setUsers(String msg) {
 
-		if (users == null) {
-
-			users = userServices.getAllUser();
-		} else {
-
-			long size = users.size();
-			long count = userServices.getCount();
-
-			if (size != count) {
-
-				users = userServices.getAllUser();
-			}
-		}
+		users = userServices.getAllConfrimUsers(msg);
 
 	}
 

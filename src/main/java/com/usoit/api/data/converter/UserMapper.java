@@ -198,8 +198,6 @@ public class UserMapper {
 
 		if (user != null) {
 
-			System.out.println("User Genareted ID: " + user.getPublicId());
-
 			reUser.setPublicId(user.getPublicId());
 			reUser.setUserGemId(user.getUserGemId());
 

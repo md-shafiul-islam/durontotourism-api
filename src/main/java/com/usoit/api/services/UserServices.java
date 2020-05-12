@@ -6,7 +6,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 
 import com.usoit.api.data.model.Credential;
 import com.usoit.api.data.model.User;
-import com.usoit.api.data.model.UserTemp;
 
 public interface UserServices extends UserDetailsService{
 
@@ -53,6 +52,18 @@ public interface UserServices extends UserDetailsService{
 	public boolean reverseTempUpdate(String publicId);
 
 	public List<User> getAllActiveUser();
+
+	public boolean addRejectUserByPublicId(String publicId, String msg);
+
+	public boolean addApproveAction(String pubId, String msg);
+
+	public boolean getActiveActionByPubId(String pubId, String msg);
+
+	public boolean getInactiveActionByPubId(String pubId, String msg);
+
+	public List<User> getAllConfrimUsers(String msg);
+
+	public List<User> getAllRejectedUser();
 
 
 
