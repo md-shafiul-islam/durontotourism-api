@@ -53,6 +53,9 @@ public class Vendor {
 	@Column(name = "company_name")
 	private String companyName;
 	
+	@Column(name = "owner_name")
+	private String ownerName;
+	
 	//@JsonBackReference
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "vendor")
 	private List<ContactPerson> contactPersons = new ArrayList<>();
@@ -91,6 +94,10 @@ public class Vendor {
 	
 	@Column(name = "date_group")
 	private Date dateGroup;
+	
+	@ManyToOne
+	@JoinColumn(name = "vendor_cat", referencedColumnName = "id")
+	private VendorCategory vendorCategory;
 	
 	
 	

@@ -92,19 +92,35 @@ public class RestPrivacyPolicyController {
 	@RequestMapping(value = "/policy/{id}", method = RequestMethod.GET)
 	public ResponseEntity<?> getPrivacyPolicyByPublicId(Principal principal, HttpServletRequest request, @PathVariable("id") String pubId) {
 		
-		String msg = "";
+		String msg = "Data not found!!";
+		
+		if (pubId != null) {
+			
+			System.out.println("ID L : " + pubId.length());
+			
+		}
 		
 		if (helperServices.isValidAndLenghtCheck(pubId, 105)) {
 			
+			System.out.println("validation APss!! Policy");
 			PrivacyPolicy PrivacyPolicy = privacyPolicyServices.getPrivacyPolicyByPubId(pubId);
+			
+			
 			
 			if (PrivacyPolicy != null) {
 				
-				ReqTermsAndConds reqTermsAndConds = DozerMapper.parseObject(PrivacyPolicy, ReqTermsAndConds.class);
+				System.out.println("Privacy Data Found !!");
 				
-				if (reqTermsAndConds != null) {
+				ReqPrivacyPolicy reqPrivacyPolicy = DozerMapper.parseObject(PrivacyPolicy, ReqPrivacyPolicy.class);
+				
+				if (reqPrivacyPolicy != null) {
 					
-					return ResponseEntity.ok(reqTermsAndConds);
+					System.out.println("Privacy Data Mapping Pass !!");
+					
+					System.out.println("Name: " + reqPrivacyPolicy.getName());
+					return ResponseEntity.ok(reqPrivacyPolicy);
+				}else {
+					System.out.println("Privacy Data Mapping Error !!");
 				}
 			}
 		}

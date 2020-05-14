@@ -9,13 +9,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
+@JsonIgnoreProperties(ignoreUnknown = true)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@JsonIgnoreProperties(ignoreUnknown = true)
-public class RestVendor {
-	
+public class RestVendorUserId {
+
+
 	@JsonProperty("publicId")
 	private String publicId;
 	
@@ -38,10 +38,14 @@ public class RestVendor {
 	
 	private List<RestAddress> addresses;
 	
+	@JsonProperty("userId")
+	private String userId;
 	
+	@JsonProperty("userPublicId")
+	private String userPublicId;
 	
-
-	
+	@JsonProperty("restVendorCategory")
+	private RestVendorCategory restVendorCategory;
 	
 	
 }

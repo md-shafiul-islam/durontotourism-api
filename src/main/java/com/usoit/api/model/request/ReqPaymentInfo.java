@@ -29,8 +29,6 @@ public class ReqPaymentInfo implements Serializable{
 
 	private static final long serialVersionUID = -7059501572325353734L;
 
-	private int id;
-	
 	private String accountNo;
 	
 	private String accountName;
