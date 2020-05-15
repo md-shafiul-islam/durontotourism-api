@@ -37,7 +37,7 @@ public class ReqPaymentInfo implements Serializable{
 	
 	private String bankName;
 	
-	private ReqCountry country;
+	private int country;
 	
 	private String city;
 	

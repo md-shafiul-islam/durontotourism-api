@@ -20,4 +20,8 @@ public interface VendorServices {
 
 	public Vendor getVendorByPublicId(String publicId);
 
+	public boolean approveVendorByPublicID(String pubId);
+
+	public boolean rejectVendorByPublicID(String pubId);
+
 }

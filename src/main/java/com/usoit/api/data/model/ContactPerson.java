@@ -10,7 +10,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -46,12 +45,12 @@ public class ContactPerson {
 	@Column(name = "phone_no")
 	private String phoneNo;
 	
-	@Column(name = "phone_no2")
-	private String phoneNo2;
+	@Column(name = "phone_code")
+	private String conPhoneCode;
 	
 	@JsonIgnore
 	@Transient
-	private Country country1;
+	private Country country;
 	
 	@JsonIgnore
 	@Transient

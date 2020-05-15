@@ -47,5 +47,10 @@ public class RestVendorUserId {
 	@JsonProperty("restVendorCategory")
 	private RestVendorCategory restVendorCategory;
 	
+	@JsonProperty("approveStatus")
+	private int approveStatus;
+	
+	
+	
 	
 }

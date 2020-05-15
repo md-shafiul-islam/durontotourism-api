@@ -51,7 +51,7 @@ public class VendorServicesImpl implements VendorServices {
 
 			long cId = vendorRepository.count() +1;
 			
-			String vGenId = "Vendor " + Long.toString(cId);
+			String vGenId = "SUP " + Long.toString(cId);
 			vendor.setVGenId(vGenId);
 			
 			return saveVendor(vendor);
@@ -116,6 +116,104 @@ public class VendorServicesImpl implements VendorServices {
 		return null;
 	}
 	
+	@Override
+	public boolean approveVendorByPublicID(String pubId) {
+	
+		if (pubId != null) {
+			
+			if (pubId.length() == 75) {
+				
+				Vendor dbVendor = vendorRepository.getVendorByPublicId(pubId);
+				
+				if (dbVendor != null) {
+					
+					int dbId = dbVendor.getId();
+					
+					dbVendor = null;
+					
+					Session session = sessionFactory.openSession();
+					Transaction transaction = null;
+					
+					try {
+						
+						transaction = session.beginTransaction();
+						
+						Vendor approveVendor = session.get(Vendor.class, dbId);
+						
+						approveVendor.setApproveStatus(1);
+						approveVendor.setUpdateApprove(1);
+						
+						session.update(approveVendor);
+						
+						transaction.commit();
+						
+						return true;
+						
+					} catch (Exception e) {
+
+						if (transaction != null) {
+							
+							transaction.rollback();
+							
+							e.printStackTrace();
+						}
+					}
+				}
+			}
+		}
+		return false;
+	}
+	
+	
+	@Override
+	public boolean rejectVendorByPublicID(String pubId) {
+	
+
+		if (pubId != null) {
+			
+			if (pubId.length() == 75) {
+				
+				Vendor dbVendor = vendorRepository.getVendorByPublicId(pubId);
+				
+				if (dbVendor != null) {
+					
+					int dbId = dbVendor.getId();
+					
+					dbVendor = null;
+					
+					Session session = sessionFactory.openSession();
+					Transaction transaction = null;
+					
+					try {
+						
+						transaction = session.beginTransaction();
+						
+						Vendor approveVendor = session.get(Vendor.class, dbId);
+						
+						approveVendor.setApproveStatus(2);
+						approveVendor.setUpdateApprove(2);
+						
+						session.update(approveVendor);
+						
+						transaction.commit();
+						
+						return true;
+						
+					} catch (Exception e) {
+
+						if (transaction != null) {
+							
+							transaction.rollback();
+							
+							e.printStackTrace();
+						}
+					}
+				}
+			}
+		}
+		return false;
+	}
+		
 	private List<Vendor> getPandingVendor() {
 		
 		int ap = 0;
@@ -161,20 +259,6 @@ public class VendorServicesImpl implements VendorServices {
 			if (vendor.getContactPersons() != null) {
 
 				for (ContactPerson person : vendor.getContactPersons()) {
-
-					if (person.getPhoneNo() != null && person.getCountry1() != null) {
-
-						String phoneNo = person.getCountry1().getDialOrPhoneCode() + "-" + person.getPhoneNo();
-
-						person.setPhoneNo(phoneNo);
-					}
-
-					if (person.getPhoneNo2() != null && person.getCountry2() != null) {
-
-						String phoneNo2 = person.getCountry2().getDialOrPhoneCode() + "-" + person.getPhoneNo2();
-
-						person.setPhoneNo2(phoneNo2);
-					}
 
 					person.setVendor(vendor);
 				}

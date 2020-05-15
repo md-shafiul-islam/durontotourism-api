@@ -19,7 +19,7 @@ public class RestContactPerson {
 	
 	private String phoneNo;
 	
-	private String phoneNo2;
+	private String conPhoneCode;
 	
 	private RestCountry country1;
 	

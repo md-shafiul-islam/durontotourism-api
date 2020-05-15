@@ -18,12 +18,10 @@ public class ReqContactPerson implements Serializable{
 	
 	private String phoneNo;
 	
-	private String phoneNo2;
+	private String conPhoneCode;
 	
-	private ReqCountry country1;
-	
-	private ReqCountry country2;
-	
+	private int country;
+		
 	private String email;
 	
 	

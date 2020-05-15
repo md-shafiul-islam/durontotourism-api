@@ -99,6 +99,12 @@ public class Vendor {
 	@JoinColumn(name = "vendor_cat", referencedColumnName = "id")
 	private VendorCategory vendorCategory;
 	
+	@Column(name = "phone_no")
+	private String comPhoneNo;
+	
+	@Column(name = "phone_code")
+	private String phoneCode;
+	
 	
 	
 }

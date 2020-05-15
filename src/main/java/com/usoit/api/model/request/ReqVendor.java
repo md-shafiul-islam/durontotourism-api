@@ -49,10 +49,16 @@ public class ReqVendor implements Serializable{
 	
 	private static final long serialVersionUID = -8015002106790491336L;
 
+	
+	private String publicId;
 		
 	private String companyName;
 	
 	private String ownerName;
+	
+	private String comPhoneNo;
+	
+	private String phoneCode;
 	
 	private List<ReqContactPerson> contactPersons = new ArrayList<>();
 	
