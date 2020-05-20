@@ -13,16 +13,18 @@ public class ReqContactPerson implements Serializable{
 
 	
 	private static final long serialVersionUID = 818957571403827215L;
-
+	
+	private int id;
+	
 	private String name;
 	
 	private String phoneNo;
 	
 	private String conPhoneCode;
 	
-	private int country;
-		
 	private String email;
+	
+	private String designation;
 	
 	
 	

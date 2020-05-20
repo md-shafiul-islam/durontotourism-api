@@ -18,15 +18,21 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.usoit.api.data.converter.DozerMapper;
+import com.usoit.api.data.model.Country;
+import com.usoit.api.data.model.TempPaymentInfo;
+import com.usoit.api.data.model.TempVAddress;
+import com.usoit.api.data.model.TempVendor;
 import com.usoit.api.data.model.User;
 import com.usoit.api.data.model.Vendor;
 import com.usoit.api.data.vo.RestAddress;
 import com.usoit.api.data.vo.RestVendor;
+import com.usoit.api.data.vo.RestVendorDetails;
 import com.usoit.api.data.vo.RestVendorUserId;
 import com.usoit.api.model.request.ReqAddress;
 import com.usoit.api.model.request.ReqContactPerson;
 import com.usoit.api.model.request.ReqPaymentInfo;
 import com.usoit.api.model.request.ReqVendor;
+import com.usoit.api.services.CountryServices;
 import com.usoit.api.services.HelperServices;
 import com.usoit.api.services.UserServices;
 import com.usoit.api.services.VendorMapper;
@@ -43,6 +49,9 @@ public class RestVendorController {
 
 	@Autowired
 	private VendorServices vendorServices;
+	
+	@Autowired
+	private CountryServices countryServices;
 
 	private List<Vendor> vendors;
 
@@ -61,6 +70,17 @@ public class RestVendorController {
 	private List<RestVendorUserId> restPandingVendors;
 	
 	private List<Vendor> pandingVendors;
+	
+	private List<Vendor> updatePandingVendors;
+	
+	private List<RestVendorUserId> restUpdatePandingVendors;
+
+	@Autowired
+	private TempSevices tempVendorSevices;
+
+	private List<Vendor> rejectedVendors;
+
+	private List<RestVendorUserId> restRejectedVendos;
 
 	@RequestMapping("/vendor/{id}")
 	public ResponseEntity<?> getVendorAddData(Principal principal, HttpServletRequest request, @PathVariable("id") String pubId) {
@@ -81,6 +101,82 @@ public class RestVendorController {
 		}
 		
 
+		return ResponseEntity.notFound().build();
+	}
+	
+	@RequestMapping(value = "/vendor/details/{id}", method = RequestMethod.GET)
+	public ResponseEntity<?> getVendorDetails(Principal principal, HttpServletRequest request, @PathVariable("id") String pubId) {
+		
+		if (helperServices.isValidAndLenghtCheck(pubId, 75)) {
+			
+			Vendor vendor = vendorServices.getVendorByPublicId(pubId);
+			
+			if (vendor != null) {
+				
+				RestVendorDetails restVendorUserDetails = vendorMapper.getRestVendorDetails(vendor);
+				
+				if (restVendorUserDetails != null) {
+					
+					return ResponseEntity.ok(restVendorUserDetails);
+				}
+			}
+		}
+		
+		return ResponseEntity.notFound().build();
+	}
+	
+	@RequestMapping(value = "/vendor/temp/{id}", method = RequestMethod.GET)
+	public ResponseEntity<?> getTempVendor(Principal principal, HttpServletRequest request, @PathVariable("id") String pubId) {
+		
+		if (helperServices.isValidAndLenghtCheck(pubId, 75)) {
+			
+			TempVendor tempVendor = tempVendorSevices.getValidTempVendorByPublicId(pubId);
+			
+			if (tempVendor != null) {
+				
+				if (tempVendor.getAddresses() != null) {
+					
+					for (TempVAddress tmpAddress : tempVendor.getAddresses()) {
+						
+						if (tmpAddress.getCountry() > 0) {
+							
+							Country country = countryServices.getCountryById(tmpAddress.getCountry());
+							if (country != null) {
+								
+								tmpAddress.setCountryName(country.getName());
+							}else {
+								tmpAddress.setCountryName("None");
+							}
+						}else {
+							tmpAddress.setCountryName("None");
+						}
+					}
+				}
+				
+				if (tempVendor.getPaymentInfos() != null) {
+					
+					for (TempPaymentInfo tempPaymentInfo : tempVendor.getPaymentInfos()) {
+						
+						if (tempPaymentInfo.getCountry() > 0) {
+							
+							Country country = countryServices.getCountryById(tempPaymentInfo.getCountry());
+							
+							if (country != null) {
+								
+								tempPaymentInfo.setCountryName(country.getName());
+							}else {
+								tempPaymentInfo.setCountryName("None");
+							}
+						}else {
+							tempPaymentInfo.setCountryName("None");
+						}
+					}
+				}
+				
+				return ResponseEntity.ok(tempVendor);
+			}
+		}
+		
 		return ResponseEntity.notFound().build();
 	}
 
@@ -132,8 +228,10 @@ public class RestVendorController {
 			Vendor vendor = vendorMapper.getVendor(reqVendor);
 
 			if (vendor != null) {
-
-				System.out.println("Vendor Category Name: " + vendor.getVendorCategory().getName());
+				if (vendor.getVendorCategory() != null) {
+					System.out.println("Vendor Category Name: " + vendor.getVendorCategory().getName());
+				}
+				
 				vendor.setUser(cUser);
 				vendor.setPublicId(helperServices.getRandomString(75));
 				if (vendorServices.save(vendor)) {
@@ -161,10 +259,17 @@ public class RestVendorController {
 				
 				if (reqVendor.getPublicId().length() == 75) {
 					
-					// Set Tem  Vendor Save Action
+					TempVendor tempVendor = vendorMapper.getTempVendor(reqVendor);
 					
 					
-					
+					if (tempVendorSevices.save(tempVendor)) {
+						
+						if (vendorServices.updateRquestTaken(tempVendor.getPublicId())) {
+							return ResponseEntity.ok("Vendor Update Request Taken!!");
+						}
+						
+						
+					}
 					
 				}
 			}
@@ -188,6 +293,8 @@ public class RestVendorController {
 
 		return ResponseEntity.notFound().build();
 	}
+	
+	
 
 	@RequestMapping(value = "/vendor/reject/{id}", method = RequestMethod.GET)
 	public ResponseEntity<?> getVendorRejectAction(Principal principal, HttpServletRequest request,
@@ -204,6 +311,112 @@ public class RestVendorController {
 		return ResponseEntity.notFound().build();
 	}
 	
+	@RequestMapping(value = "/update/approve/{id}", method = RequestMethod.PUT)
+	public ResponseEntity<?> getUpdateApproveAction(Principal principal, HttpServletRequest request, @PathVariable("id") String pubId) {
+		
+		if (helperServices.isValidAndLenghtCheck(pubId, 75)) {
+			
+			TempVendor tempVendor = tempVendorSevices.getTempVendorByPublicId(pubId);
+			
+			if (tempVendor != null) {
+				
+				Vendor vendor = vendorMapper.getTempVendorToVendor(tempVendor);
+				
+				if (vendor != null) {
+					
+					if (vendorServices.approveUpdateVendor(vendor)) {
+						
+						if (tempVendorSevices.getUpdateValidation(pubId)) {
+							
+							return ResponseEntity.ok("Success ");
+						}
+						
+					}
+				}
+			}
+			
+			
+		}
+		
+		return ResponseEntity.notFound().build();
+	}
+	
+	@RequestMapping(value = "/update/reject/{id}", method = RequestMethod.PUT)
+	public ResponseEntity<?> getUpdateRejectAction(Principal principal, HttpServletRequest request, @PathVariable("id") String pubId){
+		
+		if (helperServices.isValidAndLenghtCheck(pubId, 75)) {
+			
+			if (tempVendorSevices.getUpdateRejectAction(pubId)) {
+				
+				return ResponseEntity.ok("Reject Success!! ");
+			}
+		}
+		
+		return ResponseEntity.notFound().build();
+	}
+	
+	@RequestMapping(value = "/update-approval", method = RequestMethod.GET)
+	public ResponseEntity<List<?>> getAllUpdateApprovalPendingVendors(Principal principal, HttpServletRequest request) {
+	
+		setRestAllUpdatePandingVendor();
+		
+		if (restUpdatePandingVendors != null) {
+			
+			return ResponseEntity.ok(restUpdatePandingVendors);
+		}
+		
+		return ResponseEntity.notFound().build();
+	}
+	
+	@RequestMapping(value = "/rejected", method = RequestMethod.GET)
+	public ResponseEntity<List<?>> getAllRejectedVendor(Principal principal, HttpServletRequest request){
+		
+		setRestRejectedVendors();
+		
+		if (restRejectedVendos != null) {
+			
+			return ResponseEntity.ok(restRejectedVendos);
+		}
+		
+		return ResponseEntity.notFound().build();
+	}
+	
+	private void setRestRejectedVendors() {
+		
+		setRejectedAllVendor();
+		
+		if (rejectedVendors != null) {
+			
+			restRejectedVendos = vendorMapper.getRestVendorsUID(rejectedVendors);
+		}
+		
+	}
+
+	private void setRejectedAllVendor() {
+		
+		rejectedVendors = vendorServices.getAllRejectVendor();
+		
+	}
+
+	private void setAllUpdatePandingVendor() {
+		
+		updatePandingVendors = vendorServices.getAllUpdatePendinVendors();
+		
+	}
+	
+	private void setRestAllUpdatePandingVendor() {
+		
+		setAllUpdatePandingVendor();
+		
+		if (updatePandingVendors != null) {
+			
+			restUpdatePandingVendors = vendorMapper.getRestVendorsUID(updatePandingVendors);
+		}
+		
+	}
+
+	
+
 	private void setRestPandingVendor() {
 		
 		setPandingVendors();

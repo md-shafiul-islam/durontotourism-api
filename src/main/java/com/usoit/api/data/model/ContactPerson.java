@@ -58,6 +58,8 @@ public class ContactPerson {
 	
 	private String email;
 	
+	private String designation;
+	
 
 	
 	

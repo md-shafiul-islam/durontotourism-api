@@ -12,11 +12,18 @@ import com.usoit.api.data.model.Address;
 import com.usoit.api.data.model.ContactPerson;
 import com.usoit.api.data.model.Country;
 import com.usoit.api.data.model.PaymentInfo;
+import com.usoit.api.data.model.TempContactPerson;
+import com.usoit.api.data.model.TempPaymentInfo;
+import com.usoit.api.data.model.TempVAddress;
+import com.usoit.api.data.model.TempVendor;
 import com.usoit.api.data.model.Vendor;
+import com.usoit.api.data.model.VendorCategory;
 import com.usoit.api.data.vo.RestAddress;
 import com.usoit.api.data.vo.RestContactPerson;
 import com.usoit.api.data.vo.RestCountry;
+import com.usoit.api.data.vo.RestPaymentInfo;
 import com.usoit.api.data.vo.RestVendorCategory;
+import com.usoit.api.data.vo.RestVendorDetails;
 import com.usoit.api.data.vo.RestVendorUserId;
 import com.usoit.api.model.request.ReqAddress;
 import com.usoit.api.model.request.ReqContactPerson;
@@ -34,6 +41,7 @@ public class VendorMapperImpl implements VendorMapper {
 
 	@Autowired
 	private VendorCategoryServices vendorCategoryServices;
+	
 
 	@Override
 	public List<RestVendorUserId> getRestVendorsUID(List<Vendor> vendors) {
@@ -138,14 +146,26 @@ public class VendorMapperImpl implements VendorMapper {
 					
 					ReqPaymentInfo reqPaymentInfo = new ReqPaymentInfo();
 					
+					reqPaymentInfo.setId(payInf.getId());
 					reqPaymentInfo.setAccountName(payInf.getAccountName());
 					reqPaymentInfo.setAccountNo(payInf.getAccountNo());
 					reqPaymentInfo.setBankName(payInf.getBankName());
 					reqPaymentInfo.setBranchName(payInf.getBranchName());
 					reqPaymentInfo.setCity(payInf.getCity());
-					reqPaymentInfo.setCountry(payInf.getCountry().getId());
 					
+					if (payInf.getCountry() != null) {
+						reqPaymentInfo.setCountry(payInf.getCountry().getId());
+						reqPaymentInfo.setCountryName(payInf.getCountry().getName());
+					}else {
+						reqPaymentInfo.setCountry(0);
+						reqPaymentInfo.setCountryName("None");
+					}
+					
+					infos.add(reqPaymentInfo);
+		
 				}
+				
+				reqVendor.setPaymentInfos(infos);
 				
 			}
 
@@ -155,16 +175,339 @@ public class VendorMapperImpl implements VendorMapper {
 		return null;
 	}
 
+	@Override
+	public TempVendor getTempVendor(ReqVendor reqVendor) {
+
+		TempVendor tempVendor = new TempVendor();
+		
+		
+		if (reqVendor != null) {
+			
+			if (reqVendor.getAddresses() != null) {
+				
+				getTempAddresses(reqVendor, tempVendor);
+			}
+			
+			tempVendor.setCompanyName(reqVendor.getCompanyName());
+			tempVendor.setComPhoneNo(reqVendor.getComPhoneNo());
+			tempVendor.setEmail(reqVendor.getEmail());
+			tempVendor.setOwnerName(reqVendor.getOwnerName());
+			tempVendor.setPhoneCode(reqVendor.getPhoneCode());
+			tempVendor.setPublicId(reqVendor.getPublicId());
+			tempVendor.setVendorCategory(reqVendor.getVendorCategory());
+			tempVendor.setWebsite(reqVendor.getWebsite());
+			
+			if (reqVendor.getContactPersons() != null) {
+				
+				getTempContactPerson(reqVendor, tempVendor);
+			}
+			
+			if (reqVendor.getPaymentInfos() != null) {
+				
+				
+				getTempPaymentInfos(reqVendor, tempVendor);
+			}
+			
+			return tempVendor;
+		}
+		
+		return null;
+	}
+	
+	@Override
+	public Vendor getTempVendorToVendor(TempVendor tempVendor) {
+		
+		if (tempVendor != null) {
+			
+			Vendor vendor = new Vendor();
+			
+			vendor.setPublicId(tempVendor.getPublicId());
+			
+			if (tempVendor.getAddresses() != null) {
+				
+				getTempAddressToAddress(tempVendor, vendor);
+			}
+			
+			vendor.setCompanyName(tempVendor.getCompanyName());
+			vendor.setComPhoneNo(tempVendor.getComPhoneNo());
+			
+			if (tempVendor.getContactPersons() != null) {
+				
+				getTempContactToContactPerson(tempVendor, vendor);
+			}
+			
+			vendor.setEmail(tempVendor.getEmail());
+			vendor.setOwnerName(tempVendor.getOwnerName());
+			vendor.setPhoneCode(tempVendor.getPhoneCode());
+			vendor.setWebsite(tempVendor.getWebsite());
+			
+			if (tempVendor.getVendorCategory() > 0) {
+				
+				VendorCategory vendorCategory = vendorCategoryServices.getVendorCatById(tempVendor.getVendorCategory());
+				
+				vendor.setVendorCategory(vendorCategory);
+			}
+			
+			if (tempVendor.getPaymentInfos() != null) {
+				
+				getTempPayToPay(tempVendor, vendor);
+			}
+			
+				
+			return vendor;
+		}
+		
+		return null;
+	}
+	
+	@Override
+	public RestVendorDetails getRestVendorDetails(Vendor vendor) {
+		
+		if (vendor != null) {
+			
+			RestVendorDetails details = new RestVendorDetails();
+			
+			if (vendor.getAddresses() != null) {
+				
+				details.setAddresses(getVendorRestAddress(vendor));
+			}
+			
+			if (vendor.getContactPersons() != null) {
+				
+				details.setContactPersons(getRestContactPersons(vendor));
+			}
+			
+			if (vendor.getPaymentInfos() != null) {
+				
+				details.setPaymentInfos(getRestPaymentInfo(vendor));
+			}
+			
+			
+			details.setCompanyName(vendor.getCompanyName());
+			details.setEmail(vendor.getEmail());
+			details.setOwnerName(vendor.getOwnerName());
+			details.setPublicId(vendor.getPublicId());
+			details.setVGenId(vendor.getVGenId());
+			details.setWebsite(vendor.getWebsite());
+			details.setPhoneCode(vendor.getPhoneCode());
+			details.setComPhoneNo(vendor.getComPhoneNo());
+			
+			
+			return details;
+		}
+		
+		return null;
+	}
+
+	
+
+	private List<RestPaymentInfo> getRestPaymentInfo(Vendor vendor) {
+		
+		List<RestPaymentInfo> infos = new ArrayList<>();
+
+		for (PaymentInfo vPaymentInfo : vendor.getPaymentInfos()) {
+
+			RestPaymentInfo info = new RestPaymentInfo();
+
+			info.setAccountName(vPaymentInfo.getAccountName());
+			info.setAccountNo(vPaymentInfo.getAccountNo());
+			info.setBankName(vPaymentInfo.getBankName());
+			info.setBranchName(vPaymentInfo.getBranchName());
+			info.setCity(vPaymentInfo.getCity());
+			
+			if (vPaymentInfo.getCountry() != null) {
+				
+				RestCountry country = DozerMapper.parseObject(vPaymentInfo.getCountry(), RestCountry.class);
+				info.setCountry(country);
+			}
+
+			infos.add(info);
+		}
+
+		
+		
+		return infos;
+	}
+
+	private void getTempPayToPay(TempVendor tempVendor, Vendor vendor) {
+		List<PaymentInfo> infos = new ArrayList<>();
+		
+		for (TempPaymentInfo tempInf : tempVendor.getPaymentInfos()) {
+			
+			PaymentInfo info = new PaymentInfo();
+			
+			info.setAccountName(tempInf.getAccountName());
+			info.setAccountNo(tempInf.getAccountNo());
+			info.setBankName(tempInf.getBankName());
+			info.setBranchName(tempInf.getBranchName());
+			info.setCity(tempInf.getCity());
+			info.setVendor(vendor);
+			
+			if (tempInf.getCountry() > 0) {
+				
+				Country country = countryServices.getCountryById(tempInf.getCountry());
+				info.setCountry(country);
+			}
+			
+			if (tempInf.getPrevId() > 0) {
+				
+				info.setId(tempInf.getPrevId());
+			}
+			
+			infos.add(info);
+		}
+		
+		vendor.setPaymentInfos(infos);
+	}
+
+	private void getTempContactToContactPerson(TempVendor tempVendor, Vendor vendor) {
+		List<ContactPerson> contactPersons = new ArrayList<>();
+		
+		for (TempContactPerson person : tempVendor.getContactPersons()) {
+			
+			ContactPerson conPerson = new ContactPerson();
+			
+			conPerson.setConPhoneCode(person.getConPhoneCode());
+			conPerson.setEmail(person.getEmail());
+			conPerson.setName(person.getName());
+			conPerson.setPhoneNo(person.getPhoneNo());
+			conPerson.setDesignation(person.getDesignation());
+			conPerson.setVendor(vendor);
+			
+			if (person.getPrevId() > 0) {
+				
+				conPerson.setId(person.getPrevId());
+			
+			}
+			
+			contactPersons.add(conPerson);
+			
+		}
+		
+		vendor.setContactPersons(contactPersons);
+	}
+
+	private void getTempAddressToAddress(TempVendor tempVendor, Vendor vendor) {
+		List<Address> addresses = new ArrayList<>();
+		
+		for (TempVAddress temAddress : tempVendor.getAddresses()) {
+			
+			Address address = new Address();
+			
+			address.setCity(temAddress.getCity());
+			
+			if (temAddress.getCountry() > 0) {
+				Country country = countryServices.getCountryById(temAddress.getCountry());
+				address.setCountry(country);
+			}
+			
+			address.setCountryCode(temAddress.getCountryCode());
+			address.setHouse(temAddress.getHouse());
+			address.setStreet(temAddress.getStreet());
+			
+			address.setVillage(temAddress.getVillage());
+			address.setZipCode(temAddress.getZipCode());
+			address.setVendor(vendor);
+			
+			if (temAddress.getPrevId() > 0) {
+				
+				address.setId(temAddress.getPrevId());
+			}
+			
+			addresses.add(address);
+		}
+		
+		vendor.setAddresses(addresses);
+	}
+
+	private void getTempPaymentInfos(ReqVendor reqVendor, TempVendor tempVendor) {
+		List<TempPaymentInfo> infos = new ArrayList<>();
+		
+		for (ReqPaymentInfo reqPayment : reqVendor.getPaymentInfos()) {
+			
+			TempPaymentInfo info = new TempPaymentInfo();
+			
+			if (reqPayment.getId() > 0) {
+				info.setPrevId(reqPayment.getId());
+			}
+			
+			
+			info.setAccountName(reqPayment.getAccountName());
+			info.setAccountNo(reqPayment.getAccountNo());
+			info.setBankName(reqPayment.getBankName());
+			info.setBranchName(reqPayment.getBranchName());
+			info.setCity(reqPayment.getCity());
+			info.setCountry(reqPayment.getCountry());
+			info.setTempVendor(tempVendor);
+			
+			infos.add(info);
+		}
+		
+		tempVendor.setPaymentInfos(infos);
+	}
+
+	private void getTempContactPerson(ReqVendor reqVendor, TempVendor tempVendor) {
+		List<TempContactPerson> tempContactPersons = new ArrayList<>();
+		
+		for (ReqContactPerson reqContactPerson : reqVendor.getContactPersons()) {
+			
+			TempContactPerson contactPerson = new TempContactPerson();
+			
+			if (reqContactPerson.getId() > 0) {
+				contactPerson.setPrevId(reqContactPerson.getId());
+			}
+			
+			contactPerson.setConPhoneCode(reqContactPerson.getConPhoneCode());
+			contactPerson.setEmail(reqContactPerson.getEmail());
+			contactPerson.setName(reqContactPerson.getName());
+			contactPerson.setPhoneNo(reqContactPerson.getPhoneNo());
+			contactPerson.setTempVendor(tempVendor);
+			contactPerson.setDesignation(reqContactPerson.getDesignation());
+			
+			tempContactPersons.add(contactPerson);
+		}
+		
+		tempVendor.setContactPersons(tempContactPersons);
+	}
+
+	private void getTempAddresses(ReqVendor reqVendor, TempVendor tempVendor) {
+		List<TempVAddress> tempVAddresses = new ArrayList<>();
+		
+		for (ReqAddress reqAddress : reqVendor.getAddresses()) {
+			
+			TempVAddress tempVAddress = new TempVAddress();
+			
+			if (reqAddress.getId() > 0) {
+				tempVAddress.setPrevId(reqAddress.getId());
+			}
+			
+			tempVAddress.setCity(reqAddress.getCity());
+			tempVAddress.setCountry(reqAddress.getCountry());
+			tempVAddress.setHouse(reqAddress.getHouse());
+			tempVAddress.setStreet(reqAddress.getStreet());
+			tempVAddress.setTempVendor(tempVendor);
+			tempVAddress.setTitle(reqAddress.getTitle());
+			tempVAddress.setVillage(reqAddress.getVillage());
+			tempVAddress.setZipCode(reqAddress.getZipCode());
+			
+			tempVAddresses.add(tempVAddress);
+		}
+		
+		tempVendor.setAddresses(tempVAddresses);
+	}
+	
 	private void getReqContactPerson(Vendor vendor, ReqVendor reqVendor) {
 		List<ReqContactPerson> reqContactPersons = new ArrayList<>();
 
 		for (ContactPerson contactPerson : vendor.getContactPersons()) {
 			ReqContactPerson person = new ReqContactPerson();
-
+			
+			person.setId(contactPerson.getId());
 			person.setConPhoneCode(contactPerson.getConPhoneCode());
 			person.setEmail(contactPerson.getEmail());
 			person.setName(contactPerson.getName());
 			person.setPhoneNo(contactPerson.getPhoneNo());
+			person.setDesignation(contactPerson.getDesignation());
 
 			reqContactPersons.add(person);
 
@@ -185,8 +528,12 @@ public class VendorMapperImpl implements VendorMapper {
 			if (vAddress.getCountry() != null) {
 
 				reqAddress.setCountry(vAddress.getCountry().getId());
+				reqAddress.setCountryName(vAddress.getCountry().getName());
+			}else {
+				reqAddress.setCountryName("None");
 			}
-
+			
+			reqAddress.setId(vAddress.getId());
 			reqAddress.setCountryCode(vAddress.getCountryCode());
 			reqAddress.setHouse(vAddress.getHouse());
 			reqAddress.setStreet(vAddress.getStreet());
@@ -237,6 +584,7 @@ public class VendorMapperImpl implements VendorMapper {
 			contactPerson.setName(reqContPerson.getName());
 			contactPerson.setPhoneNo(reqContPerson.getPhoneNo());
 			contactPerson.setVendor(vendor);
+			contactPerson.setDesignation(reqContPerson.getDesignation());
 
 			contactPersons.add(contactPerson);
 		}
@@ -253,7 +601,7 @@ public class VendorMapperImpl implements VendorMapper {
 
 			address.setCity(rAddress.getCity());
 
-			if (rAddress.getId() > 0) {
+			if (rAddress.getCountry() > 0) {
 
 				Country country = countryServices.getCountryById(rAddress.getCountry());
 
@@ -337,6 +685,7 @@ public class VendorMapperImpl implements VendorMapper {
 			restPerson.setPhoneNo(contPerson.getPhoneNo());
 			restPerson.setPublicId(contPerson.getPublicId());
 			restPerson.setConPhoneCode(contPerson.getConPhoneCode());
+			restPerson.setDesignation(contPerson.getDesignation());
 
 			restContactPersons.add(restPerson);
 
@@ -346,6 +695,8 @@ public class VendorMapperImpl implements VendorMapper {
 
 	public List<RestAddress> getVendorRestAddress(Vendor vendor) {
 		List<RestAddress> restAddresses = new ArrayList<RestAddress>();
+		
+		System.out.println("RestAddress Mapping Run !!");
 
 		for (Address address : vendor.getAddresses()) {
 
@@ -357,14 +708,19 @@ public class VendorMapperImpl implements VendorMapper {
 			restAddress.setStreet(address.getStreet());
 			restAddress.setVillage(address.getVillage());
 			restAddress.setZipCode(address.getZipCode());
+			
+			System.out.println("RestAddress Mapping Run After Zip Code!!");
 
 			if (address.getCountry() != null) {
-
+				
+				System.out.println("Address To Rest Address: " + address.getCountry().getName());
+				
 				RestCountry country = DozerMapper.parseObject(address.getCountry(), RestCountry.class);
 
 				restAddress.setCountry(country);
 			}
-
+			
+			System.out.println("RestAddress Mapping Run After Country!!");
 			restAddresses.add(restAddress);
 
 		}

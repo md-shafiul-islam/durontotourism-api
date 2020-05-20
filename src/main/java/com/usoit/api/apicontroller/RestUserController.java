@@ -101,7 +101,7 @@ public class RestUserController {
 		return ResponseEntity.ok(restUserList);
 	}
 
-	@PostMapping(value = "/login")
+	@RequestMapping(value = "/login", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> getUserLoginAction(@RequestBody ReqLoginData loginData, BindingResult bindingResult) {
 
 		System.out.println("Run User Controller User Login");

@@ -4,6 +4,8 @@ import java.util.List;
 
 import com.usoit.api.data.model.Vendor;
 
+import net.bytebuddy.asm.Advice.Return;
+
 public interface VendorServices {
 
 	public boolean save(Vendor vendor);
@@ -23,5 +25,17 @@ public interface VendorServices {
 	public boolean approveVendorByPublicID(String pubId);
 
 	public boolean rejectVendorByPublicID(String pubId);
+
+	public boolean approveUpdateVendor(Vendor vendor);
+
+	public List<Vendor> getAllUpdatePendinVendors();
+
+	/**
+	 * {@link Return All Rejected Vendors}
+	 */
+	public List<Vendor> getAllRejectVendor();
+
+	public boolean updateRquestTaken(String publicId);
+
 
 }

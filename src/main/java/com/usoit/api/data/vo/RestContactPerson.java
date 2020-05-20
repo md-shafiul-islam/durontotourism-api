@@ -21,11 +21,10 @@ public class RestContactPerson {
 	
 	private String conPhoneCode;
 	
-	private RestCountry country1;
-	
-	private RestCountry country2;
-	
 	private String email;
+	
+	private String designation;
+	
 	
 	
 	

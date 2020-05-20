@@ -38,7 +38,7 @@ public class ReqAddress implements Serializable{
 	@JsonProperty("street")
 	private String street;
 	
-	@JsonProperty("zip_code")
+	@JsonProperty("zipCode")
 	@Column(name = "zip_code")
 	private String zipCode;
 	
@@ -52,6 +52,8 @@ public class ReqAddress implements Serializable{
 	@JsonProperty("code_name")
 	@Column(name = "country_code")
 	private String countryCode;
+	
+	private String countryName;
 	
 	
 	
