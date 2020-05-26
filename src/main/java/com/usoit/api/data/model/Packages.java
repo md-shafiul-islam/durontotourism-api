@@ -134,6 +134,15 @@ public @Data class Packages implements Serializable{
 	
 	@Column(name="modyfi_status")
 	private String modydiyStatus;
+	
+	@Column(name="price_4_person")
+	private double price4Person;
+	
+	@Column(name="price_6_person")
+	private double price6Person;
+	
+	@Column(name="price_8_person")
+	private double price8Person;
 
 	
 	

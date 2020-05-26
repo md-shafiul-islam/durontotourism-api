@@ -24,6 +24,7 @@ import com.usoit.api.data.model.Access;
 import com.usoit.api.data.model.Category;
 import com.usoit.api.data.model.User;
 import com.usoit.api.data.vo.RestCategory;
+import com.usoit.api.model.request.ReqCategory;
 import com.usoit.api.services.CategoryServices;
 import com.usoit.api.services.HelperServices;
 
@@ -158,54 +159,42 @@ public class RestCategoryController {
 		return ResponseEntity.ok(new Category());
 	}
 
-	@RequestMapping(value = "/category", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<?> getCategoryAddAction(@RequestBody Category category, HttpSession httpSession) {
+	@RequestMapping(value = "/category", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<?> getCategoryAddAction(@RequestBody ReqCategory reqCategory, HttpSession httpSession) {
+		
+		System.out.println("Category Add Action Run!!" );
+		
+		
 
-		// Access Start
-		cUser = helperServices.checkUserAccess(httpSession, "user", 3);
-		Access access = helperServices.getCurrentAccess();
+		if (reqCategory != null) {
 
-		if (access == null) {
+			if (reqCategory.getName() != null) {
+				
+				System.out.println("Category Name Not Null" );
+				
+				Category category = DozerMapper.parseObject(reqCategory, Category.class);
 
-			return null;
-
-		} else {
-			if (access.getNoAccess() == 1) {
-
-				System.out.println("No Access: " + access.getNoAccess() + "Add Access: " + access.getAdd()
-						+ " All Access: " + access.getAll());
-				return null;
-
-			} else {
-
-				System.out.println("Out side if: Add Access: " + access.getAdd() + " All Access: " + access.getAll());
-
-				if (access.getAll() == 1) {
-
-					System.out.println("Access Get Add Pass & All Access !!");
-
-				} else {
-					return null;
-				}
-
-			}
-		}
-		// Access End
-
-		if (category != null) {
-
-			if (category.getName() != null) {
-
-				if (!categoryServices.save(category)) {
-
-					return null;
-				} else {
-					System.out.println("Save Done!!");
+				if (category != null) {
+					
+					System.out.println("Add Cat. Category Mapping Done!!");
+					
+					category.setId(0);
+					
+					if (!categoryServices.save(category)) {
+						
+						System.out.println("Category Added !!!!!!!!!");
+						
+						return ResponseEntity.ok(DozerMapper.parseObject(category, RestCategory.class));
+					} else {
+						System.out.println("Save Done!!");
+					}
 				}
 			}
 		}
-
-		return ResponseEntity.ok(category);
+		
+		reqCategory.setDescription(reqCategory.getDescription()+" Request");
+		
+		return ResponseEntity.ok(reqCategory);
 	}
 
 	@RequestMapping(value = "/edit", method = RequestMethod.GET, params = { "id" })

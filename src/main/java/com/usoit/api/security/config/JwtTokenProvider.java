@@ -23,11 +23,19 @@ public class JwtTokenProvider {
         Date expiryDate = new Date(now.getTime()+SecurityConstants.EXP_TIME);
 
         String userId = Long.toString(user.getId());
-
+        
+        String role  = "";
+        if (user.getRole() != null) {
+			role = user.getRole().getName();
+        	
+		}else {
+			role = "User";
+		}
         Map<String,Object> claims = new HashMap<>();
-        claims.put("id", (Long.toString(user.getId())));
+        claims.put("id", (user.getPublicId()));
         claims.put("username", user.getUsername());
         claims.put("fullName", user.getName());
+        claims.put("role", role);
 
         return Jwts.builder()
                 .setSubject(userId)

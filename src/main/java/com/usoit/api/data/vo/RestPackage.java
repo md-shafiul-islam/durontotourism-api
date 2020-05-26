@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -88,5 +90,11 @@ public class RestPackage implements Serializable{
 	@JsonBackReference("country_pa_api")
 	@JsonProperty("countries")
 	public List<RestCountry> countries = new ArrayList<>();
+	
+	private double price4Person;
+	
+	private double price6Person;
+	
+	private double price8Person;
 
 }

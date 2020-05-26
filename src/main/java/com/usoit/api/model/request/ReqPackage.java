@@ -65,6 +65,11 @@ public class ReqPackage implements Serializable{
 	@JsonProperty("countries")
 	private List<ReqCountryOnPack> countries = new ArrayList<>();
 	
+	private double price4Person;
+	
+	private double price6Person;
+	
+	private double price8Person;
 	
 	// Getter Methods
 

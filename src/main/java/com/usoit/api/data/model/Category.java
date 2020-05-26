@@ -34,7 +34,6 @@ public @Data class Category {
 	private int id;
 	
 	@JsonProperty("itarnaries")
-	@JsonBackReference("itn_category")
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
 	private List<Itarnary> itarnaries = new ArrayList<>();
 	

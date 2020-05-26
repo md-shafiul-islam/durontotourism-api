@@ -117,6 +117,17 @@ public class RestUserController {
 		return ResponseEntity.ok(new JWTLoginSucessReponse(true, jwt));
 	}
 
+	@RequestMapping(value = "/user/access/{id}", method = RequestMethod.GET)
+	public ResponseEntity<?> getAllAccessByUserId(Principal principal, HttpServletRequest request, @PathVariable("id") String pubId){
+		
+		if (helperServices.isValidAndLenghtCheck(pubId, 30)) {
+			
+			
+		}
+		
+		return ResponseEntity.notFound().build();
+	}
+	
 	@RequestMapping(value = "/user", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> getUserAddAction(Principal principal, HttpServletRequest request,
 			@RequestBody ReqUser reqUser) {
