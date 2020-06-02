@@ -2,7 +2,7 @@ package com.usoit.api.security.config;
 
 public class SecurityConstants {
 
-	public static final long EXP_TIME = 432000000;// 5Day
+	public static final long EXP_TIME = 432000000L;// 5Day
 	
 	public static final String TOKEN_PREFIX = "Bearer ";
 	

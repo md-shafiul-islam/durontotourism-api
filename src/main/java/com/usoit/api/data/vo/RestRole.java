@@ -16,6 +16,10 @@ public class RestRole {
 	
 	private int id;
 	
+	private String publicId;
+	
+	private String genId;
+	
 	private List<RestAccessUser> accesses = new ArrayList<>();
 	
 	private List<RestUserRole> users = new ArrayList<>();
@@ -27,6 +31,8 @@ public class RestRole {
 	private Date date;
 	
 	private Date dateGroupe;
+	
+	private int authStatus;
 
 	
 

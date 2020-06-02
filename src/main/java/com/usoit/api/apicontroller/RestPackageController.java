@@ -4,6 +4,7 @@ import java.security.Principal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -31,6 +32,7 @@ import com.usoit.api.data.model.User;
 import com.usoit.api.data.model.Vendor;
 import com.usoit.api.data.shared.dto.DtoItarnary;
 import com.usoit.api.data.shared.dto.DtoUpdatePackage;
+import com.usoit.api.data.vo.RestAccessUser;
 import com.usoit.api.data.vo.RestPackDetails;
 import com.usoit.api.data.vo.RestPackage;
 import com.usoit.api.data.vo.RestUser;
@@ -69,7 +71,7 @@ public class RestPackageController {
 
 	@Autowired
 	private CategoryServices categoryServices;
-	
+
 	@Autowired
 	private UserServices userServices;
 
@@ -96,7 +98,7 @@ public class RestPackageController {
 	private List<Country> countries;
 
 	private List<Category> categories;
-	
+
 	private List<RestViewPackages> restViewPacks;
 
 	@Autowired
@@ -120,10 +122,31 @@ public class RestPackageController {
 
 	private List<RestViewPackages> restUpdateApprovalPandingPacks;
 
-
 	@RequestMapping(value = "/package/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> getPackageDetails(Principal principal, HttpServletRequest httpServletRequest,
 			@PathVariable("id") String id) {
+
+		// Set Access controls Start
+		Map<String, RestAccessUser> accessMap = helperServices.getAccessMapByPrincipal(principal);
+
+		if (accessMap != null) {
+
+			RestAccessUser accessPack = accessMap.get("package_ac");
+			if (accessPack == null) {
+				return ResponseEntity.ok("Login And try Again ");
+			} else {
+
+				if (accessPack.getAdd() == 1 || accessPack.getAll() == 1 || accessPack.getView() == 1
+						|| accessPack.getApprove() == 1 || accessPack.getEdit() == 1
+						|| accessPack.getUpdateApproval() == 1) {
+
+				} else {
+					return ResponseEntity.ok("You cann't Access this options Please contact Administartor ");
+				}
+			}
+		}
+
+		// Set Access controls End
 
 		if (id != null) {
 
@@ -159,6 +182,26 @@ public class RestPackageController {
 	public ResponseEntity<?> addNewPackage(Principal principal, HttpServletRequest httpServletRequest,
 			@RequestBody ReqPackage reqPackage) {
 
+		// Set Access controls Start
+		Map<String, RestAccessUser> accessMap = helperServices.getAccessMapByPrincipal(principal);
+
+		if (accessMap != null) {
+
+			RestAccessUser accessPack = accessMap.get("package_ac");
+			if (accessPack == null) {
+				return ResponseEntity.ok("Login And try Again ");
+			} else {
+
+				if (accessPack.getAdd() == 1 || accessPack.getAll() == 1) {
+
+				} else {
+					return ResponseEntity.ok("You cann't Access this options Please contact Administartor ");
+				}
+			}
+		}
+
+		// Set Access controls End
+
 		System.out.println("Add Package Run");
 
 		return ResponseEntity.ok(reqPackage);
@@ -167,6 +210,26 @@ public class RestPackageController {
 	@RequestMapping(value = "/package/edit/{id}", method = RequestMethod.GET)
 	public ResponseEntity<?> getPackageById(Principal principal, HttpServletRequest request,
 			@PathVariable("id") String pId) {
+
+		// Set Access controls Start
+		Map<String, RestAccessUser> accessMap = helperServices.getAccessMapByPrincipal(principal);
+
+		if (accessMap != null) {
+
+			RestAccessUser accessPack = accessMap.get("package_ac");
+			if (accessPack == null) {
+				return ResponseEntity.ok("Login And try Again ");
+			} else {
+
+				if (accessPack.getEdit() == 1 || accessPack.getAll() == 1) {
+
+				} else {
+					return ResponseEntity.ok("You cann't Access this options Please contact Administartor ");
+				}
+			}
+		}
+
+		// Set Access controls End
 
 		DtoUpdatePackage reqPackage = new DtoUpdatePackage();
 
@@ -182,59 +245,155 @@ public class RestPackageController {
 		return ResponseEntity.ok(reqPackage);
 	}
 
-	
 	@RequestMapping(value = "/confrim", method = RequestMethod.GET)
 	public ResponseEntity<List<?>> getAllConfrimPackages(Principal principal, HttpServletRequest request) {
 
+		// Set Access controls Start
+		List<String> acMgs = new ArrayList<>();
+		Map<String, RestAccessUser> accessMap = helperServices.getAccessMapByPrincipal(principal);
+
+		if (accessMap != null) {
+
+			RestAccessUser accessPack = accessMap.get("package_ac");
+			if (accessPack == null) {
+				acMgs.add(new String("Login And try Again "));
+				return ResponseEntity.ok(acMgs);
+			} else {
+
+				if (accessPack.getEdit() == 1 || accessPack.getAll() == 1 || accessPack.getView() == 1
+						|| accessPack.getAdd() == 1 || accessPack.getApprove() == 1
+						|| accessPack.getUpdateApproval() == 1) {
+
+				} else {
+					acMgs.add(new String("You cann't Access this options Please contact Administartor "));
+
+					return ResponseEntity.ok(acMgs);
+				}
+			}
+		}
+
+		// Set Access controls End
+
 		List<String> data = new ArrayList<String>();
-		
+
 		if (setRestConfrimPackages()) {
-			
+
 			return ResponseEntity.ok(restViewConfPacks);
 		} else {
-			
+
 			data.add(new String("Else Error !!"));
 			return ResponseEntity.ok(data);
 		}
 
 	}
-	
+
 	@RequestMapping(value = "/reject", method = RequestMethod.GET)
 	public ResponseEntity<List<?>> getAllRejectedPackages(Principal principal, HttpServletRequest request) {
 
+		// Set Access controls Start
+		List<String> acMgs = new ArrayList<>();
+		Map<String, RestAccessUser> accessMap = helperServices.getAccessMapByPrincipal(principal);
+
+		if (accessMap != null) {
+
+			RestAccessUser accessPack = accessMap.get("package_ac");
+			if (accessPack == null) {
+				acMgs.add(new String("Login And try Again "));
+				return ResponseEntity.ok(acMgs);
+			} else {
+
+				if (accessPack.getAdd() == 1 || accessPack.getAll() == 1) {
+
+				} else {
+					acMgs.add(new String("You cann't Access this options Please contact Administartor "));
+
+					return ResponseEntity.ok(acMgs);
+				}
+			}
+		}
+
+		// Set Access controls End
+
 		List<String> data = new ArrayList<String>();
-		
+
 		if (setRestRejectPackages()) {
-			
+
 			return ResponseEntity.ok(restViewRejectPacks);
 		} else {
-			
+
 			data.add(new String("Else Error !! Rejected Pack Not Found"));
 			return ResponseEntity.ok(data);
 		}
 
 	}
-	
+
 	@RequestMapping(value = "/update-approval-panding", method = RequestMethod.GET)
-	public ResponseEntity<List<?>> getAllUpdateApprovalPandingPackages(Principal principal, HttpServletRequest request) {
+	public ResponseEntity<List<?>> getAllUpdateApprovalPandingPackages(Principal principal,
+			HttpServletRequest request) {
+
+		// Set Access controls Start
+		List<String> acMgs = new ArrayList<>();
+		Map<String, RestAccessUser> accessMap = helperServices.getAccessMapByPrincipal(principal);
+
+		if (accessMap != null) {
+
+			RestAccessUser accessPack = accessMap.get("package_ac");
+			if (accessPack == null) {
+				acMgs.add(new String("Login And try Again "));
+				return ResponseEntity.ok(acMgs);
+			} else {
+
+				if (accessPack.getEdit() == 1 || accessPack.getAll() == 1 || accessPack.getUpdateApproval() == 1) {
+
+				} else {
+					acMgs.add(new String("You cann't Access this options Please contact Administartor "));
+
+					return ResponseEntity.ok(acMgs);
+				}
+			}
+		}
+
+		// Set Access controls End
 
 		List<String> data = new ArrayList<String>();
-		
+
 		if (setRestUpdateAppPandingPackages()) {
-			
+
 			return ResponseEntity.ok(restUpdateApprovalPandingPacks);
 		} else {
-			
+
 			data.add(new String("Else Error !! Update Pannding Pack Not found!!"));
 			return ResponseEntity.ok(data);
 		}
 
 	}
 
-	
-
 	@RequestMapping(value = "/panding", method = RequestMethod.GET)
 	public ResponseEntity<List<?>> getAllPandingPackages(Principal principal, HttpServletRequest request) {
+
+		// Set Access controls Start
+		List<String> acMgs = new ArrayList<>();
+		Map<String, RestAccessUser> accessMap = helperServices.getAccessMapByPrincipal(principal);
+
+		if (accessMap != null) {
+
+			RestAccessUser accessPack = accessMap.get("package_ac");
+			if (accessPack == null) {
+				acMgs.add(new String("Login And try Again "));
+				return ResponseEntity.ok(acMgs);
+			} else {
+
+				if (accessPack.getAll() == 1 || accessPack.getAdd() == 1 || accessPack.getApprove() == 1) {
+
+				} else {
+					acMgs.add(new String("You cann't Access this options Please contact Administartor "));
+
+					return ResponseEntity.ok(acMgs);
+				}
+			}
+		}
+
+		// Set Access controls End
 
 		List<String> data = new ArrayList<String>();
 		if (setRestPandingPackages()) {
@@ -249,8 +408,32 @@ public class RestPackageController {
 	@RequestMapping(value = "/package", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> getPackageUpdateAction(Principal principal, @RequestBody DtoUpdatePackage packages,
 			HttpServletRequest request) {
-		
-		cUser = useraServices.getUerById(1);
+
+		// Set Access controls Start
+		List<String> acMgs = new ArrayList<>();
+		Map<String, RestAccessUser> accessMap = helperServices.getAccessMapByPrincipal(principal);
+
+		if (accessMap != null) {
+
+			RestAccessUser accessPack = accessMap.get("package_ac");
+			if (accessPack == null) {
+				acMgs.add(new String("Login And try Again "));
+				return ResponseEntity.ok(acMgs);
+			} else {
+
+				if (accessPack.getEdit() == 1 || accessPack.getAll() == 1) {
+
+				} else {
+					acMgs.add(new String("You cann't Access this options Please contact Administartor "));
+
+					return ResponseEntity.ok(acMgs);
+				}
+			}
+		}
+
+		// Set Access controls End
+
+		cUser = helperServices.getUserByPrincipal(principal);
 
 		if (packages != null) {
 
@@ -261,8 +444,7 @@ public class RestPackageController {
 			if (packages.getPublicId().length() > 30) {
 
 				System.out.println("Update Pack ID PASS!!");
-				
-				
+
 				if (packageServices.updatePackDto(packages)) {
 
 					System.out.println("Package Updated Done!!");
@@ -279,19 +461,43 @@ public class RestPackageController {
 	@RequestMapping(value = "/package/reject", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> getRejectPackRequest(Principal principal, @RequestBody ReceiveStringId reciveData,
 			HttpServletRequest request) {
-		
-		cUser = useraServices.getUerById(1);
-		
+
+		// Set Access controls Start
+		List<String> acMgs = new ArrayList<>();
+		Map<String, RestAccessUser> accessMap = helperServices.getAccessMapByPrincipal(principal);
+
+		if (accessMap != null) {
+
+			RestAccessUser accessPack = accessMap.get("package_ac");
+			if (accessPack == null) {
+				acMgs.add(new String("Login And try Again "));
+				return ResponseEntity.ok(acMgs);
+			} else {
+
+				if (accessPack.getAll() == 1 || accessPack.getApprove() == 1) {
+
+				} else {
+					acMgs.add(new String("You cann't Access this options Please contact Administartor "));
+
+					return ResponseEntity.ok(acMgs);
+				}
+			}
+		}
+
+		// Set Access controls End
+
+		cUser = helperServices.getUserByPrincipal(principal);
+
 		System.out.println("Reject Run!!");
-		
+
 		if (reciveData.getPublicId() != null) {
 
 			if (reciveData.getPublicId().length() == 55) {
-				
+
 				System.out.println("Reject Run!! Lenght Pass");
 
 				if (packageServices.rejactPackByPublicId(reciveData.getPublicId(), cUser)) {
-					System.out.println("Reject Run!! Update" );
+					System.out.println("Reject Run!! Update");
 					return ResponseEntity.ok(true);
 				}
 			}
@@ -304,23 +510,47 @@ public class RestPackageController {
 	public ResponseEntity<?> getPackageApproveAction(Principal principal, @RequestBody ReceiveStringId receiveData,
 			HttpServletRequest request) {
 
-		cUser = useraServices.getUerById(1);
-		
+		// Set Access controls Start
+		List<String> acMgs = new ArrayList<>();
+		Map<String, RestAccessUser> accessMap = helperServices.getAccessMapByPrincipal(principal);
+
+		if (accessMap != null) {
+
+			RestAccessUser accessPack = accessMap.get("package_ac");
+			if (accessPack == null) {
+				acMgs.add(new String("Login And try Again "));
+				return ResponseEntity.ok(acMgs);
+			} else {
+
+				if (accessPack.getUpdateApproval() == 1 || accessPack.getAll() == 1) {
+
+				} else {
+					acMgs.add(new String("You cann't Access this options Please contact Administartor "));
+
+					return ResponseEntity.ok(acMgs);
+				}
+			}
+		}
+
+		// Set Access controls End
+
+		cUser = helperServices.getUserByPrincipal(principal);
+
 		System.out.println("Approve Run!!");
-		
+
 		if (receiveData != null) {
-			
+
 			if (receiveData.getPublicId() != null) {
-				
+
 				System.out.println("Approve Run!! Not Null");
 
 				if (receiveData.getPublicId().length() == 55) {
-					
+
 					System.out.println("Approve Run!! lenght pass!!");
 					if (packageServices.approvePackByPublicId(receiveData.getPublicId(), cUser)) {
-						
+
 						System.out.println("Approve Run!!Done");
-						
+
 						return ResponseEntity.ok(true);
 					}
 				}
@@ -329,72 +559,121 @@ public class RestPackageController {
 
 		return ResponseEntity.ok(false);
 	}
-	
+
 	@RequestMapping(value = "/package/update-reject", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> getUpdatePackRejectAction(Principal principal, @RequestBody ReceiveStringId receiveData) {
-		
-		cUser = useraServices.getUerById(1);
-		
+
+		// Set Access controls Start
+		List<String> acMgs = new ArrayList<>();
+		Map<String, RestAccessUser> accessMap = helperServices.getAccessMapByPrincipal(principal);
+
+		if (accessMap != null) {
+
+			RestAccessUser accessPack = accessMap.get("package_ac");
+			if (accessPack == null) {
+				acMgs.add(new String("Login And try Again "));
+				return ResponseEntity.ok(acMgs);
+			} else {
+
+				if (accessPack.getUpdateApproval() == 1 || accessPack.getAll() == 1) {
+
+				} else {
+					acMgs.add(new String("You cann't Access this options Please contact Administartor "));
+
+					return ResponseEntity.ok(acMgs);
+				}
+			}
+		}
+
+		// Set Access controls End
+
+		cUser = helperServices.getUserByPrincipal(principal);
+
 		if (receiveData != null) {
 			System.out.println("Update reject Data Not Null!");
 			if (receiveData.getPublicId() != null) {
-				
+
 				System.out.println("Update reject ID   Pass!!");
 				if (receiveData.getPublicId().length() == 55) {
-					
+
 					System.out.println("Update reject ID Not lenght Pass!!");
 					if (packageServices.updatePackRejectByPbID(receiveData.getPublicId(), cUser)) {
 						System.out.println("Update reject Done");
 						return ResponseEntity.ok(true);
 					}
-					
+
 				}
 			}
 		}
-		
+
 		return ResponseEntity.ok(false);
 	}
-	
+
 	@RequestMapping(value = "/package/update-approve", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> getUpdatePackApproveAction(Principal principal, @RequestBody ReceiveStringId receiveData) {
-		
-		cUser = useraServices.getUerById(1);
-		
+
+		// Set Access controls Start
+		List<String> acMgs = new ArrayList<>();
+		Map<String, RestAccessUser> accessMap = helperServices.getAccessMapByPrincipal(principal);
+
+		if (accessMap != null) {
+
+			RestAccessUser accessPack = accessMap.get("package_ac");
+			if (accessPack == null) {
+				acMgs.add(new String("Login And try Again "));
+				return ResponseEntity.ok(acMgs);
+			} else {
+
+				if (accessPack.getAll() == 1 || accessPack.getUpdateApproval() == 1) {
+
+				} else {
+					acMgs.add(new String("You cann't Access this options Please contact Administartor "));
+
+					return ResponseEntity.ok(acMgs);
+				}
+			}
+		}
+
+		// Set Access controls End
+
+		cUser = helperServices.getUserByPrincipal(principal);
+
 		if (receiveData != null) {
-			
+
 			if (receiveData.getPublicId() != null) {
-				
+
 				System.out.println(" Update Approve PUb ID Not Null");
-				
+
 				if (receiveData.getPublicId().length() == 55) {
-					
+
 					System.out.println("Update Approve ID Not lenght Pass!!");
-					
+
 					if (packageServices.updatePackApproveByPbID(receiveData.getPublicId(), cUser)) {
 						System.out.println("Update Approve Done!!");
 						return ResponseEntity.ok(true);
 					}
-					
+
 				}
 			}
 		}
-		
+
 		return ResponseEntity.ok(false);
 	}
+
 	private boolean setRestConfrimPackages() {
-		
+
 		setPakagesConfirm();
-		
+
 		if (confPackages != null) {
-			
+
 			restViewConfPacks = packageMapper.getPackageListView(confPackages);
-			
+
 			if (restViewConfPacks != null) {
-				
+
 				return true;
 			}
 		}
-		
+
 		return false;
 	}
 
@@ -421,21 +700,21 @@ public class RestPackageController {
 		return false;
 
 	}
-	
+
 	private boolean setRestUpdateAppPandingPackages() {
-		
+
 		setUpdateApprovalPack();
-		
+
 		if (upPandingPackages != null) {
-			
+
 			restUpdateApprovalPandingPacks = packageMapper.getPackageListView(upPandingPackages);
-			
+
 			if (restUpdateApprovalPandingPacks != null) {
-				
+
 				return true;
 			}
 		}
-		
+
 		return false;
 	}
 
@@ -454,22 +733,22 @@ public class RestPackageController {
 		}
 
 	}
-	
+
 	private boolean setRestRejectPackages() {
-		
+
 		setRejectPackages();
-		
+
 		if (rejPackages != null) {
-			
+
 			restViewRejectPacks = packageMapper.getPackageListView(rejPackages);
-			
+
 			if (restViewRejectPacks != null) {
-				
+
 				return true;
 			}
-			
+
 		}
-		
+
 		return false;
 	}
 
@@ -610,5 +889,5 @@ public class RestPackageController {
 		}
 
 	}
-	
+
 }

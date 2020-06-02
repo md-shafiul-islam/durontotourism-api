@@ -5,8 +5,12 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.math.RoundingMode;
+import java.security.Principal;
 import java.text.DecimalFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -16,8 +20,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.usoit.api.data.converter.DozerMapper;
 import com.usoit.api.data.model.Access;
 import com.usoit.api.data.model.User;
+import com.usoit.api.data.vo.RestAccessUser;
 import com.usoit.api.services.HelperServices;
 import com.usoit.api.services.UserServices;
 
@@ -34,13 +40,13 @@ public class HelperServicesImpl implements HelperServices {
 	private UserServices userServices;
 
 	private static Access cAccess;
-	
+
 	private boolean useLetters = true;
-	
+
 	private boolean useNumbers = true;
 
 	private Access cByPrincipalUserAccess;
-	
+
 	@Override
 	public String getRandomString(int length) {
 		return RandomStringUtils.random(length, useLetters, useNumbers);
@@ -81,21 +87,84 @@ public class HelperServicesImpl implements HelperServices {
 	public Access getCurrentAccess() {
 		return cAccess;
 	}
-	
+
 	@Override
 	public boolean isValidAndLenghtCheck(String publicId, int lenght) {
-		
+
 		if (publicId != null) {
-			
+
 			if (publicId.length() == lenght) {
-				
+
 				return true;
 			}
 		}
-		
+
 		return false;
 	}
+
+	@Override
+	public Map<String, RestAccessUser> getRestAccessByUser(User user) {
+		return getUserAccessByUser(user);
+	}
+
+	@Override
+	public User getUserByPrincipal(Principal principal) {
+
+		if (principal == null) {
+
+			return null;
+		} else {
+
+			if (principal.getName() != null) {
+				return userServices.getUserByPersonalEmail(principal.getName());
+			} else {
+				return null;
+			}
+		}
+	}
 	
+	@Override
+	public Map<String, RestAccessUser> getAccessMapByPrincipal(Principal principal) {
+		
+		User user = getUserByPrincipal(principal);
+		
+		if (user != null) {
+			
+			return getRestAccessByUser(user);
+		}
+		return null;
+	}
+
+	private Map<String, RestAccessUser> getUserAccessByUser(User user) {
+
+		if (user.getRole() != null) {
+
+			if (user.getRole().getAccesses() != null) {
+
+				List<RestAccessUser> accessUsers = DozerMapper.parseObjectList(user.getRole().getAccesses(),
+						RestAccessUser.class);
+
+				Map<String, RestAccessUser> accessMap = new HashMap<>();
+
+				for (RestAccessUser access : accessUsers) {
+
+					if (access != null) {
+
+						if (access.getAccessType() != null) {
+
+							accessMap.put(access.getAccessType().getValue(), access);
+						}
+					}
+				}
+
+				return accessMap;
+
+			}
+		}
+
+		return null;
+	}
+
 	private User checkUserValid(HttpSession httpSession, String type, int numType) {
 		User user = (User) httpSession.getAttribute("currentUser");
 
@@ -151,7 +220,7 @@ public class HelperServicesImpl implements HelperServices {
 
 											System.out.println("Selected Access: " + item.getName() + " No Access: "
 													+ item.getNoAccess());
-											//Set Access To Return
+											// Set Access To Return
 											cAccess = item;
 
 											System.out.println("Current Access: Add " + cAccess.getAdd()
@@ -170,77 +239,76 @@ public class HelperServicesImpl implements HelperServices {
 					return null;
 				}
 
-			}else {
+			} else {
 				return null;
 			}
 		} else {
 			return null;
 		}
 	}
-	
+
 	@Override
 	public Access getAccessByUser(User authUser, String type, int numType) {
-		
-		
 
-			if (authUser != null) {
+		if (authUser != null) {
 
-				if (authUser.getName() != null) {
+			if (authUser.getName() != null) {
 
-					if (authUser.getName().isEmpty()) {
-						return null;
-					} else {
+				if (authUser.getName().isEmpty()) {
+					return null;
+				} else {
 
-						if (authUser.getRole() != null) {
+					if (authUser.getRole() != null) {
 
-							System.out.println("User Role Not Null ...");
+						System.out.println("User Role Not Null ...");
 
-							if (authUser.getRole().getAccesses() != null) {
+						if (authUser.getRole().getAccesses() != null) {
 
-								System.out.println("PrincipalAccesses Not Null ... ");
+							System.out.println("PrincipalAccesses Not Null ... ");
 
-								for (Access item : authUser.getRole().getAccesses()) {
+							for (Access item : authUser.getRole().getAccesses()) {
 
-									System.out.println("Principal Access ...");
+								System.out.println("Principal Access ...");
 
-									if (item.getAccessType() != null) {
-										
+								if (item.getAccessType() != null) {
 
-										String cType = item.getAccessType().getValue();
-										String pStType = type;
+									String cType = item.getAccessType().getValue();
+									String pStType = type;
 
-										int pNValue = item.getAccessType().getNumValue();
+									int pNValue = item.getAccessType().getNumValue();
 
-										int paramNValue = numType;
-										System.out.println("Principal p n Value: " + numType + " DB N type: " + pNValue);
+									int paramNValue = numType;
+									System.out.println("Principal p n Value: " + numType + " DB N type: " + pNValue);
 
-										if (pStType.equals(cType) || pNValue == paramNValue) {
+									if (pStType.equals(cType) || pNValue == paramNValue) {
 
-											System.out.println("Principal Selected Access: " + item.getName() + " No Access: "
-													+ item.getNoAccess());
-											
-											cByPrincipalUserAccess = item;
+										System.out.println("Principal Selected Access: " + item.getName()
+												+ " No Access: " + item.getNoAccess());
 
-											if (cByPrincipalUserAccess != null) {
-												System.out.println("Current Access Principal: Add " + cByPrincipalUserAccess.getAdd()
-												+ " No Access Value: " + cByPrincipalUserAccess.getNoAccess() + " All Access!! " + cByPrincipalUserAccess.getAll());
-											}
+										cByPrincipalUserAccess = item;
+
+										if (cByPrincipalUserAccess != null) {
+											System.out.println("Current Access Principal: Add "
+													+ cByPrincipalUserAccess.getAdd() + " No Access Value: "
+													+ cByPrincipalUserAccess.getNoAccess() + " All Access!! "
+													+ cByPrincipalUserAccess.getAll());
 										}
 									}
-
 								}
+
 							}
 						}
-
-						return cByPrincipalUserAccess;
 					}
 
-				} else {
-					return null;
+					return cByPrincipalUserAccess;
 				}
 
+			} else {
+				return null;
 			}
-		
+
+		}
+
 		return null;
 	}
 
@@ -283,14 +351,14 @@ public class HelperServicesImpl implements HelperServices {
 
 					System.out.println("time Stamp: " + timeStamp);
 
-					String fileName = timeStamp + getRandomString(15)+ "." + fileExtenstion;
+					String fileName = timeStamp + getRandomString(15) + "." + fileExtenstion;
 					System.out.println("File Name: " + fileName);
 
-					String name = path+"//" + fileName;
-					
-					System.out.println("Path: "+ path + " File Name: " + fileName);
+					String name = path + "//" + fileName;
+
+					System.out.println("Path: " + path + " File Name: " + fileName);
 					System.out.println("Full Path: " + name);
-					
+
 					BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(new File(name)));
 					stream.write(bytes);
 					stream.close();

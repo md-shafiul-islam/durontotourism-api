@@ -22,7 +22,6 @@ public class JwtTokenProvider {
 
         Date expiryDate = new Date(now.getTime()+SecurityConstants.EXP_TIME);
 
-        String userId = Long.toString(user.getId());
         
         String role  = "";
         if (user.getRole() != null) {
@@ -38,7 +37,7 @@ public class JwtTokenProvider {
         claims.put("role", role);
 
         return Jwts.builder()
-                .setSubject(userId)
+                .setSubject(user.getPublicId())
                 .setClaims(claims)
                 .setIssuedAt(now)
                 .setExpiration(expiryDate)
@@ -68,10 +67,10 @@ public class JwtTokenProvider {
 
     //Get user Id from token
 
-    public Long getUserIdFromJWT(String token){
+    public String getUserIdFromJWT(String token){
         Claims claims = Jwts.parser().setSigningKey(SecurityConstants.TOKEN_SECRET).parseClaimsJws(token).getBody();
         String id = (String)claims.get("id");
 
-        return Long.parseLong(id);
+        return id;
     }
 }

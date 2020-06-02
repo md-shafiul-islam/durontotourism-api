@@ -19,7 +19,6 @@ import com.usoit.api.data.converter.DozerMapper;
 import com.usoit.api.data.model.PrivacyPolicy;
 import com.usoit.api.data.vo.RestPrivacyPolicy;
 import com.usoit.api.model.request.ReqPrivacyPolicy;
-import com.usoit.api.model.request.ReqTermsAndConds;
 import com.usoit.api.services.HelperServices;
 import com.usoit.api.services.PrivacyPolicyServices;
 
@@ -159,7 +158,7 @@ public class RestPrivacyPolicyController {
 	
 	private void setRestPrivacyPolicy(List<String> msg) {
 		
-		setPrivacyPolicy();
+		setPrivacyPolicyAll();
 		
 		if (privacyPolicy != null) {
 			
@@ -175,6 +174,11 @@ public class RestPrivacyPolicyController {
 		
 	}
 
+	
+	private void setPrivacyPolicyAll() {
+		privacyPolicy = privacyPolicyServices.getAllPrivacyPolicy();
+		
+	}
 
 	private void setPrivacyPolicy() {
 		

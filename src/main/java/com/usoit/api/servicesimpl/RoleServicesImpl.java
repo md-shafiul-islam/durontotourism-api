@@ -94,11 +94,11 @@ public class RoleServicesImpl implements RoleServices{
 	@Override
 	public boolean update(Role role) {
 		
-		Optional<Role> optional = roleRepository.findById(role.getId());
-		
-		Role dbRole = optional.get();
-		
 		if (role.getId() > 0) {
+			
+			for (Access access : role.getAccesses()) {
+				access.setRole(role);
+			}
 			
 			roleRepository.save(role);
 			

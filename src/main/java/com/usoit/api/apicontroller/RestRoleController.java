@@ -8,9 +8,11 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.hibernate.loader.plan.exec.process.spi.ReturnReader;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -143,6 +145,82 @@ public class RestRoleController {
 		setReqAccessTypes();
 		
 		return ResponseEntity.ok(reqAccessTypes);
+	}
+	
+	@RequestMapping(value = "/role", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<?> getUpdateRoleAction(@RequestBody ReqRole reqRole, Principal principal, HttpServletRequest request) {
+		
+		if (reqRole != null) {
+			
+			if(reqRole.getId() > 0) {
+				
+				Role role = DozerMapper.parseObject(reqRole, Role.class);
+				
+				if (role != null) {
+					
+					System.out.println("Role Mapping Done: " + role.getId() + " Name: " + role.getName());
+					
+					if(role.getAccesses().get(0) != null) {
+						System.out.println("Proper Mapping Done" + role.getAccesses().get(0).getId());
+					}else {
+						System.out.println("Proper Mapping Error ");
+					}
+					
+					if (role.getId() > 0) {
+						
+						if (roleServices.update(role)) {
+							
+							return ResponseEntity.ok("Role Updated !!");
+						}
+					}
+				}
+				
+			}else {
+				return ResponseEntity.badRequest().body("Given Data mismatch . Please try again later !!");
+			}
+		}
+		
+		
+		return ResponseEntity.badRequest().body("You Cann't Access this option. Please contact Administartor !!");
+	}
+	
+	@RequestMapping(value = "/role", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<?> getSaveRoleAction(@RequestBody ReqRole reqRole, Principal principal, HttpServletRequest request) {
+		
+		if (reqRole != null) {
+			
+			if(reqRole.getId() > 0) {
+				
+				Role role = DozerMapper.parseObject(reqRole, Role.class);
+				
+				if (role != null) {
+					
+					System.out.println("Role Mapping Done: " + role.getId() + " Name: " + role.getName());
+					
+					if(role.getAccesses().get(0) != null) {
+						System.out.println("Proper Mapping Done" + role.getAccesses().get(0).getId());
+					}else {
+						System.out.println("Proper Mapping Error ");
+					}
+					
+					if (role.getId() > 0) {
+						
+						role.setPublicId(helperServices.getRandomString(35));
+						
+						if (roleServices.save(role)) {
+							
+							return ResponseEntity.ok("Role Save !!");
+						}
+					}
+				}
+				
+			}else {
+				return ResponseEntity.badRequest().body("Given Data missmatch . Please try again later !!");
+			}
+		}
+		
+		
+		return ResponseEntity.badRequest().body("You Cann't Access this option. Please contact Administartor !!");
 	}
 	
 	private void setGeneralRole() {

@@ -2,7 +2,9 @@ package com.usoit.api.apicontroller;
 
 import java.security.Principal;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -16,7 +18,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -24,10 +25,10 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.usoit.api.data.converter.UserMapper;
-import com.usoit.api.data.model.Access;
 import com.usoit.api.data.model.User;
 import com.usoit.api.data.model.UserAddress;
 import com.usoit.api.data.model.UserTemp;
+import com.usoit.api.data.vo.RestAccessUser;
 import com.usoit.api.data.vo.RestUser;
 import com.usoit.api.data.vo.RestUserDetails;
 import com.usoit.api.model.request.ReqLoginData;
@@ -39,7 +40,6 @@ import com.usoit.api.security.config.SecurityConstants;
 import com.usoit.api.services.HelperServices;
 import com.usoit.api.services.TempUserServices;
 import com.usoit.api.services.UserServices;
-
 
 @RestController
 @RequestMapping("/api/users")
@@ -84,21 +84,33 @@ public class RestUserController {
 	private List<RestUser> userRestApprovalPanding;
 
 	private List<RestUser> restRejectedUsers;
-	
+
 	private List<User> rejectedUsers;
 
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public ResponseEntity<List<?>> getAllUsers(Principal principal, HttpServletRequest httpServletRequest) {
-		System.out.println("Run Get users");
-		
-		String msg = "";
-		setRestUsers(msg);
-		System.out.println("After Set User To Rest User Dozer");
-		
-		System.out.println(msg);
-			
-		
-		return ResponseEntity.ok(restUserList);
+
+		User user = null;
+		Map<String, RestAccessUser> access = new HashMap<>();
+		user = helperServices.getUserByPrincipal(principal);
+
+		if (user != null) {
+
+			access = helperServices.getRestAccessByUser(user);
+		}
+
+		RestAccessUser accessUser = access.get("user");
+
+		if (accessUser != null) {
+
+			if (accessUser.getNoAccess() != 1 || accessUser.getAll() == 1) {
+				String msg = "";
+				setRestUsers(msg);
+				return ResponseEntity.ok(restUserList);
+			}
+		}
+
+		return ResponseEntity.notFound().build();
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -118,27 +130,59 @@ public class RestUserController {
 	}
 
 	@RequestMapping(value = "/user/access/{id}", method = RequestMethod.GET)
-	public ResponseEntity<?> getAllAccessByUserId(Principal principal, HttpServletRequest request, @PathVariable("id") String pubId){
-		
-		if (helperServices.isValidAndLenghtCheck(pubId, 30)) {
-			
-			
+	public ResponseEntity<?> getAllAccessByUserId(Principal principal, HttpServletRequest request,
+			@PathVariable("id") String pubId) {
+
+		System.out.println("Access Run by Request");
+
+		if (principal != null) {
+
+			System.out.println("Principal: " + principal.getName());
+
+			if (helperServices.isValidAndLenghtCheck(pubId, 30)) {
+
+				User user = userServices.getUserByPublicID(pubId);
+
+				if (user != null) {
+
+					Map<String, RestAccessUser> userAccessMap = helperServices.getRestAccessByUser(user);
+
+					if (userAccessMap != null) {
+
+						return ResponseEntity.ok(userAccessMap);
+					}
+				}
+			}
 		}
-		
+
 		return ResponseEntity.notFound().build();
 	}
-	
+
 	@RequestMapping(value = "/user", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> getUserAddAction(Principal principal, HttpServletRequest request,
 			@RequestBody ReqUser reqUser) {
 
+		// Set Access controls Start
+		Map<String, RestAccessUser> accessMap = helperServices.getAccessMapByPrincipal(principal);
+
 		User user = userMapper.getUser(reqUser);
 
-		System.out.println("User Name: " + user.getName());
+		if (accessMap != null) {
 
-		System.out.println("User Department: " + user.getDepartment().getName());
-		System.out.println("User Designation: " + user.getDesignation().getName());
-		System.out.println("User Gender: " + user.getGender().getName());
+			RestAccessUser accessUser = accessMap.get("user");
+			if (accessUser == null) {
+				return ResponseEntity.ok("Login And try Again ");
+			} else {
+
+				if (accessUser.getAdd() == 1 || accessUser.getAll() == 1) {
+					
+				}else {
+					return ResponseEntity.ok("You cann't Access this options Please contact Administartor ");
+				}
+			}
+		}
+
+		// Set Access controls End
 
 		if (user.getUserAddresses() != null) {
 
@@ -159,9 +203,26 @@ public class RestUserController {
 	public ResponseEntity<?> getUserForEditByPublicId(Principal principal, @PathVariable("id") String pubId,
 			HttpServletRequest request) {
 
-		authUser = userServices.getUerById(1);
+		// Set Access controls Start
+		Map<String, RestAccessUser> accessMap = helperServices.getAccessMapByPrincipal(principal);
+		RestAccessUser accessUser = null;
 
-		Access access = helperServices.getAccessByUser(authUser, "user", 3);
+		if (accessMap != null) {
+
+			accessUser = accessMap.get("user");
+			if (accessUser == null) {
+				return ResponseEntity.ok("Login And try Again ");
+			} else {
+
+				if (accessUser.getEdit() == 1 || accessUser.getAll() == 1) {
+					
+				}else {
+					return ResponseEntity.ok("You cann't Access this options Please contact Administartor ");
+				}
+			}
+		}
+
+		// Set Access controls End
 
 		if (pubId != null) {
 
@@ -175,9 +236,9 @@ public class RestUserController {
 					reqUser = userMapper.getReqUser(user);
 				} else {
 
-					if (access != null) {
+					if (accessMap != null) {
 
-						if (user.getId() == authUser.getId() || access.getAll() == 1) {
+						if (user.getId() == authUser.getId() || accessUser.getAll() == 1) {
 							reqUser = userMapper.getReqUser(user);
 						} else {
 							return ResponseEntity.accepted().body(
@@ -205,6 +266,31 @@ public class RestUserController {
 	@RequestMapping(value = "/edit-users", method = RequestMethod.GET)
 	public ResponseEntity<List<?>> getEditableUsers(Principal principal, HttpServletRequest request) {
 
+		List<String> msgList = new ArrayList<>();
+
+		// Set Access controls Start
+		Map<String, RestAccessUser> accessMap = helperServices.getAccessMapByPrincipal(principal);
+		RestAccessUser accessUser = null;
+
+		if (accessMap != null) {
+
+			accessUser = accessMap.get("user");
+			if (accessUser == null) {
+				msgList.add(new String("Login And try Again "));
+				return ResponseEntity.ok(msgList);
+			} else {
+
+				if (accessUser.getEdit() == 1 || accessUser.getAll() == 1) {
+					
+				}else {
+					msgList.add(new String("You cann't Access this options Please contact Administartor "));
+					return ResponseEntity.ok(msgList);
+				}
+			}
+		}
+
+		// Set Access controls End
+
 		List<String> errors = new ArrayList<>();
 
 		setUpdateableRestUsers(errors);
@@ -218,93 +304,215 @@ public class RestUserController {
 	}
 
 	@RequestMapping(value = "/user/reject/{id}", method = RequestMethod.PUT)
-	public ResponseEntity<?> getAddRejectAction(Principal principal, HttpServletRequest request, @PathVariable("id") String publicId) {
-		
-		String msg = "You can't Access this option Or Services";
-		
-		if (helperServices.isValidAndLenghtCheck(publicId, 30)) {
-			
-			if (userServices.addRejectUserByPublicId(publicId, msg)) {
-				
-				msg = "User Rejected Success !!";
-				
+	public ResponseEntity<?> getAddRejectAction(Principal principal, HttpServletRequest request,
+			@PathVariable("id") String publicId) {
+
+		List<String> msgList = new ArrayList<>();
+
+		// Set Access controls Start
+		Map<String, RestAccessUser> accessMap = helperServices.getAccessMapByPrincipal(principal);
+		RestAccessUser accessUser = null;
+
+		if (accessMap != null) {
+
+			accessUser = accessMap.get("user");
+			if (accessUser == null) {
+				msgList.add(new String("Login And try Again "));
+				return ResponseEntity.ok(msgList);
+			} else {
+
+				if (accessUser.getAdd() == 1 || accessUser.getAll() == 1) {
+					
+				}else {
+					msgList.add(new String("You cann't Access this options Please contact Administartor "));
+					return ResponseEntity.ok(msgList);
+				}
 			}
-			
-			
 		}
-		
+
+		// Set Access controls End
+
+		String msg = "You can't Access this option Or Services";
+
+		if (helperServices.isValidAndLenghtCheck(publicId, 30)) {
+
+			if (userServices.addRejectUserByPublicId(publicId, msg)) {
+
+				msg = "User Rejected Success !!";
+
+			}
+
+		}
+
 		return ResponseEntity.ok(("You can't Access this option Or Services"));
 	}
-	
+
 	@RequestMapping(value = "/reject", method = RequestMethod.GET)
 	public ResponseEntity<List<?>> getAllRejectedUsers(Principal principal, HttpServletRequest request) {
-		
+
+		List<String> msgList = new ArrayList<>();
+
+		// Set Access controls Start
+		Map<String, RestAccessUser> accessMap = helperServices.getAccessMapByPrincipal(principal);
+		RestAccessUser accessUser = null;
+
+		if (accessMap != null) {
+
+			accessUser = accessMap.get("user");
+			if (accessUser == null) {
+				msgList.add(new String("Login And try Again "));
+				return ResponseEntity.ok(msgList);
+			} else {
+
+				if (accessUser.getAdd() == 1 || accessUser.getAll() == 1) {
+					
+				}else {
+					msgList.add(new String("You cann't Access this options Please contact Administartor "));
+					return ResponseEntity.ok(msgList);
+				}
+			}
+		}
+
+		// Set Access controls End
+
 		List<String> msg = new ArrayList<>();
-		
-		
+
 		setRejectedRestUsers(msg);
-		
+
 		if (restRejectedUsers != null) {
-			
+
 			return ResponseEntity.ok(restRejectedUsers);
 		}
-		
-		
+
 		return ResponseEntity.accepted().body(msg);
 	}
-	
-	
 
 	@RequestMapping(value = "/user/approve/{id}", method = RequestMethod.PUT)
-	public ResponseEntity<?> getUserAddApproveAction(Principal principal, HttpServletRequest request, @PathVariable("id") String pubId) {
-		
+	public ResponseEntity<?> getUserAddApproveAction(Principal principal, HttpServletRequest request,
+			@PathVariable("id") String pubId) {
+
+		List<String> msgList = new ArrayList<>();
+
+		// Set Access controls Start
+		Map<String, RestAccessUser> accessMap = helperServices.getAccessMapByPrincipal(principal);
+		RestAccessUser accessUser = null;
+
+		if (accessMap != null) {
+
+			accessUser = accessMap.get("user");
+			if (accessUser == null) {
+				msgList.add(new String("Login And try Again "));
+				return ResponseEntity.ok(msgList);
+			} else {
+
+				if (accessUser.getApprove() == 1 || accessUser.getAll() == 1) {
+					
+				}else {
+					msgList.add(new String("You cann't Access this options Please contact Administartor "));
+					return ResponseEntity.ok(msgList);
+				}
+			}
+		}
+
+		// Set Access controls End
+
 		String msg = "You can't access this option, Please contact administrator. Thanks";
-		
+
 		if (helperServices.isValidAndLenghtCheck(pubId, 30)) {
-			
+
 			if (userServices.addApproveAction(pubId, msg)) {
-				
+
 				msg = "User Approve Success";
 			}
 		}
-		
+
 		return ResponseEntity.accepted().body(msg);
 	}
-	
+
 	@RequestMapping(value = "/user/inactive/{id}", method = RequestMethod.PUT)
-	public ResponseEntity<?> getUserInactiveAction(Principal principal, HttpServletRequest request, @PathVariable("id") String pubId) {
+	public ResponseEntity<?> getUserInactiveAction(Principal principal, HttpServletRequest request,
+			@PathVariable("id") String pubId) {
 		
+		List<String> msgList = new ArrayList<>();
+
+		// Set Access controls Start
+		Map<String, RestAccessUser> accessMap = helperServices.getAccessMapByPrincipal(principal);
+		RestAccessUser accessUser = null;
+
+		if (accessMap != null) {
+
+			accessUser = accessMap.get("user");
+			if (accessUser == null) {
+				msgList.add(new String("Login And try Again "));
+				return ResponseEntity.ok(msgList);
+			} else {
+
+				if (accessUser.getApprove() == 1 || accessUser.getAll() == 1 || accessUser.getUpdateApproval() == 1) {
+					
+				}else {
+					msgList.add(new String("You cann't Access this options Please contact Administartor "));
+					return ResponseEntity.ok(msgList);
+				}
+			}
+		}
+
+		// Set Access controls End
+
 		String msg = "You can't access this option, Please contact administrator. Thanks";
-		
+
 		if (helperServices.isValidAndLenghtCheck(pubId, 30)) {
-			
+
 			if (userServices.getInactiveActionByPubId(pubId, msg)) {
-				
+
 				ResponseEntity.ok("User Iactive Success");
 			}
 		}
-		
+
 		return ResponseEntity.accepted().body(msg);
 	}
-	
+
 	@RequestMapping(value = "/user/active/{id}", method = RequestMethod.PUT)
-	public ResponseEntity<?> getUserActiveAction(Principal principal, HttpServletRequest request, @PathVariable("id") String pubId) {
+	public ResponseEntity<?> getUserActiveAction(Principal principal, HttpServletRequest request,
+			@PathVariable("id") String pubId) {
 		
+		List<String> msgList = new ArrayList<>();
+
+		// Set Access controls Start
+		Map<String, RestAccessUser> accessMap = helperServices.getAccessMapByPrincipal(principal);
+		RestAccessUser accessUser = null;
+
+		if (accessMap != null) {
+
+			accessUser = accessMap.get("user");
+			if (accessUser == null) {
+				msgList.add(new String("Login And try Again "));
+				return ResponseEntity.ok(msgList);
+			} else {
+
+				if (accessUser.getApprove() == 1 || accessUser.getAll() == 1 || accessUser.getUpdateApproval() == 1) {
+					
+				}else {
+					msgList.add(new String("You cann't Access this options Please contact Administartor "));
+					return ResponseEntity.ok(msgList);
+				}
+			}
+		}
+
+		// Set Access controls End
+
 		String msg = "You can't access this option, Please contact administrator. Thanks";
-		
+
 		if (helperServices.isValidAndLenghtCheck(pubId, 30)) {
-			
+
 			if (userServices.getActiveActionByPubId(pubId, msg)) {
-				
+
 				ResponseEntity.ok("User Active Success");
 			}
 		}
-		
+
 		return ResponseEntity.accepted().body(msg);
 	}
-	
-	
-	
+
 	private void setUpdateableRestUsers(List<String> errors) {
 
 		setUpdateUsers(errors);
@@ -331,34 +539,77 @@ public class RestUserController {
 	@RequestMapping(value = "/add-approvepanding", method = RequestMethod.GET)
 	public ResponseEntity<List<?>> getAllPandingUsers(Principal principal, HttpServletRequest request) {
 		
-		List<String> msg = new ArrayList<>();
-		
-		
-		
-		setAllAddPandingUsers(msg);
-		
-		if (userRestApprovalPanding != null) {
-			
-			return ResponseEntity.ok(userRestApprovalPanding);
-		}else {
-			msg.add("User Can't Mapp Contact Administrator !! " );
+		List<String> msgList = new ArrayList<>();
+
+		// Set Access controls Start
+		Map<String, RestAccessUser> accessMap = helperServices.getAccessMapByPrincipal(principal);
+		RestAccessUser accessUser = null;
+
+		if (accessMap != null) {
+
+			accessUser = accessMap.get("user");
+			if (accessUser == null) {
+				msgList.add(new String("Login And try Again "));
+				return ResponseEntity.ok(msgList);
+			} else {
+
+				if (accessUser.getApprove() == 1 || accessUser.getAll() == 1 ) {
+					
+				}else {
+					msgList.add(new String("You cann't Access this options Please contact Administartor "));
+					return ResponseEntity.ok(msgList);
+				}
+			}
 		}
+
+		// Set Access controls End
 		
+		List<String> msg = new ArrayList<>();
+
+		setAllAddPandingUsers(msg);
+
+		if (userRestApprovalPanding != null) {
+
+			return ResponseEntity.ok(userRestApprovalPanding);
+		} else {
+			msg.add("User Can't Mapp Contact Administrator !! ");
+		}
+
 		return ResponseEntity.accepted().body(msg);
 	}
-	
-	
 
 	@RequestMapping(value = "/user", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> getUserUpdateAction(Principal principal, @RequestBody UserTemp userTemp,
 			HttpServletRequest request) {
 
-		authUser = userServices.getUerById(1);
+		List<String> msgList = new ArrayList<>();
+
+		// Set Access controls Start
+		Map<String, RestAccessUser> accessMap = helperServices.getAccessMapByPrincipal(principal);
+		RestAccessUser accessUser = null;
+
+		if (accessMap != null) {
+
+			accessUser = accessMap.get("user");
+			if (accessUser == null) {
+				msgList.add(new String("Login And try Again "));
+				return ResponseEntity.ok(msgList);
+			} else {
+
+				if (accessUser.getAll() == 1 || accessUser.getEdit() == 1) {
+					
+				}else {
+					msgList.add(new String("You cann't Access this options Please contact Administartor "));
+					return ResponseEntity.ok(msgList);
+				}
+			}
+		}
+
+		// Set Access controls End
 
 		if (userTemp != null) {
 
 			System.out.println("User Temp Not Null !!");
-
 			if (!userTemp.getPublicId().isEmpty()) {
 
 				String publicId = userTemp.getPublicId();
@@ -391,6 +642,37 @@ public class RestUserController {
 	@RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
 	public ResponseEntity<?> getUserForDetailsView(Principal principal, HttpServletRequest request,
 			@PathVariable("id") String pubId) {
+		
+		
+		List<String> msgList = new ArrayList<>();
+
+		// Set Access controls Start
+		Map<String, RestAccessUser> accessMap = helperServices.getAccessMapByPrincipal(principal);
+		RestAccessUser accessUser = null;
+		
+		User authUser = userServices.getUserByPersonalEmail(principal.getName());
+
+		if (accessMap != null) {
+
+			accessUser = accessMap.get("user");
+			if (accessUser == null) {
+				msgList.add(new String("Login And try Again "));
+				return ResponseEntity.ok(msgList);
+			} else {
+				
+				String pIdDb = authUser.getPublicId();
+				String reqId = pubId;
+
+				if (accessUser.getAll() == 1 || pIdDb.equals(reqId) ) {
+					
+				}else {
+					msgList.add(new String("You cann't Access this options Please contact Administartor "));
+					return ResponseEntity.ok(msgList);
+				}
+			}
+		}
+
+		// Set Access controls End
 
 		if (pubId != null) {
 
@@ -419,6 +701,32 @@ public class RestUserController {
 	@RequestMapping(value = "/update", method = RequestMethod.GET)
 	public ResponseEntity<List<?>> getAllUpdatePandingUsers(Principal principal, HttpServletRequest request) {
 
+
+		List<String> msgList = new ArrayList<>();
+
+		// Set Access controls Start
+		Map<String, RestAccessUser> accessMap = helperServices.getAccessMapByPrincipal(principal);
+		RestAccessUser accessUser = null;
+
+		if (accessMap != null) {
+
+			accessUser = accessMap.get("user");
+			if (accessUser == null) {
+				msgList.add(new String("Login And try Again "));
+				return ResponseEntity.ok(msgList);
+			} else {
+
+				if (accessUser.getAll() == 1 || accessUser.getUpdateApproval() == 1) {
+					
+				}else {
+					msgList.add(new String("You cann't Access this options Please contact Administartor "));
+					return ResponseEntity.ok(msgList);
+				}
+			}
+		}
+
+		// Set Access controls End
+		
 		List<String> error = new ArrayList<>();
 
 		setRestUpdateUsers();
@@ -437,6 +745,32 @@ public class RestUserController {
 	@RequestMapping(value = "/usertemp/{id}", method = RequestMethod.GET)
 	public ResponseEntity<?> getTempUserByPublicId(Principal principal, HttpServletRequest request,
 			@PathVariable("id") String pubId) {
+		
+
+		List<String> msgList = new ArrayList<>();
+
+		// Set Access controls Start
+		Map<String, RestAccessUser> accessMap = helperServices.getAccessMapByPrincipal(principal);
+		RestAccessUser accessUser = null;
+
+		if (accessMap != null) {
+
+			accessUser = accessMap.get("user");
+			if (accessUser == null) {
+				msgList.add(new String("Login And try Again "));
+				return ResponseEntity.ok(msgList);
+			} else {
+
+				if (accessUser.getAll() == 1 || accessUser.getEdit() == 1 || accessUser.getUpdateApproval() == 1) {
+					
+				}else {
+					msgList.add(new String("You cann't Access this options Please contact Administartor "));
+					return ResponseEntity.ok(msgList);
+				}
+			}
+		}
+
+		// Set Access controls End
 
 		if (pubId != null) {
 
@@ -467,6 +801,32 @@ public class RestUserController {
 	@RequestMapping(value = "/update/approve/{id}", method = RequestMethod.PUT)
 	public ResponseEntity<?> getUpdateUserApproveAction(Principal principal, HttpServletRequest request,
 			@PathVariable("id") String publicId) {
+		
+
+		List<String> msgList = new ArrayList<>();
+
+		// Set Access controls Start
+		Map<String, RestAccessUser> accessMap = helperServices.getAccessMapByPrincipal(principal);
+		RestAccessUser accessUser = null;
+
+		if (accessMap != null) {
+
+			accessUser = accessMap.get("user");
+			if (accessUser == null) {
+				msgList.add(new String("Login And try Again "));
+				return ResponseEntity.ok(msgList);
+			} else {
+
+				if (accessUser.getAll() == 1 || accessUser.getUpdateApproval() == 1) {
+					
+				}else {
+					msgList.add(new String("You cann't Access this options Please contact Administartor "));
+					return ResponseEntity.ok(msgList);
+				}
+			}
+		}
+
+		// Set Access controls End
 
 		if (publicId != null) {
 
@@ -501,6 +861,32 @@ public class RestUserController {
 	@RequestMapping(value = "/update/reject/{id}", method = RequestMethod.PUT)
 	public ResponseEntity<?> getRejectAction(Principal principal, HttpServletRequest request,
 			@PathVariable("id") String publicId) {
+		
+
+		List<String> msgList = new ArrayList<>();
+
+		// Set Access controls Start
+		Map<String, RestAccessUser> accessMap = helperServices.getAccessMapByPrincipal(principal);
+		RestAccessUser accessUser = null;
+
+		if (accessMap != null) {
+
+			accessUser = accessMap.get("user");
+			if (accessUser == null) {
+				msgList.add(new String("Login And try Again "));
+				return ResponseEntity.ok(msgList);
+			} else {
+
+				if (accessUser.getAll() == 1 || accessUser.getEdit() == 1 || accessUser.getAdd() == 1 || accessUser.getApprove() == 1 || accessUser.getUpdateApproval() == 1) {
+					
+				}else {
+					msgList.add(new String("You cann't Access this options Please contact Administartor "));
+					return ResponseEntity.ok(msgList);
+				}
+			}
+		}
+
+		// Set Access controls End
 
 		if (publicId != null) {
 
@@ -524,42 +910,41 @@ public class RestUserController {
 
 		return ResponseEntity.accepted().body("Given Id not match!!");
 	}
-	
+
 	private void setRejectedRestUsers(List<String> msg) {
-		
+
 		setRejectedUsers(msg);
-		
+
 		if (rejectedUsers != null) {
-			
+
 			restRejectedUsers = userMapper.getRestUsers(rejectedUsers);
-		}else {
+		} else {
 			msg.add("Rejected User not set yet!!");
-			
+
 		}
-		
-		
+
 	}
-	
+
 	private void setRejectedUsers(List<String> msg) {
-		
+
 		rejectedUsers = userServices.getAllRejectedUser();
-		
+
 	}
 
 	private void setAllAddPandingUsers(List<String> msg) {
 
 		userAddPandingUsers = userServices.getAllPendingUser();
-		
+
 		if (userAddPandingUsers != null) {
-			
+
 			System.out.println("Approve Panding Size: " + userAddPandingUsers.size());
 			userRestApprovalPanding = userMapper.getRestUsers(userAddPandingUsers);
-			
-		}else {
-			
+
+		} else {
+
 			msg.add("Approval Pending user not found");
 		}
-		
+
 	}
 
 	private void setRestUpdateUsers() {
