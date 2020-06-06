@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="common/header::common-header">
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+	<div class="wrapper">
+
+		<!-- Menu fragment set Start-->
+
+		<div th:replace="common/header::common-top-nav-menu">
+			<!-- Navbar -->
+
+			<!-- /.navbar -->
+		</div>
+
+		<div th:replace="common/header::common-sidebar-menu">
+			<!-- Main Sidebar Container -->
+
+		</div>
+
+		<!--  Menu fragment set End -->
+
+		<!-- Content Wrapper. Contains page content -->
+		<div class="content-wrapper">
+
+			<section class="content">
+
+				<div class="card">
+					<div class="card-header">
+						<h3 class="card-title">User Detail</h3>
+
+						<div class="card-tools">
+							<button type="button" class="btn btn-tool"
+								data-card-widget="collapse" data-toggle="tooltip"
+								title="Collapse">
+								<i class="fas fa-minus"></i>
+							</button>
+							<button type="button" class="btn btn-tool"
+								data-card-widget="remove" data-toggle="tooltip" title="Remove">
+								<i class="fas fa-times"></i>
+							</button>
+						</div>
+					</div>
+					<div class="card-body" th:if="${user != null}">
+						<div class="row">
+							<div class="col-12 col-md-12 col-lg-8 order-2 order-md-1">
+
+								<div class="row">
+
+									<div class="col-12" th:object="${user}">
+										<h4>User Detail</h4>
+										<div class="post">
+
+											<div class="row">
+
+												<div class="col-md-12">
+													<div class="row">
+
+														<div class="col-md-10">
+
+															<h4>Personal Info</h4>
+
+														</div>
+														<div class="col-md-2">
+
+															<a th:href="@{/user/set-pass(uid=${user.getId()})}"
+																class="btn btn-block btn-outline-primary btn-sm">
+
+																Change Password </a>
+
+														</div>
+
+													</div>
+												</div>
+
+												<div class="col-md-6">User ID:</div>
+												<div class="col-md-6">
+													<b th:text="${user.getId() != null ? user.getId() : 'N/A'}"></b>
+												</div>
+
+												<div class="col-md-6">Name:</div>
+												<div class="col-md-6">
+													<b
+														th:text="${user.getName() != null ? user.getName() : 'N/A'}"></b>
+												</div>
+
+
+												<div class="col-md-6">Father Name:</div>
+												<div class="col-md-6">
+													<b th:text="${user.getFatherName()}"></b>
+												</div>
+
+												<div class="col-md-6">Mother Name:</div>
+												<div class="col-md-6">
+													<b th:text="${user.getMotherName()}"></b>
+												</div>
+
+												<div class="col-md-6">Husband Name:</div>
+												<div class="col-md-6">
+													<b
+														th:text="${user.getHusbandName() != null ? user.getHusbandName() : 'N/A'}"></b>
+												</div>
+
+												<div class="col-md-6">Personal Email:</div>
+												<div class="col-md-6">
+													<b th:text="${user.getPersonalEmail()}"></b>
+												</div>
+
+												<div class="col-md-6">Gender:</div>
+												<div class="col-md-6">
+													<b th:text="${user.getGender().getName()}"></b>
+												</div>
+
+
+												<div class="col-md-6">NID. No.:</div>
+												<div class="col-md-6">
+													<b th:text="${user.getNationalIdNo()}"></b>
+												</div>
+
+												<div class="col-md-6">TIN. No.:</div>
+												<div class="col-md-6">
+													<b
+														th:text="${user.getTinNno() != null ? user.getTinNno() : 'N/A'}"></b>
+												</div>
+
+
+												<div class="col-md-6">Date Of Birth:</div>
+												<div class="col-md-6">
+													<b th:text="${user.getDateOfBirth()}"></b>
+												</div>
+
+												<div class="col-md-6">Emergency Contact No. 1:</div>
+												<div class="col-md-6">
+													<b th:text="${user.getEmergencyContactNo1()}"></b>
+												</div>
+
+
+												<div class="col-md-6">Emergency Contact No. 2:</div>
+												<div class="col-md-6">
+													<b th:text="${user.getEmergencyContactNo2()}"></b>
+												</div>
+
+												<div class="col-md-6">Marital Status:</div>
+												<div class="col-md-6">
+													<b th:text="${user.getMaritalStatus().getName()}"></b>
+												</div>
+
+
+												<div class="col-md-6">Aniversary Date:</div>
+												<div class="col-md-6">
+													<b
+														th:text="${user.getAniversaryDate() != null ? user.getAniversaryDate() : 'N/A'}"></b>
+												</div>
+
+
+												<div class="col-md-6">Personal Phone Number:</div>
+												<div class="col-md-6">
+													<b th:text="${user.getPersonalPhoneNumber()}"></b>
+												</div>
+
+
+											</div>
+
+											<fieldset>
+
+												<legend>Address:</legend>
+
+												<div class="row" th:if="${user.userAddresses != null}">
+
+													<div class="col-md-12"
+														th:each="address : ${user.userAddresses}">
+
+														<div class="row">
+
+															<div class="col-md-12">
+																<h4
+																	th:text="${address.getTitle() != null ? address.getTitle() : 'N/A'}"></h4>
+															</div>
+
+															<div class="col-md-6">House</div>
+															<div class="col-md-6"
+																th:text="${address.getHouse() != null ? address.getHouse() : 'N/A'}"></div>
+
+															<div class="col-md-6">Village/Area</div>
+															<div class="col-md-6"
+																th:text="${address.getVillage() != null ? address.getVillage() : 'N/A'}"></div>
+
+															<div class="col-md-6">Street</div>
+															<div class="col-md-6"
+																th:text="${address.getStreet() != null ? address.getStreet() : 'N/A'}"></div>
+
+															<div class="col-md-6">Zip Code</div>
+															<div class="col-md-6"
+																th:text="${address.getZipCode() != null ? address.getZipCode() : 'N/A'}"></div>
+
+															<div class="col-md-6">City</div>
+															<div class="col-md-6"
+																th:text="${address.getCity() != null ? address.getCity() : 'N/A'}"></div>
+
+															<div class="col-md-6">Country</div>
+															<div class="col-md-6"
+																th:text="${address.getCountry() != null ? address.getCountry().getName() : 'N/A'}"></div>
+
+
+														</div>
+
+													</div>
+
+												</div>
+
+											</fieldset>
+
+										</div>
+
+										<!--  Personal inf end -->
+
+
+
+
+										<!--  Professonal inf Start -->
+
+										<div class="post clearfix" th:if="${user != null}">
+
+											<div class="row">
+												<div class="col-md-12">
+													<h4>Professional Info</h4>
+												</div>
+
+												<div class="col-md-6">Joining Date:</div>
+												<div class="col-md-6">
+													<b th:text="${user.getJoiningDate()}"></b>
+												</div>
+
+												<div class="col-md-6">Department:</div>
+
+												<div class="col-md-6">
+													<b
+														th:text="${user.getDepartment() != null ? user.getDepartment().getName() : ''}"></b>
+												</div>
+
+												<div class="col-md-6">Designation:</div>
+												<div class="col-md-6">
+													<b
+														th:text="${user.getDesignation() != null ? user.getDesignation().getName() : ''}"></b>
+												</div>
+												<!-- /.user-block -->
+
+												<div class="col-md-6">Role:</div>
+												<div class="col-md-6">
+													<b
+														th:text="${user.getRole() != null ? user.getRole().getName() : ''}"></b>
+												</div>
+
+												<div class="col-md-6">Office Location:</div>
+												<div class="col-md-6">
+													<b th:text="${user.getOfficeLocation()}"></b>
+												</div>
+
+												<div class="col-md-6">Official Email:</div>
+												<div class="col-md-6">
+													<b th:text="${user.getOfficialEmail()}"></b>
+												</div>
+
+												<div class="col-md-6">Status:</div>
+
+												<div class="col-md-6">
+													<b
+														th:text="${user.getStatus() == 1 ? 'Active' : 'Inactive'}"></b>
+												</div>
+
+
+												<div class="col-md-6">Salary:</div>
+												<div class="col-md-6">
+													<b th:text="${user.getSalary()}"></b>
+												</div>
+
+												<div class="col-md-6">Mobile Allowance:</div>
+												<div class="col-md-6">
+													<b
+														th:text="${user.getMobileAllowance() != null ? user.getMobileAllowance() : ''}"></b>
+												</div>
+
+											</div>
+
+
+
+											<fieldset>
+												<legend>Payment Info:</legend>
+
+												<div class="row">
+
+													<div class="col-md-6">Bank Name:</div>
+													<div class="col-md-6">
+														<b
+															th:text="${user.getBankName() != null ? user.getBankName() : 'Not Set Yet !!'}"></b>
+													</div>
+
+													<div class="col-md-6">Branch Name.:</div>
+													<div class="col-md-6">
+														<b
+															th:text="${user.getBranchName() != null ? user.getBranchName() : ''}"></b>
+													</div>
+
+													<div class="col-md-6">Account Name:</div>
+													<div class="col-md-6">
+														<b
+															th:text="${user.getAccountName() != null ? user.getAccountName() : 'Not Set'}"></b>
+													</div>
+
+													<div class="col-md-6">Account No.:</div>
+													<div class="col-md-6">
+														<b
+															th:text="${user.getAccountNo() != null ? user.getAccountNo() : ''}"></b>
+													</div>
+
+												</div>
+
+											</fieldset>
+
+
+											<fieldset>
+												<legend>Attach File:</legend>
+
+												<div class="row">
+													<div class="col-md-6">
+														<h6>
+															User Signatures:<a
+																th:href="@{${user.getUserSignaturesUrl()}}">&nbsp;here</a>
+														</h6>
+													</div>
+
+													<div class="col-md-6">
+														<h6>
+															Resume:<a th:href="@{${user.getResumeUrl()}}">&nbsp;here...</a>
+														</h6>
+													</div>
+
+													<div class="col-md-6">
+														<h6>
+															Pledge:<a th:href="@{${user.getPledgeUrl()}}">&nbsp;here...</a>
+														</h6>
+													</div>
+
+													<div class="col-md-6">
+														<h6>
+															Application For Job:<a
+																th:href="@{${user.getApplicationForJobUrl()}}">&nbsp;here...</a>
+														</h6>
+													</div>
+
+													<div class="col-md-6">
+														<h6>
+															NID:<a th:href="@{${user.getNidUrl()}}">&nbsp;here...</a>
+														</h6>
+													</div>
+
+													<div class="col-md-6">
+														<h6>
+															Birth Certificate:<a
+																th:href="@{${user.getBirthCertificateUrl()}}">&nbsp;here...</a>
+														</h6>
+													</div>
+
+													<div class="col-md-6">
+
+														<h6>
+															SSC Equivalent:<a
+																th:href="@{${user.getSscEquivalentUrl()}}">&nbsp;here...</a>
+														</h6>
+													</div>
+
+													<div class="col-md-6">
+														<h6>
+															HSC Equivalent:<a
+																th:href="@{${user.getHscEquivalentUrl()}}">&nbsp;here...</a>
+														</h6>
+													</div>
+
+													<div class="col-md-6">
+														<h6>
+															Bachelor/Honours:<a
+																th:href="@{${user.getBachelorHonoursUrl()}}">&nbsp;here...</a>
+														</h6>
+													</div>
+
+													<div class="col-md-6">
+														<h6>
+															Masters:<a th:href="@{${user.getMastersUrl()}}">&nbsp;here...</a>
+														</h6>
+													</div>
+
+													<div class="col-md-6">
+														<h6>
+															CA/FCA/CMA:<a th:href="@{${user.getCaFcaCmaUrl()}}">&nbsp;here...</a>
+														</h6>
+													</div>
+
+													<div class="col-md-6">
+														<h6>
+															PF/CA/FCA/CMA:<a th:href="@{${user.getPfCaFcaCmaUrl()}}">&nbsp;here...</a>
+														</h6>
+													</div>
+
+													<div class="col-md-6">
+														<h6>
+															DiplomaUrl:<a th:href="@{${user.getDiplomaUrl()}}">&nbsp;here...</a>
+														</h6>
+
+													</div>
+
+													<div class="col-md-6">
+														<h6>
+															Employment:<a th:href="@{${user.getEmploymentUrl()}}">&nbsp;here...</a>
+														</h6>
+													</div>
+
+													<div class="col-md-6">
+														<h6>
+															Nationality Certificate:<a
+																th:href="@{${user.getNationalityCertificateUrl()}}">&nbsp;here...</a>
+														</h6>
+													</div>
+
+													<div class="col-md-6">
+														<h6>
+															Job Agreement:<a
+																th:href="@{${user.getJobAgreementUrl()}}">&nbsp;here...</a>
+														</h6>
+													</div>
+
+
+													<div class="col-md-6">
+														<h6>
+															Security Deed:<a
+																th:href="@{${user.getSecurityDeedUrl()}}">&nbsp;here...</a>
+														</h6>
+													</div>
+
+													<div class="col-md-6">
+														<h6>
+															Appointment Letter:<a
+																th:href="@{${user.getAppointmentLetterUrl()}}">&nbsp;here...</a>
+														</h6>
+													</div>
+
+													<div class="col-md-6">
+														<h6>
+															Field Verification:<a
+																th:href="@{${user.getFieldVerificationUrl()}}">&nbsp;here...</a>
+														</h6>
+													</div>
+
+												</div>
+
+											</fieldset>
+
+
+										</div>
+
+										<!--  Item Start -->
+
+										<!-- Image And Video -->
+										<div class="post">
+											<div>
+
+												<!-- Video here! -->
+
+											</div>
+											<!-- /.user-block -->
+
+										</div>
+									</div>
+
+								</div>
+							</div>
+							<div class="col-12 col-md-12 col-lg-4 order-1 order-md-2">
+								<h3 class="text-primary">
+									<i class="fas fa-paint-brush"></i> Images::
+								</h3>
+
+								<div class="mp-10 text-center mt-5 mb-3" th:if="${user != null}">
+									<div th:if="${user.getProfileIimage() != null}">
+
+										<img th:alt="${user.getProfileIimage()}"
+											th:src="${user.getProfileIimage()}" width="260" height="260" />
+
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /.card-body -->
+				</div>
+
+
+			</section>
+
+		</div>
+
+
+		<div th:replace="common/header::common-footer">
+			<!-- /.content-wrapper -->
+
+		</div>
+
+		<!-- Control Sidebar -->
+		<aside class="control-sidebar control-sidebar-dark">
+			<!-- Control sidebar content goes here -->
+		</aside>
+		<!-- /.control-sidebar -->
+	</div>
+	<!-- ./wrapper -->
+	<div th:replace="common/header::common-script">
+		<!-- jQuery -->
+	</div>
+</body>
+</html>
+
