@@ -1,0 +1,18 @@
+2020-06-05 15:44:40,436 INFO org.springframework.boot.StartupInfoLogger [main] Starting DurontotourismApplication on DESKTOP-NOBB90T with PID 10400 (started by Ghost in I:\Web Project\durontotourism-api)
+2020-06-05 15:44:40,439 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2020-06-05 15:44:46,387 INFO org.springframework.boot.StartupInfoLogger [main] Started DurontotourismApplication in 6.344 seconds (JVM running for 6.815)
+2020-06-05 17:40:58,952 INFO org.springframework.boot.StartupInfoLogger [main] Starting DurontotourismApplication on DESKTOP-NOBB90T with PID 8680 (started by Ghost in I:\Web Project\durontotourism-api)
+2020-06-05 17:40:58,997 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2020-06-05 17:41:22,679 INFO org.springframework.boot.StartupInfoLogger [main] Started DurontotourismApplication in 25.04 seconds (JVM running for 28.324)
+2020-06-05 17:41:31,406 INFO com.usoit.api.apicontroller.RestUserController [http-nio-8085-exec-8] Run User Controller User Login
+2020-06-05 17:42:00,833 INFO com.usoit.api.apicontroller.RestUserController [http-nio-8085-exec-9] Run User Controller User Login
+2020-06-05 22:18:25,397 INFO org.springframework.boot.StartupInfoLogger [main] Starting DurontotourismApplication on DESKTOP-NOBB90T with PID 9888 (started by Ghost in I:\Web Project\durontotourism-api)
+2020-06-05 22:18:25,414 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2020-06-05 22:18:39,771 INFO org.springframework.boot.StartupInfoLogger [main] Started DurontotourismApplication in 14.893 seconds (JVM running for 15.805)
+2020-06-05 22:20:35,707 INFO org.springframework.boot.StartupInfoLogger [main] Starting DurontotourismApplication on DESKTOP-NOBB90T with PID 12116 (started by Ghost in I:\Web Project\durontotourism-api)
+2020-06-05 22:20:35,710 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2020-06-05 22:20:44,270 INFO org.springframework.boot.StartupInfoLogger [main] Started DurontotourismApplication in 8.92 seconds (JVM running for 9.432)
+2020-06-05 22:21:20,123 INFO com.usoit.api.apicontroller.RestUserController [http-nio-8085-exec-8] User Mapper Func
+2020-06-05 22:21:20,883 INFO com.usoit.api.apicontroller.RestUserController [http-nio-8085-exec-8] Rest user Size: 6
+2020-06-05 22:21:21,837 INFO com.usoit.api.apicontroller.RestUserController [http-nio-8085-exec-7] User Mapper Func
+2020-06-05 22:21:21,860 INFO com.usoit.api.apicontroller.RestUserController [http-nio-8085-exec-7] Rest user Size: 6

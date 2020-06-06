@@ -2,7 +2,6 @@ package com.usoit.api.apicontroller;
 
 import java.security.Principal;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -21,16 +20,12 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.usoit.api.data.converter.PackageMapper;
 import com.usoit.api.data.converter.UserMapper;
-import com.usoit.api.data.model.AjaxId;
 import com.usoit.api.data.model.Category;
 import com.usoit.api.data.model.Country;
-import com.usoit.api.data.model.ImageGallery;
-import com.usoit.api.data.model.Itarnary;
 import com.usoit.api.data.model.PackageCat;
 import com.usoit.api.data.model.Packages;
 import com.usoit.api.data.model.User;
 import com.usoit.api.data.model.Vendor;
-import com.usoit.api.data.shared.dto.DtoItarnary;
 import com.usoit.api.data.shared.dto.DtoUpdatePackage;
 import com.usoit.api.data.vo.RestAccessUser;
 import com.usoit.api.data.vo.RestPackDetails;
@@ -38,7 +33,6 @@ import com.usoit.api.data.vo.RestPackage;
 import com.usoit.api.data.vo.RestUser;
 import com.usoit.api.data.vo.RestViewPackages;
 import com.usoit.api.model.request.ReceiveStringId;
-import com.usoit.api.model.request.ReqItarnaryOnPack;
 import com.usoit.api.model.request.ReqPackage;
 import com.usoit.api.services.CategoryServices;
 import com.usoit.api.services.CountryServices;

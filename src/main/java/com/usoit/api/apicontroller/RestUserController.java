@@ -2,12 +2,17 @@ package com.usoit.api.apicontroller;
 
 import java.security.Principal;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -25,10 +30,12 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.usoit.api.data.converter.UserMapper;
+import com.usoit.api.data.model.Credential;
 import com.usoit.api.data.model.User;
 import com.usoit.api.data.model.UserAddress;
 import com.usoit.api.data.model.UserTemp;
 import com.usoit.api.data.vo.RestAccessUser;
+import com.usoit.api.data.vo.RestPassword;
 import com.usoit.api.data.vo.RestUser;
 import com.usoit.api.data.vo.RestUserDetails;
 import com.usoit.api.model.request.ReqLoginData;
@@ -86,10 +93,13 @@ public class RestUserController {
 	private List<RestUser> restRejectedUsers;
 
 	private List<User> rejectedUsers;
+	
+	
 
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public ResponseEntity<List<?>> getAllUsers(Principal principal, HttpServletRequest httpServletRequest) {
-
+		
+		String msg = "";
 		User user = null;
 		Map<String, RestAccessUser> access = new HashMap<>();
 		user = helperServices.getUserByPrincipal(principal);
@@ -104,13 +114,16 @@ public class RestUserController {
 		if (accessUser != null) {
 
 			if (accessUser.getNoAccess() != 1 || accessUser.getAll() == 1) {
-				String msg = "";
+				
 				setRestUsers(msg);
 				return ResponseEntity.ok(restUserList);
 			}
 		}
-
-		return ResponseEntity.notFound().build();
+		
+		setRestUsers(msg);
+		return ResponseEntity.ok(restUserList);
+		
+		//return ResponseEntity.notFound().build();
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -175,8 +188,8 @@ public class RestUserController {
 			} else {
 
 				if (accessUser.getAdd() == 1 || accessUser.getAll() == 1) {
-					
-				}else {
+
+				} else {
 					return ResponseEntity.ok("You cann't Access this options Please contact Administartor ");
 				}
 			}
@@ -215,8 +228,8 @@ public class RestUserController {
 			} else {
 
 				if (accessUser.getEdit() == 1 || accessUser.getAll() == 1) {
-					
-				}else {
+
+				} else {
 					return ResponseEntity.ok("You cann't Access this options Please contact Administartor ");
 				}
 			}
@@ -281,8 +294,8 @@ public class RestUserController {
 			} else {
 
 				if (accessUser.getEdit() == 1 || accessUser.getAll() == 1) {
-					
-				}else {
+
+				} else {
 					msgList.add(new String("You cann't Access this options Please contact Administartor "));
 					return ResponseEntity.ok(msgList);
 				}
@@ -322,8 +335,8 @@ public class RestUserController {
 			} else {
 
 				if (accessUser.getAdd() == 1 || accessUser.getAll() == 1) {
-					
-				}else {
+
+				} else {
 					msgList.add(new String("You cann't Access this options Please contact Administartor "));
 					return ResponseEntity.ok(msgList);
 				}
@@ -365,8 +378,8 @@ public class RestUserController {
 			} else {
 
 				if (accessUser.getAdd() == 1 || accessUser.getAll() == 1) {
-					
-				}else {
+
+				} else {
 					msgList.add(new String("You cann't Access this options Please contact Administartor "));
 					return ResponseEntity.ok(msgList);
 				}
@@ -406,8 +419,8 @@ public class RestUserController {
 			} else {
 
 				if (accessUser.getApprove() == 1 || accessUser.getAll() == 1) {
-					
-				}else {
+
+				} else {
 					msgList.add(new String("You cann't Access this options Please contact Administartor "));
 					return ResponseEntity.ok(msgList);
 				}
@@ -432,7 +445,7 @@ public class RestUserController {
 	@RequestMapping(value = "/user/inactive/{id}", method = RequestMethod.PUT)
 	public ResponseEntity<?> getUserInactiveAction(Principal principal, HttpServletRequest request,
 			@PathVariable("id") String pubId) {
-		
+
 		List<String> msgList = new ArrayList<>();
 
 		// Set Access controls Start
@@ -448,8 +461,8 @@ public class RestUserController {
 			} else {
 
 				if (accessUser.getApprove() == 1 || accessUser.getAll() == 1 || accessUser.getUpdateApproval() == 1) {
-					
-				}else {
+
+				} else {
 					msgList.add(new String("You cann't Access this options Please contact Administartor "));
 					return ResponseEntity.ok(msgList);
 				}
@@ -474,7 +487,7 @@ public class RestUserController {
 	@RequestMapping(value = "/user/active/{id}", method = RequestMethod.PUT)
 	public ResponseEntity<?> getUserActiveAction(Principal principal, HttpServletRequest request,
 			@PathVariable("id") String pubId) {
-		
+
 		List<String> msgList = new ArrayList<>();
 
 		// Set Access controls Start
@@ -490,8 +503,8 @@ public class RestUserController {
 			} else {
 
 				if (accessUser.getApprove() == 1 || accessUser.getAll() == 1 || accessUser.getUpdateApproval() == 1) {
-					
-				}else {
+
+				} else {
 					msgList.add(new String("You cann't Access this options Please contact Administartor "));
 					return ResponseEntity.ok(msgList);
 				}
@@ -538,7 +551,7 @@ public class RestUserController {
 
 	@RequestMapping(value = "/add-approvepanding", method = RequestMethod.GET)
 	public ResponseEntity<List<?>> getAllPandingUsers(Principal principal, HttpServletRequest request) {
-		
+
 		List<String> msgList = new ArrayList<>();
 
 		// Set Access controls Start
@@ -553,9 +566,9 @@ public class RestUserController {
 				return ResponseEntity.ok(msgList);
 			} else {
 
-				if (accessUser.getApprove() == 1 || accessUser.getAll() == 1 ) {
-					
-				}else {
+				if (accessUser.getApprove() == 1 || accessUser.getAll() == 1) {
+
+				} else {
 					msgList.add(new String("You cann't Access this options Please contact Administartor "));
 					return ResponseEntity.ok(msgList);
 				}
@@ -563,7 +576,7 @@ public class RestUserController {
 		}
 
 		// Set Access controls End
-		
+
 		List<String> msg = new ArrayList<>();
 
 		setAllAddPandingUsers(msg);
@@ -597,8 +610,8 @@ public class RestUserController {
 			} else {
 
 				if (accessUser.getAll() == 1 || accessUser.getEdit() == 1) {
-					
-				}else {
+
+				} else {
 					msgList.add(new String("You cann't Access this options Please contact Administartor "));
 					return ResponseEntity.ok(msgList);
 				}
@@ -642,65 +655,76 @@ public class RestUserController {
 	@RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
 	public ResponseEntity<?> getUserForDetailsView(Principal principal, HttpServletRequest request,
 			@PathVariable("id") String pubId) {
-		
-		
+
+		System.out.println("User Details Request Recive !!");
 		List<String> msgList = new ArrayList<>();
 
-		// Set Access controls Start
-		Map<String, RestAccessUser> accessMap = helperServices.getAccessMapByPrincipal(principal);
+		Map<String, RestAccessUser> accessMap = null;
 		RestAccessUser accessUser = null;
-		
-		User authUser = userServices.getUserByPersonalEmail(principal.getName());
+		User authUser = null;
 
-		if (accessMap != null) {
+		if (principal != null) {
 
-			accessUser = accessMap.get("user");
-			if (accessUser == null) {
-				msgList.add(new String("Login And try Again "));
-				return ResponseEntity.ok(msgList);
-			} else {
-				
-				String pIdDb = authUser.getPublicId();
-				String reqId = pubId;
+			// Set Access controls Start
+			accessMap = helperServices.getAccessMapByPrincipal(principal);
 
-				if (accessUser.getAll() == 1 || pIdDb.equals(reqId) ) {
-					
-				}else {
-					msgList.add(new String("You cann't Access this options Please contact Administartor "));
+			authUser = userServices.getUserByPersonalEmail(principal.getName());
+
+			if (accessMap != null) {
+
+				accessUser = accessMap.get("user");
+				if (accessUser == null) {
+					msgList.add(new String("Login And try Again "));
 					return ResponseEntity.ok(msgList);
-				}
-			}
-		}
+				} else {
 
-		// Set Access controls End
+					String pIdDb = authUser != null ? authUser.getPublicId() : "";
+					String reqId = pubId;
 
-		if (pubId != null) {
+					if (accessUser.getAll() == 1 || pIdDb.equals(reqId)) {
 
-			if (pubId.length() == 30) {
-
-				User user = userServices.getUserByPublicID(pubId);
-
-				if (user != null) {
-
-					RestUserDetails restUser = userMapper.getRestUserDetails(user);
-
-					if (restUser != null) {
-
-						return ResponseEntity.ok(restUser);
+						System.out.println("User Can Access Details View !!");
 
 					} else {
-						return ResponseEntity.accepted().body("User Data Can't Mapp !! :)");
+						System.out.println("This User Can't Access Details View !!");
+
+						msgList.add(new String("You cann't Access this options Please contact Administartor "));
+						return ResponseEntity.ok(msgList);
 					}
 				}
 			}
-		}
 
+			// Set Access controls End
+
+			System.out.println("User Access Pass!!");
+
+			if (pubId != null) {
+
+				if (pubId.length() == 30) {
+
+					User user = userServices.getUserByPublicID(pubId);
+
+					if (user != null) {
+
+						RestUserDetails restUser = userMapper.getRestUserDetails(user);
+
+						if (restUser != null) {
+
+							return ResponseEntity.ok(restUser);
+
+						} else {
+							return ResponseEntity.accepted().body("User Data Can't Mapp !! :)");
+						}
+					}
+				}
+			}
+
+		}
 		return ResponseEntity.accepted().body("User Not found by given ID: ");
 	}
 
 	@RequestMapping(value = "/update", method = RequestMethod.GET)
 	public ResponseEntity<List<?>> getAllUpdatePandingUsers(Principal principal, HttpServletRequest request) {
-
 
 		List<String> msgList = new ArrayList<>();
 
@@ -717,8 +741,8 @@ public class RestUserController {
 			} else {
 
 				if (accessUser.getAll() == 1 || accessUser.getUpdateApproval() == 1) {
-					
-				}else {
+
+				} else {
 					msgList.add(new String("You cann't Access this options Please contact Administartor "));
 					return ResponseEntity.ok(msgList);
 				}
@@ -726,7 +750,7 @@ public class RestUserController {
 		}
 
 		// Set Access controls End
-		
+
 		List<String> error = new ArrayList<>();
 
 		setRestUpdateUsers();
@@ -745,7 +769,6 @@ public class RestUserController {
 	@RequestMapping(value = "/usertemp/{id}", method = RequestMethod.GET)
 	public ResponseEntity<?> getTempUserByPublicId(Principal principal, HttpServletRequest request,
 			@PathVariable("id") String pubId) {
-		
 
 		List<String> msgList = new ArrayList<>();
 
@@ -762,8 +785,8 @@ public class RestUserController {
 			} else {
 
 				if (accessUser.getAll() == 1 || accessUser.getEdit() == 1 || accessUser.getUpdateApproval() == 1) {
-					
-				}else {
+
+				} else {
 					msgList.add(new String("You cann't Access this options Please contact Administartor "));
 					return ResponseEntity.ok(msgList);
 				}
@@ -801,7 +824,6 @@ public class RestUserController {
 	@RequestMapping(value = "/update/approve/{id}", method = RequestMethod.PUT)
 	public ResponseEntity<?> getUpdateUserApproveAction(Principal principal, HttpServletRequest request,
 			@PathVariable("id") String publicId) {
-		
 
 		List<String> msgList = new ArrayList<>();
 
@@ -818,8 +840,8 @@ public class RestUserController {
 			} else {
 
 				if (accessUser.getAll() == 1 || accessUser.getUpdateApproval() == 1) {
-					
-				}else {
+
+				} else {
 					msgList.add(new String("You cann't Access this options Please contact Administartor "));
 					return ResponseEntity.ok(msgList);
 				}
@@ -861,7 +883,6 @@ public class RestUserController {
 	@RequestMapping(value = "/update/reject/{id}", method = RequestMethod.PUT)
 	public ResponseEntity<?> getRejectAction(Principal principal, HttpServletRequest request,
 			@PathVariable("id") String publicId) {
-		
 
 		List<String> msgList = new ArrayList<>();
 
@@ -877,9 +898,10 @@ public class RestUserController {
 				return ResponseEntity.ok(msgList);
 			} else {
 
-				if (accessUser.getAll() == 1 || accessUser.getEdit() == 1 || accessUser.getAdd() == 1 || accessUser.getApprove() == 1 || accessUser.getUpdateApproval() == 1) {
-					
-				}else {
+				if (accessUser.getAll() == 1 || accessUser.getEdit() == 1 || accessUser.getAdd() == 1
+						|| accessUser.getApprove() == 1 || accessUser.getUpdateApproval() == 1) {
+
+				} else {
 					msgList.add(new String("You cann't Access this options Please contact Administartor "));
 					return ResponseEntity.ok(msgList);
 				}
@@ -911,6 +933,122 @@ public class RestUserController {
 		return ResponseEntity.accepted().body("Given Id not match!!");
 	}
 
+	@RequestMapping(value = "/user/rest-pass", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<?> getUserPasswordAction(@RequestBody RestPassword restPassword, Principal principal, HttpServletRequest request) {
+		
+		List<String> msgList = new ArrayList<>();
+
+		// Set Access controls Start
+		User cuUser = helperServices.getUserByPrincipal(principal);
+
+		Map<String, Object> retUserData = new HashMap<>();
+
+		// Set Access controls End
+		
+		if (restPassword != null) {
+			
+			
+			System.out.println("Rest User Id: " + restPassword.getUserId());
+			System.out.println("Rest Old Password: " + restPassword.getOldPass());
+			System.out.println("Rest New Password: " + restPassword.getNewPassword());
+			System.out.println("Rest Conf Password: " +  restPassword.getConfPassword());
+			
+			if(restPassword.getUserId() == null || restPassword.getOldPass() == null || restPassword.getConfPassword() == null ||  restPassword.getNewPassword() == null){
+				retUserData.put("restMsg", "Sending User Id Is: Password: C Password: " + restPassword.getUserId() );
+				retUserData.put("restStatus", false);
+				return ResponseEntity.ok(retUserData);
+			}
+			
+			if (cuUser != null) {
+				
+				System.out.println("Current User ID: " + cuUser.getPublicId());
+				
+				String patternString = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])(?=\\S+$).{7,16}$";
+
+				Pattern pattern = Pattern.compile(patternString);
+
+				
+				
+				Matcher matcher = pattern.matcher(restPassword.getNewPassword());
+				
+				if (matcher.matches()) {
+					
+					String cPubId = cuUser.getPublicId();
+					String restId = restPassword.getUserId();
+					
+					System.out.println("C User: Rest User" + cPubId + " \\\\\\\\\\\\\\ " + restId);
+										
+					System.out.println("C User: Rest User" + cPubId + " \\\\\\\\\\\\\\ " + restId);
+					
+					
+					if (cPubId.equals(restId)) {
+						
+						String dbPass = cuUser.getPassword();
+						
+						String restOlPass = userServices.getIncrptedPass(restPassword.getOldPass());
+						
+						System.out.println("DB Pass: RS Pss: " + dbPass + " ---::::::-- " + restOlPass);
+						System.out.println("DB Pass: RS Pss: " + dbPass + " ---::::::-- " + restOlPass);
+						 
+						if (restOlPass.equals(dbPass)) {
+							
+
+							String nPassword = restPassword.getNewPassword();
+							String cPassword = restPassword.getConfPassword();
+							
+							if (nPassword.equals(cPassword)) {
+								
+								Credential credential = new Credential();
+								
+								credential.setDate(new Date());
+								credential.setPassword(nPassword);
+								credential.setStatus(1);
+								credential.setUser(cuUser);
+								
+								System.out.println("User Pass Every thing");
+								
+								
+								if (userServices.updatePassword(credential)) {
+									
+									retUserData.put("restMsg", "Your password update Successfully  .");
+									retUserData.put("restStatus", true);
+									
+									return ResponseEntity.ok(retUserData);
+								}
+							}
+							
+							retUserData.put("restMsg", "Your confirmed password is not match try again  .");
+							retUserData.put("restStatus", false);
+							return ResponseEntity.ok(retUserData);
+							
+						}
+						
+						retUserData.put("restMsg", "Your Given password is not match previous one try again  ."+ restPassword.getOldPass());
+						retUserData.put("restStatus", false);
+						return ResponseEntity.ok(retUserData);
+					}
+					
+					retUserData.put("restMsg", "You cann't Access this option. Please contact Authorzed user or Administartor  .");
+					retUserData.put("restStatus", false);
+					return ResponseEntity.ok(retUserData);
+					
+				}
+				retUserData.put("restMsg", "Given password not match Requerment Please send match password and try again.");
+				retUserData.put("restStatus", false);
+				return ResponseEntity.ok(retUserData);
+			}
+			
+			retUserData.put("restMsg", "User Not Found & Token not valid Please, login and try again");
+			retUserData.put("restStatus", false);
+			return ResponseEntity.ok(retUserData);
+		}
+		
+		retUserData.put("restMsg", "Given data not is Empty");
+		retUserData.put("restStatus", false);
+		
+		return ResponseEntity.ok(retUserData);
+	}
+	
 	private void setRejectedRestUsers(List<String> msg) {
 
 		setRejectedUsers(msg);

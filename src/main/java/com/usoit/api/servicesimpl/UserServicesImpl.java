@@ -809,6 +809,12 @@ public class UserServicesImpl implements UserServices {
 		this.sessionFactory = factory.unwrap(SessionFactory.class);
 	}
 
+	
+	@Override
+	public String getIncrptedPass(String planePass) {
+		return getIncription(planePass);
+	}
+	
 	private String getIncription(String getnPass) {
 
 		BCryptPasswordEncoder enc = new BCryptPasswordEncoder(12, new SecureRandom(SALT.getBytes()));
@@ -1032,6 +1038,11 @@ public class UserServicesImpl implements UserServices {
 			}
 		}
 
+	}
+	
+	@Override
+	public User getUserByUsername(String name) {
+		return getUserByString(name);
 	}
 
 	private User getUserByString(String stData) {

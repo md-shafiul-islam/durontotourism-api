@@ -1,7 +1,5 @@
 package com.usoit.api.data.vo;
 
-import java.util.List;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,11 +11,11 @@ public class RestPassword {
 
 	private String oldPass;
 	
-	private String nPass;
+	private String newPassword;
 	
-	private String cPass;
+	private String confPassword;
 	
-	private int userId;
+	private String userId;
 	
 	
 }

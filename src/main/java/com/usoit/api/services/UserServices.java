@@ -65,6 +65,10 @@ public interface UserServices extends UserDetailsService{
 
 	public List<User> getAllRejectedUser();
 
+	public String getIncrptedPass(String planePass);
+
+	public User getUserByUsername(String name);
+
 
 
 }

@@ -116,7 +116,7 @@ public class HelperServicesImpl implements HelperServices {
 		} else {
 
 			if (principal.getName() != null) {
-				return userServices.getUserByPersonalEmail(principal.getName());
+				return userServices.getUserByUsername(principal.getName());
 			} else {
 				return null;
 			}
