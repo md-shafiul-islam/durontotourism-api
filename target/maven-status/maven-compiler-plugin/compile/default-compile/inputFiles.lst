@@ -72,6 +72,7 @@ I:\Web Project\durontotourism-api\src\main\java\com\usoit\api\data\vo\RestDesign
 I:\Web Project\durontotourism-api\src\main\java\com\usoit\api\model\request\AjaxId.java
 I:\Web Project\durontotourism-api\src\main\java\com\usoit\api\data\model\TermsAndConditions.java
 I:\Web Project\durontotourism-api\src\main\java\com\usoit\api\repository\TermsAndConditionsRepository.java
+I:\Web Project\durontotourism-api\src\main\java\com\usoit\api\apicontroller\RestTestController.java
 I:\Web Project\durontotourism-api\src\main\java\com\usoit\api\data\model\TempPaymentInfo.java
 I:\Web Project\durontotourism-api\src\main\java\com\usoit\api\data\vo\RestUserRole.java
 I:\Web Project\durontotourism-api\src\main\java\com\usoit\api\model\request\ReqPrivacyPolicy.java

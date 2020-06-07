@@ -11,8 +11,6 @@ import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -48,6 +46,9 @@ import com.usoit.api.services.HelperServices;
 import com.usoit.api.services.TempUserServices;
 import com.usoit.api.services.UserServices;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @RestController
 @RequestMapping("/api/users")
 @CrossOrigin(origins = "*", allowedHeaders = "/**")
@@ -129,7 +130,7 @@ public class RestUserController {
 	@RequestMapping(value = "/login", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> getUserLoginAction(@RequestBody ReqLoginData loginData, BindingResult bindingResult) {
 
-		System.out.println("Run User Controller User Login");
+		log.info("Run User Controller User Login");
 		// ResponseEntity<?>
 
 		Authentication authentication = authenticationManager.authenticate(
@@ -146,7 +147,7 @@ public class RestUserController {
 	public ResponseEntity<?> getAllAccessByUserId(Principal principal, HttpServletRequest request,
 			@PathVariable("id") String pubId) {
 
-		System.out.println("Access Run by Request");
+		log.info("Access Run by Request");
 
 		if (principal != null) {
 
@@ -978,7 +979,7 @@ public class RestUserController {
 					
 					System.out.println("C User: Rest User" + cPubId + " \\\\\\\\\\\\\\ " + restId);
 										
-					System.out.println("C User: Rest User" + cPubId + " \\\\\\\\\\\\\\ " + restId);
+					log.debug("C User: Rest User" + cPubId + " \\\\\\\\\\\\\\ " + restId);
 					
 					
 					if (cPubId.equals(restId)) {

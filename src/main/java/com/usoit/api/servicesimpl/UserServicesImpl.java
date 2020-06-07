@@ -32,6 +32,9 @@ import com.usoit.api.repository.UserRepository;
 import com.usoit.api.services.HelperServices;
 import com.usoit.api.services.UserServices;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @SuppressWarnings("unchecked")
 @Service
 public class UserServicesImpl implements UserServices {
@@ -40,8 +43,6 @@ public class UserServicesImpl implements UserServices {
 
 	@Autowired
 	private HelperServices helperServices;
-
-	private static final Logger Log = LoggerFactory.getLogger(UserServices.class);
 
 	@Autowired
 	private UserRepository userRepository;
@@ -830,7 +831,7 @@ public class UserServicesImpl implements UserServices {
 		User user = getUserByString(username);
 
 		if (user == null) {
-			Log.warn("User Name not found", username);
+			log.warn("User Name not found", username);
 			throw new UsernameNotFoundException(username + "User Name not found");
 		}
 
@@ -1047,46 +1048,55 @@ public class UserServicesImpl implements UserServices {
 
 	private User getUserByString(String stData) {
 
-		User user = null;
-		if (!stData.isEmpty()) {
+		try {
+			
+			User user = null;
+			if (!stData.isEmpty()) {
 
-			System.out.println("Pesonal Email Data not found");
+				System.out.println("Pesonal Email Data not found");
 
-			user = userRepository.getUserByOfficialEmail(stData);
-
-			if (user == null) {
-				System.out.println("Official Email Data not found");
-				user = userRepository.getUserByPersonalPhoneNumber(stData);
+				user = userRepository.getUserByOfficialEmail(stData);
 
 				if (user == null) {
-
-					System.out.println("Office Phone Data not found");
-
-					user = userRepository.getUserByOfficialPhoneNumber(stData);
+					System.out.println("Official Email Data not found");
+					user = userRepository.getUserByPersonalPhoneNumber(stData);
 
 					if (user == null) {
-						System.out.println("Pesonal Phone Data not found");
 
-						return user = userRepository.getUserByPersonalEmail(stData);
-					} else {// Official Phone
+						System.out.println("Office Phone Data not found");
+
+						user = userRepository.getUserByOfficialPhoneNumber(stData);
+
+						if (user == null) {
+							System.out.println("Pesonal Phone Data not found");
+
+							return user = userRepository.getUserByPersonalEmail(stData);
+						} else {// Official Phone
+
+							return user;
+
+						}
+
+					} else {// Personal Phone
 
 						return user;
-
 					}
 
-				} else {// Personal Phone
+				} else { // Official Email
 
 					return user;
 				}
 
-			} else { // Official Email
+			} else { // Personal Email
 
 				return user;
 			}
-
-		} else { // Personal Email
-
-			return user;
+			
+		} catch (Exception e) {
+			
+			log.warn("Login Catch : " + e.getMessage());
+			
+			return null;
 		}
 	}
 

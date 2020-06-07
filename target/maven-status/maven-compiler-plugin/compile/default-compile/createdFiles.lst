@@ -48,6 +48,7 @@ com\usoit\api\data\model\RestPassword.class
 com\usoit\api\servicesimpl\PackageServicesImpl.class
 com\usoit\api\controller\user\UserController.class
 com\usoit\api\servicesimpl\DesignationServicesImpl.class
+com\usoit\api\apicontroller\RestTestController.class
 com\usoit\api\repository\VendorRepository.class
 com\usoit\api\data\model\CountryType.class
 com\usoit\api\apicontroller\RestCategoryController.class

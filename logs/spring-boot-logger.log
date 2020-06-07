@@ -1,3 +1,0 @@
-2020-06-06 02:03:25,228 INFO org.springframework.boot.StartupInfoLogger [main] Starting DurontotourismApplication on DESKTOP-NOBB90T with PID 5464 (started by Ghost in I:\Web Project\durontotourism-api)
-2020-06-06 02:03:25,233 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
-2020-06-06 02:03:38,860 INFO org.springframework.boot.StartupInfoLogger [main] Started DurontotourismApplication in 14.383 seconds (JVM running for 15.481)
