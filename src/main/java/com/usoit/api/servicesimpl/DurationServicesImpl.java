@@ -38,6 +38,38 @@ public class DurationServicesImpl implements DurationServices{
 	}
 
 	@Override
+	public boolean save(Duration duration) {
+		
+		if (duration != null) {
+			
+			if ( 0 >= duration.getId()) {
+				durationRespository.save(duration);
+				
+				if (duration.getId() > 0) {
+					
+					return true;
+				}
+			}
+		}
+		
+		return false;
+	}
+	
+	@Override
+	public boolean update(Duration duration) {
+		
+		if (duration != null) {
+			
+			if (duration.getId() > 0) {
+				durationRespository.save(duration);
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	
+	@Override
 	public long getCount() {
 		
 		return durationRespository.count();
