@@ -2,7 +2,9 @@ package com.usoit.api.apicontroller;
 
 import java.security.Principal;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -12,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,6 +26,7 @@ import com.usoit.api.data.converter.DozerMapper;
 import com.usoit.api.data.model.Access;
 import com.usoit.api.data.model.Category;
 import com.usoit.api.data.model.User;
+import com.usoit.api.data.vo.RestAccessUser;
 import com.usoit.api.data.vo.RestCategory;
 import com.usoit.api.model.request.ReqCategory;
 import com.usoit.api.services.CategoryServices;
@@ -30,11 +34,10 @@ import com.usoit.api.services.HelperServices;
 
 @RestController
 @RequestMapping("/api/categories")
-@CrossOrigin(origins ="http://localhost:5000", allowedHeaders = "/**")
-@SessionAttributes(names = { "currentUser"})
+@CrossOrigin(origins = "http://localhost:5000", allowedHeaders = "/**")
+@SessionAttributes(names = { "currentUser" })
 public class RestCategoryController {
-	
-	
+
 	@Autowired
 	private CategoryServices categoryServices;
 
@@ -47,80 +50,19 @@ public class RestCategoryController {
 
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public ResponseEntity<List<RestCategory>> getAllCategories(HttpSession httpSession, Principal principal) {
-		
+
 		if (principal != null) {
-			
+
 			System.out.println("Current User Name: " + principal.getName());
 		}
-		
+
 		setCategory();
-		
+
 		return ResponseEntity.ok(categories);
-		
-		
+
 	}
+
 	
-	@RequestMapping(value = "/view", method = RequestMethod.GET, params = { "page" })
-	public String getCategoryViewPage(Model model, HttpSession httpSession,
-			@RequestParam(defaultValue = "0", value = "page") int page) {
-
-		// Access Start
-		cUser = helperServices.checkUserAccess(httpSession, "user", 3);
-		Access access = helperServices.getCurrentAccess();
-
-		if (access == null) {
-
-			return "redirect:/user/login";
-
-		} else {
-			if (access.getNoAccess() == 1) {
-
-				System.out.println("No Access: " + access.getNoAccess() + "Add Access: " + access.getAdd()
-						+ " All Access: " + access.getAll());
-				return "redirect:/";
-
-			} else {
-
-				System.out.println("Out side if: Add Access: " + access.getAdd() + " All Access: " + access.getAll());
-
-				if (access.getAll() == 1) {
-
-					System.out.println("Access Get Add Pass & All Access !!");
-
-				} else {
-					return "redirect:/";
-				}
-
-			}
-		}
-		// Access End
-
-		setCategory();
-
-		if (categories == null) {
-
-			categories = new ArrayList<>();
-		}
-
-		int fIndex = 0;
-		int tIndex = 0;
-		int totalPage = 0;
-		int pageSize = helperServices.getPageSize();
-
-		if (pageSize > categories.size()) {
-
-			totalPage = (categories.size() / pageSize);
-		}
-
-		fIndex = (pageSize * page);
-		tIndex = Math.min((fIndex + pageSize), categories.size());
-
-		model.addAttribute("categories", categories.subList(fIndex, tIndex));
-		model.addAttribute("totalPage", totalPage);
-		model.addAttribute("cPage", page);
-
-		return "/pages/category/view";
-	}
 
 	@RequestMapping("/add")
 	public ResponseEntity<?> getCategoryAddPage(HttpSession httpSession) {
@@ -161,60 +103,75 @@ public class RestCategoryController {
 
 	@RequestMapping(value = "/category", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> getCategoryAddAction(@RequestBody ReqCategory reqCategory, HttpSession httpSession) {
-		
-		System.out.println("Category Add Action Run!!" );
-		
-		
+
+		Map<String, Object> returnData = new HashMap<>();
 
 		if (reqCategory != null) {
 
 			if (reqCategory.getName() != null) {
-				
-				System.out.println("Category Name Not Null" );
+
 				
 				Category category = DozerMapper.parseObject(reqCategory, Category.class);
 
 				if (category != null) {
-					
+
 					System.out.println("Add Cat. Category Mapping Done!!");
-					
+
 					category.setId(0);
-					
+
 					if (!categoryServices.save(category)) {
+
 						
-						System.out.println("Category Added !!!!!!!!!");
+						returnData.put("msg", "Category Save Failed, Try Again Or Contact System Administrator ");
+						returnData.put("status", true);
+						return ResponseEntity.accepted().body(returnData);
 						
-						return ResponseEntity.ok(DozerMapper.parseObject(category, RestCategory.class));
 					} else {
-						System.out.println("Save Done!!");
+						returnData.put("msg", "Category Save !!");
+						returnData.put("status", true);
+						return ResponseEntity.accepted().body(returnData);
 					}
 				}
+				
+				returnData.put("msg", "Category Mapping Error, Please, Contact System Adminstrator !!");
+				returnData.put("status", false);
+				return ResponseEntity.accepted().body(returnData);
 			}
+			
+			returnData.put("msg", "Category Name Cann't Empty Failed");
+			returnData.put("status", false);
+			return ResponseEntity.accepted().body(returnData);
 		}
+
 		
-		reqCategory.setDescription(reqCategory.getDescription()+" Request");
-		
-		return ResponseEntity.ok(reqCategory);
+
+		returnData.put("msg", "Please Send proper Category info");
+		returnData.put("status", false);
+		return ResponseEntity.accepted().body(returnData);
 	}
 
-	@RequestMapping(value = "/edit", method = RequestMethod.GET, params = { "id" })
-	public String getCategoryEditOrUpdatePage(Model model, HttpSession httpSession,
-			@RequestParam(defaultValue = "0", value = "id") int id) {
+	@RequestMapping(value = "/category/{id}", method = RequestMethod.GET)
+	public ResponseEntity<?> getCategoryEditOrUpdatePage(Principal principal, HttpSession httpSession,
+			@PathVariable("id") int id) {
 
+		Map<String, Object> returnData = new HashMap<>();
+		Category category = null;
+		returnData.put("category", category);
 		// Access Start
-		cUser = helperServices.checkUserAccess(httpSession, "user", 3);
-		Access access = helperServices.getCurrentAccess();
+		Map<String, RestAccessUser> accessAll = helperServices.getAccessMapByPrincipal(principal);
+		RestAccessUser access = accessAll.get("category");
 
 		if (access == null) {
-
-			return "redirect:/user";
+			returnData.put("msg", "Please Login and try again !!");
+			returnData.put("status", false);
+			return ResponseEntity.accepted().body(returnData);
 
 		} else {
 			if (access.getNoAccess() == 1) {
 
-				System.out.println("No Access: " + access.getNoAccess() + "Add Access: " + access.getAdd()
-						+ " All Access: " + access.getAll());
-				return "redirect:/";
+				returnData.put("msg", "You can't Access this option!!");
+				returnData.put("status", false);
+				return ResponseEntity.accepted().body(returnData);
 
 			} else {
 
@@ -225,7 +182,10 @@ public class RestCategoryController {
 					System.out.println("Access Get Add Pass & All Access !!");
 
 				} else {
-					return "redirect:/user";
+					
+					returnData.put("msg", "You can't Access this option!!");
+					returnData.put("status", false);
+					return ResponseEntity.accepted().body(returnData);
 				}
 
 			}
@@ -234,41 +194,56 @@ public class RestCategoryController {
 
 		System.out.println("Category Update fnc Run!! & ID: " + id);
 
-		Category category = null;
+		
 
 		if (id > 0) {
 
 			category = categoryServices.getCategoryById(id);
+
+			if (category != null) {
+				
+				RestCategory restCategory = new RestCategory();
+				
+				restCategory.setDescription(category.getDescription());
+				restCategory.setName(category.getName());
+				restCategory.setId(category.getId());
+				
+				returnData.put("msg", "Get Category Success");
+				returnData.put("status", false);
+				returnData.put("category", restCategory);
+				return ResponseEntity.ok(returnData);
+			}
 		}
 
-		if (category == null) {
-			return "redirect:/failure/nf?id=" + id;
-		}
-
-		model.addAttribute("preSetCat", category);
-		model.addAttribute("fCat", new Category());
-
-		return "/pages/category/edit";
+		returnData.put("msg", "Category Not found by given Id");
+		returnData.put("status", false);
+		returnData.put("category", category);
+		return ResponseEntity.ok(returnData);
 	}
 
-	@RequestMapping(value = "/update", method = RequestMethod.POST)
-	public String getCategoryUpdateAction(Model model, HttpSession httpSession,
-			@ModelAttribute("category") Category category) {
-
+	@RequestMapping(value = "/category", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<?> getCategoryUpdateAction(Principal principal, HttpSession httpSession,
+			@RequestBody ReqCategory category) {
+		
+		Map<String, Object> returnData = new  HashMap<>();
 		// Access Start
-		cUser = helperServices.checkUserAccess(httpSession, "user", 3);
-		Access access = helperServices.getCurrentAccess();
+		Map<String, RestAccessUser> accessAll = helperServices.getAccessMapByPrincipal(principal);
+		RestAccessUser access = accessAll.get("user");
 
 		if (access == null) {
-
-			return "redirect:/user";
+			
+			returnData.put("msg", "you cann't access. Please login and try again");
+			returnData.put("status", false);
+			
+			return ResponseEntity.accepted().body(returnData);
 
 		} else {
 			if (access.getNoAccess() == 1) {
 
-				System.out.println("No Access: " + access.getNoAccess() + "Add Access: " + access.getAdd()
-						+ " All Access: " + access.getAll());
-				return "redirect:/";
+				returnData.put("msg", "you cann't access. This option Please contact Administrator");
+				returnData.put("status", false);
+				
+				return ResponseEntity.accepted().body(returnData);
 
 			} else {
 
@@ -279,7 +254,10 @@ public class RestCategoryController {
 					System.out.println("Access Get Add Pass & All Access !!");
 
 				} else {
-					return "redirect:/user";
+					returnData.put("msg", "you cann't access. This option Please contact Administrator");
+					returnData.put("status", false);
+					
+					return ResponseEntity.accepted().body(returnData);
 				}
 
 			}
@@ -289,33 +267,48 @@ public class RestCategoryController {
 		if (category != null) {
 
 			if (category.getId() > 0) {
+				
+				Category category2 = new Category();
+				
+				category2.setDescription(category.getDescription());
+				category2.setName(category.getName());
+				category2.setId(category.getId());
 
-				if (!categoryServices.update(category)) {
+				if (!categoryServices.update(category2)) {
 
-					return "redirect:/failure/ud";
+					returnData.put("msg", "Category update faild, Contact System Administrator ");
+					returnData.put("status", false);
+					
+					return ResponseEntity.accepted().body(returnData);
 				} else {
+					returnData.put("msg", "Category update Successful");
+					returnData.put("status", true);
 					refreshCategory();
+					return ResponseEntity.ok(returnData);
 				}
 			}
 		}
 
-		return "redirect:/category/view?page=0";
+		returnData.put("msg", "Data format mismatch");
+		returnData.put("status", true);
+		
+		return ResponseEntity.ok(returnData);
 	}
 
 	private void refreshCategory() {
-		
+
 		List<Category> list = new ArrayList<>();
-		
+
 		list = categoryServices.getAllCats();
-		
+
 		categories = DozerMapper.parseObjectList(list, RestCategory.class);
 
 	}
 
 	private void setCategory() {
-		
+
 		List<Category> cateList = new ArrayList<>();
-		
+
 		if (categories == null) {
 
 			cateList = categoryServices.getAllCats();
