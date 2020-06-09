@@ -12,4 +12,8 @@ public interface DurationServices {
 
 	public long getCount();
 
+	public boolean update(Duration duration);
+
+	public boolean save(Duration duration);
+
 }

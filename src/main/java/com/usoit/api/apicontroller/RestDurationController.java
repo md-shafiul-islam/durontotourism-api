@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.usoit.api.data.converter.DozerMapper;
-import com.usoit.api.data.model.Category;
 import com.usoit.api.data.model.Duration;
 import com.usoit.api.data.vo.RestAccessUser;
 import com.usoit.api.data.vo.RestDuration;
@@ -302,7 +301,9 @@ public class RestDurationController {
 				durations = durationServices.getAllDurations();
 			}
 		}
-
+		
 	}
-
+	
 }
+
+
