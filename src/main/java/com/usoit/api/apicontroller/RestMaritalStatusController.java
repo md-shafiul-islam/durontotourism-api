@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.usoit.api.data.converter.DozerMapper;
-import com.usoit.api.data.model.MaritalStatus;
 import com.usoit.api.data.vo.RestMaritalStatus;
+import com.usoit.api.model.MaritalStatus;
 import com.usoit.api.services.MaritalStatusServices;
 
 @RestController

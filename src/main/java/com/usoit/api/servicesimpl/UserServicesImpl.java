@@ -1,6 +1,5 @@
 package com.usoit.api.servicesimpl;
 
-import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -11,26 +10,28 @@ import javax.persistence.NoResultException;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.CriteriaUpdate;
+import javax.persistence.criteria.Expression;
 import javax.persistence.criteria.Root;
+import javax.transaction.Transactional;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.usoit.api.data.model.Credential;
-import com.usoit.api.data.model.User;
-import com.usoit.api.data.model.UserAddress;
+import com.usoit.api.model.Access;
+import com.usoit.api.model.Credential;
+import com.usoit.api.model.User;
+import com.usoit.api.model.UserAddress;
 import com.usoit.api.repository.UserRepository;
 import com.usoit.api.services.HelperServices;
 import com.usoit.api.services.UserServices;
+import com.usoit.api.services.UtilsServices;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -39,17 +40,36 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 public class UserServicesImpl implements UserServices {
 
-	private static final String SALT = "sa34";
-
 	@Autowired
 	private HelperServices helperServices;
 
 	@Autowired
 	private UserRepository userRepository;
 
+	@Autowired
+	private UtilsServices utilsServices;
+
+	@Autowired
+	private PasswordEncoder passwordEncoder;
+
 	private SessionFactory sessionFactory;
 
 	private static User cUser;
+
+	@Override
+	public boolean isKeyExist(String key) {
+
+		if (key != null) {
+
+			User user = getUserByPublicKeyOrId(key);
+
+			if (user != null) {
+				user = null;
+				return true;
+			}
+		}
+		return false;
+	}
 
 	@Override
 	public List<User> getAllUser() {
@@ -101,7 +121,7 @@ public class UserServicesImpl implements UserServices {
 
 			Optional<User> optional = userRepository.findById(i);
 
-			if (optional != null) {
+			if (optional.isPresent()) {
 
 				return optional.get();
 
@@ -113,8 +133,6 @@ public class UserServicesImpl implements UserServices {
 
 	@Override
 	public User getUserByOfficePhoneNo(String officialPhoneNumber) {
-
-		// User user = null;
 
 		return userRepository.getUserByOfficialPhoneNumber(officialPhoneNumber);
 	}
@@ -216,6 +234,7 @@ public class UserServicesImpl implements UserServices {
 	}
 
 	@Override
+	@Transactional
 	public User getUserByPublicID(String pubId) {
 		return userRepository.getUserByPublicId(pubId);
 	}
@@ -645,7 +664,7 @@ public class UserServicesImpl implements UserServices {
 
 			Optional<User> optional = userRepository.findById(id);
 
-			if (optional != null) {
+			if (optional.isPresent()) {
 
 				User user = optional.get();
 
@@ -661,10 +680,10 @@ public class UserServicesImpl implements UserServices {
 
 		return false;
 	}
-	
+
 	@Override
 	public List<User> getAllRejectedUser() {
-		
+
 		List<User> list = new ArrayList<>();
 		int ap = 2;
 		Session session = sessionFactory.openSession();
@@ -680,11 +699,11 @@ public class UserServicesImpl implements UserServices {
 			Root<User> root = criteriaQuery.from(User.class);
 			criteriaQuery.select(root);
 
-			criteriaQuery.where(criteriaBuilder.and(criteriaBuilder.equal(root.get("updateApproveStatus"), ap), criteriaBuilder.equal(root.get("approvalStatus"), ap)));
+			criteriaQuery.where(criteriaBuilder.and(criteriaBuilder.equal(root.get("updateApproveStatus"), ap),
+					criteriaBuilder.equal(root.get("approvalStatus"), ap)));
 
 			criteriaQuery.orderBy(criteriaBuilder.desc(root.get("id")));
 			Query<User> query = session.createQuery(criteriaQuery);
-
 
 			session.clear();
 			// session.close();
@@ -692,7 +711,7 @@ public class UserServicesImpl implements UserServices {
 			list = query.getResultList();
 
 			transaction.commit();
-			
+
 			return list;
 
 		} catch (NoResultException e) {
@@ -705,12 +724,12 @@ public class UserServicesImpl implements UserServices {
 			}
 			e.printStackTrace();
 		}
-		
+
 		return list;
 	}
 
 	public List<User> getConfrimUsers(String msg) {
-		
+
 		List<User> list = new ArrayList<>();
 		int ap = 1;
 		Session session = sessionFactory.openSession();
@@ -731,14 +750,13 @@ public class UserServicesImpl implements UserServices {
 			criteriaQuery.orderBy(criteriaBuilder.desc(root.get("id")));
 			Query<User> query = session.createQuery(criteriaQuery);
 
-
 			session.clear();
 			// session.close();
 
 			list = query.getResultList();
 
 			transaction.commit();
-			
+
 			return list;
 
 		} catch (NoResultException e) {
@@ -751,7 +769,7 @@ public class UserServicesImpl implements UserServices {
 			}
 			e.printStackTrace();
 		}
-		
+
 		return list;
 
 	}
@@ -810,25 +828,22 @@ public class UserServicesImpl implements UserServices {
 		this.sessionFactory = factory.unwrap(SessionFactory.class);
 	}
 
-	
 	@Override
 	public String getIncrptedPass(String planePass) {
 		return getIncription(planePass);
 	}
-	
+
 	private String getIncription(String getnPass) {
 
-		BCryptPasswordEncoder enc = new BCryptPasswordEncoder(12, new SecureRandom(SALT.getBytes()));
-
-		return enc.encode(getnPass);
+		return passwordEncoder.encode(getnPass);
 	}
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-		System.out.println("UserSecurityServices Impl Loacl Run: User Name: " + username);
-
 		User user = getUserByString(username);
+
+//		System.out.println("GenPassword: "+ passwordEncoder.encode("123456"));
 
 		if (user == null) {
 			log.warn("User Name not found", username);
@@ -1040,7 +1055,7 @@ public class UserServicesImpl implements UserServices {
 		}
 
 	}
-	
+
 	@Override
 	public User getUserByUsername(String name) {
 		return getUserByString(name);
@@ -1049,11 +1064,11 @@ public class UserServicesImpl implements UserServices {
 	private User getUserByString(String stData) {
 
 		try {
-			
+
 			User user = null;
 			if (!stData.isEmpty()) {
 
-				System.out.println("Pesonal Email Data not found");
+				System.out.println("Current User Name: " + stData);
 
 				user = userRepository.getUserByOfficialEmail(stData);
 
@@ -1091,13 +1106,162 @@ public class UserServicesImpl implements UserServices {
 
 				return user;
 			}
-			
+
 		} catch (Exception e) {
-			
+
 			log.warn("Login Catch : " + e.getMessage());
-			
+
 			return null;
 		}
 	}
 
+	@Override
+	public User getUserByPublicKeyOrId(String key) {
+		User user = null;
+		if (key != null) {
+			Session session = sessionFactory.openSession();
+
+			Transaction transaction = null;
+
+			try {
+
+				transaction = session.beginTransaction();
+
+				CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
+				CriteriaQuery<User> criteriaQuery = criteriaBuilder.createQuery(User.class);
+				Root<User> root = criteriaQuery.from(User.class);
+				criteriaQuery.select(root);
+
+				criteriaQuery.where(criteriaBuilder.equal(root.get("publicId"), key));
+
+				criteriaQuery.orderBy(criteriaBuilder.desc(root.get("id")));
+				Query<User> query = session.createQuery(criteriaQuery);
+
+				user = query.uniqueResult();
+
+				transaction.commit();
+
+				if (user != null) {
+					System.out.println("User Name inside Session: " + user.getName());
+				}
+
+			} catch (Exception e) {
+
+				e.printStackTrace();
+			} finally {
+				session.close();
+			}
+
+		}
+		return user;
+	}
+
+	@Override
+	public User getUserByUserNameAndPass(String userName, String password) {
+
+		User user = null;
+		if (!userName.isEmpty() && !password.isEmpty()) {
+			Session session = sessionFactory.openSession();
+
+			Transaction transaction = null;
+
+			try {
+
+				transaction = session.beginTransaction();
+
+				CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
+				CriteriaQuery<User> criteriaQuery = criteriaBuilder.createQuery(User.class);
+				Root<User> root = criteriaQuery.from(User.class);
+				criteriaQuery.select(root);
+
+				criteriaQuery.where(criteriaBuilder.and(criteriaBuilder.equal(root.get("personalEmail"), userName),
+						(Expression<Boolean>) criteriaQuery.where(criteriaBuilder.and(
+								criteriaBuilder.equal(root.get("credentials").get("password"), password),
+								criteriaBuilder.equal(root.get("credentials").get("status"), 1)))));
+
+				criteriaQuery.orderBy(criteriaBuilder.desc(root.get("id")));
+				Query<User> query = session.createQuery(criteriaQuery);
+
+				user = query.uniqueResult();
+
+				transaction.commit();
+
+			} catch (Exception e) {
+
+				e.printStackTrace();
+			} finally {
+				session.close();
+			}
+
+		}
+		return user;
+	}
+
+	@Override
+	public User getUserRoleAccessByUserPublicID(String pubId) {
+
+		User user = null;
+		if (!pubId.isEmpty()) {
+			Session session = sessionFactory.openSession();
+
+			Transaction transaction = null;
+
+			try {
+
+				transaction = session.beginTransaction();
+
+				CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
+				CriteriaQuery<User> criteriaQuery = criteriaBuilder.createQuery(User.class);
+				Root<User> root = criteriaQuery.from(User.class);
+				criteriaQuery.select(root);
+
+				criteriaQuery.where(criteriaBuilder.equal(root.get("publicId"), pubId));
+
+				criteriaQuery.orderBy(criteriaBuilder.desc(root.get("id")));
+				Query<User> query = session.createQuery(criteriaQuery);
+
+				user = query.uniqueResult();
+				if (user != null) {
+					user.getRole();
+
+					if (user.getRole() != null) {
+
+						user.getRole().getAccesses();
+
+						for (int i = 0; i < user.getRole().getAccesses().size(); i++) {
+							user.getRole().getAccesses().get(i).getAccessType();
+						}
+					}
+				}
+
+				transaction.commit();
+
+			} catch (Exception e) {
+
+				e.printStackTrace();
+			} finally {
+				session.close();
+			}
+
+		}
+		return user;
+
+	}
+
+	@Override
+	public String getUnicId() {
+
+		boolean status = true;
+
+		String key = null;
+		while (status) {
+			key = utilsServices.getUnicId();
+
+			if (!isKeyExist(key)) {
+				status = false;
+			}
+		}
+
+		return key;
+	}
 }

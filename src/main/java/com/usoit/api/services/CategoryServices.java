@@ -2,7 +2,7 @@ package com.usoit.api.services;
 
 import java.util.List;
 
-import com.usoit.api.data.model.Category;
+import com.usoit.api.model.Category;
 
 public interface CategoryServices {
 
@@ -15,5 +15,12 @@ public interface CategoryServices {
 	public Category getCategoryById(int id);
 
 	public boolean update(Category category);
+	
+	/**
+	 * Check Generated id Or Key Exist 
+	 * @param key
+	 * @return {@link Boolean}
+	 */
+	public boolean isKeyExist(String key);
 
 }

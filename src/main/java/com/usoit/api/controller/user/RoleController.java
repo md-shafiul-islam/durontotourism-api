@@ -23,10 +23,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import com.usoit.api.data.model.Access;
-import com.usoit.api.data.model.AccessType;
-import com.usoit.api.data.model.Role;
-import com.usoit.api.data.model.User;
+import com.usoit.api.model.Access;
+import com.usoit.api.model.AccessType;
+import com.usoit.api.model.Role;
+import com.usoit.api.model.User;
 import com.usoit.api.services.AccessServices;
 import com.usoit.api.services.AccessTypeServices;
 import com.usoit.api.services.HelperServices;

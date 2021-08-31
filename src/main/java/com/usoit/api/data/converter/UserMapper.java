@@ -7,17 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.SetFactoryBean;
 import org.springframework.stereotype.Component;
 
-import com.usoit.api.data.model.Access;
-import com.usoit.api.data.model.Country;
-import com.usoit.api.data.model.Department;
-import com.usoit.api.data.model.Designation;
-import com.usoit.api.data.model.Gender;
-import com.usoit.api.data.model.MaritalStatus;
-import com.usoit.api.data.model.Role;
-import com.usoit.api.data.model.User;
-import com.usoit.api.data.model.UserAddress;
-import com.usoit.api.data.model.UserAddressTemp;
-import com.usoit.api.data.model.UserTemp;
 import com.usoit.api.data.vo.RestAccessTypeUser;
 import com.usoit.api.data.vo.RestAccessUser;
 import com.usoit.api.data.vo.RestCountry;
@@ -31,6 +20,17 @@ import com.usoit.api.data.vo.RestUser;
 import com.usoit.api.data.vo.RestUserAddress;
 import com.usoit.api.data.vo.RestUserDetails;
 import com.usoit.api.data.vo.RestUserPack;
+import com.usoit.api.model.Access;
+import com.usoit.api.model.Country;
+import com.usoit.api.model.Department;
+import com.usoit.api.model.Designation;
+import com.usoit.api.model.Gender;
+import com.usoit.api.model.MaritalStatus;
+import com.usoit.api.model.Role;
+import com.usoit.api.model.User;
+import com.usoit.api.model.UserAddress;
+import com.usoit.api.model.UserAddressTemp;
+import com.usoit.api.model.UserTemp;
 import com.usoit.api.model.request.ReqAddress;
 import com.usoit.api.model.request.ReqUpdateUser;
 import com.usoit.api.model.request.ReqUser;
@@ -218,9 +218,14 @@ public class UserMapper {
 			reUser.setContactName2(user.getContactName2());
 
 			reUser.setDateOfBirth(user.getDateOfBirth());
-
-			reUser.setDepartment(DozerMapper.parseObject(user.getDepartment(), RestDepartment.class));
-			reUser.setDesignation(DozerMapper.parseObject(user.getDesignation(), RestDesignation.class));
+			
+			if(user.getDepartment() != null) {
+				reUser.setDepartment(DozerMapper.parseObject(user.getDepartment(), RestDepartment.class));
+			}
+			
+			if(user.getDesignation() != null) {
+				reUser.setDesignation(DozerMapper.parseObject(user.getDesignation(), RestDesignation.class));
+			}
 
 			reUser.setDiplomaUrl(user.getDiplomaUrl());
 			reUser.setEmergencyContactNo1(user.getEmergencyContactNo1());
@@ -228,16 +233,22 @@ public class UserMapper {
 			reUser.setEmploymentUrl(user.getEmploymentUrl());
 			reUser.setFatherName(user.getFatherName());
 			reUser.setFieldVerificationUrl(user.getFieldVerificationUrl());
-
-			reUser.setGender(DozerMapper.parseObject(user.getGender(), RestGender.class));
+			
+			if(user.getGender() != null) {
+				reUser.setGender(DozerMapper.parseObject(user.getGender(), RestGender.class));
+			}
+			
 
 			reUser.setHscEquivalentUrl(user.getHscEquivalentUrl());
 			reUser.setHusbandName(user.getHusbandName());
 
 			reUser.setJobAgreementUrl(user.getJobAgreementUrl());
 			reUser.setJoiningDate(user.getJoiningDate());
-
-			reUser.setMaritalStatus(DozerMapper.parseObject(user.getMaritalStatus(), RestMaritalStatus.class));
+			
+			if(user.getMaritalStatus() != null) {
+				reUser.setMaritalStatus(DozerMapper.parseObject(user.getMaritalStatus(), RestMaritalStatus.class));
+			}
+			
 
 			reUser.setMastersUrl(user.getMastersUrl());
 			reUser.setMobileAllowance(user.getMobileAllowance());
@@ -328,7 +339,11 @@ public class UserMapper {
 				RestUserAddress reUserAddress = new RestUserAddress();
 
 				reUserAddress.setCity(address.getCity());
-				reUserAddress.setCountry(DozerMapper.parseObject(address.getCountry(), RestCountry.class));
+				
+				if(address.getCountry() != null) {
+					reUserAddress.setCountry(DozerMapper.parseObject(address.getCountry(), RestCountry.class));
+				}
+				
 				reUserAddress.setCountryCode(address.getCountryCode());
 				reUserAddress.setHouse(address.getHouse());
 				reUserAddress.setStreet(address.getStreet());
@@ -353,7 +368,11 @@ public class UserMapper {
 		if (user != null) {
 			
 			restUserPack.setApprovalStatus(user.getApprovalStatus());
-			restUserPack.setDepartment(DozerMapper.parseObject(user.getDepartment(), RestDepartment.class));
+			
+			if(user.getDepartment() != null) {
+				restUserPack.setDepartment(DozerMapper.parseObject(user.getDepartment(), RestDepartment.class));
+			}
+			
 			restUserPack.setName(user.getName());
 			restUserPack.setOfficialPhoneNumber(user.getOfficialPhoneNumber());
 			restUserPack.setOfficialEmail(user.getOfficialEmail());

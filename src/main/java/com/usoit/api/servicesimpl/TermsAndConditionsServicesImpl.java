@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.usoit.api.data.model.TermsAndConditions;
+import com.usoit.api.model.TermsAndConditions;
 import com.usoit.api.repository.TermsAndConditionsRepository;
 import com.usoit.api.services.TermsAndConditionsServices;
 
@@ -19,6 +19,20 @@ public class TermsAndConditionsServicesImpl implements TermsAndConditionsService
 	@Override
 	public List<TermsAndConditions> getAllTermAndConds() {
 		return (List<TermsAndConditions>) termsAndConditionsRepository.findAll();
+	}
+	
+	@Override
+	public boolean isKeyExist(String key) {
+		
+		if(key != null) {
+			TermsAndConditions conditions = termsAndConditionsRepository.getTermsAndConditionsByPublicId(key);
+			
+			if(conditions != null) {
+				conditions = null;
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	@Override

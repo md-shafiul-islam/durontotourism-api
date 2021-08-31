@@ -12,8 +12,8 @@ import javax.persistence.ManyToOne;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.usoit.api.data.model.Country;
-import com.usoit.api.data.model.User;
+import com.usoit.api.model.Country;
+import com.usoit.api.model.User;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

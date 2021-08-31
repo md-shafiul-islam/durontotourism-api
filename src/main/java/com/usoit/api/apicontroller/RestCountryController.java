@@ -19,10 +19,10 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.usoit.api.data.converter.DozerMapper;
-import com.usoit.api.data.model.Country;
-import com.usoit.api.data.model.User;
 import com.usoit.api.data.vo.RestAccessUser;
 import com.usoit.api.data.vo.RestCountry;
+import com.usoit.api.model.Country;
+import com.usoit.api.model.User;
 import com.usoit.api.model.request.ReqCountry;
 import com.usoit.api.services.CountryServices;
 import com.usoit.api.services.HelperServices;
@@ -63,7 +63,7 @@ public class RestCountryController {
 		returnData.put("country", restCountry);
 		// Access Start
 		Map<String, RestAccessUser> accessAll = helperServices.getAccessMapByPrincipal(principal);
-		RestAccessUser access = accessAll.get("countries");
+		RestAccessUser access = accessAll != null ? accessAll.get("countries") : null;
 
 		if (access == null) {
 			returnData.put("msg", "Please Login and try again !!");
@@ -132,7 +132,7 @@ public class RestCountryController {
 
 		// Access Start
 		Map<String, RestAccessUser> accessAll = helperServices.getAccessMapByPrincipal(principal);
-		RestAccessUser access = accessAll.get("countries");
+		RestAccessUser access = accessAll != null ? accessAll.get("countries") : null;
 
 		if (access == null) {
 			returnData.put("msg", "Please Login and try again !!");
@@ -173,7 +173,7 @@ public class RestCountryController {
 				if (countryServices.update(country)) {
 					returnData.put("msg", "Country Updated Successfully");
 					returnData.put("status", true);
-					
+					refReshCountry();
 					return ResponseEntity.ok(returnData);
 				}
 
@@ -194,6 +194,11 @@ public class RestCountryController {
 		returnData.put("status", false);
 		return ResponseEntity.accepted().body(returnData);
 
+	}
+
+	private void refReshCountry() {
+		countries = countryServices.getAllCountries();
+		
 	}
 
 	private void setCountriesList() {

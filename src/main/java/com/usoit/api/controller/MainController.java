@@ -12,8 +12,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import com.usoit.api.data.model.Access;
-import com.usoit.api.data.model.User;
+import com.usoit.api.model.Access;
+import com.usoit.api.model.User;
 import com.usoit.api.services.HelperServices;
 import com.usoit.api.services.UserServices;
 

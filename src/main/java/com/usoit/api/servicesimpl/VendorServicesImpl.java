@@ -16,11 +16,12 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.usoit.api.data.model.Address;
-import com.usoit.api.data.model.ContactPerson;
-import com.usoit.api.data.model.Packages;
-import com.usoit.api.data.model.PaymentInfo;
-import com.usoit.api.data.model.Vendor;
+import com.usoit.api.model.Address;
+import com.usoit.api.model.ContactPerson;
+import com.usoit.api.model.Department;
+import com.usoit.api.model.Packages;
+import com.usoit.api.model.PaymentInfo;
+import com.usoit.api.model.Vendor;
 import com.usoit.api.repository.VendorRepository;
 import com.usoit.api.services.HelperServices;
 import com.usoit.api.services.VendorMapper;
@@ -42,6 +43,7 @@ public class VendorServicesImpl implements VendorServices {
 
 	private SessionFactory sessionFactory;
 
+	
 	@Autowired
 	public void getSession(EntityManagerFactory factory) {
 
@@ -50,6 +52,19 @@ public class VendorServicesImpl implements VendorServices {
 		}
 
 		this.sessionFactory = factory.unwrap(SessionFactory.class);
+	}
+	
+	@Override
+	public boolean isKeyExist(String key) {
+
+		if(key != null) {
+			Vendor option = vendorRepository.getVendorByPublicId(key);
+			
+			if(option != null) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	@Override

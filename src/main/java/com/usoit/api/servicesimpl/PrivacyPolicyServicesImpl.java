@@ -2,11 +2,13 @@ package com.usoit.api.servicesimpl;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.usoit.api.data.model.PrivacyPolicy;
+import com.usoit.api.model.Department;
+import com.usoit.api.model.PrivacyPolicy;
 import com.usoit.api.repository.PrivacyPolicyRepository;
 import com.usoit.api.services.PrivacyPolicyServices;
 
@@ -16,6 +18,21 @@ public class PrivacyPolicyServicesImpl implements PrivacyPolicyServices{
 	@Autowired
 	private PrivacyPolicyRepository privacyPolicyRepository;
 
+	@Override
+	public boolean isKeyExist(String key) {
+
+		if(key != null) {
+			PrivacyPolicy option = privacyPolicyRepository.getPrivacyPolicyByPublicId(key);
+			
+			if(option != null) {
+				option = null;
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	
 	@Override
 	public List<PrivacyPolicy> getAllPrivacyPolicy() {
 		return (List<PrivacyPolicy>) privacyPolicyRepository.findAll();

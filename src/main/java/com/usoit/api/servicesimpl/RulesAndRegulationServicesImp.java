@@ -12,4 +12,10 @@ public class RulesAndRegulationServicesImp implements RulesAndRegulationServices
 	@Autowired
 	private RulesAndRegulationRepository rulesAndRegulationRepository;
 	
+	@Override
+	public boolean isKeyExist(String key) {
+		
+		return false;
+	}
+	
 }

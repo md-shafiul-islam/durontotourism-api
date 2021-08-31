@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.usoit.api.data.converter.DozerMapper;
-import com.usoit.api.data.model.PrivacyPolicy;
 import com.usoit.api.data.vo.RestPrivacyPolicy;
+import com.usoit.api.model.PrivacyPolicy;
 import com.usoit.api.model.request.ReqPrivacyPolicy;
 import com.usoit.api.services.HelperServices;
 import com.usoit.api.services.PrivacyPolicyServices;

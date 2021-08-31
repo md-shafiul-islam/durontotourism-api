@@ -2,7 +2,7 @@ package com.usoit.api.services;
 
 import java.util.List;
 
-import com.usoit.api.data.model.PaymentInfo;
+import com.usoit.api.model.PaymentInfo;
 
 public interface PaymentInfServices {
 
@@ -13,5 +13,12 @@ public interface PaymentInfServices {
 	public boolean update(PaymentInfo paymentInfo);
 
 	public PaymentInfo getPayInfById(int id);
+	
+	/**
+	 * Check Generated id Or Key Exist 
+	 * @param key
+	 * @return {@link Boolean}
+	 */
+	public boolean isKeyExist(String key);
 
 }

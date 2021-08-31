@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.usoit.api.data.converter.DozerMapper;
-import com.usoit.api.data.model.VendorCategory;
 import com.usoit.api.data.vo.RestVendorCategory;
+import com.usoit.api.model.VendorCategory;
 import com.usoit.api.services.HelperServices;
 import com.usoit.api.services.UserServices;
 import com.usoit.api.services.VendorCategoryServices;

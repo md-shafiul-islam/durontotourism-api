@@ -1,6 +1,6 @@
 package com.usoit.api.services;
 
-import com.usoit.api.data.model.UserTemp;
+import com.usoit.api.model.UserTemp;
 
 public interface TempUserServices {
 
@@ -13,5 +13,14 @@ public interface TempUserServices {
 	public boolean saveTemUser(UserTemp userTemp);
 
 	public UserTemp getUserTempByPubIdAlive(String pubId);
+	
+	/**
+	 * Check Generated id Or Key Exist 
+	 * @param key
+	 * @return {@link Boolean}
+	 */
+	public boolean isKeyExist(String key);
+	
+	
 
 }

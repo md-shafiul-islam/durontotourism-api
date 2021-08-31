@@ -6,11 +6,14 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.hibernate.id.UUIDGenerationStrategy;
+import org.hibernate.id.UUIDGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -18,8 +21,11 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,23 +34,25 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.usoit.api.data.converter.UserMapper;
-import com.usoit.api.data.model.Credential;
-import com.usoit.api.data.model.User;
-import com.usoit.api.data.model.UserAddress;
-import com.usoit.api.data.model.UserTemp;
 import com.usoit.api.data.vo.RestAccessUser;
 import com.usoit.api.data.vo.RestPassword;
 import com.usoit.api.data.vo.RestUser;
 import com.usoit.api.data.vo.RestUserDetails;
+import com.usoit.api.model.Credential;
+import com.usoit.api.model.User;
+import com.usoit.api.model.UserAddress;
+import com.usoit.api.model.UserTemp;
 import com.usoit.api.model.request.ReqLoginData;
 import com.usoit.api.model.request.ReqUpdateUser;
 import com.usoit.api.model.request.ReqUser;
 import com.usoit.api.payload.JWTLoginSucessReponse;
 import com.usoit.api.security.config.JwtTokenProvider;
 import com.usoit.api.security.config.SecurityConstants;
+import com.usoit.api.services.HelperAuthenticationServices;
 import com.usoit.api.services.HelperServices;
 import com.usoit.api.services.TempUserServices;
 import com.usoit.api.services.UserServices;
+import com.usoit.api.services.UtilsServices;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -63,12 +71,21 @@ public class RestUserController {
 
 	@Autowired
 	private AuthenticationManager authenticationManager;
+	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 
 	@Autowired
 	private HelperServices helperServices;
+	
+	@Autowired
+	private HelperAuthenticationServices helperAuthenticationServices;	
 
 	@Autowired
 	private UserMapper userMapper;
+	
+	@Autowired
+	private UtilsServices utilsServices;
 
 	private List<User> users;
 
@@ -96,7 +113,18 @@ public class RestUserController {
 	private List<User> rejectedUsers;
 	
 	
-
+	@GetMapping("/unicid")
+	public ResponseEntity<?> getUnicIdTest() {
+		
+		String unicId = "";
+		
+		unicId = utilsServices.getUnicId();
+		
+		System.out.println("User Generated Unic ID: " + unicId);
+		unicId = unicId+"   "+Integer.toString(unicId.length());
+		return ResponseEntity.ok(unicId);
+	}
+	
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public ResponseEntity<List<?>> getAllUsers(Principal principal, HttpServletRequest httpServletRequest) {
 		
@@ -132,31 +160,41 @@ public class RestUserController {
 
 		log.info("Run User Controller User Login");
 		// ResponseEntity<?>
+		String jwt = null;
+		if(loginData != null) {
+			
+			Authentication authentication = authenticationManager.authenticate(
+					new UsernamePasswordAuthenticationToken(loginData.getUsername(), loginData.getPassword()));
+						
+			
+			SecurityContextHolder.getContext().setAuthentication(authentication);
 
-		Authentication authentication = authenticationManager.authenticate(
-				new UsernamePasswordAuthenticationToken(loginData.getUsername(), loginData.getPassword()));
-
-		SecurityContextHolder.getContext().setAuthentication(authentication);
-
-		String jwt = SecurityConstants.TOKEN_PREFIX + jwtTokenProvider.generateToken(authentication);
+			jwt = SecurityConstants.TOKEN_PREFIX + jwtTokenProvider.generateToken(authentication);
+		}
+				
 
 		return ResponseEntity.ok(new JWTLoginSucessReponse(true, jwt));
+		
 	}
 
 	@RequestMapping(value = "/user/access/{id}", method = RequestMethod.GET)
 	public ResponseEntity<?> getAllAccessByUserId(Principal principal, HttpServletRequest request,
 			@PathVariable("id") String pubId) {
-
+		
+		System.out.println("User Access Run !! Public ID: "+ pubId);
 		log.info("Access Run by Request");
-
+		
+		//User user = helperAuthenticationServices.getCurrentUser();
+		
 		if (principal != null) {
 
 			System.out.println("Principal: " + principal.getName());
 
-			if (helperServices.isValidAndLenghtCheck(pubId, 30)) {
+			if (helperServices.isValidAndLenghtCheck(pubId, 40)) {
 
-				User user = userServices.getUserByPublicID(pubId);
-
+				User user = userServices.getUserRoleAccessByUserPublicID(pubId);
+				
+			
 				if (user != null) {
 
 					Map<String, RestAccessUser> userAccessMap = helperServices.getRestAccessByUser(user);
@@ -654,23 +692,23 @@ public class RestUserController {
 	}
 
 	@RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
-	public ResponseEntity<?> getUserForDetailsView(Principal principal, HttpServletRequest request,
+	public ResponseEntity<?> getUserForDetailsView(HttpServletRequest request,
 			@PathVariable("id") String pubId) {
 
-		System.out.println("User Details Request Recive !!");
+			
 		List<String> msgList = new ArrayList<>();
 
 		Map<String, RestAccessUser> accessMap = null;
 		RestAccessUser accessUser = null;
 		User authUser = null;
-
-		if (principal != null) {
-
-			// Set Access controls Start
-			accessMap = helperServices.getAccessMapByPrincipal(principal);
-
-			authUser = userServices.getUserByPersonalEmail(principal.getName());
-
+		
+		System.out.println("Befor User Conds !!");
+		if (helperServices.isValidAndLenghtCheck(pubId, 40)) {
+			System.out.println("After User Conds !!");
+			
+			User user = userServices.getUserByPublicKeyOrId(pubId);
+			authUser = helperAuthenticationServices.getCurrentUser();
+			
 			if (accessMap != null) {
 
 				accessUser = accessMap.get("user");
@@ -702,8 +740,6 @@ public class RestUserController {
 			if (pubId != null) {
 
 				if (pubId.length() == 30) {
-
-					User user = userServices.getUserByPublicID(pubId);
 
 					if (user != null) {
 

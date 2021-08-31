@@ -5,6 +5,12 @@ import org.springframework.stereotype.Service;
 import com.usoit.api.services.ImageGalleryServices;
 
 @Service
-public class ImageGalleryServicesImpl implements ImageGalleryServices{
+public class ImageGalleryServicesImpl implements ImageGalleryServices {
 
+	@Override
+	public boolean isKeyExist(String key) {
+		
+
+		return false;
+	}
 }

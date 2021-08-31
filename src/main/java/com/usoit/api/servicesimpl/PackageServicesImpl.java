@@ -17,11 +17,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.usoit.api.data.converter.PackageMapper;
-import com.usoit.api.data.model.ImageGallery;
-import com.usoit.api.data.model.Itarnary;
-import com.usoit.api.data.model.Packages;
-import com.usoit.api.data.model.User;
 import com.usoit.api.data.shared.dto.DtoUpdatePackage;
+import com.usoit.api.model.ImageGallery;
+import com.usoit.api.model.Itarnary;
+import com.usoit.api.model.Packages;
+import com.usoit.api.model.User;
 import com.usoit.api.model.request.ReqPackage;
 import com.usoit.api.repository.PackageRepository;
 import com.usoit.api.services.PackageServices;
@@ -37,6 +37,20 @@ public class PackageServicesImpl implements PackageServices {
 
 	private SessionFactory sessionFactory;
 
+	@Override
+	public boolean isKeyExist(String key) {
+
+		if(key != null) {
+			Packages option = packageRepository.getPackageByPublicId(key);
+			
+			if(option != null) {
+				option = null;
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	@Autowired
 	public void getSession(EntityManagerFactory factory) {
 

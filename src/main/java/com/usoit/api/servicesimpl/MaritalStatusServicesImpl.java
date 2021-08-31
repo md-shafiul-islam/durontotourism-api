@@ -6,7 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.usoit.api.data.model.MaritalStatus;
+import com.usoit.api.model.Department;
+import com.usoit.api.model.MaritalStatus;
 import com.usoit.api.repository.MaritalStatusRepository;
 import com.usoit.api.services.MaritalStatusServices;
 
@@ -15,6 +16,12 @@ public class MaritalStatusServicesImpl implements MaritalStatusServices{
 
 	@Autowired
 	private MaritalStatusRepository maritalStatusRepository;
+	
+	@Override
+	public boolean isKeyExist(String key) {
+		
+		return false;
+	}
 	
 	@Override
 	public List<MaritalStatus> getAllMaritalStatus() {

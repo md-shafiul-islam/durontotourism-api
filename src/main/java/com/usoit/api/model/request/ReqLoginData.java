@@ -1,9 +1,6 @@
 package com.usoit.api.model.request;
 
 import java.io.Serializable;
-import java.util.List;
-
-import org.springframework.data.annotation.ReadOnlyProperty;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;

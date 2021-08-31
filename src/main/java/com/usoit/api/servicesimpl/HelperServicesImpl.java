@@ -21,12 +21,17 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.usoit.api.data.converter.DozerMapper;
-import com.usoit.api.data.model.Access;
-import com.usoit.api.data.model.User;
 import com.usoit.api.data.vo.RestAccessUser;
+import com.usoit.api.model.Access;
+import com.usoit.api.model.Role;
+import com.usoit.api.model.User;
 import com.usoit.api.services.HelperServices;
+import com.usoit.api.services.RoleServices;
 import com.usoit.api.services.UserServices;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Service
 public class HelperServicesImpl implements HelperServices {
 
@@ -46,6 +51,9 @@ public class HelperServicesImpl implements HelperServices {
 	private boolean useNumbers = true;
 
 	private Access cByPrincipalUserAccess;
+
+	@Autowired
+	private RoleServices roleServices;
 
 	@Override
 	public String getRandomString(int length) {
@@ -93,7 +101,7 @@ public class HelperServicesImpl implements HelperServices {
 
 		if (publicId != null) {
 
-			if (publicId.length() == lenght) {
+			if (publicId.length() >= lenght) {
 
 				return true;
 			}
@@ -122,15 +130,15 @@ public class HelperServicesImpl implements HelperServices {
 			}
 		}
 	}
-	
+
 	@Override
 	public Map<String, RestAccessUser> getAccessMapByPrincipal(Principal principal) {
-		
+
 		User user = getUserByPrincipal(principal);
-		
+
 		if (user != null) {
-			
-			return getRestAccessByUser(user);
+
+			return getRestAccessByUser(userServices.getUserRoleAccessByUserPublicID(user.getPublicId()));
 		}
 		return null;
 	}
@@ -191,44 +199,14 @@ public class HelperServicesImpl implements HelperServices {
 
 							System.out.println("User Role Not Null ...");
 
-							if (user.getRole().getAccesses() != null) {
+							if (user.getRole() != null) {
 
 								System.out.println("Accesses Not Null ... ");
 
-								for (Access item : user.getRole().getAccesses()) {
-
-									System.out.println("Access ...");
-
-									if (item.getAccessType() != null) {
-										System.out.println("Access Name: " + item.getAccessType().getName() + " Alies: "
-												+ item.getAccessType().getValue() + " Num Vale: "
-												+ item.getAccessType().getNumValue());
-
-										System.out.println(
-												"Type: " + type + " CItem Type: " + item.getAccessType().getName()
-														+ " Alies: " + item.getAccessType().getValue());
-
-										String cType = item.getAccessType().getValue();
-										String pStType = type;
-
-										int pNValue = item.getAccessType().getNumValue();
-
-										int paramNValue = numType;
-										System.out.println("p n Value: " + numType + " DB N type: " + pNValue);
-
-										if (pStType.equals(cType) || pNValue == paramNValue) {
-
-											System.out.println("Selected Access: " + item.getName() + " No Access: "
-													+ item.getNoAccess());
-											// Set Access To Return
-											cAccess = item;
-
-											System.out.println("Current Access: Add " + cAccess.getAdd()
-													+ " No Access Value: " + cAccess.getNoAccess());
-										}
-									}
-
-								}
+								Role role = roleServices.getRoleWitAccessById(user.getRole().getId());
+								
+								cAccess = getAuthUserAccesses(type, numType, role);								
+								
 							}
 						}
 
@@ -262,41 +240,11 @@ public class HelperServicesImpl implements HelperServices {
 
 						System.out.println("User Role Not Null ...");
 
-						if (authUser.getRole().getAccesses() != null) {
+						if (authUser.getRole() != null) {
 
-							System.out.println("PrincipalAccesses Not Null ... ");
+							Role role = roleServices.getRoleWitAccessById(authUser.getRole().getId());
 
-							for (Access item : authUser.getRole().getAccesses()) {
-
-								System.out.println("Principal Access ...");
-
-								if (item.getAccessType() != null) {
-
-									String cType = item.getAccessType().getValue();
-									String pStType = type;
-
-									int pNValue = item.getAccessType().getNumValue();
-
-									int paramNValue = numType;
-									System.out.println("Principal p n Value: " + numType + " DB N type: " + pNValue);
-
-									if (pStType.equals(cType) || pNValue == paramNValue) {
-
-										System.out.println("Principal Selected Access: " + item.getName()
-												+ " No Access: " + item.getNoAccess());
-
-										cByPrincipalUserAccess = item;
-
-										if (cByPrincipalUserAccess != null) {
-											System.out.println("Current Access Principal: Add "
-													+ cByPrincipalUserAccess.getAdd() + " No Access Value: "
-													+ cByPrincipalUserAccess.getNoAccess() + " All Access!! "
-													+ cByPrincipalUserAccess.getAll());
-										}
-									}
-								}
-
-							}
+							cByPrincipalUserAccess = getAuthUserAccesses(type, numType, role);
 						}
 					}
 
@@ -310,6 +258,41 @@ public class HelperServicesImpl implements HelperServices {
 		}
 
 		return null;
+	}
+
+	private Access getAuthUserAccesses(String type, int numType, Role role) {
+
+		if (role != null) {
+			for (Access item : role.getAccesses()) {
+
+				System.out.println("Principal Access ...");
+
+				if (item.getAccessType() != null) {
+
+					String cType = item.getAccessType().getValue();
+					String pStType = type;
+
+					int pNValue = item.getAccessType().getNumValue();
+
+					int paramNValue = numType;
+
+					if (pStType.equals(cType) || pNValue == paramNValue) {
+
+						if (item != null) {
+							log.info("Current Access Principal: Add " + item.getAdd() + " No Access Value: "
+									+ item.getNoAccess() + " All Access!! " + item.getAll());
+
+							return item;
+						}
+
+					}
+				}
+
+			}
+		}
+
+		return null;
+
 	}
 
 	@Override

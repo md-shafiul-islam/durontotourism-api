@@ -2,7 +2,7 @@ package com.usoit.api.services;
 
 import java.util.List;
 
-import com.usoit.api.data.model.Vendor;
+import com.usoit.api.model.Vendor;
 
 import net.bytebuddy.asm.Advice.Return;
 
@@ -36,6 +36,13 @@ public interface VendorServices {
 	public List<Vendor> getAllRejectVendor();
 
 	public boolean updateRquestTaken(String publicId);
+	
+	/**
+	 * Check Generated id Or Key Exist 
+	 * @param key
+	 * @return {@link Boolean}
+	 */
+	public boolean isKeyExist(String key);
 
 
 }

@@ -1,7 +1,5 @@
 package com.usoit.api.security.config;
 
-import java.security.SecureRandom;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,6 +12,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import com.usoit.api.services.UserServices;
@@ -23,8 +22,6 @@ import com.usoit.api.services.UserServices;
 @EnableGlobalMethodSecurity(securedEnabled = true, jsr250Enabled = true, prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-	private static final String SALT = "sa34";
-
 	private static final String[] PUBLIC_MATCHERS = {
 
 			"/build/**", "/dist/**", "/plugins/**", "/asset-img/**", "/api/users/login", "/uimages/**", "/api/test"
@@ -33,6 +30,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Autowired
 	private UserServices userSecurityServices;
+	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 
 	@Autowired
 	private JwtAuthenticationEntryPoint unauthorizedHandler;
@@ -44,9 +44,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	}
 
 
-	public BCryptPasswordEncoder passwordEncoder() {
-
-		return new BCryptPasswordEncoder(12, new SecureRandom(SALT.getBytes()));
+	@Bean
+	public PasswordEncoder passwordEncoder() {
+		
+		return new BCryptPasswordEncoder();
 	}
 
 	@Override
@@ -66,7 +67,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		System.out.println("Run Configur Param: AuthenticationManagerBuilder");
 		// auth.userDetailsService(()
 		// userSecurityServices).passwordEncoder(passwordEncoder());
-		auth.userDetailsService(userSecurityServices).passwordEncoder(passwordEncoder());
+		auth.userDetailsService(userSecurityServices).passwordEncoder(passwordEncoder);
 	}
 
 	@Override

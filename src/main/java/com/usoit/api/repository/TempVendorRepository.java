@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.usoit.api.data.model.TempVendor;
+import com.usoit.api.model.TempVendor;
 
 public interface TempVendorRepository extends CrudRepository<TempVendor, Integer>{
 

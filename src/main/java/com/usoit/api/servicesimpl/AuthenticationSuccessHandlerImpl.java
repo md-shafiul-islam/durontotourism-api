@@ -18,7 +18,7 @@ import org.springframework.security.web.RedirectStrategy;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
 
-import com.usoit.api.data.model.User;
+import com.usoit.api.model.User;
 import com.usoit.api.repository.UserRepository;
 
 @Component

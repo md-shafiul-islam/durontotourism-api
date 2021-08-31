@@ -2,7 +2,7 @@ package com.usoit.api.services;
 
 import java.util.List;
 
-import com.usoit.api.data.model.Duration;
+import com.usoit.api.model.Duration;
 
 public interface DurationServices {
 
@@ -15,5 +15,12 @@ public interface DurationServices {
 	public boolean update(Duration duration);
 
 	public boolean save(Duration duration);
+	
+	/**
+	 * Check Generated id Or Key Exist 
+	 * @param key
+	 * @return {@link Boolean}
+	 */
+	public boolean isKeyExist(String key);
 
 }

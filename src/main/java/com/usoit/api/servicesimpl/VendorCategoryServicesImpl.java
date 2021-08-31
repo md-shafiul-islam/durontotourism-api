@@ -6,7 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.usoit.api.data.model.VendorCategory;
+import com.usoit.api.model.Department;
+import com.usoit.api.model.VendorCategory;
 import com.usoit.api.repository.VendorCategoryRepository;
 import com.usoit.api.services.VendorCategoryServices;
 
@@ -17,6 +18,12 @@ public class VendorCategoryServicesImpl implements VendorCategoryServices{
 	@Autowired
 	private VendorCategoryRepository vendorCategoryRepository;
 
+	@Override
+	public boolean isKeyExist(String key) {
+		
+		return false;
+	}
+	
 	@Override
 	public VendorCategory getVendorCatById(int vcID) {
 		

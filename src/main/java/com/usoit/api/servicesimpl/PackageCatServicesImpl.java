@@ -6,8 +6,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.usoit.api.data.model.Category;
-import com.usoit.api.data.model.PackageCat;
+import com.usoit.api.model.Category;
+import com.usoit.api.model.Department;
+import com.usoit.api.model.PackageCat;
 import com.usoit.api.repository.PackCatRepository;
 import com.usoit.api.services.PackageCatServices;
 
@@ -18,6 +19,13 @@ public class PackageCatServicesImpl implements PackageCatServices{
 
 	@Autowired
 	private PackCatRepository packCatRepository;
+	
+	@Override
+	public boolean isKeyExist(String key) {
+		
+		return false;
+	}
+	
 	
 	@Override
 	public List<PackageCat> getAllPackCats() {

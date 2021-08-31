@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import com.usoit.api.data.model.Role;
+import com.usoit.api.model.Role;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

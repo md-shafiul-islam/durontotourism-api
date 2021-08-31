@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.usoit.api.data.model.Address;
+import com.usoit.api.model.Address;
 import com.usoit.api.repository.AddressRepository;
 import com.usoit.api.services.AddressServices;
 
@@ -15,6 +15,12 @@ public class AddressServicesImpl implements AddressServices{
 
 	@Autowired
 	private AddressRepository addressRepository;
+	
+	@Override
+	public boolean isKeyExist(String key) {
+	
+		return false;
+	}
 	
 	@Override
 	public boolean save(Address address) {

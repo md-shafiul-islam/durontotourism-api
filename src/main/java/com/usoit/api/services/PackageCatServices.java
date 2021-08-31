@@ -2,7 +2,7 @@ package com.usoit.api.services;
 
 import java.util.List;
 
-import com.usoit.api.data.model.PackageCat;
+import com.usoit.api.model.PackageCat;
 
 public interface PackageCatServices {
 
@@ -15,5 +15,12 @@ public interface PackageCatServices {
 	public PackageCat getPackCatById(int id);
 
 	public boolean update(PackageCat packageCat);
+	
+	/**
+	 * Check Generated id Or Key Exist 
+	 * @param key
+	 * @return {@link Boolean}
+	 */
+	public boolean isKeyExist(String key);
 
 }

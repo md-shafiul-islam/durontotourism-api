@@ -4,7 +4,7 @@ import io.jsonwebtoken.*;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 
-import com.usoit.api.data.model.User;
+import com.usoit.api.model.User;
 
 import java.util.Date;
 import java.util.HashMap;

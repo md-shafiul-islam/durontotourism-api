@@ -2,9 +2,9 @@ package com.usoit.api.services;
 
 import java.util.List;
 
-import com.usoit.api.data.model.Packages;
-import com.usoit.api.data.model.User;
 import com.usoit.api.data.shared.dto.DtoUpdatePackage;
+import com.usoit.api.model.Packages;
+import com.usoit.api.model.User;
 import com.usoit.api.model.request.ReqPackage;
 
 public interface PackageServices {
@@ -48,5 +48,12 @@ public interface PackageServices {
 	public boolean updatePackRejectByPbID(String publicId, User user);
 
 	public boolean updatePackApproveByPbID(String publicId, User user);
+	
+	/**
+	 * Check Generated id Or Key Exist 
+	 * @param key
+	 * @return {@link Boolean}
+	 */
+	public boolean isKeyExist(String key);
 
 }

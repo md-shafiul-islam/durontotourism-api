@@ -1,13 +1,10 @@
 package com.usoit.api.config;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Date;
 
-import javax.servlet.FilterChain;
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.transaction.Transactional;
 
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -15,12 +12,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.usoit.api.data.model.User;
 import com.usoit.api.model.request.ReqLoginData;
-
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
 
 public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter{
 
@@ -33,6 +25,7 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter{
 		this.authenticationManager = authenticationManager;
 	}
 	
+	@Transactional
 	@Override
 	public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response)
 			throws AuthenticationException {

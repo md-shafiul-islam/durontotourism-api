@@ -20,9 +20,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.usoit.api.data.converter.DozerMapper;
-import com.usoit.api.data.model.Duration;
 import com.usoit.api.data.vo.RestAccessUser;
 import com.usoit.api.data.vo.RestDuration;
+import com.usoit.api.model.Duration;
 import com.usoit.api.model.request.ReqDuration;
 import com.usoit.api.services.DurationServices;
 import com.usoit.api.services.HelperServices;
@@ -58,7 +58,7 @@ public class RestDurationController {
 		RestDuration restDuration = null;
 		// Access Start
 		Map<String, RestAccessUser> accessAll = helperServices.getAccessMapByPrincipal(principal);
-		RestAccessUser access = accessAll.get("duration");
+		RestAccessUser access = accessAll != null ? accessAll.get("duration") : null;
 
 		if (access == null) {
 
@@ -131,7 +131,7 @@ public class RestDurationController {
 		Map<String, Object> returnData = new HashMap<>();
 		// Access Start
 		Map<String, RestAccessUser> accessAll = helperServices.getAccessMapByPrincipal(principal);
-		RestAccessUser access = accessAll.get("duration");
+		RestAccessUser access = accessAll != null ? accessAll.get("duration") : null;
 
 		if (access == null) {
 
@@ -207,7 +207,7 @@ public class RestDurationController {
 		Map<String, Object> returnData = new HashMap<>();
 		// Access Start
 		Map<String, RestAccessUser> accessAll = helperServices.getAccessMapByPrincipal(principal);
-		RestAccessUser access = accessAll.get("duration");
+		RestAccessUser access = accessAll != null ? accessAll.get("duration") : null;
 
 		if (access == null) {
 

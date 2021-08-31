@@ -15,10 +15,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import com.usoit.api.data.model.Address;
-import com.usoit.api.data.model.Category;
-import com.usoit.api.data.model.Country;
-import com.usoit.api.data.model.Vendor;
+import com.usoit.api.model.Address;
+import com.usoit.api.model.Category;
+import com.usoit.api.model.Country;
+import com.usoit.api.model.Vendor;
 import com.usoit.api.services.AddressServices;
 import com.usoit.api.services.CountryServices;
 import com.usoit.api.services.HelperServices;

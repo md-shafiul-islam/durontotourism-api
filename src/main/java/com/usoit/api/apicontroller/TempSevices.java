@@ -1,6 +1,6 @@
 package com.usoit.api.apicontroller;
 
-import com.usoit.api.data.model.TempVendor;
+import com.usoit.api.model.TempVendor;
 
 public interface TempSevices {
 

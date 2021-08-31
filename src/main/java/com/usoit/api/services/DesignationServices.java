@@ -2,8 +2,8 @@ package com.usoit.api.services;
 
 import java.util.List;
 
-import com.usoit.api.data.model.Department;
-import com.usoit.api.data.model.Designation;
+import com.usoit.api.model.Department;
+import com.usoit.api.model.Designation;
 
 public interface DesignationServices {
 
@@ -16,6 +16,13 @@ public interface DesignationServices {
 	public boolean save(Designation designation);
 
 	public boolean update(Designation designation);
+	
+	/**
+	 * Check Generated id Or Key Exist 
+	 * @param key
+	 * @return {@link Boolean}
+	 */
+	public boolean isKeyExist(String key);
 
 
 	

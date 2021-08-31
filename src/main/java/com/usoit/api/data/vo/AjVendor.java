@@ -4,7 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import com.usoit.api.data.model.Country;
+import com.usoit.api.model.Country;
 
 public class AjVendor {
 

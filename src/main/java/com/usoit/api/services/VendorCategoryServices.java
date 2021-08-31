@@ -2,7 +2,7 @@ package com.usoit.api.services;
 
 import java.util.List;
 
-import com.usoit.api.data.model.VendorCategory;
+import com.usoit.api.model.VendorCategory;
 
 public interface VendorCategoryServices {
 
@@ -12,5 +12,11 @@ public interface VendorCategoryServices {
 	
 	public long getCount();
 	
+	/**
+	 * Check Generated id Or Key Exist 
+	 * @param key
+	 * @return {@link Boolean}
+	 */
+	public boolean isKeyExist(String key);
 
 }

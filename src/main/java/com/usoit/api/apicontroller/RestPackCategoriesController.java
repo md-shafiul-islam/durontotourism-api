@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.usoit.api.data.converter.DozerMapper;
-import com.usoit.api.data.model.PackageCat;
 import com.usoit.api.data.vo.RestPackageCat;
+import com.usoit.api.model.PackageCat;
 import com.usoit.api.model.request.ReqPackageCat;
 import com.usoit.api.services.PackageCatServices;
 

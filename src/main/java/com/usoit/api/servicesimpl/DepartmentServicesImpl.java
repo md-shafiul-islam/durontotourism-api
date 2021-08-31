@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.usoit.api.data.model.Department;
+import com.usoit.api.model.Department;
 import com.usoit.api.repository.DepartmentRepository;
 import com.usoit.api.services.DepartmentServices;
 
@@ -15,6 +15,12 @@ public class DepartmentServicesImpl implements DepartmentServices{
 
 	@Autowired
 	private DepartmentRepository departmentRepository;
+	
+	@Override
+	public boolean isKeyExist(String key) {
+		
+		return false;
+	}
 	
 	@Override
 	public boolean save(Department department) {

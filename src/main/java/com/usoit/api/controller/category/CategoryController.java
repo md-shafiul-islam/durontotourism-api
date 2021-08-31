@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.usoit.api.data.model.Access;
-import com.usoit.api.data.model.Category;
-import com.usoit.api.data.model.User;
+import com.usoit.api.model.Access;
+import com.usoit.api.model.Category;
+import com.usoit.api.model.User;
 import com.usoit.api.services.CategoryServices;
 import com.usoit.api.services.HelperServices;
 

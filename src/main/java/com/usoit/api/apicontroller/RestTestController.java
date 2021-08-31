@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.usoit.api.data.converter.DozerMapper;
-import com.usoit.api.data.model.Category;
 import com.usoit.api.data.vo.RestCategory;
+import com.usoit.api.model.Category;
 import com.usoit.api.services.CategoryServices;
 import com.usoit.api.services.HelperServices;
 

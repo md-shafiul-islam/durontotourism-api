@@ -2,7 +2,7 @@ package com.usoit.api.services;
 
 import java.util.List;
 
-import com.usoit.api.data.model.TermsAndConditions;
+import com.usoit.api.model.TermsAndConditions;
 
 public interface TermsAndConditionsServices {
 
@@ -15,5 +15,12 @@ public interface TermsAndConditionsServices {
 	public TermsAndConditions getTermAndCondsByPubId(String pubId);
 
 	public boolean update(TermsAndConditions termAndConditions);
+	
+	/**
+	 * Check Generated id Or Key Exist 
+	 * @param key
+	 * @return {@link Boolean}
+	 */
+	public boolean isKeyExist(String key);
 
 }

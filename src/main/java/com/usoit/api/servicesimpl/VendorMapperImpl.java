@@ -2,22 +2,13 @@ package com.usoit.api.servicesimpl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.Vector;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.usoit.api.data.converter.DozerMapper;
-import com.usoit.api.data.model.Address;
-import com.usoit.api.data.model.ContactPerson;
-import com.usoit.api.data.model.Country;
-import com.usoit.api.data.model.PaymentInfo;
-import com.usoit.api.data.model.TempContactPerson;
-import com.usoit.api.data.model.TempPaymentInfo;
-import com.usoit.api.data.model.TempVAddress;
-import com.usoit.api.data.model.TempVendor;
-import com.usoit.api.data.model.Vendor;
-import com.usoit.api.data.model.VendorCategory;
 import com.usoit.api.data.vo.RestAddress;
 import com.usoit.api.data.vo.RestContactPerson;
 import com.usoit.api.data.vo.RestCountry;
@@ -25,6 +16,17 @@ import com.usoit.api.data.vo.RestPaymentInfo;
 import com.usoit.api.data.vo.RestVendorCategory;
 import com.usoit.api.data.vo.RestVendorDetails;
 import com.usoit.api.data.vo.RestVendorUserId;
+import com.usoit.api.model.Address;
+import com.usoit.api.model.ContactPerson;
+import com.usoit.api.model.Country;
+import com.usoit.api.model.Department;
+import com.usoit.api.model.PaymentInfo;
+import com.usoit.api.model.TempContactPerson;
+import com.usoit.api.model.TempPaymentInfo;
+import com.usoit.api.model.TempVAddress;
+import com.usoit.api.model.TempVendor;
+import com.usoit.api.model.Vendor;
+import com.usoit.api.model.VendorCategory;
 import com.usoit.api.model.request.ReqAddress;
 import com.usoit.api.model.request.ReqContactPerson;
 import com.usoit.api.model.request.ReqPaymentInfo;
@@ -41,7 +43,7 @@ public class VendorMapperImpl implements VendorMapper {
 
 	@Autowired
 	private VendorCategoryServices vendorCategoryServices;
-	
+		
 
 	@Override
 	public List<RestVendorUserId> getRestVendorsUID(List<Vendor> vendors) {

@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.usoit.api.apicontroller.TempSevices;
-import com.usoit.api.data.model.TempVendor;
+import com.usoit.api.model.TempVendor;
 import com.usoit.api.repository.TempVendorRepository;
 
 @Service
@@ -20,6 +20,7 @@ public class TempSevicesImpl implements TempSevices {
 
 	private SessionFactory sessionFactory;
 
+	
 	@Autowired
 	public void getSession(EntityManagerFactory factory) {
 

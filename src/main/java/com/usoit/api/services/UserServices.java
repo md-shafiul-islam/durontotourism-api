@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.springframework.security.core.userdetails.UserDetailsService;
 
-import com.usoit.api.data.model.Credential;
-import com.usoit.api.data.model.User;
+import com.usoit.api.model.Credential;
+import com.usoit.api.model.User;
 
 public interface UserServices extends UserDetailsService{
 
@@ -67,7 +67,22 @@ public interface UserServices extends UserDetailsService{
 
 	public String getIncrptedPass(String planePass);
 
-	public User getUserByUsername(String name);
+	public User getUserByUsername(String name);	
+	
+	/**
+	 * Check Generated id Or Key Exist 
+	 * @param key
+	 * @return {@link Boolean}
+	 */
+	public boolean isKeyExist(String key);
+	
+	public User getUserByPublicKeyOrId(String key);
+
+	public User getUserByUserNameAndPass(String userName, String password);
+
+	public User getUserRoleAccessByUserPublicID(String pubId);
+	
+	public String getUnicId();
 
 
 

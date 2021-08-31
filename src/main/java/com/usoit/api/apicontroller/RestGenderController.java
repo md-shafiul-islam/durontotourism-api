@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.usoit.api.data.converter.DozerMapper;
-import com.usoit.api.data.model.Gender;
 import com.usoit.api.data.vo.RestGender;
+import com.usoit.api.model.Gender;
 import com.usoit.api.services.GenderServices;
 
 @RestController

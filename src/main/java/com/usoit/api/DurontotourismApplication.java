@@ -14,6 +14,7 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
 @SpringBootApplication
+//@EnableDiscoveryClient
 public class DurontotourismApplication extends SpringBootServletInitializer{
 
 	@Override
@@ -62,6 +63,7 @@ public class DurontotourismApplication extends SpringBootServletInitializer{
 	    CorsConfiguration config = new CorsConfiguration();
 	    config.setAllowCredentials(true);
 	    config.setAllowedOrigins(Collections.singletonList("*"));
+//	    config.addAllowedOriginPattern("*");
 	    config.setAllowedMethods(Collections.singletonList("*"));
 	    config.setAllowedHeaders(Collections.singletonList("*"));
 	    source.registerCorsConfiguration("/**", config);

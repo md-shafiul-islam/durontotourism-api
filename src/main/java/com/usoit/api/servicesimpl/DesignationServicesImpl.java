@@ -6,7 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.usoit.api.data.model.Designation;
+import com.usoit.api.model.Department;
+import com.usoit.api.model.Designation;
 import com.usoit.api.repository.DesignationRepository;
 import com.usoit.api.services.DesignationServices;
 
@@ -15,6 +16,12 @@ public class DesignationServicesImpl implements DesignationServices{
 
 	@Autowired
 	private DesignationRepository designationRepository;
+	
+	@Override
+	public boolean isKeyExist(String key) {
+		
+		return false;
+	}
 	
 	@Override
 	public boolean save(Designation designation) {

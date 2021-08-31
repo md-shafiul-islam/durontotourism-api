@@ -15,7 +15,7 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import com.usoit.api.data.model.User;
+import com.usoit.api.model.User;
 import com.usoit.api.services.UserServices;
 
 

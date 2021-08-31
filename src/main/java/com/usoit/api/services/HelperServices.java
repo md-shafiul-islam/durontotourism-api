@@ -7,21 +7,20 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.web.multipart.MultipartFile;
 
-import com.usoit.api.data.model.Access;
-import com.usoit.api.data.model.User;
 import com.usoit.api.data.vo.RestAccessUser;
-
+import com.usoit.api.model.Access;
+import com.usoit.api.model.User;
 
 public interface HelperServices {
 
-public double decimelTwoPoint(double value);
-	
+	public double decimelTwoPoint(double value);
+
 	public User checkUserAccess(HttpSession httpSession, String type, int numType);
 
 	public int getPageSize();
-	
+
 	public String getStaticDir();
-	
+
 	public String getUploadDir();
 
 	/**
@@ -33,7 +32,7 @@ public double decimelTwoPoint(double value);
 	public String uploadImageAndGetUrl(MultipartFile file, String string);
 
 	public Access getCurrentAccess();
-	
+
 	/**
 	 * 
 	 * @param int length
@@ -44,8 +43,8 @@ public double decimelTwoPoint(double value);
 	/**
 	 * 
 	 * @param authUser Curent User Autor
-	 * @param string Option
-	 * @param i Option Num Value
+	 * @param string   Option
+	 * @param i        Option Num Value
 	 * @return Access
 	 */
 	public Access getAccessByUser(User authUser, String string, int i);
@@ -57,5 +56,6 @@ public double decimelTwoPoint(double value);
 	public User getUserByPrincipal(Principal principal);
 
 	public Map<String, RestAccessUser> getAccessMapByPrincipal(Principal principal);
-	
+
+
 }

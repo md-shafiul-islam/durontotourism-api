@@ -28,12 +28,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import com.usoit.api.data.model.Address;
-import com.usoit.api.data.model.ContactPerson;
-import com.usoit.api.data.model.Itarnary;
-import com.usoit.api.data.model.PaymentInfo;
-import com.usoit.api.data.model.User;
-import com.usoit.api.data.model.VendorCategory;
+import com.usoit.api.model.Address;
+import com.usoit.api.model.ContactPerson;
+import com.usoit.api.model.Itarnary;
+import com.usoit.api.model.PaymentInfo;
+import com.usoit.api.model.User;
+import com.usoit.api.model.VendorCategory;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.usoit.api.data.converter.DozerMapper;
-import com.usoit.api.data.model.TermsAndConditions;
 import com.usoit.api.data.vo.RestTermsAndConds;
+import com.usoit.api.model.TermsAndConditions;
 import com.usoit.api.model.request.ReqTermsAndConds;
 import com.usoit.api.services.HelperServices;
 import com.usoit.api.services.TermsAndConditionsServices;

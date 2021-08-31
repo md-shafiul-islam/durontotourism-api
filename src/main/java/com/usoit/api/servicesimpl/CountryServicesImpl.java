@@ -6,7 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.usoit.api.data.model.Country;
+import com.usoit.api.model.ContactPerson;
+import com.usoit.api.model.Country;
 import com.usoit.api.repository.CountryRepository;
 import com.usoit.api.services.CountryServices;
 
@@ -15,6 +16,11 @@ public class CountryServicesImpl implements CountryServices{
 
 	@Autowired
 	private CountryRepository countryRepository;
+	
+	@Override
+	public boolean isKeyExist(String key) {
+		return false;
+	}
 	
 	@Override
 	public List<Country> getAllCountries() {

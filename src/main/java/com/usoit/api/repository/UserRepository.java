@@ -3,7 +3,7 @@ package com.usoit.api.repository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
-import com.usoit.api.data.model.User;
+import com.usoit.api.model.User;
 
 public interface UserRepository extends CrudRepository<User, Integer>{
 
@@ -21,6 +21,7 @@ public interface UserRepository extends CrudRepository<User, Integer>{
 
 	@Query
 	public User getUserByPublicId(String pubId);
+	
 
 
 }

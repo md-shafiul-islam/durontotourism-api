@@ -17,10 +17,10 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.usoit.api.data.converter.DozerMapper;
-import com.usoit.api.data.model.Department;
-import com.usoit.api.data.model.Designation;
 import com.usoit.api.data.vo.RestDepartment;
 import com.usoit.api.data.vo.RestDesignation;
+import com.usoit.api.model.Department;
+import com.usoit.api.model.Designation;
 import com.usoit.api.model.request.ReqDepartment;
 import com.usoit.api.model.request.ReqDesignation;
 import com.usoit.api.services.DepartmentServices;
