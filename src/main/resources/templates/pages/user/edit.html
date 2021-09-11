@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="common/header::common-header">
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+	<div class="wrapper">
+
+		<!-- Menu fragment set Start-->
+
+		<div th:replace="common/header::common-top-nav-menu">
+			<!-- Navbar -->
+
+			<!-- /.navbar -->
+		</div>
+
+		<div th:replace="common/header::common-sidebar-menu">
+			<!-- Main Sidebar Container -->
+
+		</div>
+
+		<!--  Menu fragment set End -->
+
+		<!-- Content Wrapper. Contains page content -->
+		<div class="content-wrapper">
+
+			<div class="row">
+
+				<div class="col-md-8" style="margin: 10px auto;">
+					<div class="card card-primary">
+						<div class="card-header">
+							<h3 class="card-title">Edit Or Update Role</h3>
+						</div>
+						<!-- /.card-header -->
+						<!-- form start -->
+						<form role="form" id="role" name="role" th:object="${fRole}"
+							method="post" th:action="@{/role/update}">
+							<div class="card-body">
+								<input type="hidden" th:value="${pRole.getId()}" id="id" name="id">
+								<div class="form-group">
+									<label for="name">Name:</label> <input type="text"
+										class="form-control" th:value="${pRole.getName()}" id="name"
+										name="name" placeholder="Name">
+								</div>
+
+								<div class="form-group">
+									<label for="access">Access:</label> <select name="access"
+										id="access"
+										class="custom-select custom-select-sm form-control form-control-sm">
+										<option value="0">Select One Access...</option>
+
+										<option th:each="item : ${accesses}" th:value="${item.getId()}"
+											th:utext="${item.getName() +' '+item.getDescription()}"
+											th:selected="${pRole.getAccess().getId() == item.getId()}" />
+
+									</select>
+
+								</div>
+								
+								<div class="form-group">
+									<label for="description">Description:</label>
+									<textarea lang="255" class="form-control" id="description"
+										th:text="${pRole.getDescription()}" name="description"
+										placeholder="Description"></textarea>
+								</div>
+
+
+							</div>
+							<!-- /.card-body -->
+
+							<div class="card-footer">
+
+								<button type="submit" class="btn btn-primary ">
+									<span> <i class="fas fa-save"></i>
+
+									</span> <span class="text">Save</span>
+								</button>
+
+							</div>
+						</form>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+		<div th:replace="common/header::common-footer">
+			<!-- /.content-wrapper -->
+
+		</div>
+
+		<!-- Control Sidebar -->
+		<aside class="control-sidebar control-sidebar-dark">
+			<!-- Control sidebar content goes here -->
+		</aside>
+		<!-- /.control-sidebar -->
+	</div>
+	<!-- ./wrapper -->
+	<div th:replace="common/header::common-script">
+		<!-- jQuery -->
+	</div>
+</body>
+</html>
+

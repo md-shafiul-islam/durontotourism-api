@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="common/header::common-header">
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+
+	<style>
+input[type="file"] {
+	_border: none !important;
+	outline: none !important;
+}
+</style>
+
+	<div class="wrapper">
+
+		<!-- Menu fragment set Start-->
+
+		<div th:replace="common/header::common-top-nav-menu">
+			<!-- Navbar -->
+
+			<!-- /.navbar -->
+		</div>
+
+		<div th:replace="common/header::common-sidebar-menu">
+			<!-- Main Sidebar Container -->
+
+		</div>
+
+		<!--  Menu fragment set End -->
+
+		<!-- Content Wrapper. Contains page content -->
+		<div class="content-wrapper">
+
+			<div class="row">
+
+				<div class="col-md-12" style="margin: 10px auto;">
+					<div class="card card-primary">
+						<div class="card-header">
+							<h3 class="card-title">Add User</h3>
+						</div>
+						<!-- /.card-header -->
+						<!-- form start -->
+						<form role="form" id="user" name="user" th:object="${fUser}"
+							method="post" th:action="@{/user/add-data}"
+							enctype="multipart/form-data">
+
+							<div class="card-body">
+								<div class="row">
+
+									<div class="col-md-6">
+										<fieldset class="mp-10">
+											<legend>Personal Info</legend>
+
+											<div class="row">
+
+												<div class="col-md-6">
+
+													<div class="form-group">
+														<label for="name">Name:</label> <input type="text"
+															class="form-control" th:field="*{name}" id="name"
+															placeholder="Name">
+													</div>
+
+												</div>
+
+												<div class="col-md-6">
+
+													<div class="form-group">
+														<label for="gender">Gender:</label> <select
+															th:field="*{gender}"
+															class="form-control"
+															id="gender">
+															<option value="0">Select One Gender...</option>
+
+															<option th:each="item : ${genders}"
+																th:value="${item.getId()}" th:utext="${item.getName()}" />
+														</select>
+													</div>
+												</div>
+											</div>
+
+											<div class="row">
+
+												<div class="col-md-6">
+													<div class="form-group">
+														<label for="fatherName">Father Name:</label> <input
+															type="text" class="form-control" th:field="*{fatherName}"
+															id="fatherName" placeholder="Father Name">
+													</div>
+												</div>
+
+												<div class="col-md-6">
+													<div class="form-group">
+														<label for="motherName">Mother Name:</label> <input
+															type="text" class="form-control" th:field="*{motherName}"
+															id="motherName" placeholder="Mother Name">
+													</div>
+												</div>
+											</div>
+
+											<div class="row">
+												<div class="col-md-6">
+													<div class="form-group">
+														<label for="maritalStatus">Marital Status:</label> <select
+															th:field="*{maritalStatus}"
+															class=" form-control"
+															id="maritalStatus">
+															<option value="0">Select One Status...</option>
+
+															<option th:each="item : ${maritalStatus}"
+																th:value="${item.getId()}" th:utext="${item.getName()}" />
+														</select>
+													</div>
+												</div>
+
+
+												<div class="col-md-6">
+
+													<div class="form-group">
+														<label for="husbandName">Husband Name:</label> <input
+															type="text" class="form-control"
+															th:field="*{husbandName}" id="husbandName"
+															placeholder="Husband Name">
+													</div>
+												</div>
+											</div>
+
+											<div class="row">
+												<div class="col-md-6">
+
+													<div class="form-group">
+														<label for="personalEmail">Personal Phone:</label> <input
+															type="text" class="form-control"
+															th:field="*{personalPhoneNumber}"
+															id="personalPhoneNumber" placeholder="Personal Phone No.">
+													</div>
+												</div>
+
+												<div class="col-md-6">
+
+													<div class="form-group">
+														<label for="personalEmail">Personal Email:</label> <input
+															type="text" class="form-control"
+															th:field="*{personalEmail}" id="personalEmail"
+															placeholder="Personal Email">
+													</div>
+												</div>
+											</div>
+
+											<div class="row">
+
+												<div class="col-md-12">
+													<div class="form-group">
+														<label for="nationalIdNo">Passport No.:</label> <input
+															type="text" class="form-control" th:field="*{passportNo}"
+															id="passportNo" placeholder="Passport No.">
+													</div>
+
+												</div>
+
+											</div>
+
+											<div class="row">
+												<div class="col-md-6">
+													<div class="form-group">
+														<label for="nationalIdNo">National Id No.:</label> <input
+															type="text" class="form-control"
+															th:field="*{nationalIdNo}" id="nationalIdNo"
+															placeholder="NID No.">
+													</div>
+
+												</div>
+
+
+												<div class="col-md-6">
+
+													<div class="form-group">
+														<label for="tinNno">TIN No.:</label> <input type="text"
+															class="form-control" th:field="*{tinNno}" id="tinNno"
+															placeholder="TIN No.">
+													</div>
+												</div>
+											</div>
+
+											<div class="row">
+												<div class="col-md-6">
+
+													<div class="form-group">
+														<label for="dateOfBirth">Date Of Birth:</label> <input
+															type="date" class="form-control"
+															th:field="*{dateOfBirth}" id="dateOfBirth">
+													</div>
+												</div>
+
+												<div class="col-md-6">
+
+													<div class="form-group">
+														<label for="aniversaryDate">Anniversary Date:</label> <input
+															type="date" class="form-control"
+															th:field="*{aniversaryDate}" id="aniversaryDate">
+													</div>
+												</div>
+											</div>
+										</fieldset>
+
+										<fieldset class="mp-10">
+
+											<legend>Address::</legend>
+
+											<div class="row" th:if="${user.userAddresses != null}"
+												th:each="address, addressState : ${user.userAddresses}">
+												<div class="col-md-12">
+													<h5 th:text="${address.getTitle()}"></h5>
+													<hr />
+												</div>
+												<div class="col-md-6">
+
+													<input type="hidden"
+														th:name="|userAddresses[${addressState.index}].title|"
+														th:value="${address.getTitle()}">
+
+													<div class="form-group">
+														<label for="house">House:</label> <input type="text"
+															class="form-control"
+															th:name="|userAddresses[${addressState.index}].house|">
+													</div>
+												</div>
+
+												<div class="col-md-6">
+
+													<div class="form-group">
+														<label for="house">Village:</label> <input type="text"
+															class="form-control"
+															th:name="|userAddresses[${addressState.index}].village|">
+													</div>
+												</div>
+
+												<div class="col-md-6">
+
+													<div class="form-group">
+														<label for="house">Street:</label> <input type="text"
+															class="form-control"
+															th:name="|userAddresses[${addressState.index}].street|">
+													</div>
+												</div>
+
+												<div class="col-md-6">
+
+													<div class="form-group">
+														<label for="house">Zip Code:</label> <input type="text"
+															class="form-control"
+															th:name="|userAddresses[${addressState.index}].zipCode|">
+													</div>
+												</div>
+
+												<div class="col-md-6">
+
+													<div class="form-group">
+														<label for="house">City:</label> <input type="text"
+															class="form-control"
+															th:name="|userAddresses[${addressState.index}].city|">
+													</div>
+												</div>
+												
+												<div class="col-md-6">
+													<div class="form-group">
+														<label for="maritalStatus">Country:</label> <select
+															th:name="|userAddresses[${addressState.index}].country|"
+															class=" form-control">
+															<option value="0">Select One Country...</option>
+
+															<option th:each="cntItem : ${countries}"
+																th:value="${cntItem.getId()}" th:utext="${cntItem.getName()}" />
+														</select>
+													</div>
+
+												</div>
+
+											</div>
+											
+											<hr />
+
+
+										</fieldset>
+
+									</div>
+
+									<div class="col-md-6">
+
+										<fieldset class="mp-10">
+
+											<legend>Emergency Contact Info</legend>
+
+											<div class="form-group">
+												<label for="emergencyContactNo1"> Name 1 :</label> <input
+													type="text" class="form-control"
+													th:field="*{emergencyContactNo1}" id="emergencyContactNo1"
+													placeholder="Emergency Contact Name. 1">
+											</div>
+
+											<div class="form-group">
+												<label for="emergencyContactNo1">Phone No. 1 :</label> <input
+													type="text" class="form-control"
+													th:field="*{emergencyContactNo1}" id="emergencyContactNo1"
+													placeholder="Emergency Contact No. 1">
+											</div>
+
+											<div class="form-group">
+												<label for="emergencyContactNo2"> Name 2 :</label> <input
+													type="text" class="form-control"
+													th:field="*{emergencyContactNo2}" id="emergencyContactNo2"
+													placeholder="Emergency Contact Name. 2 :">
+											</div>
+
+											<div class="form-group">
+												<label for="emergencyContactNo2">Phone No. 2 :</label> <input
+													type="text" class="form-control"
+													th:field="*{emergencyContactNo2}" id="emergencyContactNo2"
+													placeholder="Emergency Contact No. 2 :">
+											</div>
+
+										</fieldset>
+
+										<fieldset class="mp-10">
+											<legend>Professional Info</legend>
+
+											<div class="form-group">
+												<label for="officialEmail">Official Email:</label> <input
+													type="text" class="form-control"
+													th:field="*{officialEmail}" id="officialEmail"
+													placeholder="Official Email">
+											</div>
+
+
+											<div class="row">
+
+												<div class="col-md-6">
+													<div class="form-group">
+														<label for="department">Department:</label> <select
+															th:field="*{department}"
+															class="form-control"
+															id="department">
+															<option value="0">Select One Departments...</option>
+
+															<option th:each="item : ${departments}"
+																th:value="${item.getId()}" th:utext="${item.getName()}" />
+														</select>
+													</div>
+
+												</div>
+
+
+												<div class="col-md-6">
+													<div class="form-group">
+														<label for="designation">Designation:</label> <select
+															th:field="*{designation}"
+															class="form-control"
+															id="designation">
+															<option value="0">Select One Designation...</option>
+
+															<option th:each="item : ${designations}"
+																th:value="${item.getId()}" th:utext="${item.getName()}" />
+														</select>
+													</div>
+
+												</div>
+
+											</div>
+
+											<div class="row">
+												<div class="col-md-6">
+													<div class="form-group">
+														<label for="role">Role:</label> <select th:field="*{role}"
+															class="form-control "
+															id="role">
+															<option value="0">Select One Role...</option>
+
+															<option th:each="item : ${roles}"
+																th:value="${item.getId()}" th:utext="${item.getName()}" />
+														</select>
+													</div>
+												</div>
+
+												<div class="col-md-6">
+													<div class="form-group">
+														<label for="joiningDate">Joining Date:</label> <input
+															type="date" class="form-control"
+															th:field="*{joiningDate}" id="joiningDate">
+													</div>
+												</div>
+											</div>
+
+											<div class="row">
+												<div class="col-md-6">
+
+													<div class="form-group">
+														<label for="salary">Salary:</label> <input type="text"
+															class="form-control" th:field="*{salary}" id="salary"
+															placeholder="Salary">
+													</div>
+
+												</div>
+
+												<div class="col-md-6">
+
+													<div class="form-group">
+														<label for="mobileAllowance">Mobile Allowance:</label> <input
+															type="text" class="form-control"
+															th:field="*{mobileAllowance}" id="mobileAllowance"
+															placeholder="Mobile Allowance">
+													</div>
+												</div>
+											</div>
+
+											<div class="form-group">
+												<label for="officeLocation">Office Location:</label> <input
+													type="text" class="form-control"
+													th:field="*{officeLocation}" id="officeLocation"
+													placeholder="Office Location">
+											</div>
+
+											<div class="form-group">
+												<label for="officialPhoneNumber">Official Phone
+													Number:</label> <input type="text" class="form-control"
+													th:field="*{officialPhoneNumber}" id="officialPhoneNumber"
+													placeholder="Official Phone Number">
+											</div>
+										</fieldset>
+
+
+										<fieldset class="mp-10">
+
+											<legend>Bank Info:</legend>
+
+											<div class="form-group">
+												<label for="bankName">Bank Name:</label> <input type="text"
+													class="form-control" th:field="*{bankName}" id="bankName"
+													placeholder="Bank Name">
+											</div>
+
+
+											<div class="form-group">
+												<label for="accountName">Account Name:</label> <input
+													type="text" class="form-control" th:field="*{accountName}"
+													id="accountName" placeholder="Account Name">
+											</div>
+
+
+											<div class="form-group">
+												<label for="accountNo">Account No.:</label> <input
+													type="text" class="form-control" th:field="*{accountNo}"
+													id="accountNo" placeholder="Account No.">
+											</div>
+
+
+											<div class="form-group">
+												<label for="branchName">Branch Name:</label> <input
+													type="text" class="form-control" th:field="*{branchName}"
+													id="branchName" placeholder="Branch Name">
+											</div>
+
+										</fieldset>
+
+									</div>
+
+								</div>
+
+								<!-- Form 1st row End -->
+
+								<!-- Form 2nd row Start -->
+
+								<div class="row">
+									<div class="col-md-12">
+
+										<fieldset>
+											<legend>Attach file</legend>
+
+											<div class="row">
+												<div class="col-md-4">
+
+													<div class="form-group">
+
+														<div class="custom-file">
+															<label for="pfImageFile">Choose Profile Image:</label> <input
+																th:field="*{pfImageFile}" type="file"
+																class="form-control" id="pfImageFile">
+														</div>
+													</div>
+												</div>
+
+												<div class="col-md-4">
+													<div class="form-group">
+
+														<div class="custom-file">
+															<label for="signImgFile">Choose User Signatures:</label>
+															<input th:field="*{signImgFile}" type="file"
+																class="form-control" id="signImgFile">
+														</div>
+													</div>
+												</div>
+
+												<div class="col-md-4">
+
+													<div class="form-group">
+
+														<div class="custom-file">
+															<label for="resumeFile">Choose Resume:</label> <input
+																th:field="*{resumeFile}" type="file"
+																class="form-control" id="resumeFile">
+														</div>
+													</div>
+												</div>
+											</div>
+
+											<div class="row">
+												<div class="col-md-4">
+
+													<div class="form-group">
+
+														<div class="custom-file">
+															<label for="pledgeFile">Choose Pledge:</label> <input
+																th:field="*{pledgeFile}" type="file"
+																class="form-control" id="pledgeFile">
+														</div>
+													</div>
+												</div>
+
+												<div class="col-md-4">
+
+													<div class="form-group">
+
+														<div class="custom-file">
+															<label for="applicationForJobFile">Choose
+																Application For Job:</label> <input
+																th:field="*{applicationForJobFile}" type="file"
+																class="form-control" id="applicationForJobFile">
+
+														</div>
+													</div>
+												</div>
+
+												<div class="col-md-4">
+
+													<div class="form-group">
+
+														<div class="custom-file">
+															<label for="nidFile">Choose NID:</label> <input
+																th:field="*{nidFile}" type="file" class="form-control"
+																id="nidFile">
+														</div>
+													</div>
+												</div>
+											</div>
+
+											<div class="row">
+												<div class="col-md-4">
+
+													<div class="form-group">
+
+														<div class="custom-file">
+
+															<label for="birthCertificateFile">Choose Birth
+																Certificate:</label> <input th:field="*{birthCertificateFile}"
+																type="file" class="form-control"
+																id="birthCertificateFile">
+
+														</div>
+													</div>
+												</div>
+
+												<div class="col-md-4">
+
+													<div class="form-group">
+
+														<div class="custom-file">
+															<label for="sscEquivalentFile">Choose SSC/O
+																LEVEL/DAKHIL/VOCATIONAL:</label> <input
+																th:field="*{sscEquivalentFile}" type="file"
+																class="form-control" id="sscEquivalentFile">
+														</div>
+													</div>
+												</div>
+
+												<div class="col-md-4">
+
+													<div class="form-group">
+
+														<div class="custom-file">
+															<label for="hscEquivalentFile">Choose HSC/A
+																LEVEL/ ALIM/ HSC VOCATIONAL:</label> <input
+																th:field="*{hscEquivalentFile}" type="file"
+																class="form-control" id="hscEquivalentFile">
+														</div>
+													</div>
+												</div>
+											</div>
+
+											<div class="row">
+												<div class="col-md-4">
+
+													<div class="form-group">
+
+														<div class="custom-file">
+															<label for="diplomaFile">Choose DIPLOMA:</label> <input
+																th:field="*{diplomaFile}" type="file"
+																class="form-control" id="diplomaFile">
+														</div>
+													</div>
+												</div>
+
+												<div class="col-md-4">
+
+													<div class="form-group">
+
+														<div class="custom-file">
+															<label for="bachelorHonoursFile">Choose
+																BACHELOR/HONOURS:</label> <input
+																th:field="*{bachelorHonoursFile}" type="file"
+																class="form-control" id="bachelorHonoursFile">
+														</div>
+													</div>
+												</div>
+												<div class="col-md-4">
+
+													<div class="form-group">
+
+														<div class="custom-file">
+															<label for="mastersFile">Choose MASTERS/MBA:</label> <input
+																th:field="*{mastersFile}" type="file"
+																class="form-control" id="mastersFile">
+														</div>
+													</div>
+												</div>
+											</div>
+
+											<div class="row">
+												<div class="col-md-4">
+
+													<div class="form-group">
+
+														<div class="custom-file">
+															<label for="caFcaCmaFile">Choose CA/FCA/CMA:</label> <input
+																th:field="*{caFcaCmaFile}" type="file"
+																class="form-control" id="caFcaCmaFile">
+														</div>
+													</div>
+												</div>
+
+												<div class="col-md-4">
+
+													<div class="form-group">
+
+														<div class="custom-file">
+															<label for="pfCaFcaCmaFile">Choose CA/FCA/CMA:</label> <input
+																th:field="*{pfCaFcaCmaFile}" type="file"
+																class="form-control" id="pfCaFcaCmaFile">
+														</div>
+													</div>
+												</div>
+
+												<div class="col-md-4">
+
+													<div class="form-group">
+
+														<div class="custom-file">
+															<label for="employmentFile">Choose Employment:</label> <input
+																th:field="*{employmentFile}" type="file"
+																class="form-control" id="employmentFile">
+														</div>
+													</div>
+												</div>
+											</div>
+
+											<div class="row">
+												<div class="col-md-4">
+
+													<div class="form-group">
+
+														<div class="custom-file">
+															<label for="nationalityCertificateFile">Choose
+																Nationality Certificate:</label> <input
+																th:field="*{nationalityCertificateFile}" type="file"
+																class="form-control" id="nationalityCertificateFile">
+														</div>
+													</div>
+												</div>
+
+												<div class="col-md-4">
+
+													<div class="form-group">
+
+														<div class="custom-file">
+															<label for="securityDeedFile">Choose Security
+																Deed:</label> <input th:field="*{securityDeedFile}" type="file"
+																class="form-control" id="securityDeedFile">
+														</div>
+													</div>
+												</div>
+
+												<div class="col-md-4">
+
+													<div class="form-group">
+
+														<div class="custom-file">
+															<label for="appointmentLetterFile">Choose
+																Appointment Letter:</label> <input
+																th:field="*{appointmentLetterFile}" type="file"
+																class="form-control" id="appointmentLetterFile">
+
+														</div>
+													</div>
+												</div>
+
+											</div>
+
+
+											<div class="row">
+
+												<div class="col-md-4">
+
+													<div class="form-group">
+
+														<div class="custom-file">
+															<label for="jobAgreementFile">Choose Job
+																Agreement:</label> <input th:field="*{jobAgreementFile}"
+																type="file" class="form-control" id="jobAgreementFile">
+														</div>
+													</div>
+												</div>
+
+												<div class="col-md-4">
+													<div class="form-group">
+
+														<div class="custom-file">
+															<label for="fieldVerificationFile">Choose Field
+																Verification:</label> <input th:field="*{fieldVerificationFile}"
+																type="file" class="form-control"
+																id="fieldVerificationFile">
+														</div>
+													</div>
+												</div>
+											</div>
+
+										</fieldset>
+
+									</div>
+
+								</div>
+								<!--  form 2nd row end -->
+
+							</div>
+							<!-- /.card-body -->
+
+							<div class="card-footer">
+
+								<button type="submit" class="btn btn-primary ">
+									<span> <i class="fas fa-save"></i>
+
+									</span> <span class="text">Save</span>
+								</button>
+
+							</div>
+						</form>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+		<div th:replace="common/header::common-footer">
+			<!-- /.content-wrapper -->
+
+		</div>
+
+		<!-- Control Sidebar -->
+		<aside class="control-sidebar control-sidebar-dark">
+			<!-- Control sidebar content goes here -->
+		</aside>
+		<!-- /.control-sidebar -->
+	</div>
+	<!-- ./wrapper -->
+	<div th:replace="common/header::common-script">
+		<!-- jQuery -->
+	</div>
+</body>
+</html>
+
