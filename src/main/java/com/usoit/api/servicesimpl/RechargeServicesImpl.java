@@ -135,10 +135,18 @@ public class RechargeServicesImpl implements RechargeServices {
 
 						if (dbRecharg.getBankAccount() != null && dbRecharg.getCustomer() != null) {
 							
-							double netAddWalletAmount = dbRecharg.getAmount();
-							double chargeAmount = 0;
-							
+							double netAddWalletAmount = rechargeApprove.getNetAmount();
+							double chargeAmount = rechargeApprove.getChargeAmount();
 							dbRecharg.setNetAddWalletAmount(netAddWalletAmount);
+							
+							if(chargeAmount > 0) {
+								double netAmount = (dbRecharg.getAmount() - chargeAmount);
+								if(netAddWalletAmount != netAmount) {
+									dbRecharg.setNetAddWalletAmount(netAmount);									
+								}
+								
+							}						
+							
 							dbRecharg.setChargeAmount(chargeAmount);
 							
 							if (dbRecharg.getCustomer().getWallet() != null) {
@@ -146,7 +154,7 @@ public class RechargeServicesImpl implements RechargeServices {
 								Wallet dbWallet = session.get(Wallet.class,
 										dbRecharg.getCustomer().getWallet().getId());
 
-								double nWaAmount = dbWallet.getTotalAmount() + dbRecharg.getAmount();
+								double nWaAmount = dbWallet.getTotalAmount() + dbRecharg.getNetAddWalletAmount();
 								dbWallet.setTotalAmount(nWaAmount);
 
 								dbRecharg.setApproveStatus(rechargeApprove.getStatus());
@@ -158,7 +166,7 @@ public class RechargeServicesImpl implements RechargeServices {
 								Wallet wallet = new Wallet();
 								wallet.setCustomer(recharge.getCustomer());
 								wallet.setDate(new Date());
-								wallet.setTotalAmount(recharge.getAmount());
+								wallet.setTotalAmount(recharge.getNetAddWalletAmount());
 								wallet.setApproveStatus(1);
 								dbRecharg.setApproveStatus(rechargeApprove.getStatus());
 								dbRecharg.setPaymentStatus(paymentStatus);

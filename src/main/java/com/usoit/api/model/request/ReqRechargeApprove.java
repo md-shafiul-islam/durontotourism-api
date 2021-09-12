@@ -11,7 +11,7 @@ public class ReqRechargeApprove {
 	
 	private String publicId;
 	
-	private double netRechargeAmount;
+	private double netAmount;
 	
 	private double chargeAmount;
 	

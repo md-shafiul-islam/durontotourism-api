@@ -6,12 +6,15 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.usoit.api.data.converter.UserMapper;
 import com.usoit.api.mapper.BankMapper;
+import com.usoit.api.mapper.CustomerMapper;
 import com.usoit.api.mapper.RechargeMapper;
 import com.usoit.api.mapper.StatusMapper;
 import com.usoit.api.model.BankAccount;
 import com.usoit.api.model.Recharge;
 import com.usoit.api.model.request.ReqRecharge;
+import com.usoit.api.model.response.RestPaymentStatus;
 import com.usoit.api.model.response.RestRecharge;
 import com.usoit.api.services.BankServices;
 import com.usoit.api.services.HelperServices;
@@ -30,6 +33,9 @@ public class RechargeMapperImpl implements RechargeMapper{
 	
 	@Autowired
 	private StatusMapper statusMapper;
+	
+	@Autowired
+	private CustomerMapper customerMapper;
 
 	@Override
 	public Recharge mappRecharge(ReqRecharge reqRecharge) {
@@ -129,6 +135,61 @@ public class RechargeMapperImpl implements RechargeMapper{
 			}
 			
 			return restRecharges;
+		}
+		
+		return null;
+	}
+	
+	@Override
+	public List<RestRecharge> mapRestRechargesOnly(List<Recharge> recharges) {
+		
+		if(recharges != null) {
+			
+			List<RestRecharge> restRecharges = new ArrayList<>();
+			
+			for (Recharge recharge : recharges) {
+				
+				RestRecharge restRecharge = mapRestRechargeOnly(recharge);
+				
+				if(restRecharge != null) {
+					restRecharges.add(restRecharge);
+				}
+			}
+			
+			return restRecharges;
+		}
+		
+		return null;
+	}
+
+	@Override
+	public RestRecharge mapRestRechargeOnly(Recharge recharge) {
+		
+		if(recharge != null) {
+			
+			RestRecharge restRecharge = new RestRecharge();
+			
+			if(recharge.getBankAccount() == null) {
+				return null;
+			}
+			
+			restRecharge.setBankAccount(bankMapper.mapOnlyBankAccount(recharge.getBankAccount()));
+			restRecharge.setAmount(recharge.getAmount());
+			restRecharge.setApproveStatus(recharge.getApproveStatus());
+			restRecharge.setDate(recharge.getDate());
+			restRecharge.setGenId(recharge.getGenId());
+			restRecharge.setPaymentStatus(statusMapper.mapRestPaymentStatus(recharge.getPaymentStatus()));
+			
+			restRecharge.setPublicId(recharge.getPublicId());
+			restRecharge.setRefferenceNote(recharge.getRefferenceNote());
+			restRecharge.setRejected(recharge.isRejected());
+			restRecharge.setRejectedNote(recharge.getRejectedNote());
+			restRecharge.setTransectionDate(recharge.getTransectionDate());
+			restRecharge.setTransectionId(recharge.getTransectionId());
+			restRecharge.setAttachUrl(recharge.getAttachUrl());
+			restRecharge.setCustomer(customerMapper.mapEsRestCustomer(recharge.getCustomer()));
+						
+			return restRecharge;
 		}
 		
 		return null;

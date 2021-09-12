@@ -37,4 +37,8 @@ public class RestRecharge {
 	
 	private int approveStatus;
 	
+	private String attachUrl;
+	
+	private RestEsCustomer customer;
+	
 }

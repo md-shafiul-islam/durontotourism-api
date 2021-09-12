@@ -22,6 +22,7 @@ import com.usoit.api.data.vo.RestUserDetails;
 import com.usoit.api.data.vo.RestUserPack;
 import com.usoit.api.model.Access;
 import com.usoit.api.model.Country;
+import com.usoit.api.model.Customer;
 import com.usoit.api.model.Department;
 import com.usoit.api.model.Designation;
 import com.usoit.api.model.Gender;
@@ -34,6 +35,7 @@ import com.usoit.api.model.UserTemp;
 import com.usoit.api.model.request.ReqAddress;
 import com.usoit.api.model.request.ReqUpdateUser;
 import com.usoit.api.model.request.ReqUser;
+import com.usoit.api.model.response.RestEsCustomer;
 import com.usoit.api.model.response.RestEsUser;
 import com.usoit.api.services.CountryServices;
 import com.usoit.api.services.DepartmentServices;
@@ -988,6 +990,8 @@ public class UserMapper {
 		
 		return null;
 	}
+
+	
 
 
 

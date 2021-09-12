@@ -16,4 +16,8 @@ public interface RechargeMapper {
 
 	public RestRecharge mapRestRechargeViaAdd(Recharge recharge);
 
+	public List<RestRecharge> mapRestRechargesOnly(List<Recharge> recharges);
+	
+	public RestRecharge mapRestRechargeOnly(Recharge recharge);
+
 }
