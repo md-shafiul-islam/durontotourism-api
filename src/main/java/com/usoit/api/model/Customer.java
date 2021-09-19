@@ -1,7 +1,10 @@
 package com.usoit.api.model;
 
+import java.util.List;
+
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import lombok.AllArgsConstructor;
@@ -22,6 +25,9 @@ public class Customer extends User{
 	
 	@OneToOne(mappedBy = "customer")
 	private Wallet wallet;
+	
+	@OneToMany(mappedBy = "customer")
+	private List<WalletWithDraw> walletWithDraws;
 	
 
 

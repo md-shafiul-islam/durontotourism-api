@@ -1,12 +1,12 @@
 # Compiled class file
 *.class
 
-./src/main/resources/static/uimages/**
-./src/main/resources/static/signature/**
-./src/main/resources/static/prfile/**
+/src/main/resources/static/uimages/**
+/src/main/resources/static/signature/**
+/src/main/resources/static/prfile/**
 /target/**
-./.sts4-cache/**
-./logs
+/.sts4-cache/**
+/logs
 # Log file
 *.log
 

@@ -2,46 +2,14 @@ package com.usoit.api.services;
 
 import java.util.List;
 
-import com.usoit.api.model.BankAccount;
-import com.usoit.api.model.BankAccountType;
-import com.usoit.api.model.BankAccountUpdateInf;
-import com.usoit.api.model.User;
-import com.usoit.api.model.request.ReqBankAccountUApprove;
-import com.usoit.api.model.request.ReqBankApprove;
-import com.usoit.api.model.request.ReqBankReject;
-import com.usoit.api.model.response.BankAccountTypeOption;
+import com.usoit.api.model.Bank;
 
 public interface BankServices {
 
-	public List<BankAccount> getBankAccounts();
+	public List<Bank> getAllBank();
 
-	public BankAccountType getBankAccountType(String id);
+	public boolean addBak(Bank bank);
 
-	public BankAccount getBankAccountByPublicID(String id);
-
-	public boolean addBankAcount(BankAccount bankAccount, User user);
-
-	public boolean isKeyExist(String key);
-
-	public boolean approveBankAccount(ReqBankApprove bankAApprove, User user);
-
-	public boolean rejectBankAccount(ReqBankReject bankReject, User user);
-
-	public List<BankAccount> getActiveBankAccounts();
-
-	public List<BankAccount> getUpdatePendingBankAccounts();
-
-	public List<BankAccount> getAllBankName();
-
-	public List<BankAccount> getAllBankByName(String name);
-
-	public BankAccount getBankAccountByAccountNumber(String acNo);
-
-	public boolean updateBankAccountInf(BankAccountUpdateInf bAccountUpdateInf);
-
-
-	public BankAccountUpdateInf getBankUpdateInfByBankId(String publicId);
-
-	public boolean approveUpdateBankAccount(ReqBankAccountUApprove approveReq, User user);
+	public Bank getBanByPublicId(String id);
 
 }

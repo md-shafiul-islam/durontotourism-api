@@ -1,7 +1,5 @@
 package com.usoit.api.servicesimpl;
 
-import java.util.Optional;
-
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.NoResultException;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -15,7 +13,6 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.usoit.api.model.Department;
 import com.usoit.api.model.UserAddressTemp;
 import com.usoit.api.model.UserTemp;
 import com.usoit.api.repository.TempUserRepository;

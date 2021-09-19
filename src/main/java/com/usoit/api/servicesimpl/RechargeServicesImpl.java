@@ -80,6 +80,10 @@ public class RechargeServicesImpl implements RechargeServices {
 
 			Date date = new Date();
 			// DT_ADW_CA, CQ, MB, IB
+			
+			//DT_BTOB_ADW_BD_20210912_IB_885566771
+			//DT_BTOC_ADW_BD_20210912_IB_885566771
+			
 			recharge.setGenId(getUniqueGenID(recharge.getTransType()));
 			recharge.setPublicId(getPublicId());
 			recharge.setPaymentStatus(paymentStatusServices.getPaymentStatusById(1));
@@ -134,27 +138,19 @@ public class RechargeServicesImpl implements RechargeServices {
 						log.debug("Recharge Amount DB " + dbRecharg.getAmount());
 
 						if (dbRecharg.getBankAccount() != null && dbRecharg.getCustomer() != null) {
-							
-							double netAddWalletAmount = rechargeApprove.getNetAmount();
-							double chargeAmount = rechargeApprove.getChargeAmount();
-							dbRecharg.setNetAddWalletAmount(netAddWalletAmount);
-							
-							if(chargeAmount > 0) {
-								double netAmount = (dbRecharg.getAmount() - chargeAmount);
-								if(netAddWalletAmount != netAmount) {
-									dbRecharg.setNetAddWalletAmount(netAmount);									
-								}
-								
-							}						
+														
+							double chargeAmount = rechargeApprove.getChargeAmount();				
 							
 							dbRecharg.setChargeAmount(chargeAmount);
+							
+							double netAmount = dbRecharg.getAmount() - chargeAmount;
 							
 							if (dbRecharg.getCustomer().getWallet() != null) {
 
 								Wallet dbWallet = session.get(Wallet.class,
 										dbRecharg.getCustomer().getWallet().getId());
 
-								double nWaAmount = dbWallet.getTotalAmount() + dbRecharg.getNetAddWalletAmount();
+								double nWaAmount = dbWallet.getTotalAmount() + netAmount;
 								dbWallet.setTotalAmount(nWaAmount);
 
 								dbRecharg.setApproveStatus(rechargeApprove.getStatus());
@@ -166,7 +162,7 @@ public class RechargeServicesImpl implements RechargeServices {
 								Wallet wallet = new Wallet();
 								wallet.setCustomer(recharge.getCustomer());
 								wallet.setDate(new Date());
-								wallet.setTotalAmount(recharge.getNetAddWalletAmount());
+								wallet.setTotalAmount(netAmount);
 								wallet.setApproveStatus(1);
 								dbRecharg.setApproveStatus(rechargeApprove.getStatus());
 								dbRecharg.setPaymentStatus(paymentStatus);
@@ -176,12 +172,13 @@ public class RechargeServicesImpl implements RechargeServices {
 							}
 							
 							BankAccount dbBankAccount = session.get(BankAccount.class, dbRecharg.getBankAccount().getId());
-							log.debug("Befor Updated Bank ID: "+dbBankAccount.getId()+ " Amount " + dbBankAccount.getAmount() + " Recharge Amount "+ dbRecharg.getNetAddWalletAmount());
-							double bankAmount = dbBankAccount.getAmount().doubleValue() + dbRecharg.getNetAddWalletAmount();
+							log.debug("Befor Updated Bank ID: "+dbBankAccount.getId()+ " Amount " + dbBankAccount.getAmount() + " Recharge Amount "+ netAmount);
+							double bankAmount = dbBankAccount.getAmount().doubleValue() + netAmount;
 							dbBankAccount.setAmount(new BigDecimal(bankAmount));
 							log.debug("Updated Bank Amount " + dbBankAccount.getAmount());
 							session.update(dbBankAccount);
 							
+							//TODO:Transection Recharge To bank account, Recharge to Wallet, Wallet to bank Or Any charge provider 
 						}
 
 						dbRecharg.setActionDate(new Date());
@@ -230,7 +227,7 @@ public class RechargeServicesImpl implements RechargeServices {
 					PaymentStatus paymentStatus = session.get(PaymentStatus.class, 3);
 					Recharge dbRecharge = session.get(Recharge.class, recharge.getId());
 					dbRecharge.setRejected(true);
-					dbRecharge.setRejectedNote(rechargeReject.getRejctNote());
+					dbRecharge.setRejectedNote(rechargeReject.getRejectNote());
 					dbRecharge.setActionDate(new Date()); 
 					dbRecharge.setApproveStatus(2);
 					dbRecharge.setPaymentStatus(paymentStatus);
@@ -264,6 +261,13 @@ public class RechargeServicesImpl implements RechargeServices {
 		return false;
 	}
 
+	
+	@Override
+	public List<Recharge> getRejectRecharges() {
+		
+		return rechargeRpository.getRechargeByRejected(true);
+	}
+	
 	private Recharge getRechargeByPublicIdAndApproveStatus(String publicId, int status) {
 		Optional<Recharge> optional = rechargeRpository.getRechargeByPublicIdAndApproveStatus(publicId, status);
 		if(optional.isPresent()) {

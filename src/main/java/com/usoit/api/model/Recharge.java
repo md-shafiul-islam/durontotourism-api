@@ -49,9 +49,6 @@ public class Recharge {
 	@Column(name="charge_amount")
 	private double chargeAmount;
 	
-	@Column(name="net_wallet_amount")
-	private double netAddWalletAmount;
-	
 	@Column(name="ref_transection_id")
 	private String transectionId;
 	
@@ -76,7 +73,7 @@ public class Recharge {
 	private Date transectionDate;
 	
 	@Column(name="approve_status")
-	private int approveStatus; //0 pending, 1 approve, 2 reected
+	private int approveStatus; //0 pending, 1 approve, 2 rejected
 	
 	@Column(name="trans_type")
 	private String transType;

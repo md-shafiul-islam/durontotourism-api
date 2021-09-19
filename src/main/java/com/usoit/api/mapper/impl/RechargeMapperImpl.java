@@ -6,17 +6,15 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.usoit.api.data.converter.UserMapper;
-import com.usoit.api.mapper.BankMapper;
+import com.usoit.api.mapper.BankAccountMapper;
 import com.usoit.api.mapper.CustomerMapper;
 import com.usoit.api.mapper.RechargeMapper;
 import com.usoit.api.mapper.StatusMapper;
 import com.usoit.api.model.BankAccount;
 import com.usoit.api.model.Recharge;
 import com.usoit.api.model.request.ReqRecharge;
-import com.usoit.api.model.response.RestPaymentStatus;
 import com.usoit.api.model.response.RestRecharge;
-import com.usoit.api.services.BankServices;
+import com.usoit.api.services.BankAccountServices;
 import com.usoit.api.services.HelperServices;
 
 @Service
@@ -26,10 +24,10 @@ public class RechargeMapperImpl implements RechargeMapper{
 	private HelperServices helperServices;
 	
 	@Autowired
-	private BankServices bankServices;
+	private BankAccountServices bankAccountServices;
 	
 	@Autowired
-	private BankMapper bankMapper;
+	private BankAccountMapper bankAccountMapper;
 	
 	@Autowired
 	private StatusMapper statusMapper;
@@ -50,7 +48,7 @@ public class RechargeMapperImpl implements RechargeMapper{
 			
 			if(reqRecharge.getAccountId() != null) {
 				
-				BankAccount bankAccount = bankServices.getBankAccountByPublicID(reqRecharge.getAccountId());
+				BankAccount bankAccount = bankAccountServices.getBankAccountByPublicID(reqRecharge.getAccountId());
 				
 				recharge.setBankAccount(bankAccount);
 			}
@@ -75,7 +73,7 @@ public class RechargeMapperImpl implements RechargeMapper{
 			RestRecharge restRecharge = new RestRecharge();
 			
 			restRecharge.setAmount(recharge.getAmount());
-			restRecharge.setBankAccount(bankMapper.mapRechargBankAccount(recharge.getBankAccount()));
+			restRecharge.setBankAccount(bankAccountMapper.mapRechargBankAccount(recharge.getBankAccount()));
 			
 			restRecharge.setDate(recharge.getDate());
 			restRecharge.setGenId(recharge.getGenId());
@@ -101,7 +99,7 @@ public class RechargeMapperImpl implements RechargeMapper{
 			RestRecharge restRecharge = new RestRecharge();
 			
 			restRecharge.setAmount(recharge.getAmount());
-			restRecharge.setBankAccount(bankMapper.mapOnlyBankAccount(recharge.getBankAccount()));
+			restRecharge.setBankAccount(bankAccountMapper.mapOnlyBankAccount(recharge.getBankAccount()));
 			
 			restRecharge.setDate(recharge.getDate());
 			restRecharge.setGenId(recharge.getGenId());
@@ -173,7 +171,7 @@ public class RechargeMapperImpl implements RechargeMapper{
 				return null;
 			}
 			
-			restRecharge.setBankAccount(bankMapper.mapOnlyBankAccount(recharge.getBankAccount()));
+			restRecharge.setBankAccount(bankAccountMapper.mapOnlyBankAccount(recharge.getBankAccount()));
 			restRecharge.setAmount(recharge.getAmount());
 			restRecharge.setApproveStatus(recharge.getApproveStatus());
 			restRecharge.setDate(recharge.getDate());

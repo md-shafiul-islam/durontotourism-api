@@ -84,5 +84,8 @@ public class BankAccount {
 	
 	@Column(name="update_request_status")
 	private boolean updateReqStatus; // have update request or not
+	
+	@Column(name="wallet_enable")
+	private boolean walletEnable;
 
 }

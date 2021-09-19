@@ -25,4 +25,7 @@ public interface RechargeRpository extends CrudRepository<Recharge, Integer>{
 	@Query
 	public List<Recharge> getAllRechargeByApproveStatusAndWalletStatus(int approveStatus, boolean walletStatus);
 
+	@Query
+	public List<Recharge> getRechargeByRejected(boolean rejected);
+
 }

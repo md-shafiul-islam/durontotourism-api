@@ -42,4 +42,6 @@ public class RestBankAccount {
 	private int approveStatus;
 	
 	private int updateStatus;
+	
+	private boolean walletEnable;
 }

@@ -21,4 +21,6 @@ public interface RechargeServices {
 
 	public List<Recharge> getAllPendingRecharges();
 
+	public List<Recharge> getRejectRecharges();
+
 }

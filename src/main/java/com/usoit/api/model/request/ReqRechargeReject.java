@@ -11,10 +11,10 @@ public class ReqRechargeReject {
 	
 	private String publicId;
 	
-	private int rejcetStatus;
+	private int rejectStatus;
 	
 	private int status;
 	
-	private String rejctNote;
+	private String rejectNote;
 
 }
