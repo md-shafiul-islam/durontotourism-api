@@ -141,7 +141,7 @@ public class WalletWithdrawrController {
 			
 			if(withDraw != null) {
 				
-				RestWalletWithDraw restWalletWithdarw = walletWithDrawMapper.mapRestWalletWithDarw(withDraw);
+				RestWalletWithDraw restWalletWithdarw = walletWithDrawMapper.mapRestWalletWithDarwOnly(withDraw);
 				
 				map.put("message", "Wallet Withdarw found");
 				map.put("status", true);

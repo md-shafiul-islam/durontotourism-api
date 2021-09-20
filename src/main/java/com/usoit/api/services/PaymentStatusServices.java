@@ -1,11 +1,17 @@
 package com.usoit.api.services;
 
-import org.springframework.data.repository.CrudRepository;
+import java.util.List;
+
+import org.springframework.stereotype.Service;
 
 import com.usoit.api.model.PaymentStatus;
 
-public interface PaymentStatusServices extends CrudRepository<PaymentStatus, Integer>{
+@Service
+public interface PaymentStatusServices {
 
 	public PaymentStatus getPaymentStatusById(int i);
+
+	public List<PaymentStatus> getAllPaymentStatus();
+	
 
 }

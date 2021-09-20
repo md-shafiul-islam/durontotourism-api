@@ -15,4 +15,7 @@ public interface WalletWithDrawMapper {
 
 	public WalletWithDraw mapReqWalletWithDraw(ReqWalletWithdraw withDraw);
 
+
+	public RestWalletWithDraw mapRestWalletWithDarwOnly(WalletWithDraw withDraw);
+
 }

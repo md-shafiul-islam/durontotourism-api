@@ -86,7 +86,12 @@ public class WalletWithDraw {
 		
 	private Date date;
 	
+	@Column(name="approve_date")
+	private Date approveDate;
+	
 	@Column(name="date_group")
 	private Date dateGroup;
+	
+	
 
 }
