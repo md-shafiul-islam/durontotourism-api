@@ -244,6 +244,19 @@ public class User implements UserDetails {
 	
 	@Column(name = "authentication_status")
 	protected int authenticationStatus;
+	
+
+	@Column(name="account_non_lock") //Default value true
+	protected boolean accountNonLocked;
+
+	@Column(name="credentials_non_exp") //Default true
+	protected boolean credentialsNonExpired;
+
+	@Column(name="enabled") //Default True
+	protected boolean enabled;
+
+	@Column(name="account_non_exp") //Default True
+	protected boolean accountNonExpired;
 
 	@Transient
 	protected MultipartFile pfImageFile;
@@ -305,17 +318,6 @@ public class User implements UserDetails {
 	@Transient
 	protected MultipartFile fieldVerificationFile;
 
-	@Column(name="account_non_lock") //Default value true
-	protected boolean accountNonLocked;
-
-	@Column(name="credentials_non_exp") //Default true
-	protected boolean credentialsNonExpired;
-
-	@Column(name="enabled") //Default True
-	protected boolean enabled;
-
-	@Column(name="account_non_exp") //Default True
-	protected boolean accountNonExpired;
 
 
 	@Override

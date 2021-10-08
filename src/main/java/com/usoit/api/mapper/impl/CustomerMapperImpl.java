@@ -21,9 +21,9 @@ public class CustomerMapperImpl implements CustomerMapper {
 
 			RestEsCustomer restCustomer = new RestEsCustomer();
 
-			restCustomer.setEmail(customer.getPersonalEmail());
-			restCustomer.setFirstName(customer.getName());
-			restCustomer.setPhone(customer.getPersonalPhoneNumber());
+//			restCustomer.setEmail(customer.getPersonalEmail());
+//			restCustomer.setFirstName(customer.getName());
+//			restCustomer.setPhone(customer.getPersonalPhoneNumber());
 			restCustomer.setPublicId(customer.getPublicId());
 
 			if (customer.getWallet() != null) {

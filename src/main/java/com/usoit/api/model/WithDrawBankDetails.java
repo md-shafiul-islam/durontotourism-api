@@ -49,4 +49,7 @@ public class WithDrawBankDetails {
 	private String branchName;
 
 	private Date date;
+	
+	@Column(name="date_group")
+	private Date dateGroup;
 }

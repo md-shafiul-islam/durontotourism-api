@@ -130,7 +130,7 @@ public class RechargeServicesImpl implements RechargeServices {
 					transaction = session.beginTransaction();
 					
 					if (recharge.getCustomer() != null) {
-						log.debug("Recharge Customer Name: " + recharge.getCustomer().getName());
+//						log.debug("Recharge Customer Name: " + recharge.getCustomer().getName());
 
 						PaymentStatus paymentStatus = session.get(PaymentStatus.class, 2);
 						Recharge dbRecharg = session.get(Recharge.class, recharge.getId());

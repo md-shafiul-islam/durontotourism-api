@@ -16,7 +16,6 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.NoArgsConstructor;
 
 
@@ -53,8 +52,8 @@ public class Role {
 	@Column(name = "date_group")
 	private Date dateGroupe;
 	
-	@Column(name = "auth_status")
-	private int authStatus;
+	@Column(name = "auth_status") 
+	private int authStatus;//Default 1
 
 	public int getId() {
 		return id;

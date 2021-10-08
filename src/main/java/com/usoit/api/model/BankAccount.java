@@ -1,6 +1,7 @@
 package com.usoit.api.model;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -87,5 +88,7 @@ public class BankAccount {
 	
 	@Column(name="wallet_enable")
 	private boolean walletEnable;
+	
+	private Date date;
 
 }

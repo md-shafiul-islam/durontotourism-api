@@ -37,6 +37,7 @@ public class AccessType {
 	
 	private String value;
 	
+	@Column(name="num_value")
 	private int numValue;
 	
 	
