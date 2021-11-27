@@ -10,7 +10,9 @@ public class SecurityConstants {
 	
 	public static final String SIGN_UP_URL = "/user";
 	
-	public static final String TOKEN_SECRET = "e0ad5l8e1aw9a4";
+	public static final String TOKEN_SECRET = "5aw8af9 7ds8g4w5 d8n8dc1v 3are9j4b p#$x3";
+	
+	public static final String PWD_SALT = "*5S&a(lK9-$";
 	
 	
 }

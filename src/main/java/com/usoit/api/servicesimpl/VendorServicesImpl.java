@@ -27,8 +27,10 @@ import com.usoit.api.services.HelperServices;
 import com.usoit.api.services.VendorMapper;
 import com.usoit.api.services.VendorServices;
 
+import lombok.extern.slf4j.Slf4j;
 import net.bytebuddy.asm.Advice.Return;
 
+@Slf4j
 @Service
 public class VendorServicesImpl implements VendorServices {
 
@@ -70,7 +72,7 @@ public class VendorServicesImpl implements VendorServices {
 	@Override
 	public boolean save(Vendor vendor) {
 
-		System.out.println("Vendor save Run!!");
+		log.info("Vendor save Run!!");
 
 		if (0 >= vendor.getId() && vendor.getAddresses() != null && vendor.getPaymentInfos() != null
 				&& vendor.getContactPersons() != null) {
@@ -399,11 +401,11 @@ public class VendorServicesImpl implements VendorServices {
 		criteriaQuery.orderBy(criteriaBuilder.desc(root.get("id")));
 		Query<Vendor> query = session.createQuery(criteriaQuery);
 
-		System.out.println("From Action");
+		log.info("From Action");
 
 		session.clear();
 		// session.close();
-		System.out.println("After Session Clear and close !!");
+		log.info("After Session Clear and close !!");
 
 		return query.getResultList();
 	}

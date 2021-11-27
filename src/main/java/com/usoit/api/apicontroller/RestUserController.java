@@ -6,14 +6,11 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.hibernate.id.UUIDGenerationStrategy;
-import org.hibernate.id.UUIDGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +18,6 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -120,7 +116,7 @@ public class RestUserController {
 		
 		unicId = utilsServices.getUnicId();
 		
-		System.out.println("User Generated Unic ID: " + unicId);
+		log.info("User Generated Unic ID: " + unicId);
 		unicId = unicId+"   "+Integer.toString(unicId.length());
 		return ResponseEntity.ok(unicId);
 	}
@@ -162,6 +158,10 @@ public class RestUserController {
 		// ResponseEntity<?>
 		String jwt = null;
 		if(loginData != null) {
+			log.info("Before Authentication Manager Run, Password "+ loginData.getPassword());
+			log.info("");
+			log.info(passwordEncoder.encode(loginData.getPassword()));
+			log.info("");
 			
 			Authentication authentication = authenticationManager.authenticate(
 					new UsernamePasswordAuthenticationToken(loginData.getUsername(), loginData.getPassword()));
@@ -181,14 +181,14 @@ public class RestUserController {
 	public ResponseEntity<?> getAllAccessByUserId(Principal principal, HttpServletRequest request,
 			@PathVariable("id") String pubId) {
 		
-		System.out.println("User Access Run !! Public ID: "+ pubId);
+		log.info("User Access Run !! Public ID: "+ pubId);
 		log.info("Access Run by Request");
 		
 		//User user = helperAuthenticationServices.getCurrentUser();
 		
 		if (principal != null) {
 
-			System.out.println("Principal: " + principal.getName());
+			log.info("Principal: " + principal.getName());
 
 			if (helperServices.isValidAndLenghtCheck(pubId, 40)) {
 
@@ -239,7 +239,7 @@ public class RestUserController {
 		if (user.getUserAddresses() != null) {
 
 			for (UserAddress userAddress : user.getUserAddresses()) {
-				System.out.println("Address Title: " + userAddress.getTitle() + " Country Name: "
+				log.info("Address Title: " + userAddress.getTitle() + " Country Name: "
 						+ userAddress.getCountry().getName());
 			}
 		}
@@ -661,7 +661,7 @@ public class RestUserController {
 
 		if (userTemp != null) {
 
-			System.out.println("User Temp Not Null !!");
+			log.info("User Temp Not Null !!");
 			if (!userTemp.getPublicId().isEmpty()) {
 
 				String publicId = userTemp.getPublicId();
@@ -702,9 +702,9 @@ public class RestUserController {
 		RestAccessUser accessUser = null;
 		User authUser = null;
 		
-		System.out.println("Befor User Conds !!");
+		log.info("Befor User Conds !!");
 		if (helperServices.isValidAndLenghtCheck(pubId, 40)) {
-			System.out.println("After User Conds !!");
+			log.info("After User Conds !!");
 			
 			User user = userServices.getUserByPublicKeyOrId(pubId);
 			authUser = helperAuthenticationServices.getCurrentUser();
@@ -722,10 +722,10 @@ public class RestUserController {
 
 					if (accessUser.getAll() == 1 || pIdDb.equals(reqId)) {
 
-						System.out.println("User Can Access Details View !!");
+						log.info("User Can Access Details View !!");
 
 					} else {
-						System.out.println("This User Can't Access Details View !!");
+						log.info("This User Can't Access Details View !!");
 
 						msgList.add(new String("You cann't Access this options Please contact Administartor "));
 						return ResponseEntity.ok(msgList);
@@ -735,7 +735,7 @@ public class RestUserController {
 
 			// Set Access controls End
 
-			System.out.println("User Access Pass!!");
+			log.info("User Access Pass!!");
 
 			if (pubId != null) {
 
@@ -985,10 +985,10 @@ public class RestUserController {
 		if (restPassword != null) {
 			
 			
-			System.out.println("Rest User Id: " + restPassword.getUserId());
-			System.out.println("Rest Old Password: " + restPassword.getOldPass());
-			System.out.println("Rest New Password: " + restPassword.getNewPassword());
-			System.out.println("Rest Conf Password: " +  restPassword.getConfPassword());
+			log.info("Rest User Id: " + restPassword.getUserId());
+			log.info("Rest Old Password: " + restPassword.getOldPass());
+			log.info("Rest New Password: " + restPassword.getNewPassword());
+			log.info("Rest Conf Password: " +  restPassword.getConfPassword());
 			
 			if(restPassword.getUserId() == null || restPassword.getOldPass() == null || restPassword.getConfPassword() == null ||  restPassword.getNewPassword() == null){
 				retUserData.put("restMsg", "Sending User Id Is: Password: C Password: " + restPassword.getUserId() );
@@ -998,7 +998,7 @@ public class RestUserController {
 			
 			if (cuUser != null) {
 				
-				System.out.println("Current User ID: " + cuUser.getPublicId());
+				log.info("Current User ID: " + cuUser.getPublicId());
 				
 				String patternString = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])(?=\\S+$).{7,16}$";
 
@@ -1013,7 +1013,7 @@ public class RestUserController {
 					String cPubId = cuUser.getPublicId();
 					String restId = restPassword.getUserId();
 					
-					System.out.println("C User: Rest User" + cPubId + " \\\\\\\\\\\\\\ " + restId);
+					log.info("C User: Rest User" + cPubId + " \\\\\\\\\\\\\\ " + restId);
 										
 					log.debug("C User: Rest User" + cPubId + " \\\\\\\\\\\\\\ " + restId);
 					
@@ -1024,8 +1024,8 @@ public class RestUserController {
 						
 						String restOlPass = userServices.getIncrptedPass(restPassword.getOldPass());
 						
-						System.out.println("DB Pass: RS Pss: " + dbPass + " ---::::::-- " + restOlPass);
-						System.out.println("DB Pass: RS Pss: " + dbPass + " ---::::::-- " + restOlPass);
+						log.info("DB Pass: RS Pss: " + dbPass + " ---::::::-- " + restOlPass);
+						log.info("DB Pass: RS Pss: " + dbPass + " ---::::::-- " + restOlPass);
 						 
 						if (restOlPass.equals(dbPass)) {
 							
@@ -1042,7 +1042,7 @@ public class RestUserController {
 								credential.setStatus(1);
 								credential.setUser(cuUser);
 								
-								System.out.println("User Pass Every thing");
+								log.info("User Pass Every thing");
 								
 								
 								if (userServices.updatePassword(credential)) {
@@ -1112,7 +1112,7 @@ public class RestUserController {
 
 		if (userAddPandingUsers != null) {
 
-			System.out.println("Approve Panding Size: " + userAddPandingUsers.size());
+			log.info("Approve Panding Size: " + userAddPandingUsers.size());
 			userRestApprovalPanding = userMapper.getRestUsers(userAddPandingUsers);
 
 		} else {
@@ -1128,12 +1128,12 @@ public class RestUserController {
 
 		if (updatePandingUsers != null) {
 
-			System.out.println("Update Panding User Size: " + updatePandingUsers.size());
+			log.info("Update Panding User Size: " + updatePandingUsers.size());
 			updateApprovePendinRestUsers = userMapper.getRestUsers(updatePandingUsers);
-			System.out.println("Update Panding Rest User Size: " + updateApprovePendinRestUsers.size());
+			log.info("Update Panding Rest User Size: " + updateApprovePendinRestUsers.size());
 
 		} else {
-			System.out.println("Update User's Not Found");
+			log.info("Update User's Not Found");
 		}
 
 	}
@@ -1161,10 +1161,10 @@ public class RestUserController {
 
 		setUsers(msg);
 
-		System.out.println("User Mapper Func");
+		log.info("User Mapper Func");
 		restUserList = userMapper.getRestUsers(users);
 
-		System.out.println("Rest user Size: " + restUserList.size());
+		log.info("Rest user Size: " + restUserList.size());
 
 	}
 

@@ -35,6 +35,9 @@ import com.usoit.api.services.CountryServices;
 import com.usoit.api.services.VendorCategoryServices;
 import com.usoit.api.services.VendorMapper;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Service
 public class VendorMapperImpl implements VendorMapper {
 
@@ -652,13 +655,13 @@ public class VendorMapperImpl implements VendorMapper {
 
 			}
 
-			System.out.println("Befor User Vendor Rest Mapping");
+			log.info("Befor User Vendor Rest Mapping");
 			if (vendor.getUser() != null) {
 
 				restVendorUser.setUserId(vendor.getUser().getUserGemId());
 				restVendorUser.setUserPublicId(vendor.getUser().getPublicId());
 			}
-			System.out.println("After User Vendor Rest Mapping");
+			log.info("After User Vendor Rest Mapping");
 
 			if (vendor.getVendorCategory() != null) {
 
@@ -698,7 +701,7 @@ public class VendorMapperImpl implements VendorMapper {
 	public List<RestAddress> getVendorRestAddress(Vendor vendor) {
 		List<RestAddress> restAddresses = new ArrayList<RestAddress>();
 		
-		System.out.println("RestAddress Mapping Run !!");
+		log.info("RestAddress Mapping Run !!");
 
 		for (Address address : vendor.getAddresses()) {
 
@@ -711,18 +714,18 @@ public class VendorMapperImpl implements VendorMapper {
 			restAddress.setVillage(address.getVillage());
 			restAddress.setZipCode(address.getZipCode());
 			
-			System.out.println("RestAddress Mapping Run After Zip Code!!");
+			log.info("RestAddress Mapping Run After Zip Code!!");
 
 			if (address.getCountry() != null) {
 				
-				System.out.println("Address To Rest Address: " + address.getCountry().getName());
+				log.info("Address To Rest Address: " + address.getCountry().getName());
 				
 				RestCountry country = DozerMapper.parseObject(address.getCountry(), RestCountry.class);
 
 				restAddress.setCountry(country);
 			}
 			
-			System.out.println("RestAddress Mapping Run After Country!!");
+			log.info("RestAddress Mapping Run After Country!!");
 			restAddresses.add(restAddress);
 
 		}

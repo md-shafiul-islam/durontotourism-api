@@ -24,7 +24,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.usoit.api.model.Access;
+import com.usoit.api.enduser.services.CustomerServices;
 import com.usoit.api.model.Credential;
 import com.usoit.api.model.Customer;
 import com.usoit.api.model.User;
@@ -58,6 +58,9 @@ public class UserServicesImpl implements UserServices {
 
 	@Autowired
 	private CustomerRepository customerRepository;
+
+	@Autowired
+	private CustomerServices customerServices;
 
 	private static User cUser;
 
@@ -183,26 +186,26 @@ public class UserServicesImpl implements UserServices {
 						String cPass = credential.getPassword();
 						String pPass = password;
 
-						System.out.println("C Pass: " + cPass + " In Pass: " + password);
+						log.info("C Pass: " + cPass + " In Pass: " + password);
 
 						if (pPass.equals(cPass)) {
 
-							System.out.println("DB Pass Match!!!");
+							log.info("DB Pass Match!!!");
 
 						} else {
-							System.out.println("DB Pass Not Match !!!!!!!!");
+							log.info("DB Pass Not Match !!!!!!!!");
 						}
 
 						if (pPass.equals(cPass) && credential.getStatus() == 1) {
 
-							System.out.println("DB Pass Match!!! With Active");
+							log.info("DB Pass Match!!! With Active");
 							UserServicesImpl.cUser = user;
 
-							System.out.println("User Name: " + user.getName());
+							log.info("User Name: " + user.getName());
 							return user;
 
 						} else {
-							System.out.println("DB Pass Not Match !!!!!!!! With Active");
+							log.info("DB Pass Not Match !!!!!!!! With Active");
 						}
 
 					}
@@ -374,11 +377,11 @@ public class UserServicesImpl implements UserServices {
 			criteriaQuery.orderBy(criteriaBuilder.desc(root.get("id")));
 			Query<User> query = session.createQuery(criteriaQuery);
 
-			System.out.println("From Update Panding  Usres");
+			log.info("From Update Panding  Usres");
 
 			session.clear();
 			// session.close();
-			System.out.println("After Session Clear and close !!");
+			log.info("After Session Clear and close !!");
 
 			return query.getResultList();
 
@@ -413,7 +416,7 @@ public class UserServicesImpl implements UserServices {
 						User updateUser = session.get(User.class, dbUser.getId());
 						updateUser.setUpdateApproveStatus(1);
 						session.update(updateUser);
-						System.out.println("Update Done Session");
+						log.info("Update Done Session");
 						transaction.commit();
 
 						if (updateUser.getUpdateApproveStatus() == 1) {
@@ -454,11 +457,11 @@ public class UserServicesImpl implements UserServices {
 		criteriaQuery.orderBy(criteriaBuilder.desc(root.get("id")));
 		Query<User> query = session.createQuery(criteriaQuery);
 
-		System.out.println("From Action");
+		log.info("From Action");
 
 		session.clear();
 		// session.close();
-		System.out.println("After Session Clear and close !!");
+		log.info("After Session Clear and close !!");
 
 		return query.getResultList();
 
@@ -666,10 +669,10 @@ public class UserServicesImpl implements UserServices {
 		criteriaQuery.orderBy(criteriaBuilder.desc(root.get("id")));
 		Query<User> query = session.createQuery(criteriaQuery);
 
-		System.out.println("From Action");
+		log.info("From Action");
 
 		session.clear();
-		System.out.println("After Session Clear and close !!");
+		log.info("After Session Clear and close !!");
 
 		return query.getResultList();
 	}
@@ -732,7 +735,7 @@ public class UserServicesImpl implements UserServices {
 			return list;
 
 		} catch (NoResultException e) {
-			System.out.println("User Not Found!!");
+			log.info("User Not Found!!");
 		} catch (Exception e) {
 
 			if (transaction != null) {
@@ -816,7 +819,7 @@ public class UserServicesImpl implements UserServices {
 
 			session.clear();
 			// session.close();
-			System.out.println("After Session Clear and close !!");
+			log.info("After Session Clear and close !!");
 
 			transaction.commit();
 
@@ -860,11 +863,11 @@ public class UserServicesImpl implements UserServices {
 
 		User user = getUserByString(username);
 
-//		System.out.println("GenPassword: "+ passwordEncoder.encode("123456"));
+//		log.info("GenPassword: "+ passwordEncoder.encode("123456"));
 
 		if (user == null) {
 			log.warn("User Name not found", username);
-			throw new UsernameNotFoundException(username + "User Name not found");
+			throw new UsernameNotFoundException(username + " User not found");
 		}
 
 		return user;
@@ -1003,12 +1006,12 @@ public class UserServicesImpl implements UserServices {
 
 			if (tempUserData.getUserAddresses().size() != 0 && tempUserData.getUserAddresses().size() <= 2) {
 
-				System.out.println("User Address Size Pass!! ");
+				log.info("User Address Size Pass!! ");
 
 				if (tempUserData.getUserAddresses().get(0).getId() > 0
 						&& tempUserData.getUserAddresses().get(1).getId() > 0) {
 
-					System.out.println("User Address[0] ID Pass!! ");
+					log.info("User Address[0] ID Pass!! ");
 
 					if (tempUserData.getUserAddresses().get(0) != null) {
 
@@ -1026,7 +1029,7 @@ public class UserServicesImpl implements UserServices {
 
 					if (tempUserData.getUserAddresses().get(1) != null) {
 
-						System.out.println("User Address[1] ID Pass!! ");
+						log.info("User Address[1] ID Pass!! ");
 
 						UserAddress tempAddress2 = tempUserData.getUserAddresses().get(1);
 
@@ -1040,7 +1043,7 @@ public class UserServicesImpl implements UserServices {
 						userUpgrade.getUserAddresses().get(1).setZipCode(tempAddress2.getZipCode());
 					}
 				} else {
-					System.out.println("User Address size Else!!");
+					log.info("User Address size Else!!");
 
 					if (tempUserData.getUserAddresses().size() > 0) {
 
@@ -1085,22 +1088,22 @@ public class UserServicesImpl implements UserServices {
 			User user = null;
 			if (!stData.isEmpty()) {
 
-				System.out.println("Current User Name: " + stData);
+				log.info("Find user using User Name: " + stData);
 
 				user = userRepository.getUserByOfficialEmail(stData);
 
 				if (user == null) {
-					System.out.println("Official Email Data not found");
+					log.info("Official Email Data not found");
 					user = userRepository.getUserByPersonalPhoneNumber(stData);
 
 					if (user == null) {
 
-						System.out.println("Office Phone Data not found");
+						log.info("Office Phone Data not found");
 
 						user = userRepository.getUserByOfficialPhoneNumber(stData);
 
 						if (user == null) {
-							System.out.println("Pesonal Phone Data not found");
+							log.info("Pesonal Phone Data not found");
 
 							return user = userRepository.getUserByPersonalEmail(stData);
 						} else {// Official Phone
@@ -1125,9 +1128,9 @@ public class UserServicesImpl implements UserServices {
 			}
 
 		} catch (Exception e) {
-
 			log.warn("Login Catch : " + e.getMessage());
-
+			e.printStackTrace();
+			
 			return null;
 		}
 	}
@@ -1159,7 +1162,7 @@ public class UserServicesImpl implements UserServices {
 				transaction.commit();
 
 				if (user != null) {
-					System.out.println("User Name inside Session: " + user.getName());
+					log.info("User Name inside Session: " + user.getName());
 				}
 
 			} catch (Exception e) {

@@ -6,10 +6,14 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.usoit.api.apicontroller.RestCategoryController;
 import com.usoit.api.model.Department;
 import com.usoit.api.repository.DepartmentRepository;
 import com.usoit.api.services.DepartmentServices;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Service
 public class DepartmentServicesImpl implements DepartmentServices{
 

@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.usoit.api.model.WalletWithDraw;
 import com.usoit.api.model.request.ReqWalletWithdraw;
-import com.usoit.api.model.request.RestWalletWithDraw;
+import com.usoit.api.model.response.RestWalletWithDraw;
 
 public interface WalletWithDrawMapper {
 

@@ -1,4 +1,4 @@
-package com.usoit.api.model.request;
+package com.usoit.api.model.response;
 
 import java.util.Date;
 
@@ -18,14 +18,6 @@ import com.usoit.api.model.User;
 import com.usoit.api.model.WithDrawBankDetails;
 import com.usoit.api.model.WithDrawMobilBanking;
 import com.usoit.api.model.WithdrawType;
-import com.usoit.api.model.response.RestEsCustomer;
-import com.usoit.api.model.response.RestEsUser;
-import com.usoit.api.model.response.RestPaymentStatus;
-import com.usoit.api.model.response.RestReceiveOption;
-import com.usoit.api.model.response.RestShippingAddress;
-import com.usoit.api.model.response.RestWithDrawBankDetails;
-import com.usoit.api.model.response.RestWithDrawMobilBanking;
-import com.usoit.api.model.response.RestWithdrawType;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -11,5 +11,5 @@ public class SelectOption {
 
 	private String label;
 
-	private int value;
+	private String value;
 }

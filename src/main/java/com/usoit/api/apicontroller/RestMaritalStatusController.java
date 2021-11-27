@@ -1,6 +1,7 @@
 package com.usoit.api.apicontroller;
 
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import com.usoit.api.data.converter.DozerMapper;
 import com.usoit.api.data.vo.RestMaritalStatus;
 import com.usoit.api.model.MaritalStatus;
+import com.usoit.api.model.response.SelectOption;
 import com.usoit.api.services.MaritalStatusServices;
 
 @RestController
@@ -39,6 +41,24 @@ public class RestMaritalStatusController {
 		return ResponseEntity.ok(restMaritalStatus);
 	}
 
+	@RequestMapping(value = "/options", method = RequestMethod.GET)
+	public ResponseEntity<List<?>> getAllMaritalStatusOptions(Principal principal, HttpServletRequest request) {
+		
+		List<SelectOption> options = new ArrayList<>();
+		
+		List<MaritalStatus> maritalStatus = maritalStatusServices.getAllMaritalStatus();
+		
+		for (MaritalStatus status : maritalStatus) {
+			
+			SelectOption option = new SelectOption();
+			option.setLabel(status.getName());
+			option.setValue(Integer.toString(status.getId()));
+			options.add(option);
+		}
+		
+		return ResponseEntity.ok(options);
+	}
+	
 	private void setRestMaritalStatusList() {
 		
 		setMaritalStatus();

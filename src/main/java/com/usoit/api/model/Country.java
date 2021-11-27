@@ -83,7 +83,27 @@ public class Country implements Serializable{
 	
 	@JsonProperty("numCode")
 	@Column(name = "num_code")
-	private int numCode;
+	private String numCode;
+	
+	@Column(name="iso_3166_2")
+	private String iso3166;
+	
+	private String region;
+	
+	@Column(name="sub_region")
+	private String subRegion;
+	
+	@Column(name="intermediate_region")
+	private String intermediateRegion;
+	
+	@Column(name="region_code")
+	private String regionCode;
+	
+	@Column(name="sub_region_code")
+	private String subRegionCode;
+	
+	@Column(name="intermediate_region_code")
+	private String intermediateRegionCode;
 	
 	@JsonProperty("dialOrPhoneCode")
 	@Column(name = "phone_code")

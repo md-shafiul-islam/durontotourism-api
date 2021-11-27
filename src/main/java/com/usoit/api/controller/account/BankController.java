@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.usoit.api.apicontroller.RestCategoryController;
 import com.usoit.api.mapper.BankMapper;
 import com.usoit.api.model.Bank;
 import com.usoit.api.model.request.ReqBank;
@@ -21,6 +22,9 @@ import com.usoit.api.model.response.BankOption;
 import com.usoit.api.model.response.RestBank;
 import com.usoit.api.services.BankServices;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @RestController
 @RequestMapping(value = "/api/banks")
 public class BankController {

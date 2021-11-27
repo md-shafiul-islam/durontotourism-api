@@ -29,6 +29,9 @@ import com.usoit.api.model.request.ReqCategory;
 import com.usoit.api.services.CategoryServices;
 import com.usoit.api.services.HelperServices;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @RestController
 @RequestMapping("/api/categories")
 @CrossOrigin(origins = "http://localhost:5000", allowedHeaders = "/**")
@@ -50,7 +53,7 @@ public class RestCategoryController {
 
 		if (principal != null) {
 
-			System.out.println("Current User Name: " + principal.getName());
+			log.info("Current User Name: " + principal.getName());
 		}
 
 		setCategory();
@@ -73,17 +76,17 @@ public class RestCategoryController {
 		} else {
 			if (access.getNoAccess() == 1) {
 
-				System.out.println("No Access: " + access.getNoAccess() + "Add Access: " + access.getAdd()
+				log.info("No Access: " + access.getNoAccess() + "Add Access: " + access.getAdd()
 						+ " All Access: " + access.getAll());
 				return null;
 
 			} else {
 
-				System.out.println("Out side if: Add Access: " + access.getAdd() + " All Access: " + access.getAll());
+				log.info("Out side if: Add Access: " + access.getAdd() + " All Access: " + access.getAll());
 
 				if (access.getAll() == 1) {
 
-					System.out.println("Access Get Add Pass & All Access !!");
+					log.info("Access Get Add Pass & All Access !!");
 
 				} else {
 					return null;
@@ -109,7 +112,7 @@ public class RestCategoryController {
 
 				if (category != null) {
 
-					System.out.println("Add Cat. Category Mapping Done!!");
+					log.info("Add Cat. Category Mapping Done!!");
 
 					category.setId(0);
 
@@ -166,11 +169,11 @@ public class RestCategoryController {
 
 			} else {
 
-				System.out.println("Out side if: Add Access: " + access.getAdd() + " All Access: " + access.getAll());
+				log.info("Out side if: Add Access: " + access.getAdd() + " All Access: " + access.getAll());
 
 				if (access.getAll() == 1) {
 
-					System.out.println("Access Get Add Pass & All Access !!");
+					log.info("Access Get Add Pass & All Access !!");
 
 				} else {
 
@@ -183,7 +186,7 @@ public class RestCategoryController {
 		}
 		// Access End
 
-		System.out.println("Category Update fnc Run!! & ID: " + id);
+		log.info("Category Update fnc Run!! & ID: " + id);
 
 		if (id > 0) {
 
@@ -236,11 +239,11 @@ public class RestCategoryController {
 
 			} else {
 
-				System.out.println("Out side if: Add Access: " + access.getAdd() + " All Access: " + access.getAll());
+				log.info("Out side if: Add Access: " + access.getAdd() + " All Access: " + access.getAll());
 
 				if (access.getAll() == 1) {
 
-					System.out.println("Access Get Add Pass & All Access !!");
+					log.info("Access Get Add Pass & All Access !!");
 
 				} else {
 					returnData.put("msg", "you cann't access. This option Please contact Administrator");

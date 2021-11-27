@@ -10,6 +10,9 @@ import com.usoit.api.model.WithdrawType;
 import com.usoit.api.repository.WalletWithDrawalRepository;
 import com.usoit.api.services.WithDarawalTypeServices;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Service
 public class WithDarawalTypeServicesImpl implements WithDarawalTypeServices{
 

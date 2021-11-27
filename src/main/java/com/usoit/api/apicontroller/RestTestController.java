@@ -18,6 +18,9 @@ import com.usoit.api.model.Category;
 import com.usoit.api.services.CategoryServices;
 import com.usoit.api.services.HelperServices;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @RestController
 @RequestMapping("/api/test")
 public class RestTestController {
@@ -38,7 +41,7 @@ public class RestTestController {
 		List<String> msgs = new ArrayList<>();
 		if (principal != null) {
 			
-			System.out.println("Current User Name: " + principal.getName());
+			log.info("Current User Name: " + principal.getName());
 			msgs.add("Test Principal Found ");
 		}
 		

@@ -15,6 +15,7 @@ import java.util.UUID;
 
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -185,6 +186,8 @@ public class HelperServicesImpl implements HelperServices {
 		}
 		return null;
 	}
+	
+	
 
 	private Map<String, RestAccessUser> getUserAccessByUser(User user) {
 
@@ -219,11 +222,11 @@ public class HelperServicesImpl implements HelperServices {
 	private User checkUserValid(HttpSession httpSession, String type, int numType) {
 		User user = (User) httpSession.getAttribute("currentUser");
 
-		System.out.println("Validation Check Start ...");
+		log.info("Validation Check Start ...");
 
 		if (user != null) {
 
-			System.out.println("User Not null ...");
+			log.info("User Not null ...");
 			int id = user.getId();
 
 			user = null;
@@ -240,11 +243,11 @@ public class HelperServicesImpl implements HelperServices {
 
 						if (user.getRole() != null) {
 
-							System.out.println("User Role Not Null ...");
+							log.info("User Role Not Null ...");
 
 							if (user.getRole() != null) {
 
-								System.out.println("Accesses Not Null ... ");
+								log.info("Accesses Not Null ... ");
 
 								Role role = roleServices.getRoleWitAccessById(user.getRole().getId());
 								
@@ -281,7 +284,7 @@ public class HelperServicesImpl implements HelperServices {
 
 					if (authUser.getRole() != null) {
 
-						System.out.println("User Role Not Null ...");
+						log.info("User Role Not Null ...");
 
 						if (authUser.getRole() != null) {
 
@@ -308,7 +311,7 @@ public class HelperServicesImpl implements HelperServices {
 		if (role != null) {
 			for (Access item : role.getAccesses()) {
 
-				System.out.println("Principal Access ...");
+				log.info("Principal Access ...");
 
 				if (item.getAccessType() != null) {
 
@@ -322,8 +325,8 @@ public class HelperServicesImpl implements HelperServices {
 					if (pStType.equals(cType) || pNValue == paramNValue) {
 
 						if (item != null) {
-							log.info("Current Access Principal: Add " + item.getAdd() + " No Access Value: "
-									+ item.getNoAccess() + " All Access!! " + item.getAll());
+//							log.info("Current Access Principal: Add " + item.getAdd() + " No Access Value: "
+//									+ item.getNoAccess() + " All Access!! " + item.getAll());
 
 							return item;
 						}
@@ -340,20 +343,23 @@ public class HelperServicesImpl implements HelperServices {
 
 	@Override
 	public String uploadImageAndGetUrl(MultipartFile file, String path) {
+		
 		return uploadAndSaveImage(file, path);
 	}
 
 	private String uploadAndSaveImage(MultipartFile mFile, String path) {
 
 		if (mFile != null) {
-
+			
+			log.info("File not null" + mFile.getName());
+			
 			if (!mFile.getOriginalFilename().isEmpty()) {
 
 				try {
 
 					String fileExtenstion = FilenameUtils.getExtension(mFile.getOriginalFilename());
 
-					System.out.println("file Name: " + mFile.getName() + "Fiel Extenstion: " + fileExtenstion);
+					log.info("file Name: " + mFile.getName() + "Fiel Extenstion: " + fileExtenstion);
 
 					String scPath = path;
 					path = STATIC_FILE_DIR + UPLOAD_DIR + path;
@@ -362,9 +368,9 @@ public class HelperServicesImpl implements HelperServices {
 					if (!makeFile.exists()) {
 
 						if (makeFile.mkdir()) {
-							System.out.println("Make Directory Done !");
+							log.info("Make Directory Done !");
 						} else {
-							System.out.println("Make Directory Fail !");
+							log.info("Make Directory Fail !");
 						}
 
 					}
@@ -375,15 +381,15 @@ public class HelperServicesImpl implements HelperServices {
 
 					String timeStamp = Long.toString(miliSc);
 
-					System.out.println("time Stamp: " + timeStamp);
+					log.info("time Stamp: " + timeStamp);
 
 					String fileName = timeStamp + getRandomString(15) + "." + fileExtenstion;
-					System.out.println("File Name: " + fileName);
+					log.info("File Name: " + fileName);
 
-					String name = path + "//" + fileName;
+					String name = path + "/" + fileName;
 
-					System.out.println("Path: " + path + " File Name: " + fileName);
-					System.out.println("Full Path: " + name);
+					log.info("Path: " + path + " File Name: " + fileName);
+					log.info("Full Path: " + name);
 
 					BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(new File(name)));
 					stream.write(bytes);
@@ -392,12 +398,78 @@ public class HelperServicesImpl implements HelperServices {
 					return UPLOAD_DIR + scPath + "/" + fileName;
 
 				} catch (IOException e) {
-
+					log.info("GET Helepr Services "+e.getMessage());
 					e.printStackTrace();
+					
 				}
 			}
+		}else {
+			log.info("File is null" + mFile);
 		}
 
+		return null;
+	}
+	
+	@Override
+	public String makeDirectory(String directoryLocs) {
+		
+		try {
+			
+		
+			File file = new File(directoryLocs);
+			FileUtils.forceMkdir(file);
+			if(!file.exists()) {
+				
+				if(file.mkdir()) {
+					log.info("Create Directory success");
+				}else {
+					log.info("Directory Creation Failed :)");
+				}
+			}else {
+				log.info("Directory Exists");
+			}
+			log.info("Created File Abs Path "+file.getAbsolutePath());
+			log.info("Created File Path "+file.getPath());
+			
+			return file.getPath();
+		} catch (Exception e) {
+			log.info("Directory Create Failed. Name "+directoryLocs+" "+e.getMessage());
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+	
+	@Override
+	public String storeFile(String dirPath, MultipartFile mFile) {
+		
+		try {
+			
+			String fSpr = File.separator;
+			
+			log.info("Current Dir Saperetor " + fSpr);
+			
+			byte[] bytes = mFile.getBytes();
+			long miliSc = new Date(System.currentTimeMillis()).getTime();
+			String timeStamp = Long.toString(miliSc);
+			String fileExtenstion = FilenameUtils.getExtension(mFile.getOriginalFilename());
+			String fileName = timeStamp + getRandomString(15) + "." + fileExtenstion;
+			
+			log.info("file Name: " + mFile.getName() + "Fiel Extenstion: " + fileExtenstion);			
+			log.info("File Name: " + fileName);
+
+			String name = dirPath + fSpr + fileName;
+			log.info("Create Before File Path "+name);
+			BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(new File(name)));
+			stream.write(bytes);;
+			stream.close();
+			return fileName;
+		} catch (Exception e) {
+			log.info("Added file failed "+e.getMessage());
+			e.printStackTrace();
+			
+		}
+		
 		return null;
 	}
 }

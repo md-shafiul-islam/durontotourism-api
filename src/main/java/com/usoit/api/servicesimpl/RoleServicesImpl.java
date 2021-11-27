@@ -185,10 +185,10 @@ public class RoleServicesImpl implements RoleServices {
 			criteriaQuery.orderBy(criteriaBuilder.desc(root.get("id")));
 			Query<Role> query = session.createQuery(criteriaQuery);
 
-			System.out.println("From Action");
+			log.info("From Action");
 
 			session.clear();
-			System.out.println("After Session Clear and close !!");
+			log.info("After Session Clear and close !!");
 
 			transaction.commit();
 
@@ -219,21 +219,21 @@ public class RoleServicesImpl implements RoleServices {
 
 		Role role = roleRepository.getRoleByPublicId(publicId);
 
-		System.out.println("Role Services Run!!");
+		log.info("Role Services Run!!");
 
 		RestRole restRole = new RestRole();
-		System.out.println("Role Name: " + role.getName() + "Gen ID: " + role.getGenId());
+		log.info("Role Name: " + role.getName() + "Gen ID: " + role.getGenId());
 
 		if (role != null) {
-			System.out.println("Role Services Role Not Null");
+			log.info("Role Services Role Not Null");
 
 			if (role != null) {
 
 				List<Access> tmpAccess = new ArrayList<Access>();
 
 				List<AccessType> accessTypes = accessTypeServices.getAllAccessType();
-				System.out.println("Access Types Size: " + accessTypes.size());
-				System.out.println("Role Access Size : " + role.getAccesses().size());
+				log.info("Access Types Size: " + accessTypes.size());
+				log.info("Role Access Size : " + role.getAccesses().size());
 
 				for (AccessType acType : accessTypes) {
 
@@ -241,25 +241,25 @@ public class RoleServicesImpl implements RoleServices {
 					tAccess.setNoAccess(1);
 					tAccess.setAccessType(acType);
 
-					System.out.println("Set TEMP AccessType ID: " + acType.getId() + " Name: " + acType.getName());
+					log.info("Set TEMP AccessType ID: " + acType.getId() + " Name: " + acType.getName());
 
 					tmpAccess.add(tAccess);
 				}
 
 				for (Access tmpAcs : tmpAccess) {
 
-					System.out.println("Temp Access Type ID: " + tmpAcs.getAccessType().getId());
+					log.info("Temp Access Type ID: " + tmpAcs.getAccessType().getId());
 
 					for (Access roleAccess : role.getAccesses()) {
 
 						if (roleAccess.getAccessType() != null && tmpAcs.getAccessType() != null) {
 
-							System.out.println("Role Type ID: " + roleAccess.getAccessType().getId()
+							log.info("Role Type ID: " + roleAccess.getAccessType().getId()
 									+ " & temp Type ID: " + tmpAcs.getAccessType().getId());
 
 							if (roleAccess.getAccessType().getId() == tmpAcs.getAccessType().getId()) {
 
-								System.out.println("ID Pass!!");
+								log.info("ID Pass!!");
 
 								tmpAcs.setAdd(roleAccess.getAdd());
 								tmpAcs.setAccessType(roleAccess.getAccessType());
@@ -276,7 +276,7 @@ public class RoleServicesImpl implements RoleServices {
 								tmpAcs.setRole(role);
 
 								if (tmpAcs.getId() > 0) {
-									System.out.println("After Set Temp Access ID: " + tmpAcs.getId() + " Role ID: "
+									log.info("After Set Temp Access ID: " + tmpAcs.getId() + " Role ID: "
 											+ tmpAcs.getRole().getId());
 								}
 							}
@@ -289,7 +289,7 @@ public class RoleServicesImpl implements RoleServices {
 				role.setAccesses(tmpAccess);
 
 				for (Access access2 : tmpAccess) {
-					System.out.println("TMP Access ID: " + access2.getId());
+					log.info("TMP Access ID: " + access2.getId());
 				}
 
 				for (Access rAc : role.getAccesses()) {
@@ -297,7 +297,7 @@ public class RoleServicesImpl implements RoleServices {
 					if (rAc != null) {
 
 						if (rAc.getAccessType() != null) {
-							System.out.println("Role Access After Set Temp: " + rAc.getId() + " Type:"
+							log.info("Role Access After Set Temp: " + rAc.getId() + " Type:"
 									+ rAc.getAccessType().getName());
 						}
 					}
@@ -307,10 +307,10 @@ public class RoleServicesImpl implements RoleServices {
 
 			restRole = DozerMapper.parseObject(role, RestRole.class);
 
-			System.out.println("Name: " + restRole.getName() + " Access: Size: " + restRole.getAccesses().size());
+			log.info("Name: " + restRole.getName() + " Access: Size: " + restRole.getAccesses().size());
 
 		} else {
-			System.out.println("Role Services Role is Null");
+			log.info("Role Services Role is Null");
 		}
 
 		return restRole;

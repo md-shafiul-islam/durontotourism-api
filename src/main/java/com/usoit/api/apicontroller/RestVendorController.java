@@ -34,10 +34,14 @@ import com.usoit.api.model.request.ReqPaymentInfo;
 import com.usoit.api.model.request.ReqVendor;
 import com.usoit.api.services.CountryServices;
 import com.usoit.api.services.HelperServices;
+import com.usoit.api.services.TempSevices;
 import com.usoit.api.services.UserServices;
 import com.usoit.api.services.VendorMapper;
 import com.usoit.api.services.VendorServices;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @RestController
 @RequestMapping("/api/vendors")
 @CrossOrigin(origins = "http://localhost:5000", allowedHeaders = "/**")
@@ -183,7 +187,7 @@ public class RestVendorController {
 	@RequestMapping(value = "", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<?>> getAllVendors(Principal principal) {
 
-		// System.out.println("V Person PID: " + helperServices.getRandomString(60));
+		// log.info("V Person PID: " + helperServices.getRandomString(60));
 
 		setRestVendors();
 
@@ -219,17 +223,17 @@ public class RestVendorController {
 
 		cUser = userServices.getUerById(1);
 
-		System.out.println("Run Vendor Add!!");
+		log.info("Run Vendor Add!!");
 
 		if (reqVendor != null) {
 
-			System.out.println("Vendor Not Null !!");
+			log.info("Vendor Not Null !!");
 
 			Vendor vendor = vendorMapper.getVendor(reqVendor);
 
 			if (vendor != null) {
 				if (vendor.getVendorCategory() != null) {
-					System.out.println("Vendor Category Name: " + vendor.getVendorCategory().getName());
+					log.info("Vendor Category Name: " + vendor.getVendorCategory().getName());
 				}
 				
 				vendor.setUser(cUser);
@@ -249,11 +253,11 @@ public class RestVendorController {
 
 		cUser = userServices.getUerById(1);
 
-		System.out.println("Run Vendor Add!!");
+		log.info("Run Vendor Add!!");
 
 		if (reqVendor != null) {
 
-			System.out.println("Vendor Update Req Not Null !!");
+			log.info("Vendor Update Req Not Null !!");
 			
 			if (reqVendor.getPublicId() != null) {
 				
@@ -442,7 +446,7 @@ public class RestVendorController {
 
 			restVendorList = vendorMapper.getRestVendorsUID(vendors);
 
-			System.out.println("Rest Vendor user ID: " + restVendorList.size());
+			log.info("Rest Vendor user ID: " + restVendorList.size());
 		}
 
 	}
@@ -452,7 +456,7 @@ public class RestVendorController {
 		setVendors();
 
 		restVendors = DozerMapper.parseObjectList(vendors, RestVendor.class);
-		System.out.println("Rest Vendor Size: " + restVendors.size());
+		log.info("Rest Vendor Size: " + restVendors.size());
 
 	}
 

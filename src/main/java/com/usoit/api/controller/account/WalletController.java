@@ -13,9 +13,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.usoit.api.apicontroller.RestCategoryController;
 import com.usoit.api.model.request.ReqWalletStatusUpdate;
 import com.usoit.api.services.WalletServices;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @RestController
 @RequestMapping("/api/wallets")
 public class WalletController {

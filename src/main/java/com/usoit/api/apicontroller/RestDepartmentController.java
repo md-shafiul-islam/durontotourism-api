@@ -1,6 +1,7 @@
 package com.usoit.api.apicontroller;
 
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -20,12 +21,13 @@ import com.usoit.api.data.converter.DozerMapper;
 import com.usoit.api.data.vo.RestDepartment;
 import com.usoit.api.model.Department;
 import com.usoit.api.model.request.ReqDepartment;
+import com.usoit.api.model.response.SelectOption;
 import com.usoit.api.services.DepartmentServices;
 import com.usoit.api.services.HelperServices;
 
 @RestController
 @RequestMapping("/api/departments")
-@CrossOrigin(origins ="http://localhost:5000", allowedHeaders = "/**")
+@CrossOrigin(origins ="*", allowedHeaders = "/**")
 @SessionAttributes(names = { "currentUser"})
 public class RestDepartmentController {
 	
@@ -45,6 +47,20 @@ public class RestDepartmentController {
 		setRestDepartments();
 		
 		return ResponseEntity.ok(restDepartments);
+	}
+	
+	@RequestMapping(value = "/options", method = RequestMethod.GET)
+	public ResponseEntity<List<?>> getAllDepartmentOptionsAction(Principal principal, HttpServletRequest httpServletRequest) {
+		
+		List<SelectOption> options = new ArrayList<>();
+		List<Department> departments = departmentServices.getAllDepartments();
+		for (Department department : departments) {
+			SelectOption option = new SelectOption();
+			option.setLabel(department.getName());
+			option.setValue(Integer.toString(department.getId()));
+			options.add(option);
+		}
+		return ResponseEntity.ok(options);
 	}
 	
 	@RequestMapping(value = "/department", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)

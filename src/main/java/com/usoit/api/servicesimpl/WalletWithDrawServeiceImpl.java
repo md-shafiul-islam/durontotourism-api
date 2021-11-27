@@ -32,7 +32,9 @@ import com.usoit.api.services.KeyOrIdGenerator;
 import com.usoit.api.services.WalletWithDrawServeice;
 
 import ch.qos.logback.classic.turbo.TurboFilter;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Service
 public class WalletWithDrawServeiceImpl implements WalletWithDrawServeice {
 	
@@ -71,7 +73,7 @@ public class WalletWithDrawServeiceImpl implements WalletWithDrawServeice {
 
 		if (walletWithDraw != null) {
 			
-			System.out.println("Add Wallet Withdraw Via Client :) ");
+			log.info("Add Wallet Withdraw Via Client :) ");
 			
 			Session session = sessionFactory.openSession();
 			Transaction transaction = null;
@@ -116,7 +118,7 @@ public class WalletWithDrawServeiceImpl implements WalletWithDrawServeice {
 				session.persist(walletWithDraw);
 				transaction.commit();
 				closeSession(session);
-				System.out.println("Wallet WithDraw Done !!");
+				log.info("Wallet WithDraw Done !!");
 				
 				return true;
 			} catch (Exception e) {

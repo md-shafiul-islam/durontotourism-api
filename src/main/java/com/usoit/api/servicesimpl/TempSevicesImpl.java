@@ -8,10 +8,13 @@ import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.usoit.api.apicontroller.TempSevices;
 import com.usoit.api.model.TempVendor;
 import com.usoit.api.repository.TempVendorRepository;
+import com.usoit.api.services.TempSevices;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Service
 public class TempSevicesImpl implements TempSevices {
 

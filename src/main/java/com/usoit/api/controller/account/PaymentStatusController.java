@@ -12,11 +12,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.usoit.api.apicontroller.RestCategoryController;
 import com.usoit.api.mapper.PaymentStatusMapper;
 import com.usoit.api.model.response.RestPaymentStatus;
 import com.usoit.api.model.response.SelectOption;
 import com.usoit.api.services.PaymentStatusServices;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @RestController
 @RequestMapping(value = "/api/paymet-status")
 public class PaymentStatusController {

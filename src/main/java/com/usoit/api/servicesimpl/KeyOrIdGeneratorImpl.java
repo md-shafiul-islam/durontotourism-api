@@ -7,10 +7,14 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.usoit.api.apicontroller.RestCategoryController;
 import com.usoit.api.model.TransactionType;
 import com.usoit.api.services.KeyOrIdGenerator;
 import com.usoit.api.services.TransactionTypeServices;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Service
 public class KeyOrIdGeneratorImpl implements KeyOrIdGenerator {
 
@@ -53,7 +57,7 @@ public class KeyOrIdGeneratorImpl implements KeyOrIdGenerator {
 		dateString += intToDateString(calendar.get(Calendar.YEAR));
 		dateString += intToDateString(calendar.get(Calendar.MONTH));
 		dateString += intToDateString(calendar.get(Calendar.DAY_OF_MONTH));
-		System.out.println("Date "+ dateString);
+		log.info("Date "+ dateString);
 		return dateString;
 	}
 

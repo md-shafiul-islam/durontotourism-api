@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.usoit.api.apicontroller.RestCategoryController;
 import com.usoit.api.mapper.BankAccountMapper;
 import com.usoit.api.mapper.BankMapper;
 import com.usoit.api.mapper.RechargeMapper;
@@ -32,6 +33,9 @@ import com.usoit.api.services.HelperAuthenticationServices;
 import com.usoit.api.services.RechargeServices;
 import com.usoit.api.services.UserServices;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @RestController
 @RequestMapping(value = "/api/recharges")
 public class RechargeController {
@@ -57,7 +61,7 @@ public class RechargeController {
 	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> getRechargeAddAction(@RequestBody ReqRecharge reqRecharge) {
 
-		System.out.println("Post Rescharge Action Run !!");
+		log.info("Post Rescharge Action Run !!");
 
 		User user = hAuthServices.getCurrentUser();
 
@@ -86,7 +90,7 @@ public class RechargeController {
 	@PutMapping(value = "/approve", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> getApprovedAction(@RequestBody ReqRechargeApprove rechargeApprove) {
 
-		System.out.println("Recharge Approve Action Run :) ");
+		log.info("Recharge Approve Action Run :) ");
 
 		Map<String, Object> map = new HashMap<>();
 
@@ -97,7 +101,7 @@ public class RechargeController {
 		map.put("data", null);
 
 		if (rechargeApprove != null) {
-			System.out.println("Charge Amount " + rechargeApprove.getChargeAmount());
+			log.info("Charge Amount " + rechargeApprove.getChargeAmount());
 			if (rechargeServices.approveRecharge(rechargeApprove, user)) {
 				map.put("message", "Recharge Approved");
 				map.put("status", true);
@@ -131,7 +135,7 @@ public class RechargeController {
 	@PutMapping(value = "/reject", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> getRejectAction(@RequestBody ReqRechargeReject rechargeReject) {
 
-		System.out.println("Rejected Update Action :) ");
+		log.info("Rejected Update Action :) ");
 
 		Map<String, Object> map = new HashMap<>();
 
@@ -155,7 +159,7 @@ public class RechargeController {
 
 		User user = hAuthServices.getCurrentUser();
 
-		System.out.println("Rechages Get Action :) ");
+		log.info("Rechages Get Action :) ");
 
 		Map<String, Object> map = new HashMap<>();
 
@@ -167,7 +171,7 @@ public class RechargeController {
 
 		if (recharges != null) {
 
-			System.out.println("Recharge Size " + recharges.size());
+			log.info("Recharge Size " + recharges.size());
 
 			map.put("message", "Total " + Integer.toString(recharges.size()) + " Recharge Items found(s)");
 			map.put("status", true);
@@ -183,7 +187,7 @@ public class RechargeController {
 
 		User user = hAuthServices.getCurrentUser();
 
-		System.out.println("Rechages Get Action :) ");
+		log.info("Rechages Get Action :) ");
 
 		Map<String, Object> map = new HashMap<>();
 
@@ -195,7 +199,7 @@ public class RechargeController {
 
 		if (recharges != null) {
 
-			System.out.println("Recharge Size " + recharges.size());
+			log.info("Recharge Size " + recharges.size());
 
 			map.put("message", "Total " + Integer.toString(recharges.size()) + " Recharge Items found(s)");
 			map.put("status", true);
@@ -211,7 +215,7 @@ public class RechargeController {
 
 		User user = hAuthServices.getCurrentUser();
 
-		System.out.println("Current User " + user.getUsername());
+		log.info("Current User " + user.getUsername());
 
 		Map<String, Object> map = new HashMap<>();
 
@@ -237,7 +241,7 @@ public class RechargeController {
 
 		User user = hAuthServices.getCurrentUser();
 		
-		System.out.println("Get Bank Accounts, Using Type "+ type);
+		log.info("Get Bank Accounts, Using Type "+ type);
 		
 		Map<String, Object> map = new HashMap<>();
 
@@ -252,7 +256,7 @@ public class RechargeController {
 			accounts = bankAccountServices.getActiveWalletBankAccountsByType(type);
 		}
 		
-		System.out.println("After Get Banks ");
+		log.info("After Get Banks ");
 		if (accounts != null) {
 
 			List<RestBankAccount> bankAccounts = bankAccountMapper.getRestBankAccountsOnly(accounts);

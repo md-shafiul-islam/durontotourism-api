@@ -12,6 +12,9 @@ import com.usoit.api.model.PrivacyPolicy;
 import com.usoit.api.repository.PrivacyPolicyRepository;
 import com.usoit.api.services.PrivacyPolicyServices;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Service
 public class PrivacyPolicyServicesImpl implements PrivacyPolicyServices{
 

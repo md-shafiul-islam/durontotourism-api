@@ -13,12 +13,16 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.usoit.api.apicontroller.RestCategoryController;
 import com.usoit.api.mapper.BankWithDrawMapper;
 import com.usoit.api.mapper.BankWithDrawServeice;
 import com.usoit.api.model.BankWithDraw;
 import com.usoit.api.model.request.ReqBankWithdraw;
 import com.usoit.api.model.response.RestBankWithDraw;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @RestController
 @RequestMapping(value = "bankwithdraws")
 public class BankWithDrawController {
@@ -61,7 +65,7 @@ public class BankWithDrawController {
 		if(bankWithDraw != null) {
 			
 			BankWithDraw bWithDraw = bankWithDrawMapper.mapBankWithDraw(bankWithDraw);
-			System.out.println("After Bank Withdraw Mapping !!");
+			log.info("After Bank Withdraw Mapping !!");
 			if(bankWithDrawServeice.addBankWithdarwViaWallet(bWithDraw)) {			
 								
 				map.put("message", "Bank Withdarw Added ");

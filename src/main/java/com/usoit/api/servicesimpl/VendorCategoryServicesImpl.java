@@ -11,6 +11,9 @@ import com.usoit.api.model.VendorCategory;
 import com.usoit.api.repository.VendorCategoryRepository;
 import com.usoit.api.services.VendorCategoryServices;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Service
 public class VendorCategoryServicesImpl implements VendorCategoryServices{
 

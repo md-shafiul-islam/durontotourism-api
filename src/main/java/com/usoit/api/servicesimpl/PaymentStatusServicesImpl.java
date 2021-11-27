@@ -10,6 +10,9 @@ import com.usoit.api.model.PaymentStatus;
 import com.usoit.api.repository.PayemtStatusRepository;
 import com.usoit.api.services.PaymentStatusServices;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Service
 public class PaymentStatusServicesImpl implements PaymentStatusServices {
 	

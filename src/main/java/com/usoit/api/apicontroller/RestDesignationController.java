@@ -1,6 +1,7 @@
 package com.usoit.api.apicontroller;
 
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,13 +18,10 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.usoit.api.data.converter.DozerMapper;
-import com.usoit.api.data.vo.RestDepartment;
 import com.usoit.api.data.vo.RestDesignation;
-import com.usoit.api.model.Department;
 import com.usoit.api.model.Designation;
-import com.usoit.api.model.request.ReqDepartment;
 import com.usoit.api.model.request.ReqDesignation;
-import com.usoit.api.services.DepartmentServices;
+import com.usoit.api.model.response.SelectOption;
 import com.usoit.api.services.DesignationServices;
 import com.usoit.api.services.HelperServices;
 
@@ -119,6 +117,20 @@ public class RestDesignationController {
 		return ResponseEntity.badRequest().body("Sending data not match requerment !!");
 	}
 
+	@RequestMapping(value = "/options", method = RequestMethod.GET)
+	public ResponseEntity<?> getDesignationOptionsAction(Principal principal, HttpServletRequest httpServletRequest) {
+
+		List<SelectOption> options = new ArrayList<>();
+		List<Designation> designations = designationServices.getAllDesignations();
+		for (Designation designation : designations) {
+			
+			SelectOption option = new SelectOption();
+			option.setLabel(designation.getName());
+			option.setValue(Integer.toString(designation.getId()));
+			options.add(option);
+		}
+		return ResponseEntity.ok(options);
+	}
 	private void setRestDepartments() {
 
 		setDepartments();

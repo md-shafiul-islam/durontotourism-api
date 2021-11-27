@@ -74,7 +74,7 @@ public class PaymentStatusMapperImpl implements PaymentStatusMapper {
 			SelectOption option = new SelectOption();
 			
 			option.setLabel(paymentStatus.getName());
-			option.setValue(paymentStatus.getId());
+			option.setValue(Integer.toString(paymentStatus.getId()));
 			
 			return option;
 		}

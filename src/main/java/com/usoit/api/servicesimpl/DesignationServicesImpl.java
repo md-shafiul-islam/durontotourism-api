@@ -6,11 +6,15 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.usoit.api.apicontroller.RestCategoryController;
 import com.usoit.api.model.Department;
 import com.usoit.api.model.Designation;
 import com.usoit.api.repository.DesignationRepository;
 import com.usoit.api.services.DesignationServices;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Service
 public class DesignationServicesImpl implements DesignationServices{
 
@@ -45,7 +49,7 @@ public class DesignationServicesImpl implements DesignationServices{
 		if (designation.getId() > 0) {
 			
 			designationRepository.save(designation);
-			System.out.println("Update Success");
+			log.info("Update Success");
 			return true;
 		}
 		

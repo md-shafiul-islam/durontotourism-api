@@ -1,5 +1,6 @@
 package com.usoit.api.services;
 
+import java.io.File;
 import java.security.Principal;
 import java.util.Map;
 
@@ -64,6 +65,10 @@ public interface HelperServices {
 	public String getRnadoUUID();
 
 	public String getDoubleToString(double doubleValue);
+
+	public String makeDirectory(String string);
+
+	public String storeFile(String dirPath, MultipartFile mFile);
 
 
 }

@@ -26,6 +26,9 @@ import com.usoit.api.model.request.ReqPackage;
 import com.usoit.api.repository.PackageRepository;
 import com.usoit.api.services.PackageServices;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Service
 public class PackageServicesImpl implements PackageServices {
 
@@ -120,11 +123,11 @@ public class PackageServicesImpl implements PackageServices {
 		criteriaQuery.orderBy(criteriaBuilder.desc(root.get("id")));
 		Query<Packages> query = session.createQuery(criteriaQuery);
 
-		System.out.println("From Action");
+		log.info("From Action");
 
 		session.clear();
 		// session.close();
-		System.out.println("After Session Clear and close !!");
+		log.info("After Session Clear and close !!");
 
 		return query.getResultList();
 	}
@@ -304,7 +307,7 @@ public class PackageServicesImpl implements PackageServices {
 	
 	
 	private DtoUpdatePackage getReqUpdatePackByPublicId(String pId) {
-		System.out.println("Get Data By Public ID!!!!!");
+		log.info("Get Data By Public ID!!!!!");
 		Packages packages = null;
 		DtoUpdatePackage reqPackage = null;
 		
@@ -312,7 +315,7 @@ public class PackageServicesImpl implements PackageServices {
 			
 			if (pId.length() == 55) {
 				
-				System.out.println(" Data ID Lenght Pass!!");
+				log.info(" Data ID Lenght Pass!!");
 				
 				packages = packageRepository.getPackageByPublicId(pId);
 			}
@@ -320,7 +323,7 @@ public class PackageServicesImpl implements PackageServices {
 		
 		if (packages != null) {
 			
-			System.out.println(" Data Found!!");
+			log.info(" Data Found!!");
 			reqPackage = packageMapper.getGetUpdatePack(packages);
 		}
 		
@@ -328,7 +331,7 @@ public class PackageServicesImpl implements PackageServices {
 	}
 
 	private ReqPackage getReqPackByPublicId(String pId) {
-		System.out.println("Get Data By Public ID!!!!!");
+		log.info("Get Data By Public ID!!!!!");
 		Packages packages = null;
 		ReqPackage reqPackage = null;
 		
@@ -336,7 +339,7 @@ public class PackageServicesImpl implements PackageServices {
 			
 			if (pId.length() == 55) {
 				
-				System.out.println(" Data ID Lenght Pass!!");
+				log.info(" Data ID Lenght Pass!!");
 				
 				packages = packageRepository.getPackageByPublicId(pId);
 			}
@@ -344,7 +347,7 @@ public class PackageServicesImpl implements PackageServices {
 		
 		if (packages != null) {
 			
-			System.out.println(" Data Found!!");
+			log.info(" Data Found!!");
 			reqPackage = packageMapper.getReqPackage(packages);
 		}
 		
@@ -367,11 +370,11 @@ public class PackageServicesImpl implements PackageServices {
 		criteriaQuery.orderBy(criteriaBuilder.desc(root.get("id")));
 		Query<Packages> query = session.createQuery(criteriaQuery);
 
-		System.out.println("From Action");
+		log.info("From Action");
 
 		session.clear();
 		// session.close();
-		System.out.println("After Session Clear and close !!");
+		log.info("After Session Clear and close !!");
 
 		return query.getResultList();
 	}
@@ -392,11 +395,11 @@ public class PackageServicesImpl implements PackageServices {
 		criteriaQuery.orderBy(criteriaBuilder.desc(root.get("id")));
 		Query<Packages> query = session.createQuery(criteriaQuery);
 
-		System.out.println("From Action");
+		log.info("From Action");
 
 		session.clear();
 		// session.close();
-		System.out.println("After Session Clear and close !!");
+		log.info("After Session Clear and close !!");
 
 		return query.getResultList();
 	}
@@ -489,11 +492,11 @@ public class PackageServicesImpl implements PackageServices {
 			criteriaQuery.orderBy(criteriaBuilder.desc(root.get("id")));
 			Query<Packages> query = session.createQuery(criteriaQuery);
 
-			System.out.println("From Action");
+			log.info("From Action");
 
 			session.clear();
 			// session.close();
-			System.out.println("After Session Clear and close !!");
+			log.info("After Session Clear and close !!");
 
 			list = query.getResultList();
 
@@ -567,12 +570,12 @@ public class PackageServicesImpl implements PackageServices {
 			if(packageMapper.getPackDtoPackToPackage(dbPackages, dtoPackages)) {
 				
 				int pId = dbPackages.getId();
-				System.out.println("Data Update Befor Save !! Pack Services");
+				log.info("Data Update Befor Save !! Pack Services");
 				packageRepository.save(dbPackages);
 				
 				if (pId == dbPackages.getId()) {
 					
-					System.out.println("Data Updated !! Pack Services");
+					log.info("Data Updated !! Pack Services");
 					
 					return true;
 				}else {
@@ -636,7 +639,7 @@ public class PackageServicesImpl implements PackageServices {
 	
 	private boolean checkAndUpdate(Packages pack) {
 
-		System.out.println("Pack Update Services !!!!");
+		log.info("Pack Update Services !!!!");
 
 		Packages packagesDB = null;
 

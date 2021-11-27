@@ -12,4 +12,12 @@ public class CountryOption {
 	private String label;
 	
 	private int value;
+	
+	private String isoCode;
+	
+	private String isoCode3;
+	
+	private String dialCode;
+	
+	private String name; 
 }

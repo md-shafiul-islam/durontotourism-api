@@ -6,10 +6,14 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.usoit.api.apicontroller.RestCategoryController;
 import com.usoit.api.model.Address;
 import com.usoit.api.repository.AddressRepository;
 import com.usoit.api.services.AddressServices;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Service
 public class AddressServicesImpl implements AddressServices{
 

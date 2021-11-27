@@ -29,6 +29,9 @@ import com.usoit.api.model.response.CountryOption;
 import com.usoit.api.services.CountryServices;
 import com.usoit.api.services.HelperServices;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @RestController
 @RequestMapping("/api/countries")
 @CrossOrigin(origins = "*", allowedHeaders = "/**")
@@ -49,7 +52,7 @@ public class RestCountryController {
 
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public ResponseEntity<List<?>> getIndexCat(HttpSession httpSession, Principal principal) {
-		System.out.println("API Request Receive");
+		log.info("API Request Receive");
 
 		setCountriesList();
 
@@ -81,11 +84,11 @@ public class RestCountryController {
 
 			} else {
 
-				System.out.println("Out side if: Add Access: " + access.getAdd() + " All Access: " + access.getAll());
+				log.info("Out side if: Add Access: " + access.getAdd() + " All Access: " + access.getAll());
 
 				if (access.getAll() == 1) {
 
-					System.out.println("Access Get Add Pass & All Access !!");
+					log.info("Access Get Add Pass & All Access !!");
 
 				} else {
 
@@ -150,11 +153,11 @@ public class RestCountryController {
 
 			} else {
 
-				System.out.println("Out side if: Add Access: " + access.getAdd() + " All Access: " + access.getAll());
+				log.info("Out side if: Add Access: " + access.getAdd() + " All Access: " + access.getAll());
 
 				if (access.getAll() == 1) {
 
-					System.out.println("Access Get Add Pass & All Access !!");
+					log.info("Access Get Add Pass & All Access !!");
 
 				} else {
 

@@ -11,6 +11,9 @@ import com.usoit.api.model.PaymentInfo;
 import com.usoit.api.repository.PaymentInfRepository;
 import com.usoit.api.services.PaymentInfServices;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Service
 public class PaymentInfServicesImpl implements PaymentInfServices{
 

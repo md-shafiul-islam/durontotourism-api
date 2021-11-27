@@ -9,6 +9,9 @@ import com.usoit.api.model.Wallet;
 import com.usoit.api.repository.WalletRepository;
 import com.usoit.api.services.WalletServices;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Service
 public class WalletServicesImpl implements WalletServices {
 

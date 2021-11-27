@@ -10,6 +10,9 @@ import com.usoit.api.model.ReceiveOption;
 import com.usoit.api.repository.ReceiveOptionRepository;
 import com.usoit.api.services.ReceiveOptionServices;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Service
 public class ReceiveOptionServicesImpl implements ReceiveOptionServices{
 

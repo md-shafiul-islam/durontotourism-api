@@ -10,6 +10,9 @@ import com.usoit.api.model.TermsAndConditions;
 import com.usoit.api.repository.TermsAndConditionsRepository;
 import com.usoit.api.services.TermsAndConditionsServices;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Service
 public class TermsAndConditionsServicesImpl implements TermsAndConditionsServices{
 	

@@ -13,7 +13,9 @@ import com.usoit.api.repository.PackCatRepository;
 import com.usoit.api.services.PackageCatServices;
 
 import ch.qos.logback.core.joran.conditional.IfAction;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Service
 public class PackageCatServicesImpl implements PackageCatServices{
 

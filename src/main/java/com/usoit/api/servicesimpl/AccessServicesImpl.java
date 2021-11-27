@@ -6,10 +6,14 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.usoit.api.apicontroller.RestCategoryController;
 import com.usoit.api.model.Access;
 import com.usoit.api.repository.AccessRepository;
 import com.usoit.api.services.AccessServices;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Service
 public class AccessServicesImpl implements AccessServices{
 

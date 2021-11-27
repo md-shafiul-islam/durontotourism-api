@@ -26,4 +26,6 @@ public interface CountryServices {
 
 	public List<CountryOption> getCountryOptions();
 
+	public Country getCountryByISOCode(String code);
+
 }

@@ -11,14 +11,14 @@ public class RestEsCustomer {
 
 	private String publicId;
 	
-	private String firstName;
-	
-	private String lastName;
+	private String fullName;
 	
 	private String phone;
 	
 	private String email;
 	
 	private String walletAmount;
+	
+	private String phoneCode;
 	
 }

@@ -18,9 +18,13 @@ import org.springframework.security.web.RedirectStrategy;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
 
+import com.usoit.api.apicontroller.RestCategoryController;
 import com.usoit.api.model.User;
 import com.usoit.api.repository.UserRepository;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Component
 public class AuthenticationSuccessHandlerImpl implements AuthenticationSuccessHandler{
 
@@ -53,17 +57,17 @@ public class AuthenticationSuccessHandlerImpl implements AuthenticationSuccessHa
 			userName = uPrincipal.getName();
 		}
 		
-		System.out.println("Current login Name: " + userName);
+		log.info("Current login Name: " + userName);
 		
 		if (userName != null) {
 			
 			User user = userRepository.getUserByPersonalEmail(userName);
 			
-			System.out.println("User Name:" + user.getName());
+			log.info("User Name:" + user.getName());
 			
 			session.setAttribute("currentUser", user);
 		}else {
-			System.out.println("user Name is Null");
+			log.info("user Name is Null");
 		}
 		
 		handeller(request, response, authentication);

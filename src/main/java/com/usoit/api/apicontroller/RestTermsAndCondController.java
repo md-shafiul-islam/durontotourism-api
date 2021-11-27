@@ -22,6 +22,9 @@ import com.usoit.api.model.request.ReqTermsAndConds;
 import com.usoit.api.services.HelperServices;
 import com.usoit.api.services.TermsAndConditionsServices;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @RestController
 @RequestMapping("/api/terms")
 public class RestTermsAndCondController {
@@ -45,13 +48,13 @@ public class RestTermsAndCondController {
 
 		if (restTermsAndConds != null) {
 
-			System.out.println("Rest Term Size: " + restTermsAndConds.size());
+			log.info("Rest Term Size: " + restTermsAndConds.size());
 
 			return ResponseEntity.ok(restTermsAndConds);
 
 		} else {
 
-			System.out.println("Terms Mapping Failed !!");
+			log.info("Terms Mapping Failed !!");
 		}
 
 		return ResponseEntity.noContent().build();
@@ -128,7 +131,7 @@ public class RestTermsAndCondController {
 
 				if (conditionsServices.update(termAndConditions)) {
 
-					System.out.println("Terms Updated !!");
+					log.info("Terms Updated !!");
 
 					return ResponseEntity.ok("T&C Update ");
 				}
@@ -144,13 +147,13 @@ public class RestTermsAndCondController {
 
 		if (andConditions != null) {
 
-			System.out.println("terms Size: " + andConditions.size());
+			log.info("terms Size: " + andConditions.size());
 
 			restTermsAndConds = DozerMapper.parseObjectList(andConditions, RestTermsAndConds.class);
 
 		} else {
 			msg.add("Terms Mapping Failed !!");
-			System.out.println("Terms Null !!");
+			log.info("Terms Null !!");
 		}
 
 	}

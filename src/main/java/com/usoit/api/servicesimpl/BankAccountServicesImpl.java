@@ -17,6 +17,7 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.usoit.api.apicontroller.RestCategoryController;
 import com.usoit.api.model.BankAccount;
 import com.usoit.api.model.BankAccountType;
 import com.usoit.api.model.BankAccountUpdateInf;
@@ -32,6 +33,9 @@ import com.usoit.api.repository.StatusRepository;
 import com.usoit.api.services.BankAccountServices;
 import com.usoit.api.services.HelperServices;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Service
 public class BankAccountServicesImpl implements BankAccountServices {
 
@@ -136,7 +140,7 @@ public class BankAccountServicesImpl implements BankAccountServices {
 					session.close();
 					e.printStackTrace();
 				} finally {
-					System.out.println("Close Bank Approve Finally ");
+					log.info("Close Bank Approve Finally ");
 
 				}
 
@@ -206,16 +210,16 @@ public class BankAccountServicesImpl implements BankAccountServices {
 	public BankAccount getBankAccountByPublicID(String id) {
 
 		if (id != null) {
-			System.out.println("Bank Given ID " + id);
+			log.info("Bank Given ID " + id);
 			if (!id.isEmpty()) {
 
 				Optional<BankAccount> optional = bankAccountRepository.getBankAccountByPublicId(id);
 
 				if (optional.isPresent()) {
-					System.out.println("Bank Acoount Found ");
+					log.info("Bank Acoount Found ");
 					return optional.get();
 				} else {
-					System.out.println("Bank Acoount Not Found " + optional);
+					log.info("Bank Acoount Not Found " + optional);
 				}
 
 			}
@@ -248,12 +252,12 @@ public class BankAccountServicesImpl implements BankAccountServices {
 			Optional<BankAccount> option = bankAccountRepository.getBankAccountByPublicId(key);
 
 			if (option.isPresent()) {
-				System.out.println("Bank Account Found !! ");
+				log.info("Bank Account Found !! ");
 				return true;
 
 			}
 		}
-		System.out.println("Bank Account Not Found :) ");
+		log.info("Bank Account Not Found :) ");
 		return false;
 	}
 
@@ -323,7 +327,7 @@ public class BankAccountServicesImpl implements BankAccountServices {
 					valid = true;
 				}
 
-				System.out.println("Account Status" + account.isUpdateReqStatus() + " ID " + account.getId());
+				log.info("Account Status" + account.isUpdateReqStatus() + " ID " + account.getId());
 
 				if (account.isUpdateReqStatus() && valid) {
 
@@ -399,9 +403,9 @@ public class BankAccountServicesImpl implements BankAccountServices {
 			criteriaQuery.orderBy(criteriaBuilder.asc(root.get("bankName")));
 			Query<BankAccount> query = session.createQuery(criteriaQuery);
 
-			System.out.println("From Action");
+			log.info("From Action");
 
-			System.out.println("After Session Clear and close !!");
+			log.info("After Session Clear and close !!");
 			bankAccounts = query.getResultList();
 			transaction.commit();
 			session.clear();
@@ -421,7 +425,7 @@ public class BankAccountServicesImpl implements BankAccountServices {
 			BankAccount dbAccount, Session session)
 			throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
 
-		System.out.println("getUpdateFieldValidationAndSet Run :) ");
+		log.info("getUpdateFieldValidationAndSet Run :) ");
 
 		if (approveReq != null && dbUpdateInf != null && dbAccount != null) {
 
@@ -429,7 +433,7 @@ public class BankAccountServicesImpl implements BankAccountServices {
 			field.setAccessible(true);
 			String fieldValue = (String) field.get(approveReq);
 
-			System.out.println("Field Value " + fieldValue + " DB Value " + dbUpdateInf.getValue());
+			log.info("Field Value " + fieldValue + " DB Value " + dbUpdateInf.getValue());
 
 			if (fieldValue.equals(dbUpdateInf.getValue())) {
 
@@ -445,14 +449,14 @@ public class BankAccountServicesImpl implements BankAccountServices {
 						Country country = session.get(Country.class, Integer.parseInt(dbUpdateInf.getValue()));
 						selectedField.set(dbAccount, country);
 
-						System.out.println("Country Name: " + country.getName());
+						log.info("Country Name: " + country.getName());
 					}
 
 					if (dbUpdateInf.getFieldName().equals(bankingType)) {
 						BankAccountType bankAcType = session.get(BankAccountType.class,
 								Integer.parseInt(dbUpdateInf.getValue()));
 						selectedField.set(dbAccount, bankAcType);
-						System.out.println("Bank Type Name: " + bankAcType.getName());
+						log.info("Bank Type Name: " + bankAcType.getName());
 					}
 
 				} else {

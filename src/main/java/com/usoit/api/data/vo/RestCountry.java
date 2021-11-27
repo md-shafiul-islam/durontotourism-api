@@ -32,7 +32,7 @@ public class RestCountry implements Serializable{
 	private String iso3Code;
 	
 	@JsonProperty("numCode")
-	private int numCode;
+	private String numCode;
 	
 	@JsonProperty("dialOrPhoneCode")
 	private String dialOrPhoneCode;

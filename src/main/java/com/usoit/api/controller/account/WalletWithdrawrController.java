@@ -15,15 +15,19 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.usoit.api.apicontroller.RestCategoryController;
 import com.usoit.api.mapper.WalletWithDrawMapper;
 import com.usoit.api.model.User;
 import com.usoit.api.model.WalletWithDraw;
 import com.usoit.api.model.request.ReqWalletApprove;
 import com.usoit.api.model.request.ReqWalletWithdraw;
-import com.usoit.api.model.request.RestWalletWithDraw;
+import com.usoit.api.model.response.RestWalletWithDraw;
 import com.usoit.api.services.HelperAuthenticationServices;
 import com.usoit.api.services.WalletWithDrawServeice;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @RestController
 @RequestMapping(value = "/api/wallet-withdraws")
 public class WalletWithdrawrController {
@@ -74,9 +78,9 @@ public class WalletWithdrawrController {
 			WalletWithDraw walletWithDraw = walletWithDrawMapper.mapReqWalletWithDraw(withDraw);
 			
 			if(walletWithDraw != null) {
-				System.out.println("Wallet With Darw After Mapper");
+				log.info("Wallet With Darw After Mapper");
 				if(walletWithDrawServeice.addWalletWithdarwViaClient(walletWithDraw, user)) {
-					System.out.println("After Save WalletWithDraw :) ");
+					log.info("After Save WalletWithDraw :) ");
 					RestWalletWithDraw draw = walletWithDrawMapper.mapRestWalletWithDarw(walletWithDraw);
 					
 					map.put("message", "Add Bank Withdraw Success");

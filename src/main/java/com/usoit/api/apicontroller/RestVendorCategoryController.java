@@ -20,6 +20,9 @@ import com.usoit.api.services.HelperServices;
 import com.usoit.api.services.UserServices;
 import com.usoit.api.services.VendorCategoryServices;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @RestController
 @RequestMapping("/api/vendor-cats")
 @CrossOrigin(origins ="http://localhost:5000", allowedHeaders = "/**")

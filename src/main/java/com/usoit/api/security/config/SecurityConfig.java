@@ -16,7 +16,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import com.usoit.api.services.UserServices;
+import com.usoit.api.servicesimpl.MailSenderServicesImpl;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(securedEnabled = true, jsr250Enabled = true, prePostEnabled = true)
@@ -24,29 +28,30 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	private static final String[] PUBLIC_MATCHERS = {
 
-			"/build/**", "/dist/**", "/plugins/**", "/asset-img/**", "/api/users/login", "/uimages/**", "/api/test", "/api/eno/**"
+			"/build/**", "/dist/**", "/plugins/**", "/asset-img/**", "/api/users/login", "/uimages/**", "/api/test",
+			"/api/enu/v1/customers/login", "/api/enu/v1/customers/signup", "/api/enu/v1/agents/signup",
+			"/api/enu/v1/agents/login", "/api/enu/v1/customers/send-mail", "/api/enu/v1/verify/mail-token",
+			"/api/enu/v1/option/**"
 
 	};
-	
+
 	@Autowired
 	private UserServices userSecurityServices;
-	
+
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 
 	@Autowired
 	private JwtAuthenticationEntryPoint unauthorizedHandler;
 
-
 	@Bean
 	public JwtAuthenticationFilter jwtAuthenticationFilter() {
 		return new JwtAuthenticationFilter();
 	}
 
-
 	@Bean
 	public PasswordEncoder passwordEncoder() {
-		
+
 		return new BCryptPasswordEncoder();
 	}
 
@@ -64,7 +69,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
-		System.out.println("Run Configur Param: AuthenticationManagerBuilder");
+		log.info("Run Configur Param: AuthenticationManagerBuilder");
 		// auth.userDetailsService(()
 		// userSecurityServices).passwordEncoder(passwordEncoder());
 		auth.userDetailsService(userSecurityServices).passwordEncoder(passwordEncoder);

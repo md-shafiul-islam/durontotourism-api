@@ -11,6 +11,9 @@ import com.usoit.api.model.MaritalStatus;
 import com.usoit.api.repository.MaritalStatusRepository;
 import com.usoit.api.services.MaritalStatusServices;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Service
 public class MaritalStatusServicesImpl implements MaritalStatusServices{
 

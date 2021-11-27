@@ -9,14 +9,11 @@ import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.DiscriminatorColumn;
-import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -38,13 +35,9 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-//@MappedSuperclass
 @Entity
 @Table(name="user")
-@Inheritance
-@DiscriminatorColumn(name = "user_type", discriminatorType = DiscriminatorType.STRING)
 public class User implements UserDetails {
-
 	
 	protected static final long serialVersionUID = 1110136015410098457L;
 

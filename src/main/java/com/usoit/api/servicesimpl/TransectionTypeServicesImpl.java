@@ -9,6 +9,9 @@ import com.usoit.api.model.TransactionType;
 import com.usoit.api.repository.TransactionTypeRepository;
 import com.usoit.api.services.TransactionTypeServices;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Service
 public class TransectionTypeServicesImpl implements TransactionTypeServices {
 

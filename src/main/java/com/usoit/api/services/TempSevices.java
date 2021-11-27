@@ -1,4 +1,4 @@
-package com.usoit.api.apicontroller;
+package com.usoit.api.services;
 
 import com.usoit.api.model.TempVendor;
 

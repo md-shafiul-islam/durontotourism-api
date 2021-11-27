@@ -28,6 +28,7 @@ import com.usoit.api.model.User;
 import com.usoit.api.model.request.ReqAccess;
 import com.usoit.api.model.request.ReqAccessType;
 import com.usoit.api.model.request.ReqRole;
+import com.usoit.api.model.response.SelectOption;
 import com.usoit.api.services.AccessServices;
 import com.usoit.api.services.AccessTypeServices;
 import com.usoit.api.services.HelperAuthenticationServices;
@@ -95,6 +96,40 @@ public class RestRoleController {
 		setGeneralRole();
 		System.out.println("Role Gen Size: " + restGenRole.size());
 		return ResponseEntity.ok(restGenRole);
+
+	}
+
+	@RequestMapping(value = "/options", method = RequestMethod.GET)
+	public ResponseEntity<?> getRoleOptions(Principal principal, HttpServletRequest httpServletRequest) {
+
+		List<SelectOption> options = new ArrayList<>();
+
+		User user = helperAuthenticationServices.getCurrentUser();
+		if (user.getAuthenticationStatus() == 0) {
+			List<Role> roles = roleServices.getAllRoles();
+
+			for (Role role : roles) {
+				SelectOption option = new SelectOption();
+
+				option.setLabel(role.getName());
+				option.setValue(role.getPublicId());
+				options.add(option);
+			}
+		}
+		
+		if (user.getAuthenticationStatus() == 1) {
+			List<Role> roles = roleServices.getAllGeneralRole();
+
+			for (Role role : roles) {
+				SelectOption option = new SelectOption();
+
+				option.setLabel(role.getName());
+				option.setValue(role.getPublicId());
+				options.add(option);
+			}
+		}
+
+		return ResponseEntity.ok(options);
 
 	}
 
@@ -258,11 +293,11 @@ public class RestRoleController {
 	}
 
 	private void setReqAccessTypes() {
-		
+
 		System.out.println("Access Type Run ...");
-		
+
 		setAllAccessType();
-		
+
 		for (AccessType accessType : accessTypes) {
 			System.out.println("Access Type: " + accessType.getName() + " Access Key: " + accessType.getPublicId());
 		}
