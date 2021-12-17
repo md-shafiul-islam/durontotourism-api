@@ -1,5 +1,7 @@
 package com.usoit.api.model;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -59,10 +61,8 @@ public class AgentOwner {
 	
 	@Column(name="district")
     private String district;
-	
-	@OneToOne
-	@JoinColumn(name="country", referencedColumnName = "id")
-    private Country country;
+
+    private String country;
 	
 	@Column(name="national_id_no")
     private String nationalIdNo;
@@ -78,4 +78,8 @@ public class AgentOwner {
 	
 	@Column(name="owner_image")
     private String ownerImage;
+	
+	private boolean active;
+	
+	private Date date;
 }

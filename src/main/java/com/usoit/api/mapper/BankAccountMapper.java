@@ -1,6 +1,7 @@
 package com.usoit.api.mapper;
 
 import java.util.List;
+import java.util.Map;
 
 import com.usoit.api.model.BankAccount;
 import com.usoit.api.model.BankAccountType;
@@ -12,6 +13,7 @@ import com.usoit.api.model.response.RestBankAccount;
 import com.usoit.api.model.response.RestBankAccountType;
 import com.usoit.api.model.response.RestBankUpdatePending;
 import com.usoit.api.model.response.RestEnBankAccount;
+import com.usoit.api.model.response.SelectOption;
 
 public interface BankAccountMapper {
 
@@ -50,5 +52,8 @@ public interface BankAccountMapper {
 	public RestBankAccount mapBankAccountOnly(BankAccount bankAccount);
 	
 	public RestBankAccount mapBankAccountWitOutAmountOnly(BankAccount bankAccount);
+
+	public Map<String, List<SelectOption>> getAccountOptionList(List<BankAccount> bankAccounts);
+
 
 }

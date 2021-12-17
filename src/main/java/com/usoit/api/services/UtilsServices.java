@@ -16,4 +16,8 @@ public interface UtilsServices {
 
 	public String getPhoneOtpCode();
 
+	public String getSubAgentGenID();
+
+	public String getGeneralPublicId();
+
 }

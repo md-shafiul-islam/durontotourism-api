@@ -48,4 +48,6 @@ public interface BankAccountServices {
 
 	public List<BankAccount> getActiveWalletBankAccountsByType(String accountType);
 
+	public List<BankAccount> getBankAccountByNameAndBranch(String name, String branch);
+
 }

@@ -11,9 +11,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Transient;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -40,18 +40,12 @@ public class Agent extends Customer{
 	
 	@Column(name="applicant_name")
 	private String applicantName;	
+		
+	@OneToMany(mappedBy = "agent")
+	private List<AgentCompany> agentCompanies;
 	
-	@Column(name="personal_ponecode")
-	private String  personalPhoneCode;
-	
-	@Column(name="personal_phone")
-	private String pesonalPhoneNo;
-	
-	@Column(name="secondary_email")
-	private String email;
-	
-	@OneToOne(mappedBy = "agent")
-	private AgentCompany agentCompany;
+	@Transient
+	private AgentCompany activeCompany;
 	
 	@OneToMany(mappedBy = "parentAgent")
 	private List<Agent> subAgents = new ArrayList<>();
@@ -69,5 +63,8 @@ public class Agent extends Customer{
 	
 	@Column(name="update_req")
 	private boolean updateReq;
+	
+	@Column(name="sub_agent_status")
+	private boolean subAgent;
 	
 }

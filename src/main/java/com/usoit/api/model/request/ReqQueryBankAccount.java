@@ -5,13 +5,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-public class ReqBank {
+@NoArgsConstructor
+public class ReqQueryBankAccount {
 
-	private String name;
-
-	private String logoUrl;
-
-	private String contactInf;
+	private String bankname;
+	
+	private String branchName;
+	
+	private String accountName;
 }

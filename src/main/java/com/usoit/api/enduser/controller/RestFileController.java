@@ -69,4 +69,76 @@ public class RestFileController {
 		return ResponseEntity.ok(map);
 
 	}
+	
+	@RequestMapping(value = "/agents", consumes = MediaType.MULTIPART_FORM_DATA_VALUE, method = RequestMethod.PUT)
+	public ResponseEntity<?> uploadAgentFiles(@RequestParam(name = "attachFile") MultipartFile mFile, @RequestParam(name="dirName", defaultValue = "")String dirName) {
+		
+		Map<String, Object> map = new HashMap<>();
+		map.put("message", "File is Upload ... ");
+		map.put("path", null);
+		map.put("status", false);
+		String pathSeparetor = File.separator;
+		ClassLoader classLoder = getClass().getClassLoader();
+				
+		if (mFile == null) {
+			map.put("message", "File is null Please Add file");
+		}
+		String localPath = pathSeparetor + "uimages" + pathSeparetor + "agents"+dirName;
+		
+		log.info("Directory Location "+ localPath);
+
+		File file = new File(classLoder.getResource("./static").getFile());
+
+		String path = file.getPath();
+
+		String filePath = helperServices.makeDirectory(path + localPath); // uploadImageAndGetUrl(file, "profile");
+
+		if (filePath != null) {
+			String fileName = helperServices.storeFile(filePath, mFile);
+			if (filePath != null) {
+				map.put("message", "File is Added success file");
+				map.put("path", "/uimages/agents"+dirName+"/"+fileName);
+				map.put("status", true);
+			}
+		}
+		
+		return ResponseEntity.ok(map);
+
+	}
+	
+	@RequestMapping(value = "/recharges", consumes = MediaType.MULTIPART_FORM_DATA_VALUE, method = RequestMethod.PUT)
+	public ResponseEntity<?> uploadRechargeFiles(@RequestParam(name = "attachFile") MultipartFile mFile, @RequestParam(name="dirName", defaultValue = "")String dirName) {
+		
+		Map<String, Object> map = new HashMap<>();
+		map.put("message", "Recharge File is Uploading ... ");
+		map.put("path", null);
+		map.put("status", false);
+		String pathSeparetor = File.separator;
+		ClassLoader classLoder = getClass().getClassLoader();
+				
+		if (mFile == null) {
+			map.put("message", "File is null Please Add file");
+		}
+		String localPath = pathSeparetor + "uimages" + pathSeparetor + "recharges"+pathSeparetor+dirName;
+		
+		log.info("Directory Location "+ localPath);
+
+		File file = new File(classLoder.getResource("./static").getFile());
+
+		String path = file.getPath();
+
+		String filePath = helperServices.makeDirectory(path + localPath); // uploadImageAndGetUrl(file, "profile");
+
+		if (filePath != null) {
+			String fileName = helperServices.storeFile(filePath, mFile);
+			if (filePath != null) {
+				map.put("message", "File is Added success file");
+				map.put("path", "/uimages/recharges/"+dirName+"/"+fileName);
+				map.put("status", true);
+			}
+		}
+		
+		return ResponseEntity.ok(map);
+
+	}
 }

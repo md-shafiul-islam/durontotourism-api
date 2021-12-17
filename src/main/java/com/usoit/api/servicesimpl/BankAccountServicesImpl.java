@@ -2,6 +2,8 @@ package com.usoit.api.servicesimpl;
 
 import java.lang.reflect.Field;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -168,6 +170,25 @@ public class BankAccountServicesImpl implements BankAccountServices {
 	}
 
 	@Override
+	public List<BankAccount> getBankAccountByNameAndBranch(String name, String branch) {
+
+		List<BankAccount> bankAccounts = bankAccountRepository.getBankAccountByBankNameAndBranchName(name, branch);
+		
+		List<BankAccount> list = new ArrayList<>();
+		if(bankAccounts != null) {
+			log.info("Bank Account Found "+bankAccounts.size());
+			
+			for (BankAccount bankAccount : bankAccounts) {
+				if (bankAccount.isActive() && bankAccount.isWalletEnable() && bankAccount.getApproveStatus() == 1) {
+					list.add(bankAccount);
+				}
+			}
+		}
+		
+		return list;
+	}
+
+	@Override
 	public boolean rejectBankAccount(ReqBankReject bankReject, User user) {
 
 		if (bankReject != null && user != null) {
@@ -237,9 +258,12 @@ public class BankAccountServicesImpl implements BankAccountServices {
 			bankAccount.setBankAccountType(bankAccountTypeServices.getBankAccountTypeById(1));
 			bankAccount.setStatus(getStatus());
 			bankAccount.setCreatedUser(user);
+			bankAccount.setDate(new Date());
 			bankAccountRepository.save(bankAccount);
+			if (bankAccount.getId() > 0) {
+				return true;
+			}
 
-			return true;
 		}
 
 		return false;

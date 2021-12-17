@@ -7,11 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ReqBank {
+public class ReqRestMail {
 
-	private String name;
-
-	private String logoUrl;
-
-	private String contactInf;
+	private String email;
 }

@@ -53,6 +53,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 			
 			
 			String jwt = getJWTFromRequest(httpServletRequest);
+			log.info("Split Path "+pathSplits );
 
 			if (StringUtils.hasText(jwt) && tokenProvider.validateToken(jwt)) {
 				String userId = tokenProvider.getUserIdFromJWT(jwt);
@@ -60,6 +61,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 //				UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(null, null);
 				
 				if(pathSplits.contains("enu") && pathSplits.contains("api")) {
+					
+
 					log.debug("Customer EndPoint " + cPath);
 					Customer customer = customerServices.getCustomerByPublicId(userId);
 					UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(customer, null,

@@ -5,13 +5,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-public class ReqBank {
-
-	private String name;
-
-	private String logoUrl;
-
-	private String contactInf;
+@NoArgsConstructor
+public class ReqRestPhone {
+	
+	private String code;
+	
+	private String phone;
 }

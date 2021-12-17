@@ -41,6 +41,12 @@ public class UtilsServicesImpl implements UtilsServices {
 
 		return unicId;
 	}
+	
+	@Override
+	public String getGeneralPublicId() {
+		UUID uuid = UUID.randomUUID();
+		return uuid.toString();
+	}
 
 	private Calendar getCalender() {
 		Date date = new Date();
@@ -58,13 +64,17 @@ public class UtilsServicesImpl implements UtilsServices {
 		// Company name 2 digit, User Category 1 digit, Month 2 Digit, Year 4 Digit,
 		// Random number 4 digit
 		
+		String cId = "DTC"+getAfterGenID();
+		return cId;
+	}
+	
+	private String getAfterGenID() {
+		
 		Calendar calendar = getCalender();		
 		int mnt = calendar.get(Calendar.MONTH)+1;
 				
-		String month =   mnt < 10 ? "0"+Integer.toString(mnt) : Integer.toString(mnt);	
-		
-		String cId = "DTC"+month+calendar.get(Calendar.YEAR)+getRandomNumber(4);
-		return cId;
+		String month =  mnt < 10 ? "0"+Integer.toString(mnt) : Integer.toString(mnt);	
+		return month+calendar.get(Calendar.YEAR)+getRandomNumber(4);
 	}
 	
 	private String getRandomNumber(int i) {
@@ -79,12 +89,7 @@ public class UtilsServicesImpl implements UtilsServices {
 	
 	@Override
 	public String getAgentGenID() {
-		Calendar calendar = getCalender();		
-		int mnt = calendar.get(Calendar.MONTH)+1;
-				
-		String month =   mnt < 10 ? "0"+Integer.toString(mnt) : Integer.toString(mnt);	
-		
-		String cId = "DTA"+month+calendar.get(Calendar.YEAR)+getRandomNumber(4);
+		String cId = "DTA"+getAfterGenID();
 		return cId;
 	}
 	
@@ -104,5 +109,11 @@ public class UtilsServicesImpl implements UtilsServices {
 	@Override
 	public String getPhoneOtpCode() {
 		return RandomStringUtils.random(6, false, true);
+	}
+	
+	@Override
+	public String getSubAgentGenID() {
+		String subAgentId = "DTSA"+getAfterGenID();
+		return subAgentId;
 	}
 }

@@ -118,6 +118,12 @@ public class Customer implements UserDetails {
 	@Column(name="phone_verified")
 	private boolean phoneVerified;
 	
+	@Column(name="mail_status")
+	private boolean mailChangeStatus;
+	
+	@Column(name="phone_status")
+	private boolean phoneChangeStatus;
+
 
 	@Transient
 	private String pwd;

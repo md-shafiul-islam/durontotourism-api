@@ -6,6 +6,7 @@ import com.usoit.api.model.Bank;
 import com.usoit.api.model.request.ReqBank;
 import com.usoit.api.model.response.BankOption;
 import com.usoit.api.model.response.RestBank;
+import com.usoit.api.model.response.SelectOption;
 
 public interface BankMapper {
 
@@ -13,10 +14,12 @@ public interface BankMapper {
 
 	public Bank mapBank(ReqBank reqBank);
 
-	public RestBank maoRestBank(Bank bank);
-
 	public List<BankOption> getAllBankOption(List<Bank> allBank);
 	
 	public BankOption getEachBankOption(Bank bank);
+
+	public RestBank mapRestBank(Bank bank);
+
+	public List<SelectOption> mapBankOptions(List<Bank> banks);
 
 }

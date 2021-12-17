@@ -4,7 +4,9 @@ import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,6 +29,7 @@ import com.usoit.api.model.response.RestBankUpdatePending;
 import com.usoit.api.model.response.RestEnBankAccount;
 import com.usoit.api.model.response.RestStatus;
 import com.usoit.api.model.response.RestUpdateInf;
+import com.usoit.api.model.response.SelectOption;
 import com.usoit.api.services.BankAccountServices;
 import com.usoit.api.services.BankAccountTypeServices;
 import com.usoit.api.services.CountryServices;
@@ -59,7 +62,7 @@ public class BankAccountMapperImpl implements BankAccountMapper {
 	@Autowired
 	private UserMapper userMapper;
 	
-
+	
 	@Override
 	public RestBankAccountType mappBankAccountType(BankAccountType accountType) {
 
@@ -463,6 +466,51 @@ public class BankAccountMapperImpl implements BankAccountMapper {
 		return null;
 	}
 
+	@Override
+	public Map<String, List<SelectOption>> getAccountOptionList(List<BankAccount> bankAccounts) {
+		if(bankAccounts != null) {
+			List<SelectOption> branchOptions = new ArrayList<>();
+			List<SelectOption> acNoOptions = new ArrayList<>();
+			List<SelectOption> acNameOptions = new ArrayList<>();
+			Map<String, List<SelectOption>> map = new HashMap<>();
+			
+			List<String> branches = new ArrayList<>();
+			List<String> accountsNames = new ArrayList<>();
+			for (BankAccount bankAccount : bankAccounts) {
+				SelectOption nameOption =  new SelectOption();
+				SelectOption numOption =  new SelectOption();
+				SelectOption bOption =  new SelectOption();
+				if(!branches.contains(bankAccount.getBranchName())) {
+					bOption.setLabel(bankAccount.getBranchName());
+					bOption.setValue(bankAccount.getBranchName());
+					branchOptions.add(bOption);
+					branches.add(bankAccount.getBranchName());
+				}
+				
+				
+				if(!accountsNames.contains(bankAccount.getAccountName())) {
+					nameOption.setLabel(bankAccount.getAccountName());
+					nameOption.setValue(bankAccount.getAccountName());
+					acNameOptions.add(nameOption);
+					accountsNames.add(bankAccount.getAccountName());
+				}
+								
+				
+				numOption.setLabel(bankAccount.getAccountNumber());
+				numOption.setValue(bankAccount.getPublicId());
+				acNoOptions.add(numOption);
+			}
+			
+			map.put("branch",branchOptions);
+			map.put("accountNo",acNoOptions);
+			map.put("accountName",acNameOptions);
+			accountsNames = null;
+			branches = null;
+			return map;
+		}
+		return null;
+	}
+	
 	private RestBankUpdatePending getRestUpdatePendingAccount(BankAccount bankAccount) {
 
 		if (bankAccount != null) {

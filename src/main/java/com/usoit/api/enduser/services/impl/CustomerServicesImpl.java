@@ -1,8 +1,6 @@
 package com.usoit.api.enduser.services.impl;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.Optional;
 
 import javax.persistence.EntityManagerFactory;
@@ -28,12 +26,10 @@ import com.usoit.api.model.MailVerifiedToken;
 import com.usoit.api.model.PhoneVerificationToken;
 import com.usoit.api.model.ProfileImage;
 import com.usoit.api.model.Traveler;
-import com.usoit.api.model.User;
 import com.usoit.api.model.request.ChangePhone;
 import com.usoit.api.model.request.ReqMailChange;
 import com.usoit.api.model.request.ReqProfileImage;
 import com.usoit.api.repository.CustomerRepository;
-import com.usoit.api.services.HelperServices;
 import com.usoit.api.services.UtilsServices;
 
 import lombok.extern.slf4j.Slf4j;
@@ -147,6 +143,10 @@ public class CustomerServicesImpl implements CustomerServices {
 				credential.setActive(true);
 				credential.setCustomer(nCustomer);
 				credential.setDate(date);
+				log.info("Agent Password "+ nCustomer.getPwd());
+				if(nCustomer.getPassword() == null) {
+					throw new RuntimeException("Password can't null");
+				}
 				credential.setPassword(passwordEncoder.encode(nCustomer.getPwd()));
 
 				nCustomer.getCredentials().add(credential);
@@ -507,7 +507,9 @@ public class CustomerServicesImpl implements CustomerServices {
 		
 		return status;
 	}
+	
 
+	
 	private ProfileImage getCustomerActiveImage(Customer customer) {
 		ProfileImage image = null;
 		Session session = sessionFactory.openSession();

@@ -8,6 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 
+import com.usoit.api.enduser.services.AagentCompanyServices;
+import com.usoit.api.enduser.services.AgentServices;
+import com.usoit.api.model.AgentCompany;
 import com.usoit.api.model.Customer;
 import com.usoit.api.model.Traveler;
 import com.usoit.api.model.User;
@@ -27,10 +30,16 @@ import lombok.extern.slf4j.Slf4j;
 public class JwtTokenProvider {
 
 	// Generate the token
-	
+
 	@Autowired
 	private TravelerServices travelerServices;
 	
+	@Autowired
+	private AgentServices agentServices;
+	
+	@Autowired
+	private AagentCompanyServices agentCompanyServices;
+
 	public String generateToken(Authentication authentication) {
 		User user = (User) authentication.getPrincipal();
 		Date now = new Date(System.currentTimeMillis());
@@ -67,19 +76,27 @@ public class JwtTokenProvider {
 		} else {
 			role = "User";
 		}
-		
-		Traveler traveler = travelerServices.getPrimaryTravelerUsingCustomerID(user.getId());
-		
-		
-		
+
 		Map<String, Object> claims = new HashMap<>();
 		claims.put("id", (user.getPublicId()));
-		claims.put("username", user.getUsername());
-		claims.put("fullName", user.getFullName());
+		claims.put("username", user.getUsername());		
 		claims.put("role", role);
-		
-		if(traveler != null) {
-			claims.put("country", traveler.getNationality());
+
+		String type = "agent";
+		if (user.getClientType().equals(type)) {
+			AgentCompany company = agentCompanyServices.getActiveAgentCompanyByAgentID(user.getId());
+			
+			if(company != null) {
+				claims.put("country", company.getCountry());
+//				claims.put("fullName", company.getCompanyName());
+				claims.put("companyName", company.getCompanyName());
+			}
+		} else {
+			Traveler traveler = travelerServices.getPrimaryTravelerUsingCustomerID(user.getId());
+			if (traveler != null) {
+				claims.put("country", traveler.getNationality());
+				claims.put("fullName", user.getFullName());
+			}
 		}
 
 		return Jwts.builder().setSubject(user.getPublicId()).setClaims(claims).setIssuedAt(now)
@@ -89,8 +106,11 @@ public class JwtTokenProvider {
 
 	// Validate the token
 	public boolean validateToken(String token) {
+		log.info("Token Validating "+ token);
+
 		try {
 			Jwts.parser().setSigningKey(SecurityConstants.TOKEN_SECRET).parseClaimsJws(token);
+			log.info("Token Is Valid JWT Signature");
 			return true;
 		} catch (SignatureException ex) {
 			log.info("Invalid JWT Signature");

@@ -1,4 +1,4 @@
-package com.usoit.api.controller.account;
+package com.usoit.api.enduser.controller.account;
 
 import java.util.HashMap;
 import java.util.List;
@@ -28,6 +28,7 @@ import com.usoit.api.model.request.ReqBankAccountUApprove;
 import com.usoit.api.model.request.ReqBankAccountUpdateInf;
 import com.usoit.api.model.request.ReqBankApprove;
 import com.usoit.api.model.request.ReqBankReject;
+import com.usoit.api.model.request.ReqQueryBankAccount;
 import com.usoit.api.model.response.BankAccountTypeOption;
 import com.usoit.api.model.response.BankOption;
 import com.usoit.api.model.response.RestBankAccount;
@@ -43,8 +44,8 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @RestController
-@RequestMapping("/api/bankaccounts")
-public class BankAccountController {
+@RequestMapping("/api/enu/v1/bankaccounts")
+public class RestEuBankAccountController {
 
 	@Autowired
 	private BankAccountServices bankAccountServices;
@@ -79,30 +80,11 @@ public class BankAccountController {
 
 		return ResponseEntity.ok(map);
 	}
-	
-	
 
-	@GetMapping(value = "/update/pending")
-	private ResponseEntity<?> getUpdatePendingBankAccounts() {
+	@GetMapping(value = "/bank/name")
+	public ResponseEntity<?> getBankAccountUsingBankNameOptions() {
 
-		Map<String, Object> map = new HashMap<>();
-		map.put("message", "Account not found");
-		map.put("status", false);
-		map.put("data", null);
-
-		List<BankAccount> accounts = bankAccountServices.getUpdatePendingBankAccounts();
-		if (accounts != null) {
-			List<RestBankUpdatePending> restBankAccounts = bankAccountMapper.getAllRestUpdatePendingBankAccounts(accounts);
-			map.put("message", Integer.toString(accounts.size()) + "(s) Account found");
-			map.put("status", true);
-			map.put("data", restBankAccounts);
-		}
-
-		return ResponseEntity.ok(map);
-	}
-
-	@GetMapping(value = "/name")
-	public ResponseEntity<?> getBankNameOptions() {
+		log.info("L 86. Bank Account By Bank Name ... ");
 
 		Map<String, Object> map = new HashMap<>();
 
@@ -123,20 +105,21 @@ public class BankAccountController {
 		return ResponseEntity.ok(map);
 	}
 
-	@GetMapping(value = "/account/{acno}")
-	public ResponseEntity<?> getBanckAccountByACNo(@PathVariable("acno") String acNo) {
+	@GetMapping(value = "/", params = "{acno}")
+	public ResponseEntity<?> getBanckAccountByACNo(@RequestParam("acno") String acNo) {
 
 		Map<String, Object> map = new HashMap<>();
 
 		map.put("message", "Not found");
 		map.put("status", false);
 		map.put("data", null);
-		
-		if(acNo != null) {
-			
-			RestEnBankAccount bankAccount = bankAccountMapper.mapBankAccountEndUser(bankAccountServices.getBankAccountByAccountNumber(acNo));
-			
-			if(bankAccount != null) {
+
+		if (acNo != null) {
+
+			RestEnBankAccount bankAccount = bankAccountMapper
+					.mapBankAccountEndUser(bankAccountServices.getBankAccountByAccountNumber(acNo));
+
+			if (bankAccount != null) {
 				map.put("message", "Bank Account found by AC/No. ");
 				map.put("status", true);
 				map.put("data", bankAccount);
@@ -145,53 +128,79 @@ public class BankAccountController {
 
 		return ResponseEntity.ok(map);
 	}
-	
-	@GetMapping(params = { "name" })
-	public ResponseEntity<?> getBankAccountsByName(@RequestParam("name") String name) {
+
+	@GetMapping(value = "/bankname/{name}")
+	public ResponseEntity<?> getBankAccountsByName(@PathVariable("name") String name) {
+		log.info("Bank Account searching .... Name " + name);
 
 		Map<String, Object> map = new HashMap<>();
 
-		map.put("message", "Not found");
+		map.put("message", "Bank Account Not found using bank name " + name);
 		map.put("status", false);
 		map.put("data", null);
-		
-		log.debug("Bannk Name Param "+name);
-		
+
+		log.debug("Bannk Name Param " + name);
+
 		if (name != null) {
 			List<BankAccount> bankAccounts = bankAccountServices.getAllBankByName(name);
 
+			log.info("Bank Account Found By Bank Name " + bankAccounts.size());
+
 			if (bankAccounts != null) {
-
-				List<BankOption> bankBranchOptions = bankAccountMapper.getBankBranchOptions(bankAccounts);
-
-				List<BankOption> bankAccountNameOptions = bankAccountMapper.getBankAccountNameOptions(bankAccounts);
-
-				List<BankOption> bankAccountNoOptions = bankAccountMapper.getBankAccountNoOptions(bankAccounts);
+				Map<String, List<SelectOption>> optionMap = bankAccountMapper.getAccountOptionList(bankAccounts);
 
 				map.put("message", Integer.toString(bankAccounts.size()) + " (s) Banks Name found");
 				map.put("status", true);
-				map.put("banksBranch", bankBranchOptions);
-				map.put("banksAccountName", bankAccountNameOptions);
-				map.put("banksAccountNo", bankAccountNoOptions);
+				map.put("banksAccountBranch", optionMap.get("branch"));
+				map.put("banksAccountName", optionMap.get("accountName"));
+				map.put("banksAccountNo", optionMap.get("accountNo"));
 			}
 
 		}
 
 		return ResponseEntity.ok(map);
 	}
-	
-	
-	
+
+	@PostMapping(value = "/query")
+	public ResponseEntity<?> getBankAccountsByBankNameAndBranchName(@RequestBody ReqQueryBankAccount query) {
+		log.info("Post Query Bank Account searching ...");
+
+		Map<String, Object> map = new HashMap<>();
+
+		map.put("message", "Bank Account Not found provided query ");
+		map.put("status", false);
+		map.put("data", null);
+		if (query != null) {
+			log.info("Bank Account searching .... Query Bank Name " + query.getBankname() + " Branch "
+					+ query.getBranchName() + " Account Name " + query.getAccountName());
+
+			List<BankAccount> bankAccounts = bankAccountServices.getBankAccountByNameAndBranch(query.getBankname(), query.getBranchName());
+
+			log.info("Bank Account Found By Bank Name " + bankAccounts.size());
+
+			if (bankAccounts != null) {
+				Map<String, List<SelectOption>> optionMap = bankAccountMapper.getAccountOptionList(bankAccounts);
+
+				map.put("message", Integer.toString(bankAccounts.size()) + " (s) Banks Name found");
+				map.put("status", true);
+				map.put("banksAccountBranch", optionMap.get("branch"));
+				map.put("banksAccountName", optionMap.get("accountName"));
+				map.put("banksAccountNo", optionMap.get("accountNo"));
+			}
+
+		}
+
+		return ResponseEntity.ok(map);
+	}
+
 	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> getAddBankAccount(@RequestBody ReqBankAccount reqBankAccount) {
-		
-		log.info("Bank Account Add ...");
 
 		User user = hAuthServices.getCurrentUser();
 
 		Map<String, Object> map = new HashMap<>();
 
-		map.put("message", "Account add failed");
+		map.put("message", "Account not found");
 		map.put("status", false);
 		map.put("data", null);
 
@@ -209,7 +218,7 @@ public class BankAccountController {
 
 		return ResponseEntity.ok(map);
 	}
-	
+
 	@PostMapping(value = "/update", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> getBankAccountUpdateAction(@RequestBody ReqBankAccountUpdateInf bankUpdateInf) {
 
@@ -219,17 +228,17 @@ public class BankAccountController {
 		map.put("status", false);
 		map.put("data", null);
 
-		if(bankUpdateInf != null) {
-			
-			BankAccountUpdateInf bAccountUpdateInf = bankAccountMapper.mapBankAccountUpdateInf(bankUpdateInf);  
-			
-			if(bankAccountServices.updateBankAccountInf(bAccountUpdateInf)) {
-				
+		if (bankUpdateInf != null) {
+
+			BankAccountUpdateInf bAccountUpdateInf = bankAccountMapper.mapBankAccountUpdateInf(bankUpdateInf);
+
+			if (bankAccountServices.updateBankAccountInf(bAccountUpdateInf)) {
+
 				map.put("message", "Account Update prossecing...");
 				map.put("status", true);
 				map.put("data", null);
 			}
-			
+
 		}
 		return ResponseEntity.ok(map);
 	}
@@ -280,35 +289,35 @@ public class BankAccountController {
 		return ResponseEntity.ok(map);
 	}
 
-	@GetMapping(value = "/{id}")
-	public ResponseEntity<?> getBankAccount(@PathVariable("id") String id) {
+//	@GetMapping(value = "/account/{id}")
+//	public ResponseEntity<?> getBankAccount(@PathVariable("id") String id) {
+//
+//		Map<String, Object> map = new HashMap<>();
+//
+//		map.put("message", "Account not found");
+//		map.put("status", false);
+//		map.put("data", null);
+//
+//		if (id != null) {
+//
+//			if (!id.isEmpty()) {
+//				BankAccount account = bankAccountServices.getBankAccountByPublicID(id);
+//
+//				RestBankAccount restBankAccount = bankAccountMapper.mappBankAccount(account);
+//
+//				if (restBankAccount != null) {
+//
+//					map.put("message", "Account found");
+//					map.put("status", true);
+//					map.put("data", restBankAccount);
+//				}
+//
+//			}
+//		}
+//
+//		return ResponseEntity.ok(map);
+//	}
 
-		Map<String, Object> map = new HashMap<>();
-
-		map.put("message", "Account not found");
-		map.put("status", false);
-		map.put("data", null);
-
-		if (id != null) {
-
-			if (!id.isEmpty()) {
-				BankAccount account = bankAccountServices.getBankAccountByPublicID(id);
-
-				RestBankAccount restBankAccount = bankAccountMapper.mappBankAccount(account);
-
-				if (restBankAccount != null) {
-
-					map.put("message", "Account found");
-					map.put("status", true);
-					map.put("data", restBankAccount);
-				}
-
-			}
-		}
-
-		return ResponseEntity.ok(map);
-	}
-	
 	@GetMapping(value = "/types")
 	public ResponseEntity<?> getAllBankAccountTypes() {
 
@@ -317,23 +326,22 @@ public class BankAccountController {
 		map.put("message", "Not found");
 		map.put("status", false);
 		map.put("data", null);
-		
+
 		List<BankAccountType> types = bankAccountTypeServices.getAllAccountTypes();
-		
-		if(types != null) {
+
+		if (types != null) {
 			List<RestBankAccountType> accountTypes = bankAccountMapper.mapAllAccountTypesOnly(types);
-			
-			if(accountTypes != null) {
+
+			if (accountTypes != null) {
 				map.put("message", Integer.toString(accountTypes.size()) + "(s) Bank Account Type found");
 				map.put("status", true);
 				map.put("data", accountTypes);
 			}
 		}
-		
+
 		return ResponseEntity.ok(map);
 	}
-		
-	
+
 	@GetMapping(value = "/types/{id}")
 	public ResponseEntity<?> getAccountTypes(@PathVariable("id") String id) {
 
@@ -364,32 +372,30 @@ public class BankAccountController {
 		return ResponseEntity.ok(map);
 	}
 
-	
-	
 	@RequestMapping(value = "/update/approve", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> getBankAccountUpdateApproveAction(@RequestBody ReqBankAccountUApprove approveReq) {
-		
+
 		User user = hAuthServices.getCurrentUser();
-		
+
 		Map<String, Object> map = new HashMap<>();
 
 		map.put("message", "Account not found");
 		map.put("status", false);
 		map.put("data", null);
-		System.out.println("Banks Update Approves, "+approveReq.getAccountName());
-		if(approveReq != null) {			
-			
-			if(bankAccountServices.approveUpdateBankAccount(approveReq, user)) {
-				
+		System.out.println("Banks Update Approves, " + approveReq.getAccountName());
+		if (approveReq != null) {
+
+			if (bankAccountServices.approveUpdateBankAccount(approveReq, user)) {
+
 				map.put("message", "Bank Account Approved");
 				map.put("status", true);
 				map.put("data", null);
 			}
 		}
-		
+
 		return ResponseEntity.ok(map);
 	}
-	
+
 	@PostMapping(value = "/types", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> getAddBankAccountTypeAction(@RequestBody ReqBankAccount ReqBankAccount) {
 
@@ -398,9 +404,7 @@ public class BankAccountController {
 		map.put("message", "Account not found");
 		map.put("status", false);
 		map.put("data", null);
-		
-		
-		
+
 		return ResponseEntity.ok(map);
 	}
 

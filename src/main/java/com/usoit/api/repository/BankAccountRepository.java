@@ -45,4 +45,6 @@ public interface BankAccountRepository extends CrudRepository<BankAccount, Integ
 
 	public List<BankAccount> getAllBankAccountByActiveAndWalletEnable(boolean active, boolean walletEnable);
 
+	public List<BankAccount> getBankAccountByBankNameAndBranchName(String name, String branch);
+
 }

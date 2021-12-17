@@ -1,5 +1,7 @@
 package com.usoit.api.model;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -76,7 +78,14 @@ public class AgentCompany {
 	@Column(name="company_logo_attach")
 	private String companyLogoAttach;
 	
-	@OneToOne
-	@JoinColumn(name="country")
-	private Country country;
+	@Column(name="country")
+	private String country;
+	
+	@Column(name="active")
+	private boolean active;
+	
+	private Date date;
+	
+	@Column(name="date_group")
+	private Date dateGroup;
 }

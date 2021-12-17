@@ -7,11 +7,10 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ReqBank {
+public class ReqRestPassword {
 
-	private String name;
+	private String prevPassword;
 
-	private String logoUrl;
+	private String pwd;
 
-	private String contactInf;
 }

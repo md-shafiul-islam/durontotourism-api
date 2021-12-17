@@ -2,6 +2,7 @@ package com.usoit.api.enduser.services;
 
 import org.springframework.security.core.userdetails.UserDetailsService;
 
+import com.usoit.api.model.Agent;
 import com.usoit.api.model.Customer;
 import com.usoit.api.model.MailVerifiedToken;
 import com.usoit.api.model.Passport;
@@ -42,6 +43,7 @@ public interface CustomerServices extends UserDetailsService{
 	public Customer getCustomerPhoneIsExist(String phoneNo, String code);
 
 	public boolean addOrUpdateProfileImage(Customer customer, ReqProfileImage image);
+
 
 	
 

@@ -1,4 +1,4 @@
-package com.usoit.api.controller.account;
+package com.usoit.api.enduser.controller.account;
 
 import java.util.HashMap;
 import java.util.List;
@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.usoit.api.apicontroller.RestCategoryController;
 import com.usoit.api.mapper.BankMapper;
 import com.usoit.api.model.Bank;
 import com.usoit.api.model.request.ReqBank;
@@ -27,8 +26,8 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @RestController
-@RequestMapping(value = "/api/banks")
-public class BankController {
+@RequestMapping("/api/enu/v1/banks")
+public class RestEuBankController {
 
 	@Autowired
 	private BankServices bankServices;
@@ -49,19 +48,15 @@ public class BankController {
 
 		if (banks != null) {
 			List<RestBank> restBanks = bankMapper.mapAllBank(banks);
-			
-			if(restBanks != null) {
-				map.put("message", Integer.toString(restBanks.size()) + " Bank (s) found");
-				map.put("status", true);
-				map.put("data", restBanks);
-			}
-			
+
+			map.put("message", Integer.toString(restBanks.size()) + " Bank (s) found");
+			map.put("status", true);
+			map.put("data", restBanks);
 		}
 
 		return ResponseEntity.ok(map);
 	}
 	
-
 	@GetMapping(value = "/bank/options")
 	public ResponseEntity<?> getBankOprions() {
 
@@ -87,24 +82,22 @@ public class BankController {
 		return ResponseEntity.ok(map);
 	}
 	
-	
 	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> getBankAddAction(@RequestBody ReqBank reqBank) {
-
+		
 		log.info("Add Bank ...");
 		
 		Map<String, Object> map = new HashMap<>();
-		
+
 		map.put("message", "Bank Add Faild");
 		map.put("status", false);
 		map.put("data", null);
 
 		if (reqBank != null) {
-			log.info("Req Add Bank ..."+ reqBank.getName());
+
 			Bank bank = bankMapper.mapBank(reqBank);
-			
+
 			if (bank != null) {
-				log.info("Add Bank ..."+ bank.getName());
 				if (bankServices.addBak(bank)) {
 
 					RestBank restBank = bankMapper.mapRestBank(bank);
@@ -117,7 +110,7 @@ public class BankController {
 
 		return ResponseEntity.ok(map);
 	}
-	
+
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<?> getBankByID(@PathVariable("publicId") String id) {
 
@@ -126,39 +119,38 @@ public class BankController {
 		map.put("message", "Not found");
 		map.put("status", false);
 		map.put("data", null);
-		
-		if(id != null) {
-			
-			if(id.equals("options")) {
-				
+
+		if (id != null) {
+
+			if (id.equals("options")) {
+
 				map.put("message", "Bank Options Found");
 				map.put("status", true);
 				map.put("data", getBankNameOption());
-				
-			}else {
+
+			} else {
 				Bank bank = bankServices.getBanByPublicId(id);
-				
-				if(bank != null) {
-					
+
+				if (bank != null) {
+
 					RestBank restBank = bankMapper.mapRestBank(bank);
-					
-					if(restBank != null) {
+
+					if (restBank != null) {
 						map.put("message", "Bank Found");
 						map.put("status", true);
 						map.put("data", restBank);
 					}
 				}
 			}
-			
-			
+
 		}
 
 		return ResponseEntity.ok(map);
 	}
 
+	public List<BankOption> getBankNameOption() {
 
-	public List<BankOption> getBankNameOption() {		
-		
 		return bankMapper.getAllBankOption(bankServices.getAllBank());
 	}
+
 }
